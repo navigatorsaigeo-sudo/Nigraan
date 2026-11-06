@@ -879,19 +879,35 @@ function ReportPane({ place, title }) {
     setPhase('making');
     setResult(null);
     setStatus('Making the report on the server…');
+    const lat = Number(place?.lat);
+    const lon = Number(place?.lon);
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
+      setPhase('fail');
+      setStatus('The report could not be made: this place has no map coordinates yet. Search the place again, then press Make report.');
+      return;
+    }
     fetch('/api/report/generate', {
       method: 'POST',
       cache: 'no-store',
       headers: { 'content-type': 'application/json', 'x-agn-view': 'customer' },
       body: JSON.stringify({
-        lat: +place.lat,
-        lon: +place.lon,
+        lat,
+        lon,
         kind: 'site_assessment',
         section: 'start',
         edition: 'main',
         name: title ? String(title).slice(0, 60) : undefined,
       }),
-    }).then((response) => response.json().catch(() => ({ ok: false }))).then((body) => {
+    }).then(async (response) => {
+      const text = await response.text();
+      let body = null;
+      try { body = text ? JSON.parse(text) : null; } catch { body = null; }
+      if (!body || typeof body !== 'object') {
+        return { ok: false, why: response.ok ? 'the server returned a non-JSON answer' : `HTTP ${response.status} from the report service` };
+      }
+      if (!response.ok && body.ok == null) body.ok = false;
+      return body;
+    }).then((body) => {
       if (!body?.ok) {
         setPhase('fail');
         setStatus(whyText(body));
