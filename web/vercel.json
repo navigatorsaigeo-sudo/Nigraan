@@ -1,24 +1,11 @@
 {
   "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "http://152.67.162.136:8787/api/:path*"
-    },
-    {
-      "source": "/tiles/:path*",
-      "destination": "http://152.67.162.136:8787/tiles/:path*"
-    },
-    {
-      "source": "/health",
-      "destination": "http://152.67.162.136:8787/health"
-    },
-    {
-      "source": "/customize/sites",
-      "destination": "http://152.67.162.136:8787/customize/sites"
-    },
-    {
-      "source": "/agn-:file*",
-      "destination": "http://152.67.162.136:8787/agn-:file*"
-    }
+    { "source": "/api/:path*", "destination": "http://152.67.162.136:8787/api/:path*" },
+    { "source": "/tiles/:path*", "destination": "http://152.67.162.136:8787/tiles/:path*" },
+    { "source": "/health", "destination": "http://152.67.162.136:8787/health" },
+    { "source": "/customize/sites", "destination": "http://152.67.162.136:8787/customize/sites" },
+    { "source": "/px/:path*", "destination": "http://152.67.162.136:8787/px/:path*" },
+    { "source": "/archive/:path*", "destination": "http://152.67.162.136:8787/archive/:path*" },
+    { "source": "/agn-:file*", "destination": "http://152.67.162.136:8787/agn-:file*" }
   ]
 }
