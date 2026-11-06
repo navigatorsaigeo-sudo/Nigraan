@@ -1,0 +1,27 @@
+[Unit]
+Description=AGN NIGRAAN (React + Node API)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=yaseen
+Group=yaseen
+WorkingDirectory=/srv/agn-apps/NIGRAAN/nig/nigraan-local
+EnvironmentFile=-/srv/agn-apps/NIGRAAN/nig/nigraan-local/.env
+Environment=NODE_ENV=production
+# Reachable from Oracle nginx over Tailscale (100.78.253.98).
+Environment=HOST=0.0.0.0
+Environment=PORT=8787
+Environment=NIGRAAN_ALLOW_HOSTS=nigraan-api.aigeo360.com,152.67.162.136,100.78.253.98,nigraan.aigeo360.com,nigraan-beta.vercel.app,nigraan-aigeo.vercel.app
+# Prefer nvm Node 20; fall back to system node.
+ExecStart=/bin/bash -lc 'NODEBIN="${HOME}/.nvm/versions/node/v20.20.2/bin/node"; [ -x "$NODEBIN" ] || NODEBIN="$(command -v node)"; exec "$NODEBIN" server/server.mjs'
+Restart=on-failure
+RestartSec=5
+MemoryMax=4G
+LimitNOFILE=65536
+TimeoutStartSec=120
+TimeoutStopSec=60
+
+[Install]
+WantedBy=multi-user.target
