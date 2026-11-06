@@ -2,23 +2,23 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "http://152.67.162.136/api/:path*"
+      "destination": "http://152.67.162.136:8787/api/:path*"
     },
     {
       "source": "/tiles/:path*",
-      "destination": "http://152.67.162.136/tiles/:path*"
+      "destination": "http://152.67.162.136:8787/tiles/:path*"
     },
     {
       "source": "/health",
-      "destination": "http://152.67.162.136/health"
+      "destination": "http://152.67.162.136:8787/health"
     },
     {
       "source": "/customize/sites",
-      "destination": "http://152.67.162.136/customize/sites"
+      "destination": "http://152.67.162.136:8787/customize/sites"
     },
     {
       "source": "/agn-:file*",
-      "destination": "http://152.67.162.136/agn-:file*"
+      "destination": "http://152.67.162.136:8787/agn-:file*"
     }
   ]
 }
