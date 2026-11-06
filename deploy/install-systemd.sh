@@ -11,6 +11,14 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
+# Stop any manual node server on 8787 so systemd can bind the port.
+if command -v ss >/dev/null 2>&1; then
+  for pid in $(ss -ltnp 2>/dev/null | sed -n 's/.*:8787 .*pid=\([0-9]\+\).*/\1/p' | sort -u); do
+    kill "$pid" 2>/dev/null || true
+  done
+  sleep 1
+fi
+
 install -m 0644 "$UNIT_SRC" "$UNIT_DST"
 systemctl daemon-reload
 systemctl enable agn-nigraan.service

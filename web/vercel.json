@@ -2,23 +2,23 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://nigraan-api.aigeo360.com/api/:path*"
+      "destination": "http://152.67.162.136/api/:path*"
     },
     {
       "source": "/tiles/:path*",
-      "destination": "https://nigraan-api.aigeo360.com/tiles/:path*"
+      "destination": "http://152.67.162.136/tiles/:path*"
     },
     {
       "source": "/health",
-      "destination": "https://nigraan-api.aigeo360.com/health"
+      "destination": "http://152.67.162.136/health"
     },
     {
       "source": "/customize/sites",
-      "destination": "https://nigraan-api.aigeo360.com/customize/sites"
+      "destination": "http://152.67.162.136/customize/sites"
     },
     {
       "source": "/agn-:file*",
-      "destination": "https://nigraan-api.aigeo360.com/agn-:file*"
+      "destination": "http://152.67.162.136/agn-:file*"
     }
   ]
 }
