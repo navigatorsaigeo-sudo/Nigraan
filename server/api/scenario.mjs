@@ -117,6 +117,6 @@ export function weatherValues(b) { const v = {};
   (b.places || []).forEach((P, i) => { if (!P || !P.ok) return;
     for (const hz of ['heat', 'cold', 'wind', 'rain']) { const S = P.scenario && P.scenario.hazards && P.scenario.hazards[hz]; if (!S) continue;
       (S.days || []).forEach((d) => { v['p' + i + '.' + hz + '.' + d.lead + '.level'] = d.assessed ? d.level : null; }); }
-    const O = P.outcomes; if (O && O.days) O.days.forEach((d) => { for (const hz of ['heat', 'cold', 'wind']) { const x = d[hz]; if (x && x.assessed) { v['p' + i + '.mc.' + hz + '.' + d.lead + '.level'] = x.level; v['p' + i + '.mc.' + hz + '.' + d.lead + '.range'] = x.range.join('-'); } } });
-    if (O && O.flood && O.flood.modelled) { v['p' + i + '.mc.flood.p'] = O.flood.p; v['p' + i + '.mc.flood.range90'] = O.flood.range90.join('-'); } });
+    const O = P.outcomes; if (O && O.days) O.days.forEach((d) => { for (const hz of ['heat', 'cold', 'wind']) { const x = d[hz]; if (x && x.assessed) { v['p' + i + '.mc.' + hz + '.' + d.lead + '.level'] = x.level; if (Array.isArray(x.range)) v['p' + i + '.mc.' + hz + '.' + d.lead + '.range'] = x.range.join('-'); } } });   /* v91.17.283.54 · an assessed member outcome can carry no range (one member): .join on null answered 500 for the whole scenario */
+    if (O && O.flood && O.flood.modelled) { v['p' + i + '.mc.flood.p'] = O.flood.p; if (Array.isArray(O.flood.range90)) v['p' + i + '.mc.flood.range90'] = O.flood.range90.join('-'); } });
   return v; }

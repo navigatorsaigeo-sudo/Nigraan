@@ -2033,7 +2033,8 @@ function installAgencyScrub(req, res) {
   };
 }
 function serve(req, res) { return (async () => {
-  try { installCompression(req, res); installAgencyScrub(req, res); await handleRequest(req, res); }
+  try { try { edgeCacheWrap(req, res, String(req.url || '').split('?')[0]); } catch (_) {}   /* before installCompression, so agnBypass() restores THIS wrapper, not the bare socket (static files call agnBypass) */
+    installCompression(req, res); installAgencyScrub(req, res); await handleRequest(req, res); }
   catch (e) {
     logLine('request error', req.method, String(req.url).slice(0, 120), e && e.message);
     if (!res.headersSent) json(res, e && e.status >= 400 && e.status < 600 ? e.status : 500, { error: e && e.code ? String(e.code).toLowerCase() : 'request_failed', why: e && e.message ? String(e.message).slice(0, 200) : 'the request could not be handled' });
@@ -2140,6 +2141,39 @@ function serveBuiltReact(req, res, url) {
     return serveFile(res, f, req);
   }
   return false;
+}
+/* v91.17.283.54 · production edge cache · the public page is served from Vercel, whose rewrites relay every API call through the
+   Oracle edge and a Tailscale link (~0.6 s per request). A public GET answer carries s-maxage so the Vercel CDN serves repeats
+   from its own edge: the browser still revalidates (max-age=0), and a tokened (operator) or non-GET request is never cached. */
+const EDGE_TTL_RULES = [
+  [/^\/n3\/[^/]+\.(json|geojson)$/, [3600, 86400]],      // sealed geo tables (tehsils, rivers): change only on a data release
+  [/^\/tiles\//, [86400, 604800]],                       // basemap and overlay tiles
+  [/^\/api\/levels$/, [240, 900]],                       // issued hazard levels (published on a schedule)
+  [/^\/api\/registry\/levels$/, [3600, 86400]],          // the legend registry
+  [/^\/api\/alerts$/, [60, 300]],
+  [/^\/api\/hazardgrid$/, [300, 900]],
+  [/^\/api\/(outlook|smog|flood|glof)\/[a-z/]*$/, [300, 1800]],   // GET status/national/seasonal reads
+  [/^\/api\/geo\/search$/, [3600, 86400]],               // the place table is static between releases
+  [/^\/api\/ai\/status$/, [300, 900]],
+  [/^\/api\/(skill|checks|verdicts)$/, [120, 600]],
+  [/^\/health$/, [30, 120]],
+  [/^\/api\/(point|point\/batch|pool\/point|pointstate\/product|ecmwf010\/point)$/, [120, 600]],   // keyed by full query (place), short so the page stays near-live
+];
+function edgeCacheWrap(req, res, path) {
+  if (req.method !== 'GET' && req.method !== 'HEAD') return;
+  if (req.headers.authorization || req.headers.cookie || String(req.headers['x-agn-view'] || '') === 'operator') return;
+  let ttl = null; for (const [re, t] of EDGE_TTL_RULES) if (re.test(path)) { ttl = t; break; }
+  if (!ttl) return;
+  const cc = 'public, max-age=0, s-maxage=' + ttl[0] + ', stale-while-revalidate=' + ttl[1];
+  const orig = res.writeHead;
+  res.writeHead = function (status, a, b) {
+    if (status === 200) {
+      const headers = (a && typeof a === 'object' && !Array.isArray(a)) ? a : (b && typeof b === 'object' && !Array.isArray(b)) ? b : null;
+      if (headers) { for (const k of Object.keys(headers)) if (String(k).toLowerCase() === 'cache-control') delete headers[k]; headers['cache-control'] = cc; }
+      else { try { res.setHeader('cache-control', cc); } catch (_) {} }
+    }
+    return orig.call(this, status, a, b);
+  };
 }
 async function handleRequest(req, res) {
   let url;

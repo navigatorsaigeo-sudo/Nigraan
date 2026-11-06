@@ -460,9 +460,17 @@ export function createBackend({ root, dataDir }) {
     return loopbackDirect(req) && req.headers['x-agn-via-proxy'] == null; };
   /* the client address for the per-IP request limit: the socket, or, on a loopback socket (the front proxy, a tunnel on this machine),
      the address the nearest relay put in its header (cf-connecting-ip, true-client-ip, x-real-ip, the last x-forwarded-for hop) */
-  const clientIp = (req) => { const remote = req.socket.remoteAddress || ''; if (!/^(127\.0\.0\.1|::1|::ffff:127\.0\.0\.1)$/.test(remote)) return remote;
+  /* v91.17.283.54 · the public edge (Oracle nginx over Tailscale) is a trusted front proxy too: without this every Vercel visitor
+     shared ONE rate-limit bucket keyed by the edge's Tailscale address, and busy hours answered 429 for everyone. The trusted set is
+     loopback plus NIGRAAN_TRUSTED_PROXIES (comma-separated addresses; default: the Tailnet 100.64.0.0/10, this installation's own). */
+  const TRUSTED_PROXY = (() => { const extra = String(process.env.NIGRAAN_TRUSTED_PROXIES || '').split(',').map((x) => x.trim()).filter(Boolean);
+    return (a) => { const ip = String(a || '').replace(/^::ffff:/, ''); if (/^(127\.0\.0\.1|::1)$/.test(ip)) return true; if (extra.includes(ip)) return true;
+      const m = /^100\.(\d+)\./.exec(ip); return !!m && Number(m[1]) >= 64 && Number(m[1]) <= 127; }; })();
+  const clientIp = (req) => { const remote = req.socket.remoteAddress || ''; if (!TRUSTED_PROXY(remote)) return remote;
     const h = req.headers; const xf = String(h['x-forwarded-for'] || '').split(',').map((x) => x.trim()).filter(Boolean);
-    return String(h['cf-connecting-ip'] || h['true-client-ip'] || h['x-real-ip'] || xf[xf.length - 1] || remote).slice(0, 64); };
+    /* xf[0] before x-real-ip: the Oracle edge writes x-real-ip as the Vercel relay's own egress address (shared by every visitor);
+       the first x-forwarded-for hop is the visitor Vercel saw. */
+    return String(h['cf-connecting-ip'] || h['true-client-ip'] || xf[0] || h['x-real-ip'] || remote).slice(0, 64); };
   /* v91.17.283 · WS1 · the public AI status: whether the assistant runs, how (language model or data look-up), whether data leaves this
      machine, and the customer descriptions of the models. No provider or model name, no firewall, model store or key-file detail. */
   const publicAiStatus = (s) => { s = s || {}; const M = s.models || {}, T = M.temperature, A = M.analyst, llm = s.mode === 'llm';
@@ -1380,7 +1388,7 @@ export function createBackend({ root, dataDir }) {
     if (p === '/api/scenario/result' && req.method === 'GET') { const r = scenarioStore(dataDir).get(url.searchParams.get('id')); return r ? send(res, 200, customerView(req) ? customerScrub(r) : r) : send(res, 404, { ok: false, why: 'this saved scenario is not held on this server (run it again)' }); }
     if (p === '/api/scenario/report' && req.method === 'POST') { let b; try { b = (await readBody(req)) || {}; } catch (e) { return send(res, 422, { ok: false, why: 'bad request body' }); }
       const [st, o] = scenarioReport((id) => scenarioStore(dataDir).get(id), b); if (o && o.html && customerView(req)) o.html = customerScrub(o.html); return send(res, st, o); }
-    if (p === '/api/scenario' && req.method === 'GET') { const q = Object.fromEntries(url.searchParams); try { const r = await app.scenario.run(q, customerView(req) ? 'customer' : 'operator'); return send(res, r.status, customerView(req) ? customerScrub(r.body) : r.body); } catch (e) { return send(res, 500, { ok: false, why: 'the scenario could not be run' }); } }   /* v91.17.283.28 · S10 */
+    if (p === '/api/scenario' && req.method === 'GET') { const q = Object.fromEntries(url.searchParams); try { const r = await app.scenario.run(q, customerView(req) ? 'customer' : 'operator'); return send(res, r.status, customerView(req) ? customerScrub(r.body) : r.body); } catch (e) { console.error('  scenario run failed:', e && (e.stack || e.message || e)); return send(res, 500, { ok: false, why: 'the scenario could not be run' }); } }   /* v91.17.283.28 · S10 */
     if (p === '/api/report/context' && req.method === 'GET') { const q = Object.fromEntries(url.searchParams); try { const r = await app.report.context(q, { customer: customerView(req) }); return r ? send(res, 200, r) : send(res, 404, { error: 'unit_not_found' }); } catch (e) { return send(res, 500, { error: 'report_context_failed', message: e.message }); } }
     /* ══ v91.17.3 · 1.12 · THE SKILL SHEET ═══════════════════════════════════
        A number a client acts on and the number that says how good it is have to
@@ -1626,12 +1634,11 @@ export function createBackend({ root, dataDir }) {
       try { limit('ip:' + clientIp(req), ipPerMin()); } catch (e) { return send(res, 429, { error: 'RATE_LIMITED', message: e.message }, { 'retry-after': '30' }); }   /* v91.17.283 · WS1 · before the token */
       const remote = req.socket.remoteAddress || ''; const loop = /^(127\.0\.0\.1|::1|::ffff:127\.0\.0\.1)$/.test(remote);
       let who = null; try { who = identity.resolve(req); } catch {}
-      if (!loop && !who) return send(res, 401, { error: 'auth_required' });
-      /* Ask NIGRAAN is a product feature on the local page (customer view included). Other paid jobs still need operator scope. */
-      if (p === '/api/ai/chat') {
-        if (!loopbackDirect(req) && !localOrSigned(req)) return send(res, 403, { error: 'operator_scope_required', why: 'Ask NIGRAAN from this machine, or with an operator token' });
-      } else if (!localOrSigned(req)) {
-        return send(res, 403, { error: 'operator_scope_required', why: 'a viewer token cannot start a paid job (audit C15)' });   /* v91.17.68 */
+      /* Ask NIGRAAN is a public product feature (customer page on Vercel included). Rate-limited above; HOST_OK/CROSS_SITE still apply.
+         Other paid jobs still need loopback or a signed operator token. */
+      if (p !== '/api/ai/chat') {
+        if (!loop && !who) return send(res, 401, { error: 'auth_required' });
+        if (!localOrSigned(req)) return send(res, 403, { error: 'operator_scope_required', why: 'a viewer token cannot start a paid job (audit C15)' });   /* v91.17.68 */
       }
       if (p === '/api/checks/run') { const what = url.searchParams.get('what') || 'all'; const r = {}; if (what === 'wetness') { r.wetness = 'started'; app.wetness.run().catch(e => console.error('  wetness run', e.message)); return send(res, 200, r); } if (what === 'landslide' && app.landslideOdds) { r.landslide = 'started'; app.landslideOdds.run().catch(e => console.error('  landslide run', e.message)); return send(res, 200, r); }   /* v91.17.112 */ if (what === 'points' && app.pointEngine) { r.points = 'started'; app.pointEngine.archiveDaily(dataDir).then(x => console.log('  points archive', JSON.stringify(x))).catch(e => console.error('  points archive', e.message)); return send(res, 200, r); }   /* v91.17.120 · operator trigger: today's forward-test points (once a day; the marker stops a repeat) */ const bg = (fn, name) => { r[name] = 'started'; fn().catch(e => console.error('  ' + name + ' error', e.message)); };
         if (what === 'all' || what === 'stations') bg(app.stations.run, 'stations');
