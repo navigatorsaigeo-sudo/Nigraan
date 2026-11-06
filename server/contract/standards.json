@@ -1,0 +1,31 @@
+{
+ "apiVersion": "1.0",
+ "mediaType": "application/vnd.agn+json",
+ "errorEnvelope": {
+  "ok": false,
+  "error": {
+   "code": "STRING",
+   "message": "Human-readable message",
+   "retryable": false,
+   "details": {},
+   "fieldErrors": []
+  },
+  "requestId": "STRING",
+  "traceId": "STRING"
+ },
+ "successEnvelope": {
+  "ok": true,
+  "apiVersion": "1.0",
+  "contract": {
+   "id": "endpoint.id",
+   "version": "1.0.0"
+  },
+  "requestId": "STRING",
+  "traceId": "STRING",
+  "generatedAt": "ISO-8601",
+  "data": {},
+  "meta": {},
+  "pagination": null,
+  "errors": []
+ }
+}

@@ -1,0 +1,3 @@
+tehsils 576 sponge class (equivalent S at 100 mm) changed in 42 {'4->3': 2, '2->1': 7, '3->2': 10, '1->0': 15, '2->3': 2, '1->2': 6}
+runoff at 100 mm change, mm: median 0.0, p90 1.7, max 23.5; tehsils with >1 mm change 130
+S100 change mm: median -0.0, min -32.7

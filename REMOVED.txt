@@ -1,0 +1,58 @@
+v91.17.269 · files taken out of nigraan-local (integration of PERF, INFRA, DATA, DS). The deploy MOVES them to
+D:\NIGRAAN\_admin\archive\v269\<same relative path> (move, never delete). (The v266 list that stood in this file was applied at v266.)
+
+server/api/lamha.mjs                          (DATA A4)
+  Replaced by server/api/copies.mjs (copy, not fetch): lamha.mjs read LAMHA's files in place; copies.mjs copies them into
+  D:\NIGRAAN\nig\copies, validates them and gates every consumer. Nothing imports lamha.mjs (grep over server/ and scripts/);
+  its route /api/ops/lamha is now /api/ops/copies (no page or test called the old route).
+
+data/cache/featgrid-memo.json                  (PERF A3/A5; about 20 MB; and data/cache/featgrid-memo.json.tmp if present)
+  The feature-grid answer cache. server/api/featgrid.mjs no longer reads or writes it (one shared reader per data folder, answers
+  kept in memory only): parsing it cost 0.4-0.5 s per reader at start and writing it was a synchronous JSON.stringify of up to
+  400,000 answers on the main thread every 10 min.
+
+data/urban-by-unit.json                        (PERF A5, moved by the integrator)
+  161,536 bytes, urban cells per unit (built 19 Sep). Read by no server module, no page, and no script in the laptop copy
+  (nigraan-local\scripts, station-lake\scripts, _admin; grep 16 Oct 2026).
+
+Not moved (unused by the server and the pages, but read by laptop scripts; listed in OPEN.md for the owner):
+  data/glof-outlines-open.json        978,143 bytes  read by station-lake\scripts\lake_monitor.py and lake_register_merge.py (written by glof_open_register.py)
+  data/urban-heat-fleet-check.json     11,327 bytes  read by station-lake\scripts\urban_town_fit.mjs
+  data/lamha-ews-append.json            1,970 bytes  written by station-lake\scripts\append_lamha_ews.py (status file of the EWS append)
+
+No test is retired.
+v91.17.276 · CLEAN · removed: server/api/index.mjs POST /api/ui/health and GET /api/ops/ui/health with the UI_HEALTH store (data/ui-health.json): the v237 rebuilt console's safe-fix monitor; the rebuilt console was removed in v91.17.256 and no page, script or admin file calls either route (0 references). Page: CSS rule .asmt-pill.agn-nd84 (agn-v84-asmt-css), a class no markup or script makes.
+
+v91.17.277 · FIX277 · removed (the deploy MOVES files to D:\NIGRAAN\_admin\archive\v277\<same relative path>; move, never delete)
+
+server/api/airportsite.mjs                     (L5, v91.17.144 B6 airport thermometer offsets + C9 synoptic station calibration)
+  Reason: both stages were inert. Their tables, data/airport-site-offsets.json and data/site-stretch-offsets.json, are absent in the
+  package AND in the laptop copy (checked 17 Oct 2026), so the stages served nothing (the module returned "no station" for every
+  point; tests144 B6/C9 failed on it). Removed fully: the module, its route GET /api/airport-site/status (server.mjs route list and
+  index.mjs), the 'airport' stage in the served chain (verification.mjs CHAIN_STAGES and its runner), the two steps it could add to
+  the point record and the step decomposition (pointengine.mjs), the live layer's airport hold (hyperlocal.mjs), the accuracy
+  worker's copy (accmon_worker.mjs), and the tests144 B6/C9 checks. No served value changes (the stage never applied).
+  v91.17.277 integration: the accuracy monitor's airport check (server/api/accmon.mjs airportHere, always false once the module
+  was gone) and its mock in scripts/tests273/accmon.test.mjs and scripts/tests277/accflag.test.mjs are removed too.
+  RE-FIT CANDIDATE AFTER LAUNCH: if airport (METAR) and synoptic site offsets are wanted again, re-fit them on the current served
+  chain (zone basis + national model + weather MOS + synop running term), re-gate them (v270/v271 gate, held-out windows) and ship
+  the tables with the stage.
+
+measured surface albedo (L6, v91.17.199 M04): server/api/thermal.mjs surfaceAlbedo, route GET /api/albedo (index.mjs, server.mjs),
+  the page's AGN.albedoAt cache (agn-v244), the /state and AI readers (state.mjs, ai.mjs), tests199 #3.
+  Reason: the feature grid (laptop and package, 67 files) holds no a_alb_* band, so every answer already used the fixed 0.20.
+  Tmrt keeps today's fixed surface albedo 0.20 (Di Napoli et al. 2020 / ERA5-HEAT); /state still states "fixed 0.20 (no measured
+  albedo at this place)". No served value changes. (tdown.mjs, OFF and not served, still reads a_alb_* with its own 0.2 fallback.)
+  RE-FIT CANDIDATE AFTER LAUNCH: ship the MODIS albedo band (a_alb_djf/mam/jja/son) in the feature grid, then re-add with a test.
+
+page (L9): the blocks the v244 CSS hid with display:none, removed with their markup, scripts and styles:
+  #cmip6Card (the hidden CMIP6 form; the visible Forecast card "2030s and 2050s climate stress" now calls the seven-model engine
+    directly, AGN.cmip6.run, instead of clicking the hidden button and copying its table), the v77-5 note appended into it,
+  #agnCmipBox (an empty div beside the map panel's long-term climate button; the button keeps its text and its click),
+  the AI "Watchlist" workspace tab and pane (national priority watch: execRank/execRender, exportDecisions, aiRenderDistricts,
+    the KPI strip and the v71 strip cards it held, p76 watch post-processing and CSV export, levels-js fixExec / grid fill, the
+    adapter and service contract entries renderDistricts / renderExecutive / exportDecisions, the execHazard picker in the hazard
+    sync lists, machDataState.render), #asmtNextActions (hidden ranked actions on the Assessments summary) and its writer,
+  the agn-v244-css block itself, and 46 CSS rules that styled only these blocks (1 rule trimmed).
+  Old suites updated to match: tests76/ai C20-C24 and C1 panes, tests76/levels B19, tests70/samples (CMIP6 via the visible card),
+  harness.mjs (43, 54, 56 watch checks).

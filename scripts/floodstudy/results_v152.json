@@ -1,0 +1,426 @@
+{
+ "floodWaterLayers": {
+  "base (v151 full)": {
+   "auc": 0.826,
+   "brier": 0.1584,
+   "bss": 0.298,
+   "aucByYearHeldOut": {
+    "2010": 0.73,
+    "2014": 0.871,
+    "2022": 0.863,
+    "2025": 0.836
+   }
+  },
+  "base+drainage channels": {
+   "auc": 0.824,
+   "brier": 0.1594,
+   "bss": 0.294,
+   "aucByYearHeldOut": {
+    "2010": 0.73,
+    "2014": 0.873,
+    "2022": 0.861,
+    "2025": 0.836
+   }
+  },
+  "base+canals+outlets": {
+   "auc": 0.821,
+   "brier": 0.1613,
+   "bss": 0.285,
+   "aucByYearHeldOut": {
+    "2010": 0.723,
+    "2014": 0.867,
+    "2022": 0.857,
+    "2025": 0.83
+   }
+  },
+  "base+stream density": {
+   "auc": 0.828,
+   "brier": 0.1583,
+   "bss": 0.298,
+   "aucByYearHeldOut": {
+    "2010": 0.74,
+    "2014": 0.873,
+    "2022": 0.867,
+    "2025": 0.83
+   }
+  },
+  "base+water bodies": {
+   "auc": 0.828,
+   "brier": 0.1572,
+   "bss": 0.303,
+   "aucByYearHeldOut": {
+    "2010": 0.733,
+    "2014": 0.868,
+    "2022": 0.87,
+    "2025": 0.834
+   }
+  },
+  "base+all water": {
+   "auc": 0.828,
+   "brier": 0.1599,
+   "bss": 0.291,
+   "aucByYearHeldOut": {
+    "2010": 0.736,
+    "2014": 0.874,
+    "2022": 0.869,
+    "2025": 0.834
+   }
+  },
+  "land only (v151)": {
+   "auc": 0.76,
+   "brier": 0.1809,
+   "bss": 0.198,
+   "aucByYearHeldOut": {
+    "2010": 0.718,
+    "2014": 0.861,
+    "2022": 0.829,
+    "2025": 0.847
+   }
+  },
+  "land only+all water": {
+   "auc": 0.753,
+   "brier": 0.1885,
+   "bss": 0.165,
+   "aucByYearHeldOut": {
+    "2010": 0.708,
+    "2014": 0.826,
+    "2022": 0.835,
+    "2025": 0.864
+   }
+  },
+  "rain": {
+   "auc": 0.593,
+   "brier": 0.2222,
+   "bss": 0.015,
+   "aucByYearHeldOut": {
+    "2010": 0.553,
+    "2014": 0.676,
+    "2022": 0.703,
+    "2025": 0.484
+   }
+  },
+  "rain+lowground(HAND)": {
+   "auc": 0.783,
+   "brier": 0.1798,
+   "bss": 0.203,
+   "aucByYearHeldOut": {
+    "2010": 0.686,
+    "2014": 0.847,
+    "2022": 0.859,
+    "2025": 0.752
+   }
+  },
+  "rain+HAND+built/sponge(CN)": {
+   "auc": 0.792,
+   "brier": 0.1744,
+   "bss": 0.227,
+   "aucByYearHeldOut": {
+    "2010": 0.694,
+    "2014": 0.869,
+    "2022": 0.847,
+    "2025": 0.782
+   }
+  },
+  "rain+HAND+CN+TWI+area": {
+   "auc": 0.826,
+   "brier": 0.1584,
+   "bss": 0.298,
+   "aucByYearHeldOut": {
+    "2010": 0.73,
+    "2014": 0.871,
+    "2022": 0.863,
+    "2025": 0.836
+   }
+  },
+  "land only (no rain)": {
+   "auc": 0.76,
+   "brier": 0.1809,
+   "bss": 0.198,
+   "aucByYearHeldOut": {
+    "2010": 0.718,
+    "2014": 0.861,
+    "2022": 0.829,
+    "2025": 0.847
+   }
+  }
+ },
+ "timing2022": {
+  "windows": {
+   "VIIRS_20220712_20220721_PAK": {
+    "start": "2022-07-12",
+    "end": "2022-07-21",
+    "flooded": 258
+   },
+   "VIIRS_20220803_20220823_PAK": {
+    "start": "2022-08-03",
+    "end": "2022-08-23",
+    "flooded": 261
+   },
+   "VIIRS_20220825_20220831_PAK": {
+    "start": "2022-08-25",
+    "end": "2022-08-31",
+    "flooded": 268
+   },
+   "VIIRS_20220901_20220907_PAK": {
+    "start": "2022-09-01",
+    "end": "2022-09-07",
+    "flooded": 262
+   },
+   "VIIRS_20220908_20220914_PAK": {
+    "start": "2022-09-08",
+    "end": "2022-09-14",
+    "flooded": 237
+   },
+   "VIIRS_20220915_20220921_PAK": {
+    "start": "2022-09-15",
+    "end": "2022-09-21",
+    "flooded": 230
+   },
+   "VIIRS_20220926_20221002_PAK": {
+    "start": "2022-09-26",
+    "end": "2022-10-02",
+    "flooded": 240
+   },
+   "VIIRS_20221003_20221009_PAK": {
+    "start": "2022-10-03",
+    "end": "2022-10-09",
+    "flooded": 213
+   },
+   "VIIRS_20221011_20221017_PAK": {
+    "start": "2022-10-11",
+    "end": "2022-10-17",
+    "flooded": 216
+   }
+  },
+  "lagScan": {
+   "VIIRS_20220803_20220823_PAK": {
+    "3": 0.387,
+    "7": 0.365,
+    "14": 0.541,
+    "30": 0.677,
+    "45": 0.662,
+    "60": 0.662
+   },
+   "VIIRS_20220825_20220831_PAK": {
+    "3": 0.701,
+    "7": 0.656,
+    "14": 0.668,
+    "30": 0.654,
+    "45": 0.734,
+    "60": 0.73
+   },
+   "VIIRS_20220901_20220907_PAK": {
+    "3": 0.368,
+    "7": 0.305,
+    "14": 0.578,
+    "30": 0.594,
+    "45": 0.619,
+    "60": 0.665
+   },
+   "VIIRS_20220908_20220914_PAK": {
+    "3": 0.312,
+    "7": 0.298,
+    "14": 0.267,
+    "30": 0.614,
+    "45": 0.583,
+    "60": 0.654
+   },
+   "VIIRS_20220915_20220921_PAK": {
+    "3": 0.341,
+    "7": 0.361,
+    "14": 0.345,
+    "30": 0.607,
+    "45": 0.606,
+    "60": 0.642
+   },
+   "VIIRS_20220926_20221002_PAK": {
+    "3": 0.319,
+    "7": 0.291,
+    "14": 0.305,
+    "30": 0.313,
+    "45": 0.571,
+    "60": 0.527
+   }
+  },
+  "persistence": {
+   "VIIRS_20220825_20220831_PAK": 1.0,
+   "VIIRS_20220901_20220907_PAK": 0.933,
+   "VIIRS_20220908_20220914_PAK": 0.869,
+   "VIIRS_20220915_20220921_PAK": 0.843,
+   "VIIRS_20220926_20221002_PAK": 0.854,
+   "VIIRS_20221003_20221009_PAK": 0.772,
+   "VIIRS_20221011_20221017_PAK": 0.776
+  },
+  "areaKm2": {
+   "VIIRS_20220712_20220721_PAK": 34759,
+   "VIIRS_20220803_20220823_PAK": 54865,
+   "VIIRS_20220825_20220831_PAK": 68634,
+   "VIIRS_20220901_20220907_PAK": 59593,
+   "VIIRS_20220908_20220914_PAK": 52896,
+   "VIIRS_20220915_20220921_PAK": 45422,
+   "VIIRS_20220926_20221002_PAK": 41396,
+   "VIIRS_20221003_20221009_PAK": 36339,
+   "VIIRS_20221011_20221017_PAK": 33333
+  },
+  "decayScan": {
+   "7": {
+    "aucApiOnly": 0.482,
+    "aucApiPlusSusceptibility": 0.79
+   },
+   "15": {
+    "aucApiOnly": 0.529,
+    "aucApiPlusSusceptibility": 0.804
+   },
+   "30": {
+    "aucApiOnly": 0.568,
+    "aucApiPlusSusceptibility": 0.82
+   },
+   "45": {
+    "aucApiOnly": 0.589,
+    "aucApiPlusSusceptibility": 0.828
+   },
+   "60": {
+    "aucApiOnly": 0.6,
+    "aucApiPlusSusceptibility": 0.832
+   },
+   "90": {
+    "aucApiOnly": 0.611,
+    "aucApiPlusSusceptibility": 0.836
+   },
+   "susceptibilityOnly": 0.786
+  },
+  "decayRows": 2290
+ },
+ "landslideTemporalIndependent": {
+  "design": "independent: events after the training period (2018-2026), user-supplied GB inventory + COOLR HKH; served reference",
+  "events": 7,
+  "ordinaryDays": 4802,
+  "cells": 6,
+  "auc": 0.513,
+  "auc95": [
+   0.332,
+   0.733
+  ],
+  "calibration": [
+   {
+    "band": "<1",
+    "events": 3,
+    "ordinaryDays": 2511,
+    "observedVsOrdinaryDay": 1.17
+   },
+   {
+    "band": "1-2",
+    "events": 2,
+    "ordinaryDays": 999,
+    "observedVsOrdinaryDay": 1.96
+   },
+   {
+    "band": "2-5",
+    "events": 1,
+    "ordinaryDays": 852,
+    "observedVsOrdinaryDay": 1.15
+   },
+   {
+    "band": "5-10",
+    "events": 1,
+    "ordinaryDays": 307,
+    "observedVsOrdinaryDay": 3.2
+   },
+   {
+    "band": "10-20",
+    "events": 0,
+    "ordinaryDays": 122,
+    "observedVsOrdinaryDay": 0.0
+   },
+   {
+    "band": ">=20",
+    "events": 0,
+    "ordinaryDays": 11,
+    "observedVsOrdinaryDay": 0.0
+   }
+  ],
+  "eventsAboveOR2": 2,
+  "eventsAboveOR5": 1
+ },
+ "landslideSpatialIndependent": {
+  "points": 153,
+  "tehsilsWithEvents": 27,
+  "tehsilsWithEventsNotInTraining": 10,
+  "tehsils": 576,
+  "aucAll": 0.885,
+  "aucMountain": 0.662,
+  "mountainTehsils": 212,
+  "aucNewTehsilsOnly": 0.89,
+  "newTehsilsN": 532,
+  "aucGiriAll": 0.846,
+  "eventClassShare": {
+   "2": 0.007,
+   "3": 0.301,
+   "4": 0.66,
+   "5": 0.033
+  },
+  "tehsilClassShare": {
+   "1": 0.592,
+   "2": 0.163,
+   "3": 0.087,
+   "4": 0.095,
+   "5": 0.062
+  },
+  "missed": [
+   {
+    "uid": "Gilgit Baltistan|Kharmang|Gultari",
+    "n": 1,
+    "cls": 2,
+    "rel": 0.657
+   }
+  ]
+ },
+ "droughtCrossCheck": {
+  "pairs": 80080,
+  "tehsils": 572,
+  "years": [
+   1991,
+   2025
+  ],
+  "vsERA5_SPI3": {
+   "r": 0.579,
+   "droughtAgree": 0.819,
+   "kappa": 0.311,
+   "hitRateOfERA5Droughts": 0.398,
+   "falseShare": 0.561,
+   "bySeason": {
+    "3": 0.621,
+    "6": 0.528,
+    "9": 0.58,
+    "12": 0.592
+   }
+  },
+  "vsERA5_SPEI3": {
+   "r": 0.571,
+   "droughtAgree": 0.809,
+   "kappa": 0.325,
+   "hitRateOfERA5Droughts": 0.386,
+   "falseShare": 0.497,
+   "bySeason": {
+    "3": 0.617,
+    "6": 0.538,
+    "9": 0.598,
+    "12": 0.536
+   }
+  },
+  "rByProvince": {
+   "Azad Kashmir": 0.431,
+   "Balochistan": 0.7,
+   "Federal Capital": 0.538,
+   "Gilgit Baltistan": 0.446,
+   "Khyber Pakhtunkhwa": 0.512,
+   "Punjab": 0.554,
+   "Sindh": 0.657
+  }
+ },
+ "nasaEO2010": {
+  "unosatCumulativeKm2": 37280,
+  "ourPk2010Km2": 63712,
+  "ourModis2010Km2": 13932
+ }
+}

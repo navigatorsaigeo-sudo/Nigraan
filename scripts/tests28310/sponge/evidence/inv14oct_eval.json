@@ -1,0 +1,12 @@
+{
+ "n": 1655,
+ "served_vs_icon_disp": 460,
+ "served_vs_icon_smog": 41,
+ "histold_vs_icon_disp": 311,
+ "histold_vs_icon_smog": 33,
+ "served_vs_histold_disp": 287,
+ "inv3_served": 1224,
+ "inv3_histold": 1210,
+ "inv3_icon": 1166,
+ "masked_hours_note": "plains <500 m: ICON sp<=925 never expected"
+}

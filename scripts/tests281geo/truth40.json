@@ -1,0 +1,498 @@
+[
+{
+"lat": 33.678272,
+"lon": 72.995626,
+"truth": "F-11/1",
+"truthLocal": "ایف-11/1",
+"truthKind": "residential",
+"edgeM": 14.8,
+"edge": true,
+"neighbours": [
+"F-11/4"
+],
+"set": "ISB F-11|G-11 edge"
+},
+{
+"lat": 33.680159,
+"lon": 72.998519,
+"truth": "F-11/4",
+"truthLocal": "ایف-11/4",
+"truthKind": "residential",
+"edgeM": 17.1,
+"edge": false,
+"neighbours": [],
+"set": "ISB F-11|G-11 edge"
+},
+{
+"lat": 33.676824,
+"lon": 72.992673,
+"truth": "F-11/1",
+"truthLocal": "ایف-11/1",
+"truthKind": "residential",
+"edgeM": 27.1,
+"edge": true,
+"neighbours": [],
+"set": "ISB F-11|G-11 edge"
+},
+{
+"lat": 33.673909,
+"lon": 72.986115,
+"truth": "F-11/1",
+"truthLocal": "ایف-11/1",
+"truthKind": "residential",
+"edgeM": 83.9,
+"edge": false,
+"neighbours": [],
+"set": "ISB F-11|G-11 edge"
+},
+{
+"lat": 33.67348,
+"lon": 72.993772,
+"truth": "G-11/2",
+"truthLocal": "جی-11/2",
+"truthKind": "residential",
+"edgeM": 16.6,
+"edge": true,
+"neighbours": [
+"G-11/3"
+],
+"set": "ISB G-11|F-11 edge"
+},
+{
+"lat": 33.673613,
+"lon": 72.993058,
+"truth": "G-11/2",
+"truthLocal": "جی-11/2",
+"truthKind": "residential",
+"edgeM": 71.1,
+"edge": false,
+"neighbours": [
+"G-11/3"
+],
+"set": "ISB G-11|F-11 edge"
+},
+{
+"lat": 33.675436,
+"lon": 72.982462,
+"truth": "F-11/1",
+"truthLocal": "ایف-11/1",
+"truthKind": "residential",
+"edgeM": 25.4,
+"edge": true,
+"neighbours": [],
+"set": "ISB F-10|F-11 edge"
+},
+{
+"lat": 33.688137,
+"lon": 72.99133,
+"truth": "F-11/3",
+"truthLocal": "ایف-11/3",
+"truthKind": "residential",
+"edgeM": 308.0,
+"edge": false,
+"neighbours": [],
+"set": "ISB F-10|F-11 edge"
+},
+{
+"lat": 33.685371,
+"lon": 72.994044,
+"truth": "F-11/4",
+"truthLocal": "ایف-11/4",
+"truthKind": "residential",
+"edgeM": 30.9,
+"edge": true,
+"neighbours": [
+"F-11/3"
+],
+"set": "ISB F-10|F-11 edge"
+},
+{
+"lat": 33.678607,
+"lon": 72.983498,
+"truth": "F-11/1",
+"truthLocal": "ایف-11/1",
+"truthKind": "residential",
+"edgeM": 107.5,
+"edge": false,
+"neighbours": [
+"F-11/2"
+],
+"set": "ISB F-10|F-11 edge"
+},
+{
+"lat": 33.72923,
+"lon": 73.051188,
+"truth": "E-7",
+"truthLocal": "ای-7",
+"truthKind": "residential",
+"edgeM": 21.3,
+"edge": true,
+"neighbours": [],
+"set": "ISB other"
+},
+{
+"lat": 33.675197,
+"lon": 72.996385,
+"truth": "G-11/3",
+"truthLocal": "جی-11/3",
+"truthKind": "residential",
+"edgeM": 134.3,
+"edge": false,
+"neighbours": [],
+"set": "ISB other"
+},
+{
+"lat": 33.749985,
+"lon": 73.182665,
+"truth": "Kot Hatyal Block",
+"truthLocal": "Kot Hatyal Block",
+"truthKind": "residential",
+"edgeM": 39.7,
+"edge": true,
+"neighbours": [
+"Nai-Abadi Block"
+],
+"set": "ISB other"
+},
+{
+"lat": 33.66374,
+"lon": 73.067301,
+"truth": "I-8/1",
+"truthLocal": "آئ-8/1",
+"truthKind": "residential",
+"edgeM": 71.0,
+"edge": false,
+"neighbours": [
+"I-8/2"
+],
+"set": "ISB other"
+},
+{
+"lat": 33.572009,
+"lon": 73.052776,
+"truth": "Mohala Sheikhan",
+"truthLocal": "Mohala Sheikhan",
+"truthKind": "residential",
+"edgeM": 28.8,
+"edge": true,
+"neighbours": [],
+"set": "Rawalpindi"
+},
+{
+"lat": 33.545496,
+"lon": 73.066318,
+"truth": "Sector-A",
+"truthLocal": "Sector-A",
+"truthKind": "residential",
+"edgeM": 69.0,
+"edge": false,
+"neighbours": [
+"Askari 14"
+],
+"set": "Rawalpindi"
+},
+{
+"lat": 33.5848,
+"lon": 73.078842,
+"truth": "عسکری 4",
+"truthLocal": "عسکری 4",
+"truthKind": "residential",
+"edgeM": 18.8,
+"edge": true,
+"neighbours": [
+"عسکری 10"
+],
+"set": "Rawalpindi"
+},
+{
+"lat": 33.548002,
+"lon": 73.083504,
+"truth": "Morgah",
+"truthLocal": "Morgah",
+"truthKind": "residential",
+"edgeM": 371.6,
+"edge": false,
+"neighbours": [],
+"set": "Rawalpindi"
+},
+{
+"lat": 33.628293,
+"lon": 73.003781,
+"truth": "PHA Flats",
+"truthLocal": "PHA Flats",
+"truthKind": "residential",
+"edgeM": 22.7,
+"edge": true,
+"neighbours": [],
+"set": "Rawalpindi"
+},
+{
+"lat": 33.583054,
+"lon": 73.071987,
+"truth": "Judicial Complex",
+"truthLocal": "Judicial Complex",
+"truthKind": "residential",
+"edgeM": 63.1,
+"edge": false,
+"neighbours": [],
+"set": "Rawalpindi"
+},
+{
+"lat": 31.463987,
+"lon": 74.370265,
+"truth": "DHA Phase 4",
+"truthLocal": "DHA Phase 4",
+"truthKind": "residential",
+"edgeM": 35.7,
+"edge": true,
+"neighbours": [
+"DHA Phase 3"
+],
+"set": "Lahore DHA"
+},
+{
+"lat": 31.484992,
+"lon": 74.387733,
+"truth": "DHA",
+"truthLocal": "DHA",
+"truthKind": "residential",
+"edgeM": 378.4,
+"edge": false,
+"neighbours": [],
+"set": "Lahore DHA"
+},
+{
+"lat": 31.470288,
+"lon": 74.45786,
+"truth": "DHA Phase 6 - Sector G",
+"truthLocal": "DHA Phase 6 - Sector G",
+"truthKind": "residential",
+"edgeM": 22.1,
+"edge": true,
+"neighbours": [
+"DHA Phase VI",
+"DHA phase 6, Lahore"
+],
+"set": "Lahore DHA"
+},
+{
+"lat": 31.494889,
+"lon": 74.477273,
+"truth": "DHA Phase 7",
+"truthLocal": "DHA Phase 7",
+"truthKind": "residential",
+"edgeM": 110.1,
+"edge": false,
+"neighbours": [
+"DHA Phase VI",
+"DHA phase 6, Lahore"
+],
+"set": "Lahore DHA"
+},
+{
+"lat": 31.466812,
+"lon": 74.456205,
+"truth": "DHA Phase 6 - Sector G",
+"truthLocal": "DHA Phase 6 - Sector G",
+"truthKind": "residential",
+"edgeM": 14.6,
+"edge": true,
+"neighbours": [
+"DHA Phase VI",
+"DHA phase 6, Lahore"
+],
+"set": "Lahore DHA"
+},
+{
+"lat": 31.471107,
+"lon": 74.452182,
+"truth": "DHA Phase 6 - Sector G",
+"truthLocal": "DHA Phase 6 - Sector G",
+"truthKind": "residential",
+"edgeM": 86.2,
+"edge": false,
+"neighbours": [
+"DHA Phase VI",
+"DHA phase 6, Lahore"
+],
+"set": "Lahore DHA"
+},
+{
+"lat": 31.589748,
+"lon": 74.467932,
+"truth": "Al-Hafeez Garden Phase-1",
+"truthLocal": "Al-Hafeez Garden Phase-1",
+"truthKind": "residential",
+"edgeM": 32.1,
+"edge": true,
+"neighbours": [
+"Fihries Department"
+],
+"set": "Lahore"
+},
+{
+"lat": 31.579579,
+"lon": 74.480107,
+"truth": "Al-Rehman Garden Phase-7",
+"truthLocal": "Al-Rehman Garden Phase-7",
+"truthKind": "residential",
+"edgeM": 69.9,
+"edge": false,
+"neighbours": [],
+"set": "Lahore"
+},
+{
+"lat": 24.833672,
+"lon": 67.033959,
+"truth": "Clifton Block 8",
+"truthLocal": "کلفٹن بلاک 8",
+"truthKind": "residential",
+"edgeM": 29.7,
+"edge": true,
+"neighbours": [
+"Clifton",
+"Clifton Block 7"
+],
+"set": "Karachi Clifton"
+},
+{
+"lat": 24.828614,
+"lon": 67.036684,
+"truth": "Clifton Estate",
+"truthLocal": "Clifton Estate",
+"truthKind": "residential",
+"edgeM": 10.3,
+"edge": false,
+"neighbours": [
+"Clifton",
+"Clifton Block 8",
+"Clifton Block 9"
+],
+"set": "Karachi Clifton"
+},
+{
+"lat": 24.812842,
+"lon": 67.022864,
+"truth": "Clifton Garden Apartments -2",
+"truthLocal": "Clifton Garden Apartments -2",
+"truthKind": "residential",
+"edgeM": 31.4,
+"edge": true,
+"neighbours": [
+"Clifton",
+"Clifton Block 3",
+"Clifton Garden Apartments",
+"Jason Luxury Apartments"
+],
+"set": "Karachi Clifton"
+},
+{
+"lat": 24.813024,
+"lon": 67.017826,
+"truth": "Clifton Block 2",
+"truthLocal": "کلفٹن بلاک 2",
+"truthKind": "residential",
+"edgeM": 156.0,
+"edge": false,
+"neighbours": [
+"Beach Blessings Apartments",
+"Clifton",
+"Clifton Condominiums",
+"Saddar Town"
+],
+"set": "Karachi Clifton"
+},
+{
+"lat": 24.809114,
+"lon": 67.020078,
+"truth": "Clifton Block 3",
+"truthLocal": "کلفٹن بلاک 3",
+"truthKind": "residential",
+"edgeM": 39.0,
+"edge": true,
+"neighbours": [
+"Clifton",
+"Saddar Town"
+],
+"set": "Karachi Clifton"
+},
+{
+"lat": 24.826824,
+"lon": 67.041142,
+"truth": "Clifton Block 9",
+"truthLocal": "Clifton Block 9",
+"truthKind": "residential",
+"edgeM": 137.2,
+"edge": false,
+"neighbours": [
+"Clifton",
+"Clifton Block 8"
+],
+"set": "Karachi Clifton"
+},
+{
+"lat": 34.046543,
+"lon": 71.476111,
+"truth": "شیخ عمر بابا",
+"truthLocal": "شیخ عمر بابا",
+"truthKind": "residential",
+"edgeM": 12.8,
+"edge": true,
+"neighbours": [],
+"set": "Peshawar"
+},
+{
+"lat": 33.995708,
+"lon": 71.557318,
+"truth": "Civil Quarters",
+"truthLocal": "Civil Quarters",
+"truthKind": "residential",
+"edgeM": 33.3,
+"edge": false,
+"neighbours": [],
+"set": "Peshawar"
+},
+{
+"lat": 33.973964,
+"lon": 71.448102,
+"truth": "RESIDENTIAL PLOTS",
+"truthLocal": "RESIDENTIAL PLOTS",
+"truthKind": "residential",
+"edgeM": 10.7,
+"edge": true,
+"neighbours": [
+"SECTOR J-2"
+],
+"set": "Peshawar"
+},
+{
+"lat": 35.915368,
+"lon": 74.293115,
+"truth": null,
+"truthKind": null,
+"edgeM": null,
+"edge": false,
+"neighbours": [],
+"set": "Gilgit (no OSM area)"
+},
+{
+"lat": 35.907345,
+"lon": 74.30604,
+"truth": null,
+"truthKind": null,
+"edgeM": null,
+"edge": false,
+"neighbours": [],
+"set": "Gilgit (no OSM area)"
+},
+{
+"lat": 35.911462,
+"lon": 74.315381,
+"truth": null,
+"truthKind": null,
+"edgeM": null,
+"edge": false,
+"neighbours": [],
+"set": "Gilgit (no OSM area)"
+}
+]

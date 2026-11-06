@@ -1,0 +1,36 @@
+/* v91.17.184 · the 250 m sponge (HYSOGs, pixel first, built sealed), its tiles and classes; the tehsil terrain zone.
+   usage: node scripts/tests184/v184.test.mjs (from nigraan-local) */
+import { readFileSync, existsSync } from 'node:fs';
+import { join, dirname } from 'node:path'; import { fileURLToPath } from 'node:url';
+import { createSpongeTiles } from '../../server/api/spongetiles.mjs';
+import { createTerrain } from '../../server/api/terrain.mjs';
+const APP = join(dirname(fileURLToPath(import.meta.url)), '..', '..'); const D = join(APP, 'data'); let pass = 0, fail = 0;
+const ok = (c, m) => { if (c) { pass++; console.log('  ok  ', m); } else { fail++; console.log('  FAIL', m); } };
+const SP = JSON.parse(readFileSync(join(D, 'sponge-tehsil.v2.json'), 'utf8'));
+ok(Object.keys(SP.units).length >= 570, 'sponge for ' + Object.keys(SP.units).length + ' tehsils');
+const sums = Object.values(SP.units).map(u => u.bins.reduce((a, b) => a + b[3], 0)); ok(sums.every(s => Math.abs(s - 1) < 0.02), 'bin shares sum to 1 in every tehsil');
+const runoff = (P, cn, F) => { const s = (25400 / cn - 254) * F, ia = 0.2 * s; return P <= ia ? 0 : (P - ia) ** 2 / (P + 0.8 * s); };
+const Q = (u, P) => u.bins.reduce((a, [c, h, f, w]) => a + w * (SP.covers[c] === 'built' ? P : runoff(P, SP.cn2[SP.covers[c]][h], SP.fSlope[f])), 0);
+const g = SP.units['Gulberg Town'], c = SP.units['Chilas'], m = SP.units['Murree'];
+ok(g && Q(g, 100) > 90, 'Gulberg Town (91 % built): ' + Q(g, 100).toFixed(1) + ' mm of 100 mm runs off');
+ok(c && Q(c, 100) > Q(m, 100), 'Chilas (rock and bare) runs off more than Murree (forest): ' + Q(c, 100).toFixed(1) + ' vs ' + Q(m, 100).toFixed(1) + ' mm');
+ok(g.classShare[0] > 0.9 && SP.units['Lahore City'].classShare[0] > 0.2, 'sealed class: Gulberg ' + g.classShare[0] + ', Lahore City ' + SP.units['Lahore City'].classShare[0]);
+const BT = JSON.parse(readFileSync(join(APP, '..', 'station-lake', 'reports', 'sponge_backtest.json'), 'utf8'));
+ok(BT.replaceInFlood === true && Object.values(BT.sets).every(v => v.q_new >= v.q_old - 0.01), 'back-test: new runoff ranks observed flooding at least as well on every set');
+const SC = JSON.parse(readFileSync(join(D, 'map-layer-scales.json'), 'utf8')).layers.nss_baseline;
+const sEdge = [94.5, 88, 82, 74.5].map(cn => +(25400 / cn - 254).toFixed(1)).reverse();
+ok(JSON.stringify(SC.cuts.slice(0, 4).map(x => x.min)) === JSON.stringify(sEdge) && SC.words[0].startsWith('Sealed'), 'map classes are the NRCS reference-cover midpoints (S ' + sEdge.join('/') + ' mm)');
+const lab = (h) => { const r = parseInt(h.slice(1, 3), 16) / 255, gg = parseInt(h.slice(3, 5), 16) / 255, b = parseInt(h.slice(5, 7), 16) / 255; const f = x => x > 0.04045 ? ((x + 0.055) / 1.055) ** 2.4 : x / 12.92; return 116 * Math.cbrt(0.2126 * f(r) + 0.7152 * f(gg) + 0.0722 * f(b)) - 16; };
+const L = SC.palette.map(lab); ok(Math.abs(L[0] - L[1]) > 15 && Math.abs(L[3] - L[4]) > 15 && Math.abs(L[1] - L[3]) > 5, 'sponge colours distinct in lightness (' + L.map(x => Math.round(x)).join(', ') + ')');
+const T = createSpongeTiles(D); const t = T.tile(7, 90, 52);
+ok(t && t.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a])) && t.length > 1000, 'a 250 m tile over Lahore renders (' + (t && t.length) + ' bytes)');
+ok(T.tile(7, 0, 0) && T.tile(7, 0, 0).length < 1000, 'a tile outside Pakistan is transparent');
+const TR = createTerrain(D, { tehsil: [] }).sponge(); ok(TR.ready && TR.units['Gulberg Town'] && TR.units['Gulberg Town'].bins.length > 0, '/api/terrain/sponge serves the bins');
+const TZ = JSON.parse(readFileSync(join(D, 'tehsil-terrain-zone.json'), 'utf8')).units;
+ok(TZ['Bat Khela'].mountainShare >= 0.5 && TZ['Lahore City'].mountainShare < 0.05 && TZ['Chilas'].mountainShare > 0.9, 'mountain share: Bat Khela ' + TZ['Bat Khela'].mountainShare + ', Lahore City ' + TZ['Lahore City'].mountainShare + ', Chilas ' + TZ['Chilas'].mountainShare);
+const B = readFileSync(join(APP, 'artefact', 'AI_GEO_NIGRAAN_v91_17_MACH.html'), 'utf8');
+ok(/if \(mm <= hi\) return 0\.5;/.test(B) && !/if \(mm < lo\) return 0\.5 \* mm \/ lo;/.test(B), 'no dry bonus: below the class-II band the curve number stays at CN-II');
+ok(/\(k === 'built'\) \? cn2 : \(useApi \? cnArc\(cn2, api\) : cn2\)/.test(B) && /\(k === 'built'\) \? 98 :/.test(B), 'built ground stays at CN 98 at every wetness (both engines)');
+ok(/inp===window\.DISTRICT_IN\[_rk\]/.test(B), 'a raw unit row is replaced by the map\'s day input in hzScore');
+ok(/'Meteorological'\]/.test(B) && /'Hydrological'\]/.test(B), 'drought views carry the scientific names');
+console.log(`\n${pass} passed, ${fail} failed`); process.exit(fail ? 1 : 0);

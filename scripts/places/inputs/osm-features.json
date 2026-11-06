@@ -1,0 +1,929 @@
+{
+"schema": "agn.osm-features.v1",
+"what": "OpenStreetMap features that the place table counts as listed by OpenStreetMap (one source family): every named aeroway=aerodrome inside Pakistan.",
+"licence": "OpenStreetMap contributors (ODbL 1.0)",
+"osmBase": "2026-06-01T08:52:28Z",
+"query": "[out:json];area[\"ISO3166-1\"=\"PK\"][admin_level=2]->.a;(nwr[\"aeroway\"=\"aerodrome\"](area.a););out center tags;  (Overpass API; name = name:en, else name)",
+"columns": [
+"name",
+"localName",
+"lat",
+"lon",
+"fcode",
+"osm"
+],
+"rows": [
+[
+"Abbaspur Airfield (historical)",
+null,
+32.06269,
+72.51685,
+"AIRP",
+"n8654029236"
+],
+[
+"Al Habieb Airport",
+null,
+28.42897,
+71.23882,
+"AIRP",
+"w252676421"
+],
+[
+"Allama Iqbal International Airport",
+"\u0639\u0644\u0627\u0645\u06c1 \u0627\u0642\u0628\u0627\u0644 \u0627\u0646\u0679\u0631\u0646\u06cc\u0634\u0646\u0644 \u0627\u0626\u06cc\u0631\u067e\u0648\u0631\u0679\u200e",
+31.51952,
+74.40136,
+"AIRP",
+"w822652039"
+],
+[
+"Bacha Khan International Airport",
+"\u0628\u0627\u0686\u0627 \u062e\u0627\u0646 \u0627\u0646\u0679\u0631\u0646\u06cc\u0634\u0646\u0644 \u0627\u0626\u0631\u067e\u0648\u0631\u0679",
+33.99101,
+71.51215,
+"AIRP",
+"r12757916"
+],
+[
+"Bahawalpur Airport",
+"\u0628\u06c1\u0627\u0648\u0644\u067e\u0648\u0631 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u06c1",
+29.3485,
+71.7196,
+"AIRP",
+"r14191734"
+],
+[
+"Bannu Airport",
+"\u0628\u0646\u0648\u06ba \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+32.9718,
+70.52427,
+"AIRP",
+"w857635385"
+],
+[
+"Basal Airport",
+null,
+33.52793,
+72.25796,
+"AIRP",
+"n1042054426"
+],
+[
+"Belab",
+null,
+30.34003,
+70.5567,
+"AIRP",
+"n357969037"
+],
+[
+"Bhagatanwala",
+null,
+32.0564,
+72.94863,
+"AIRP",
+"w223375163"
+],
+[
+"Bhimbar Airstrip",
+null,
+32.97043,
+74.06496,
+"AIRP",
+"w1148176804"
+],
+[
+"Cape Monze Airport",
+"\u06a9\u06cc\u067e \u0645\u0648\u0646\u0632\u06d2 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+24.82844,
+66.66604,
+"AIRP",
+"n1042052893"
+],
+[
+"Chandar",
+null,
+32.07782,
+73.79034,
+"AIRP",
+"w1049097394"
+],
+[
+"Chandna Airport",
+"Mad Juma",
+28.35619,
+70.60023,
+"AIRP",
+"n358034390"
+],
+[
+"Chashma Airport",
+null,
+32.42467,
+71.45882,
+"AIRP",
+"w1187697725"
+],
+[
+"Chilas Airport",
+"\u0686\u0644\u0627\u0633 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u06c1",
+35.42663,
+74.08628,
+"AIRP",
+"n298985410"
+],
+[
+"Chirat Airport",
+null,
+33.9681,
+71.9675,
+"AIRP",
+"n1042052860"
+],
+[
+"Chitral Airport",
+"\u0686\u062a\u0631\u0627\u0644 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+35.88634,
+71.79988,
+"AIRP",
+"w218813145"
+],
+[
+"Chore Airport",
+null,
+25.52552,
+69.77188,
+"AIRP",
+"w1049141913"
+],
+[
+"Chore Airport",
+null,
+25.526,
+69.7718,
+"AIRP",
+"n1042052902"
+],
+[
+"Dadu West",
+null,
+26.73993,
+67.66662,
+"AIRP",
+"w594717849"
+],
+[
+"Dalbandin Airport",
+"\u062f\u0627\u0644\u0628\u0646\u062f\u06cc\u0646 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u06c1",
+28.87287,
+64.40637,
+"AIRP",
+"w998072060"
+],
+[
+"Dera Ghazi Khan Airport",
+"\u0688\u06cc\u0631\u06c1 \u063a\u0627\u0632\u06cc \u062e\u0627\u0646 \u0628\u06cc\u0646 \u0627\u0644\u0627\u0642\u0648\u0627\u0645\u06cc \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+29.95964,
+70.48828,
+"AIRP",
+"w860478485"
+],
+[
+"Dera Ismail Khan Airport",
+null,
+31.91093,
+70.89327,
+"AIRP",
+"w241829767"
+],
+[
+"Dhingar",
+null,
+29.92336,
+66.7461,
+"AIRP",
+"n357978409"
+],
+[
+"Dr. Safdar Sarki Airport",
+"PAF Base Shahbaz",
+28.28337,
+68.45361,
+"AIRP",
+"w73304658"
+],
+[
+"Faisal Air Base",
+"\u0641\u06cc\u0635\u0644 \u0627\u06cc\u0626\u0631 \u0628\u06cc\u0633",
+24.8742,
+67.1185,
+"AIRP",
+"n1042053031"
+],
+[
+"Faisal Air Base",
+"\u0641\u06cc\u0635\u0644 \u0627\u06cc\u0626\u0631 \u0628\u06cc\u0633",
+24.87834,
+67.11554,
+"AIRP",
+"n767202504"
+],
+[
+"Faisalabad International Airport",
+"\u0641\u06cc\u0635\u0644 \u0622\u0628\u0627\u062f \u0628\u06cc\u0646 \u0627\u0644\u0627\u0642\u0648\u0627\u0645\u06cc \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+31.36571,
+72.99594,
+"AIRP",
+"w594762877"
+],
+[
+"Fateh Jang Airfield",
+null,
+33.55092,
+72.6308,
+"AIRP",
+"w498954886"
+],
+[
+"Gharo Airport",
+null,
+24.729,
+67.5876,
+"AIRP",
+"n1042052907"
+],
+[
+"Gilgit Airport",
+"\u06af\u0644\u06af\u062a \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u06c1",
+35.91883,
+74.33373,
+"AIRP",
+"w254923948"
+],
+[
+"Gujrat Airport",
+null,
+32.62781,
+74.06708,
+"AIRP",
+"w236257852"
+],
+[
+"Gurha Salim",
+null,
+32.87856,
+73.60535,
+"AIRP",
+"n357985730"
+],
+[
+"Gwadar International Airport",
+"\u06af\u0648\u0627\u062f\u0631 \u0628\u06cc\u0646 \u0627\u0644\u0627\u0642\u0648\u0627\u0645\u06cc \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+25.23248,
+62.32738,
+"AIRP",
+"r13427786"
+],
+[
+"Gwadar International Airport",
+null,
+25.29467,
+62.50742,
+"AIRP",
+"n12895348019"
+],
+[
+"Hyderabad Airport",
+"\u062d\u06cc\u062f\u0631\u0622\u0628\u0627\u062f \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+25.31934,
+68.36673,
+"AIRP",
+"w240427048"
+],
+[
+"Islamabad International Airport",
+"\u0627\u0633\u0644\u0627\u0645 \u0622\u0628\u0627\u062f \u0628\u06cc\u0646 \u0627\u0644\u0627\u0642\u0648\u0627\u0645\u06cc \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+33.55123,
+72.8269,
+"AIRP",
+"w235485422"
+],
+[
+"Jam Nida Northwest",
+null,
+26.19819,
+67.50426,
+"AIRP",
+"w594725159"
+],
+[
+"Jamal Din Wali Airport",
+null,
+28.50817,
+70.06324,
+"AIRP",
+"w240178106"
+],
+[
+"Jinnah International Airport",
+"\u062c\u0646\u0627\u062d \u0628\u06cc\u0646 \u0627\u0644\u0627\u0642\u0648\u0627\u0645\u06cc \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u06c1",
+24.90567,
+67.16313,
+"AIRP",
+"w435769885"
+],
+[
+"Jiwani Airport",
+"\u062c\u06cc\u0648\u0627\u0646\u06cc \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+25.06739,
+61.80506,
+"AIRP",
+"w408057556"
+],
+[
+"Juzzak Airport",
+"\u062c\u0648\u0632\u06a9 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+29.03844,
+61.64643,
+"AIRP",
+"w1029096194"
+],
+[
+"Kadanwari Airport",
+null,
+27.20409,
+69.14699,
+"AIRP",
+"w240178089"
+],
+[
+"Kandhkot Airport",
+null,
+28.27351,
+69.27626,
+"AIRP",
+"w1049157623"
+],
+[
+"Kashmor Airport",
+null,
+28.4706,
+69.5991,
+"AIRP",
+"n1042052816"
+],
+[
+"Khanpur",
+"\u062e\u0627\u0646\u067e\u064f\u0648\u0631",
+28.64188,
+70.63119,
+"AIRP",
+"w1049107447"
+],
+[
+"Kharan Airfield",
+"\u062e\u0627\u0631\u0627\u0646 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u06c1",
+28.59803,
+65.42097,
+"AIRP",
+"n1042052928"
+],
+[
+"Kharan East Airport",
+null,
+28.61697,
+65.4673,
+"AIRP",
+"n1042054427"
+],
+[
+"Khorewah",
+null,
+24.78619,
+68.55595,
+"AIRP",
+"w1049442856"
+],
+[
+"Khuzdar Airport",
+"\u062e\u0636\u062f\u0627\u0631 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+27.79308,
+66.64373,
+"AIRP",
+"w216660081"
+],
+[
+"Kohat Airbase",
+null,
+33.57024,
+71.43999,
+"AIRP",
+"w270122963"
+],
+[
+"Kot Addu",
+null,
+30.49491,
+70.97116,
+"AIRP",
+"n358033993"
+],
+[
+"LANDING ZONE",
+null,
+33.26255,
+72.72764,
+"AIRP",
+"w319382277"
+],
+[
+"Loralai Airport",
+null,
+30.35475,
+68.61173,
+"AIRP",
+"w651489057"
+],
+[
+"Loralai Airport",
+null,
+30.3555,
+68.6135,
+"AIRP",
+"n1042052933"
+],
+[
+"Mai Bakhtawar International Airport",
+"Islamkot International Airport",
+24.8466,
+70.09317,
+"AIRP",
+"w268533287"
+],
+[
+"Mandi Bahaduddin",
+"\u0645\u0646\u0688\u06cc \u0628\u0647\u0627\u0624\u0627\u0644\u062f\u06cc\u0646",
+32.60115,
+73.50564,
+"AIRP",
+"w1187916330"
+],
+[
+"Mangla",
+"\u0645\u0646\u06af\u0644\u0627",
+33.05095,
+73.63719,
+"AIRP",
+"w1049142167"
+],
+[
+"Minhas",
+null,
+33.8644,
+72.40435,
+"AIRP",
+"w998672836"
+],
+[
+"Mir Baz",
+null,
+31.18958,
+70.18004,
+"AIRP",
+"n358040575"
+],
+[
+"Miran Shah Airport",
+null,
+33.0147,
+70.0644,
+"AIRP",
+"n1042052959"
+],
+[
+"Moenjodaro Airport",
+"\u0645\u0648\u06c1\u0646 \u062c\u0648 \u062f\u0691\u0648 \u0627\u0626\u06cc\u0631\u067e\u0648\u0631\u0679",
+27.3347,
+68.14248,
+"AIRP",
+"w293967598"
+],
+[
+"Multan International Airport",
+"\u0645\u0644\u062a\u0627\u0646 \u0627\u0646\u0679\u0631\u0646\u06cc\u0634\u0646\u0644 \u0627\u0626\u06cc\u0631\u067e\u0648\u0631\u0679",
+30.20553,
+71.41963,
+"AIRP",
+"w38089683"
+],
+[
+"Mushaf Air Base",
+null,
+32.04548,
+72.66788,
+"AIRP",
+"r12541188"
+],
+[
+"Mushaf Air Base",
+null,
+32.0486,
+72.665,
+"AIRP",
+"n1042053048"
+],
+[
+"Muzaffarabad Airport",
+"Muzaffarabad aerodrome",
+34.33877,
+73.50887,
+"AIRP",
+"w231913014"
+],
+[
+"Nawabshah Airport",
+null,
+26.21548,
+68.39144,
+"AIRP",
+"w993871008"
+],
+[
+"Nok Kundi",
+"\u0646\u0648\u06a9 \u06a9\u0646\u0688\u06cc",
+28.81946,
+62.7307,
+"AIRP",
+"n358045436"
+],
+[
+"Nushki Airfield (historical)",
+"Nushki Airport",
+29.53881,
+66.0228,
+"AIRP",
+"n358046039"
+],
+[
+"Ormara Airport",
+"\u0627\u0648\u0631\u0645\u0627\u0691\u06c1 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+25.27924,
+64.59235,
+"AIRP",
+"w993885750"
+],
+[
+"PAF BASE Nur Khan",
+null,
+33.61732,
+73.0973,
+"AIRP",
+"w228884464"
+],
+[
+"PAF Base Faisal",
+"\u067e\u06cc \u0627\u06d2 \u0627\u06cc\u0641 \u0628\u06cc\u0633 \u0641\u06cc\u0635\u0644",
+24.96943,
+67.22721,
+"AIRP",
+"w594366595"
+],
+[
+"PAF Base Masroor",
+"\u067e\u06cc \u0627\u06d2 \u0627\u06cc\u0641 \u0628\u06cc\u0633 \u0645\u0633\u0631\u0648\u0631",
+24.89437,
+66.94653,
+"AIRP",
+"w58756956"
+],
+[
+"PAF Base Murid",
+"\u067e\u06cc \u0627\u06d2 \u0627\u06cc\u0641 \u0628\u06cc\u0633 \u0645\u0631\u06cc\u062f",
+32.90834,
+72.77484,
+"AIRP",
+"w234766091"
+],
+[
+"PAF Base Qadri",
+null,
+35.34169,
+75.52238,
+"AIRP",
+"n9501187377"
+],
+[
+"PAF Bholari",
+null,
+25.24357,
+68.03818,
+"AIRP",
+"w595231042"
+],
+[
+"PAF Khalid Airbase",
+"\u067e\u06cc \u0627\u06d2 \u0627\u06cc\u0641 \u062e\u0627\u0644\u062f \u0627\u06cc\u0626\u0631\u0628\u06cc\u0633",
+30.23669,
+67.03967,
+"AIRP",
+"n1809842106"
+],
+[
+"Pakistan Military Airfield Rahwali",
+null,
+32.23751,
+74.13114,
+"AIRP",
+"w192528760"
+],
+[
+"Panjgur Airport",
+null,
+26.95539,
+64.13102,
+"AIRP",
+"w308744594"
+],
+[
+"Pano Aqil Southeast Airport",
+null,
+27.8131,
+69.1671,
+"AIRP",
+"n1042052833"
+],
+[
+"Parachinar Airport",
+null,
+33.90236,
+70.07158,
+"AIRP",
+"w857650075"
+],
+[
+"Pasni Airport",
+null,
+25.2901,
+63.34484,
+"AIRP",
+"w405951144"
+],
+[
+"Pishin Airport",
+null,
+30.5562,
+66.9855,
+"AIRP",
+"n1042052980"
+],
+[
+"Qasim Airport",
+null,
+33.56034,
+73.03312,
+"AIRP",
+"w230637019"
+],
+[
+"Quetta International Airport",
+"\u06a9\u0648\u0626\u0679\u06c1 \u0628\u06cc\u0646 \u0627\u0644\u0627\u0642\u0648\u0627\u0645\u06cc \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+30.25261,
+66.93755,
+"AIRP",
+"w156698344"
+],
+[
+"Rafiqui Air Base",
+null,
+30.7581,
+72.2825,
+"AIRP",
+"n1042053005"
+],
+[
+"Rajanpur Airport",
+null,
+29.25982,
+70.19715,
+"AIRP",
+"w1039449364"
+],
+[
+"Reko Diq Airport",
+null,
+28.9708,
+62.4333,
+"AIRP",
+"n1042054520"
+],
+[
+"Robray Airport",
+null,
+26.2519,
+63.1303,
+"AIRP",
+"n1042052825"
+],
+[
+"Sahiwal Airport",
+null,
+31.88958,
+72.30938,
+"AIRP",
+"n1042053060"
+],
+[
+"Saidu Sharif Airport",
+"\u0633\u06cc\u062f\u0648 \u0634\u0631\u06cc\u0641 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+34.81408,
+72.35285,
+"AIRP",
+"w459932745"
+],
+[
+"Sawan Airport",
+"\u0633\u0627\u0648\u0646 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+26.9673,
+68.87886,
+"AIRP",
+"w240143747"
+],
+[
+"Sehwan Sharif Airport",
+"\u0633\u06cc\u06c1\u0648\u0646 \u0634\u0631\u06cc\u0641 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+26.47375,
+67.71572,
+"AIRP",
+"w150471976"
+],
+[
+"Shaikh Zaid Airport",
+null,
+28.38201,
+70.27926,
+"AIRP",
+"w178722922"
+],
+[
+"Shamsi Airfield",
+null,
+27.84657,
+65.16015,
+"AIRP",
+"w281426636"
+],
+[
+"Sialkot International Airport",
+"\u0633\u06cc\u0627\u0644\u06a9\u0648\u0679 \u0627\u0646\u0679\u0631\u0646\u06cc\u0634\u0646\u0644 \u0627\u06cc\u0626\u0631\u067e\u0648\u0631\u0679",
+32.53546,
+74.36333,
+"AIRP",
+"w258277594"
+],
+[
+"Sibi Airport",
+null,
+29.57532,
+67.84291,
+"AIRP",
+"w395299507"
+],
+[
+"Sindhri Tharparkar Airport",
+"\u0633\u0646\u062f\u06be\u0691\u06cc \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+25.68398,
+69.07791,
+"AIRP",
+"w478692683"
+],
+[
+"Skardu Airport",
+"\u0633\u06a9\u0631\u062f\u0648 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u06d2",
+35.34013,
+75.53894,
+"AIRP",
+"w478880636"
+],
+[
+"Sui Airport",
+null,
+28.64541,
+69.17673,
+"AIRP",
+"w1032901780"
+],
+[
+"Sukkur Airport",
+"\u0633\u06a9\u06be\u0631 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+27.72204,
+68.79158,
+"AIRP",
+"w72369060"
+],
+[
+"Taftan Airport",
+"\u062a\u0641\u062a\u0627\u0646 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+28.9642,
+61.5954,
+"AIRP",
+"n1042053081"
+],
+[
+"Talhar Airport",
+null,
+24.84083,
+68.83599,
+"AIRP",
+"w996547805"
+],
+[
+"Tarbela Dam Airport",
+"\u062a\u0631\u0628\u06cc\u0644\u0627 \u0688\u06cc\u0645 \u0627\u06cc\u0626\u0631 \u067e\u0648\u0631\u0679",
+33.98276,
+72.60957,
+"AIRP",
+"w218740589"
+],
+[
+"Thal Airport",
+null,
+33.3876,
+70.5888,
+"AIRP",
+"n1042052799"
+],
+[
+"Turbat International Airport",
+"\u062a\u0631\u0628\u062a \u0628\u06cc\u0646 \u0627\u0644\u0627\u0642\u0648\u0627\u0645\u06cc \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+25.98196,
+63.03122,
+"AIRP",
+"r11763948"
+],
+[
+"Vehari Airport",
+"PAF Vehari",
+30.09154,
+72.15332,
+"AIRP",
+"w390835389"
+],
+[
+"Wagowal Airstrip",
+null,
+32.18021,
+72.54129,
+"AIRP",
+"n11274790746"
+],
+[
+"Walton Airport",
+"\u0648\u0627\u0644\u0679\u0646 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+31.49117,
+74.34942,
+"AIRP",
+"n4720340695"
+],
+[
+"Wana Airport",
+null,
+32.30568,
+69.57169,
+"AIRP",
+"w247398228"
+],
+[
+"Wateji Air Strip",
+null,
+24.86593,
+67.41074,
+"AIRP",
+"n1042054433"
+],
+[
+"Zhob Airport",
+"\u0698\u0648\u0628 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+31.35751,
+69.46373,
+"AIRP",
+"w994920834"
+],
+[
+"site boundery",
+null,
+31.36648,
+72.9967,
+"AIRP",
+"w1500718240"
+],
+[
+"\u0631\u0627\u0648\u0644\u0627 \u06a9\u0648\u0679 \u06c1\u0648\u0627\u0626\u06cc \u0627\u0688\u0627",
+null,
+33.84916,
+73.79802,
+"AIRP",
+"w238824854"
+]
+]
+}

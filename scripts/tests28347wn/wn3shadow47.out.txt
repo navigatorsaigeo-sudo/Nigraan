@@ -1,0 +1,34 @@
+PASS W1 rules and configuration hashes as locked (verify.mjs, .sha256 file, the configuration hash named in the rules)
+PASS W1 cells = the first scoring's wins only (plains T/TX/TN/Td/W/heavy rain, coast Td); hills and mountain out; served leads 0 and 1
+PASS W1 calibration = RULES_WN3_SCORE_20261102 C1 (2024 fit, 384 cells per variable, parent rules hash)
+PASS W1 shadow, not live, no serving hook, leads to 72 h; credit "WeatherNext 3, Google DeepMind" kept out of the Sources headers
+PASS W2 two runs imported; the run whose file does not match LIVE_MANIFEST.csv is NOT imported (exit 3)
+PASS W2 the archive record: 3-hourly T/Td/W, hourly rain in mm, published time from the manifest, marked not served
+PASS W2 a second import adds nothing (idempotent)
+PASS W3 stations joined to their WN3 station point within 1.5 km (a station without one is not scored)
+PASS W3 the operational run: 00 UTC of the day before the issue, published before 00 PKT of the issue
+PASS W3 T: served MAE 2, WN3-cal 0 (raw WN3 = truth - 2024 bias), blend+WN3 1 on the 8 three-hourly steps
+PASS W3 wind scored at the synoptic station only (MACH rooftop wind is not), in m/s
+PASS W3 daily maximum from the same 8 steps on every side
+PASS W3 heavy rain (>= 10 mm): served 0 mm = miss, WN3 12 mm = hit, blend 6 mm = miss, gauge 15 mm
+PASS W3 dew point: served Td from served T and RH (Magnus), WN3-cal = truth
+PASS W3 every WN3 lead used lies in 21-66 h (tested range <= 72 h)
+PASS W3 a run published after 00 PKT of the issue is not used (that lead is not scored)
+PASS W4 the lock check passes on the shipped files
+PASS W4 before 20 Dec 2026: collecting, no decision
+PASS W4 look 1: a better blend passes (T plains), interval above 0
+PASS W4 a worse blend: served better, no pass
+PASS W4 feed gate: the run in time on fewer than 90 % of the days -> no pass
+PASS W4 a changed configuration fails the lock: nothing can pass
+PASS W4 fewer than 30 days: not judged
+PASS W4 NIGRAAN_WN3_SHADOW=0: no configuration is read
+PASS W5 only the operator route / Methods line (index.mjs) and the import job (pyjobs.mjs) name the WN3 files; no forecast chain module does
+PASS W5 /api/ops/wn3shadow is operator-scoped and says served: false
+PASS W5 the import job exists only while NIGRAAN_WN3_SHADOW is not 0
+PASS W5 the Sources page lists no WeatherNext 3 entry (credit kept out of the licence headers)
+PASS W5 the small world is scored by the agent (served cells present)
+PASS W5 switch off: no wn3Shadow field, no promotion file, no pairs archive
+PASS W5 shadow on: every served cell of the ledger and the summary byte-identical to the switch-off run (only the wn3Shadow field is added)
+PASS W5 shadow on: the day carries wn3Shadow cells, the pairs archive and the promotion file are written
+PASS W5 switch off = the 1.0.8 agent byte for byte (ledger and summary) on the same world
+wn3shadow47: 33 pass, 0 fail

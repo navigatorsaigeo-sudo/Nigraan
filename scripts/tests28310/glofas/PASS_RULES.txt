@@ -1,0 +1,41 @@
+v283.10 GloFAS series defect - pass rules, written 2026-10-23 before any skill number was computed.
+R1 date frame: the offset between two series = the lag (-3..+3 d) with the highest Pearson r of day-to-day log changes, per gauge
+   per year. A frame offset is "established" when one lag wins in >= 80 % of gauge-years.
+R2 glofascal (operator only, never client-visible): the existing gate is unchanged (vs the raw model flow, held-out seasons) and is
+   re-run on the corrected model series. Persistence (gauge t-1 carried to t) is reported per gauge: MAE gain vs persistence
+   (pers - cal), 7-day block bootstrap 95 % CI, 2000 draws. glofascal stays operator-only whatever the result.
+R3 river flood chance (client-visible, currently withheld): a threshold is un-withheld only if its Brier skill vs persistence has a
+   7-day block bootstrap 95 % lower bound > 0 in EVERY held-out monsoon (2024, 2025), pooled over gauges. Otherwise it stays
+   withheld and the served data/river-prob-model.json is not replaced. Per-gauge BSS vs persistence with CIs is reported only.
+
+PART 2 - written 2026-10-23 (before any level change or refit number was computed)
+R4 river forecast date relabel ships only if BOTH
+   (a) the date frame is proven by R1 on the LIVE forecast path (the server's own request: daily river_discharge, ensemble,
+       timezone Asia/Karachi): one offset vs the station file (UTC day of the 24 h mean) wins in >= 80 % of gauges in the live
+       window, and the archive (R1, part 1) agrees; AND
+   (b) no client-visible level moves the wrong way against gauge truth: for every gauge where the map level is shown to clients,
+       over all 2024/25/26 gauge days (the ladder is not fitted to gauges, so every day is held out), the mean |level - gauge
+       class| with the new labels is not larger than with the old labels (point estimate), and the pooled difference
+       (new - old) has a 7-day block bootstrap 95 % upper bound <= 0 OR a mean <= 0. Every gauge-day change is reported
+       (toward / away / unchanged). A single day moving away does not fail the rule; a gauge whose mean error grows does.
+   The river flood chance stays withheld whatever happens.
+R5 rivercal and flood-extent refits on the served series are adopted only if no worse on held-out data than the current table
+   APPLIED TO THE SERVED FLOW (that is what production does): rivercal per reach on the same held-out days and the script's own
+   gate metric (flow MAE W1/W2 for flowGate reaches; level gain for the stale-sheet switch); flood-extent on its held-out 2025
+   test metric. Otherwise the current table is kept and the reason recorded.
+
+PART 3 - written 2026-10-23 (before any part 3 number was computed)
+R6 gauge pairing. The gauge sheet of day G is read at 06:00 PKT = 01:00 UTC on G. Candidates: the GloFAS mean of UTC day G-1
+   (ends 1 h before the reading) and of UTC day G (starts 1 h before it). Series: the served flow relabelled to UTC day of the mean
+   (glofas_served_daily.csv.gz). Picked by the R1 statistic (Pearson r of day-to-day log changes, gauge inflow vs model), pooled over
+   the 19 gauges and 2024/25/26 gauge days: the candidate with the higher pooled r wins, and it must also win in >= 50 % of
+   gauge-years; otherwise no pairing is established and the current labels stay. The level metric is NOT used to pick.
+R7 relabel ships (client day D shows the UTC mean that R6 pairs with the gauge sheet of D) only if, over every 2024/25/26 gauge
+   day at the client-visible gauges, with the level metric of R4 (|map level - gauge class|, 7-day block bootstrap 95 %, 2000 draws):
+   pooled change (new - current) <= 0 AND its CI upper bound <= +0.002, AND no gauge is worse by a CI-separated amount (per-gauge
+   CI lower bound > 0). Otherwise the current labels stay and an operator note documents the 2-day offset (the note ships either way).
+R8 stale-sheet switch: re-run exactly the original gate (rivercal_stale.py + rivercal_build.py: per sheet age 1..14 d, gain = |stale
+   reading - gauge class| - |model level - gauge class|, ok(age) = gain 95 % lower bound > 0 AND 2026 mean gain >= 0; switch age =
+   first age from which every later age is ok; none -> null) on the SERVED level. The original method must first reproduce the
+   current ages (8, 8, 8, 6) on its original input, else the re-run is not trusted and nothing changes. The fail outcome is the
+   one the original code names (null: "keep the last reading at any age"); nothing else is invented.

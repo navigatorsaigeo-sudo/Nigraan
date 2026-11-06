@@ -1,0 +1,4454 @@
+[
+{
+"id": "T000",
+"set": "tehsil",
+"name": "Azad Kashmir|Bagh|Bagh",
+"lat": 33.97472,
+"lon": 73.87014
+},
+{
+"id": "T001",
+"set": "tehsil",
+"name": "Azad Kashmir|Bagh|Dhir Kot",
+"lat": 34.01991,
+"lon": 73.58647
+},
+{
+"id": "T002",
+"set": "tehsil",
+"name": "Azad Kashmir|Bagh|Harighel",
+"lat": 33.98272,
+"lon": 73.74198
+},
+{
+"id": "T003",
+"set": "tehsil",
+"name": "Azad Kashmir|Bhimber|Barnala",
+"lat": 32.90329,
+"lon": 74.29299
+},
+{
+"id": "T004",
+"set": "tehsil",
+"name": "Azad Kashmir|Bhimber|Samahni",
+"lat": 33.12429,
+"lon": 74.06375
+},
+{
+"id": "T005",
+"set": "tehsil",
+"name": "Azad Kashmir|Hattian|Chikar",
+"lat": 34.13434,
+"lon": 73.69461
+},
+{
+"id": "T006",
+"set": "tehsil",
+"name": "Azad Kashmir|Hattian|Hattian",
+"lat": 34.17267,
+"lon": 73.84305
+},
+{
+"id": "T007",
+"set": "tehsil",
+"name": "Azad Kashmir|Haveli|Haveli",
+"lat": 33.92771,
+"lon": 74.08135
+},
+{
+"id": "T008",
+"set": "tehsil",
+"name": "Azad Kashmir|Haveli|Khurshid Abad",
+"lat": 33.95382,
+"lon": 74.20075
+},
+{
+"id": "T009",
+"set": "tehsil",
+"name": "Azad Kashmir|Haveli|Mumtazabad",
+"lat": 33.92291,
+"lon": 74.02085
+},
+{
+"id": "T010",
+"set": "tehsil",
+"name": "Azad Kashmir|Kotli|Charhoi",
+"lat": 33.3432,
+"lon": 73.92373
+},
+{
+"id": "T011",
+"set": "tehsil",
+"name": "Azad Kashmir|Kotli|Dulliya Jattan",
+"lat": 33.31002,
+"lon": 73.84231
+},
+{
+"id": "T012",
+"set": "tehsil",
+"name": "Azad Kashmir|Kotli|Fatehpur Thakiala",
+"lat": 33.48302,
+"lon": 74.11304
+},
+{
+"id": "T013",
+"set": "tehsil",
+"name": "Azad Kashmir|Kotli|Khui Ratta",
+"lat": 33.35334,
+"lon": 74.0826
+},
+{
+"id": "T014",
+"set": "tehsil",
+"name": "Azad Kashmir|Mirpur|Dadyal",
+"lat": 33.36476,
+"lon": 73.66359
+},
+{
+"id": "T015",
+"set": "tehsil",
+"name": "Azad Kashmir|Mirpur|Mirpur",
+"lat": 33.17197,
+"lon": 73.77223
+},
+{
+"id": "T016",
+"set": "tehsil",
+"name": "Azad Kashmir|Muzaffarabad|Muzaffarabad",
+"lat": 34.25559,
+"lon": 73.5684
+},
+{
+"id": "T017",
+"set": "tehsil",
+"name": "Azad Kashmir|Muzaffarabad|Naseerabad",
+"lat": 34.45305,
+"lon": 73.60934
+},
+{
+"id": "T018",
+"set": "tehsil",
+"name": "Azad Kashmir|Neelam Valley|Sharda",
+"lat": 34.92461,
+"lon": 74.29445
+},
+{
+"id": "T019",
+"set": "tehsil",
+"name": "Azad Kashmir|Poonch|Abbaspur",
+"lat": 33.84448,
+"lon": 73.97654
+},
+{
+"id": "T020",
+"set": "tehsil",
+"name": "Azad Kashmir|Poonch|Hajira",
+"lat": 33.73734,
+"lon": 73.92157
+},
+{
+"id": "T021",
+"set": "tehsil",
+"name": "Azad Kashmir|Poonch|Rawalakot",
+"lat": 33.86364,
+"lon": 73.74879
+},
+{
+"id": "T022",
+"set": "tehsil",
+"name": "Azad Kashmir|Poonch|Thorar",
+"lat": 33.87332,
+"lon": 73.60719
+},
+{
+"id": "T023",
+"set": "tehsil",
+"name": "Azad Kashmir|Sudhnoti|Baluch",
+"lat": 33.65377,
+"lon": 73.84627
+},
+{
+"id": "T024",
+"set": "tehsil",
+"name": "Azad Kashmir|Sudhnoti|Mong",
+"lat": 33.79196,
+"lon": 73.62068
+},
+{
+"id": "T025",
+"set": "tehsil",
+"name": "Azad Kashmir|Sudhnoti|Pallandari",
+"lat": 33.69833,
+"lon": 73.6809
+},
+{
+"id": "T026",
+"set": "tehsil",
+"name": "Azad Kashmir|Sudhnoti|Tarar Khal",
+"lat": 33.73771,
+"lon": 73.77407
+},
+{
+"id": "T027",
+"set": "tehsil",
+"name": "Balochistan|Awaran|Awaran",
+"lat": 26.3142,
+"lon": 64.96804
+},
+{
+"id": "T028",
+"set": "tehsil",
+"name": "Balochistan|Awaran|Jhal Jhao",
+"lat": 26.14538,
+"lon": 65.75038
+},
+{
+"id": "T029",
+"set": "tehsil",
+"name": "Balochistan|Awaran|Mashkai",
+"lat": 26.963,
+"lon": 65.55722
+},
+{
+"id": "T030",
+"set": "tehsil",
+"name": "Balochistan|Awaran|Gishekore",
+"lat": 25.79857,
+"lon": 64.76398
+},
+{
+"id": "T031",
+"set": "tehsil",
+"name": "Balochistan|Barkhan|Barkhan",
+"lat": 29.92991,
+"lon": 69.50954
+},
+{
+"id": "T032",
+"set": "tehsil",
+"name": "Balochistan|Barkhan|Rakhni",
+"lat": 29.98957,
+"lon": 69.82372
+},
+{
+"id": "T033",
+"set": "tehsil",
+"name": "Balochistan|Chagai|Taftan",
+"lat": 29.15015,
+"lon": 61.77966
+},
+{
+"id": "T034",
+"set": "tehsil",
+"name": "Balochistan|Dera Bugti|Dera Bugti",
+"lat": 29.04642,
+"lon": 68.84259
+},
+{
+"id": "T035",
+"set": "tehsil",
+"name": "Balochistan|Dera Bugti|Phelawagh",
+"lat": 29.25907,
+"lon": 69.44387
+},
+{
+"id": "T036",
+"set": "tehsil",
+"name": "Balochistan|Dera Bugti|Sui",
+"lat": 28.72842,
+"lon": 68.98628
+},
+{
+"id": "T037",
+"set": "tehsil",
+"name": "Balochistan|Gwadar|Gwadar",
+"lat": 25.31063,
+"lon": 62.22841
+},
+{
+"id": "T038",
+"set": "tehsil",
+"name": "Balochistan|Gwadar|Jiwani",
+"lat": 25.16555,
+"lon": 61.80138
+},
+{
+"id": "T039",
+"set": "tehsil",
+"name": "Balochistan|Gwadar|Ormara",
+"lat": 25.40709,
+"lon": 64.74209
+},
+{
+"id": "T040",
+"set": "tehsil",
+"name": "Balochistan|Gwadar|Pasni",
+"lat": 25.4097,
+"lon": 63.23652
+},
+{
+"id": "T041",
+"set": "tehsil",
+"name": "Balochistan|Harnai|Harnai",
+"lat": 30.05628,
+"lon": 68.0881
+},
+{
+"id": "T042",
+"set": "tehsil",
+"name": "Balochistan|Harnai|Shahrigh",
+"lat": 30.2161,
+"lon": 67.61484
+},
+{
+"id": "T043",
+"set": "tehsil",
+"name": "Balochistan|Usta Muhammad|Gandakha",
+"lat": 28.06201,
+"lon": 67.7601
+},
+{
+"id": "T044",
+"set": "tehsil",
+"name": "Balochistan|Usta Muhammad|Usta Mohammad",
+"lat": 28.1558,
+"lon": 67.96839
+},
+{
+"id": "T045",
+"set": "tehsil",
+"name": "Balochistan|Jhal Magsi|Gandawa",
+"lat": 28.56394,
+"lon": 67.54466
+},
+{
+"id": "T046",
+"set": "tehsil",
+"name": "Balochistan|Jhal Magsi|Jhal Magsi",
+"lat": 28.2218,
+"lon": 67.50699
+},
+{
+"id": "T047",
+"set": "tehsil",
+"name": "Balochistan|Kachhi|Dhadar",
+"lat": 29.47609,
+"lon": 67.60279
+},
+{
+"id": "T048",
+"set": "tehsil",
+"name": "Balochistan|Kachhi|Mach",
+"lat": 29.70929,
+"lon": 67.34495
+},
+{
+"id": "T049",
+"set": "tehsil",
+"name": "Balochistan|Kachhi|Sanni",
+"lat": 28.97212,
+"lon": 67.47913
+},
+{
+"id": "T050",
+"set": "tehsil",
+"name": "Balochistan|Kachhi|Balanari",
+"lat": 29.27022,
+"lon": 67.83909
+},
+{
+"id": "T051",
+"set": "tehsil",
+"name": "Balochistan|Kachhi|Khattan",
+"lat": 29.20336,
+"lon": 67.66097
+},
+{
+"id": "T052",
+"set": "tehsil",
+"name": "Balochistan|Kalat|Kalat",
+"lat": 29.05879,
+"lon": 66.74577
+},
+{
+"id": "T053",
+"set": "tehsil",
+"name": "Balochistan|Kalat|Khaliqabad",
+"lat": 29.41943,
+"lon": 66.60106
+},
+{
+"id": "T054",
+"set": "tehsil",
+"name": "Balochistan|Kech|Buleda",
+"lat": 26.39256,
+"lon": 63.04049
+},
+{
+"id": "T055",
+"set": "tehsil",
+"name": "Balochistan|Kech|Dasht",
+"lat": 25.68771,
+"lon": 62.57225
+},
+{
+"id": "T056",
+"set": "tehsil",
+"name": "Balochistan|Kech|Kech (Turbat)",
+"lat": 25.89476,
+"lon": 63.45367
+},
+{
+"id": "T057",
+"set": "tehsil",
+"name": "Balochistan|Kech|Mand",
+"lat": 26.00013,
+"lon": 61.97557
+},
+{
+"id": "T058",
+"set": "tehsil",
+"name": "Balochistan|Kech|Tump",
+"lat": 26.20845,
+"lon": 62.39294
+},
+{
+"id": "T059",
+"set": "tehsil",
+"name": "Balochistan|Kharan|Kharan",
+"lat": 28.88479,
+"lon": 65.7366
+},
+{
+"id": "T060",
+"set": "tehsil",
+"name": "Balochistan|Kharan|Sar Kharan",
+"lat": 28.43283,
+"lon": 65.65467
+},
+{
+"id": "T061",
+"set": "tehsil",
+"name": "Balochistan|Kharan|Tomulk",
+"lat": 28.62387,
+"lon": 65.20148
+},
+{
+"id": "T062",
+"set": "tehsil",
+"name": "Balochistan|Khuzdar|Khuzdar",
+"lat": 27.73627,
+"lon": 66.7263
+},
+{
+"id": "T063",
+"set": "tehsil",
+"name": "Balochistan|Khuzdar|Mola",
+"lat": 28.06576,
+"lon": 67.04024
+},
+{
+"id": "T064",
+"set": "tehsil",
+"name": "Balochistan|Khuzdar|Naal",
+"lat": 27.26116,
+"lon": 66.0765
+},
+{
+"id": "T065",
+"set": "tehsil",
+"name": "Balochistan|Khuzdar|Wadh",
+"lat": 26.81747,
+"lon": 66.74664
+},
+{
+"id": "T066",
+"set": "tehsil",
+"name": "Balochistan|Khuzdar|Zehri",
+"lat": 28.56833,
+"lon": 66.87884
+},
+{
+"id": "T067",
+"set": "tehsil",
+"name": "Balochistan|Killa Abdullah|Dobandi",
+"lat": 31.11863,
+"lon": 67.01031
+},
+{
+"id": "T068",
+"set": "tehsil",
+"name": "Balochistan|Killa Abdullah|Killa Abdullah",
+"lat": 30.67518,
+"lon": 66.63722
+},
+{
+"id": "T069",
+"set": "tehsil",
+"name": "Balochistan|Killa Saifullah|Killa Saifullah",
+"lat": 30.98884,
+"lon": 68.52543
+},
+{
+"id": "T070",
+"set": "tehsil",
+"name": "Balochistan|Killa Saifullah|Muslim Bagh",
+"lat": 30.91722,
+"lon": 67.85582
+},
+{
+"id": "T071",
+"set": "tehsil",
+"name": "Balochistan|Kohlu|Kohlu",
+"lat": 29.91164,
+"lon": 69.18999
+},
+{
+"id": "T072",
+"set": "tehsil",
+"name": "Balochistan|Kohlu|Mawand",
+"lat": 29.70319,
+"lon": 68.72538
+},
+{
+"id": "T073",
+"set": "tehsil",
+"name": "Balochistan|Lasbela|Bela",
+"lat": 26.2558,
+"lon": 66.39868
+},
+{
+"id": "T074",
+"set": "tehsil",
+"name": "Balochistan|Hub|Hub",
+"lat": 25.20743,
+"lon": 66.98363
+},
+{
+"id": "T075",
+"set": "tehsil",
+"name": "Balochistan|Lasbela|Kanraj",
+"lat": 26.15165,
+"lon": 66.77864
+},
+{
+"id": "T076",
+"set": "tehsil",
+"name": "Balochistan|Hub|Sonmiani",
+"lat": 25.41832,
+"lon": 66.7845
+},
+{
+"id": "T077",
+"set": "tehsil",
+"name": "Balochistan|Lasbela|Uthal",
+"lat": 25.85587,
+"lon": 66.65917
+},
+{
+"id": "T078",
+"set": "tehsil",
+"name": "Balochistan|Lasbela|Lakhra",
+"lat": 25.82759,
+"lon": 66.33753
+},
+{
+"id": "T079",
+"set": "tehsil",
+"name": "Balochistan|Lasbela|Lairi",
+"lat": 25.53905,
+"lon": 65.3724
+},
+{
+"id": "T080",
+"set": "tehsil",
+"name": "Balochistan|Lehri|Bhag",
+"lat": 28.88795,
+"lon": 67.82416
+},
+{
+"id": "T081",
+"set": "tehsil",
+"name": "Balochistan|Lehri|Lehri",
+"lat": 29.08488,
+"lon": 68.13313
+},
+{
+"id": "T082",
+"set": "tehsil",
+"name": "Balochistan|Loralai|Loralai",
+"lat": 30.45771,
+"lon": 68.51019
+},
+{
+"id": "T083",
+"set": "tehsil",
+"name": "Balochistan|Loralai|Mekhtar",
+"lat": 30.49151,
+"lon": 69.2328
+},
+{
+"id": "T084",
+"set": "tehsil",
+"name": "Balochistan|Mastung|Dasht Spenzend",
+"lat": 29.67607,
+"lon": 67.00444
+},
+{
+"id": "T085",
+"set": "tehsil",
+"name": "Balochistan|Mastung|Kirdgap",
+"lat": 29.62214,
+"lon": 66.38904
+},
+{
+"id": "T086",
+"set": "tehsil",
+"name": "Balochistan|Mastung|Mastung",
+"lat": 29.83408,
+"lon": 66.73259
+},
+{
+"id": "T087",
+"set": "tehsil",
+"name": "Balochistan|Musakhel|Drug",
+"lat": 31.06884,
+"lon": 70.16405
+},
+{
+"id": "T088",
+"set": "tehsil",
+"name": "Balochistan|Musakhel|Musakhel",
+"lat": 31.05247,
+"lon": 69.91853
+},
+{
+"id": "T089",
+"set": "tehsil",
+"name": "Balochistan|Nasirabad|Chattar",
+"lat": 28.8026,
+"lon": 68.32785
+},
+{
+"id": "T090",
+"set": "tehsil",
+"name": "Balochistan|Nasirabad|Dera Murad Jamali",
+"lat": 28.60047,
+"lon": 68.16592
+},
+{
+"id": "T091",
+"set": "tehsil",
+"name": "Balochistan|Nasirabad|Tamboo",
+"lat": 28.44662,
+"lon": 67.90861
+},
+{
+"id": "T092",
+"set": "tehsil",
+"name": "Balochistan|Panjgur|Gowargo",
+"lat": 26.74719,
+"lon": 63.92849
+},
+{
+"id": "T093",
+"set": "tehsil",
+"name": "Balochistan|Panjgur|Jaheen Parome",
+"lat": 26.51394,
+"lon": 63.67729
+},
+{
+"id": "T094",
+"set": "tehsil",
+"name": "Balochistan|Panjgur|Panjgur",
+"lat": 27.0085,
+"lon": 64.11997
+},
+{
+"id": "T095",
+"set": "tehsil",
+"name": "Balochistan|Panjgur|Gichk",
+"lat": 26.71717,
+"lon": 64.83509
+},
+{
+"id": "T096",
+"set": "tehsil",
+"name": "Balochistan|Pishin|Huramzai",
+"lat": 30.84503,
+"lon": 66.90638
+},
+{
+"id": "T097",
+"set": "tehsil",
+"name": "Balochistan|Pishin|Karezat",
+"lat": 30.60471,
+"lon": 67.27718
+},
+{
+"id": "T098",
+"set": "tehsil",
+"name": "Balochistan|Pishin|Pishin",
+"lat": 30.71307,
+"lon": 67.03142
+},
+{
+"id": "T099",
+"set": "tehsil",
+"name": "Balochistan|Pishin|Saranan",
+"lat": 30.44242,
+"lon": 66.715
+},
+{
+"id": "T100",
+"set": "tehsil",
+"name": "Balochistan|Quetta|Panjpai",
+"lat": 30.02696,
+"lon": 66.47087
+},
+{
+"id": "T101",
+"set": "tehsil",
+"name": "Balochistan|Quetta|Quetta City",
+"lat": 30.09327,
+"lon": 67.14716
+},
+{
+"id": "T102",
+"set": "tehsil",
+"name": "Balochistan|Quetta|Quetta Saddar",
+"lat": 30.28657,
+"lon": 66.96835
+},
+{
+"id": "T103",
+"set": "tehsil",
+"name": "Balochistan|Sherani|Sherani",
+"lat": 31.62194,
+"lon": 69.76767
+},
+{
+"id": "T104",
+"set": "tehsil",
+"name": "Balochistan|Sibi|Sibi",
+"lat": 29.7239,
+"lon": 68.24385
+},
+{
+"id": "T105",
+"set": "tehsil",
+"name": "Balochistan|Sohbatpur|Sohbatpur",
+"lat": 28.50535,
+"lon": 68.61442
+},
+{
+"id": "T106",
+"set": "tehsil",
+"name": "Balochistan|Washuk|Mashkhel",
+"lat": 27.74003,
+"lon": 63.35232
+},
+{
+"id": "T107",
+"set": "tehsil",
+"name": "Balochistan|Washuk|Basima",
+"lat": 28.02375,
+"lon": 65.70193
+},
+{
+"id": "T108",
+"set": "tehsil",
+"name": "Balochistan|Washuk|Washuk",
+"lat": 27.71809,
+"lon": 64.38608
+},
+{
+"id": "T109",
+"set": "tehsil",
+"name": "Balochistan|Washuk|Nag",
+"lat": 27.45858,
+"lon": 65.2064
+},
+{
+"id": "T110",
+"set": "tehsil",
+"name": "Balochistan|Washuk|Shaogari",
+"lat": 28.35786,
+"lon": 64.68255
+},
+{
+"id": "T111",
+"set": "tehsil",
+"name": "Balochistan|Zhob|Zhob",
+"lat": 31.29377,
+"lon": 69.32927
+},
+{
+"id": "T112",
+"set": "tehsil",
+"name": "Balochistan|Ziarat|Sinjawi",
+"lat": 30.35557,
+"lon": 68.1629
+},
+{
+"id": "T113",
+"set": "tehsil",
+"name": "Balochistan|Ziarat|Ziarat",
+"lat": 30.43849,
+"lon": 67.49953
+},
+{
+"id": "T114",
+"set": "tehsil",
+"name": "Balochistan|Surab|Surab",
+"lat": 28.31847,
+"lon": 66.18157
+},
+{
+"id": "T115",
+"set": "tehsil",
+"name": "Balochistan|Duki|Duki",
+"lat": 30.16337,
+"lon": 69.00892
+},
+{
+"id": "T116",
+"set": "tehsil",
+"name": "Balochistan|Chaman|Chaman",
+"lat": 30.85869,
+"lon": 66.56175
+},
+{
+"id": "T117",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Astore|Astore",
+"lat": 35.50304,
+"lon": 74.83981
+},
+{
+"id": "T118",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Astore|Shounter",
+"lat": 34.9831,
+"lon": 74.86678
+},
+{
+"id": "T119",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Diamir|Chilas",
+"lat": 35.37757,
+"lon": 74.21747
+},
+{
+"id": "T120",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Ghizer|Ishkoman",
+"lat": 36.58021,
+"lon": 73.90126
+},
+{
+"id": "T121",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Ghizer|Punial",
+"lat": 36.10093,
+"lon": 73.86167
+},
+{
+"id": "T122",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Gilgit|Gilgit",
+"lat": 35.91051,
+"lon": 74.42
+},
+{
+"id": "T123",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Hunza|Ali Abad",
+"lat": 36.38717,
+"lon": 74.64726
+},
+{
+"id": "T124",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Skardu|Gamba",
+"lat": 35.21996,
+"lon": 75.36584
+},
+{
+"id": "T125",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Skardu|Skardu",
+"lat": 35.25621,
+"lon": 75.66938
+},
+{
+"id": "T126",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Nagar|Nagar",
+"lat": 36.1895,
+"lon": 74.92207
+},
+{
+"id": "T127",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Nagar|Sikandar Abad",
+"lat": 36.35395,
+"lon": 74.32762
+},
+{
+"id": "T128",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Kharmang|Gultari",
+"lat": 34.78723,
+"lon": 75.54338
+},
+{
+"id": "T129",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Kharmang|Kharmang",
+"lat": 34.91133,
+"lon": 76.08234
+},
+{
+"id": "T130",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Ghanche|Daghoni",
+"lat": 35.31129,
+"lon": 76.11295
+},
+{
+"id": "T131",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Ghanche|Khaplu",
+"lat": 34.99841,
+"lon": 76.53937
+},
+{
+"id": "T132",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Shigar|Shigar",
+"lat": 35.77374,
+"lon": 75.77392
+},
+{
+"id": "T133",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Tangir|Tangir",
+"lat": 35.73506,
+"lon": 73.36996
+},
+{
+"id": "T134",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Gupis Yasin|Gupis",
+"lat": 36.12366,
+"lon": 73.42836
+},
+{
+"id": "T135",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Gupis Yasin|Yasin",
+"lat": 36.5046,
+"lon": 73.32666
+},
+{
+"id": "T136",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Roundu|Rondu",
+"lat": 35.56987,
+"lon": 75.14423
+},
+{
+"id": "T137",
+"set": "tehsil",
+"name": "Federal Capital|Islamabad|Islamabad",
+"lat": 33.67218,
+"lon": 73.12007
+},
+{
+"id": "T138",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Bajaur|Bar Chamarkand",
+"lat": 34.7318,
+"lon": 71.20202
+},
+{
+"id": "T139",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Bajaur|Barang",
+"lat": 34.62006,
+"lon": 71.61789
+},
+{
+"id": "T140",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Bajaur|Khar",
+"lat": 34.72526,
+"lon": 71.48305
+},
+{
+"id": "T141",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Bajaur|Mamund",
+"lat": 34.83094,
+"lon": 71.38524
+},
+{
+"id": "T142",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Bajaur|Nawagai",
+"lat": 34.73414,
+"lon": 71.28987
+},
+{
+"id": "T143",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Bajaur|Salarzai",
+"lat": 34.87158,
+"lon": 71.52679
+},
+{
+"id": "T144",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Bajaur|Utman Khel",
+"lat": 34.74083,
+"lon": 71.70096
+},
+{
+"id": "T145",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Bannu|Bannu",
+"lat": 32.94741,
+"lon": 70.66898
+},
+{
+"id": "T146",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Bannu|Baka Khel",
+"lat": 32.85862,
+"lon": 70.47088
+},
+{
+"id": "T147",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Bannu|Domel",
+"lat": 32.96414,
+"lon": 70.82268
+},
+{
+"id": "T148",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Bannu|Kakki",
+"lat": 32.85974,
+"lon": 70.68506
+},
+{
+"id": "T149",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Bannu|Miryan",
+"lat": 32.89438,
+"lon": 70.57852
+},
+{
+"id": "T150",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Bannu|Wazir",
+"lat": 33.07774,
+"lon": 70.57982
+},
+{
+"id": "T151",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Batagram|Allai",
+"lat": 34.84186,
+"lon": 73.19462
+},
+{
+"id": "T152",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Batagram|Batagram",
+"lat": 34.68388,
+"lon": 73.02973
+},
+{
+"id": "T153",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Buner|Daggar",
+"lat": 34.55778,
+"lon": 72.39737
+},
+{
+"id": "T154",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Buner|Gagra",
+"lat": 34.52092,
+"lon": 72.60757
+},
+{
+"id": "T155",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Buner|Khado Khel",
+"lat": 34.26437,
+"lon": 72.5366
+},
+{
+"id": "T156",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Buner|Mandanr",
+"lat": 34.37901,
+"lon": 72.63881
+},
+{
+"id": "T157",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Charsadda|Charsadda",
+"lat": 34.174,
+"lon": 71.79412
+},
+{
+"id": "T158",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Charsadda|Shabqadar",
+"lat": 34.22366,
+"lon": 71.58617
+},
+{
+"id": "T159",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Charsadda|Tangi",
+"lat": 34.33935,
+"lon": 71.70984
+},
+{
+"id": "T160",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Chitral Lower|Chitral",
+"lat": 35.78854,
+"lon": 71.79192
+},
+{
+"id": "T161",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Chitral Lower|Drosh",
+"lat": 35.50777,
+"lon": 71.80641
+},
+{
+"id": "T162",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Chitral Upper|Mastuj",
+"lat": 36.4473,
+"lon": 72.83608
+},
+{
+"id": "T163",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Dera Ismail Khan|Dera Ismail Khan",
+"lat": 31.91515,
+"lon": 70.7848
+},
+{
+"id": "T164",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Dera Ismail Khan|Daraban",
+"lat": 31.64687,
+"lon": 70.44126
+},
+{
+"id": "T165",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Dera Ismail Khan|Kulachi",
+"lat": 31.96794,
+"lon": 70.4351
+},
+{
+"id": "T166",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Dera Ismail Khan|Paroa",
+"lat": 31.47508,
+"lon": 70.65408
+},
+{
+"id": "T167",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Dera Ismail Khan|Darazinda",
+"lat": 31.55575,
+"lon": 70.14737
+},
+{
+"id": "T168",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Hangu|Hangu",
+"lat": 33.4854,
+"lon": 71.00162
+},
+{
+"id": "T169",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Hangu|Tall",
+"lat": 33.38791,
+"lon": 70.71851
+},
+{
+"id": "T170",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Karak|Banda Daud Shah",
+"lat": 33.26308,
+"lon": 71.06605
+},
+{
+"id": "T171",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Karak|Karak",
+"lat": 33.13005,
+"lon": 71.14077
+},
+{
+"id": "T172",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Karak|Takht-E-Nasrati",
+"lat": 32.98687,
+"lon": 71.13829
+},
+{
+"id": "T173",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Khyber|Bara",
+"lat": 33.86805,
+"lon": 70.97756
+},
+{
+"id": "T174",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Khyber|Jamrud",
+"lat": 33.98979,
+"lon": 71.3067
+},
+{
+"id": "T175",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Khyber|Landi Kotal",
+"lat": 34.10913,
+"lon": 71.14243
+},
+{
+"id": "T176",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Khyber|Mulagori",
+"lat": 34.11151,
+"lon": 71.32072
+},
+{
+"id": "T177",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Kohat|Kohat",
+"lat": 33.55592,
+"lon": 71.39939
+},
+{
+"id": "T178",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Kohat|Lachi",
+"lat": 33.32762,
+"lon": 71.48483
+},
+{
+"id": "T179",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Kohat|Gumbat",
+"lat": 33.552,
+"lon": 71.83117
+},
+{
+"id": "T180",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Kohat|Darra Adam Khel",
+"lat": 33.65396,
+"lon": 71.59825
+},
+{
+"id": "T181",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Lower Kohistan|Pattan",
+"lat": 35.20613,
+"lon": 73.01217
+},
+{
+"id": "T182",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Lower Kohistan|Bankad",
+"lat": 35.13762,
+"lon": 72.83955
+},
+{
+"id": "T183",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Upper Kohistan|Dassu",
+"lat": 35.1971,
+"lon": 73.54227
+},
+{
+"id": "T184",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Upper Kohistan|Kandia",
+"lat": 35.57796,
+"lon": 73.00578
+},
+{
+"id": "T185",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Upper Kohistan|Harban Basha",
+"lat": 35.42605,
+"lon": 73.58833
+},
+{
+"id": "T186",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Upper Kohistan|Seo",
+"lat": 35.33427,
+"lon": 73.18594
+},
+{
+"id": "T187",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Kolai Palas|Palas",
+"lat": 35.02822,
+"lon": 73.27855
+},
+{
+"id": "T188",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Kolai Palas|Battera Kolai",
+"lat": 34.98866,
+"lon": 72.95289
+},
+{
+"id": "T189",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Kurram|Central Kurram",
+"lat": 33.69084,
+"lon": 70.49178
+},
+{
+"id": "T190",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Kurram|Upper Kurram",
+"lat": 33.8835,
+"lon": 70.07362
+},
+{
+"id": "T191",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Lakki Marwat|Lakki Marwat",
+"lat": 32.54636,
+"lon": 70.86632
+},
+{
+"id": "T192",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Lakki Marwat|Sarai Naurang",
+"lat": 32.74484,
+"lon": 70.76872
+},
+{
+"id": "T193",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Lakki Marwat|Bettani",
+"lat": 32.63982,
+"lon": 70.38489
+},
+{
+"id": "T194",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Lower Dir|Adenzai",
+"lat": 34.72679,
+"lon": 72.01732
+},
+{
+"id": "T195",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Lower Dir|Balambat",
+"lat": 34.87631,
+"lon": 71.89159
+},
+{
+"id": "T196",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Lower Dir|Lalqila",
+"lat": 34.98717,
+"lon": 71.80658
+},
+{
+"id": "T197",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Lower Dir|Munda",
+"lat": 34.82762,
+"lon": 71.71264
+},
+{
+"id": "T198",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Lower Dir|Samarbagh",
+"lat": 34.94895,
+"lon": 71.64461
+},
+{
+"id": "T199",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Lower Dir|Timergara",
+"lat": 34.75166,
+"lon": 71.85827
+},
+{
+"id": "T200",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Malakand|Bat Khela",
+"lat": 34.56286,
+"lon": 71.90459
+},
+{
+"id": "T201",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Malakand|Dargai",
+"lat": 34.45711,
+"lon": 71.86343
+},
+{
+"id": "T202",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mansehra|Bala Kot",
+"lat": 34.81706,
+"lon": 73.67683
+},
+{
+"id": "T203",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mansehra|Mansehra",
+"lat": 34.38907,
+"lon": 73.1386
+},
+{
+"id": "T204",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mansehra|Oghi",
+"lat": 34.46628,
+"lon": 72.9939
+},
+{
+"id": "T205",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mansehra|Baffa Pakhal",
+"lat": 34.56349,
+"lon": 73.25121
+},
+{
+"id": "T206",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mansehra|Darband",
+"lat": 34.36977,
+"lon": 72.87736
+},
+{
+"id": "T207",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mardan|Katlang",
+"lat": 34.42371,
+"lon": 72.09598
+},
+{
+"id": "T208",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mardan|Mardan",
+"lat": 34.18052,
+"lon": 72.03493
+},
+{
+"id": "T209",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mardan|Takht Bhai",
+"lat": 34.32888,
+"lon": 71.94427
+},
+{
+"id": "T210",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mardan|Rustam",
+"lat": 34.34616,
+"lon": 72.26309
+},
+{
+"id": "T211",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mardan|Garhi Kapura",
+"lat": 34.18249,
+"lon": 72.14641
+},
+{
+"id": "T212",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mohmand|Ambar",
+"lat": 34.59729,
+"lon": 71.47127
+},
+{
+"id": "T213",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mohmand|Baizai",
+"lat": 34.51709,
+"lon": 71.11035
+},
+{
+"id": "T214",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mohmand|Halimzai",
+"lat": 34.39295,
+"lon": 71.34108
+},
+{
+"id": "T215",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mohmand|Khwazai",
+"lat": 34.39615,
+"lon": 71.1962
+},
+{
+"id": "T216",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mohmand|Pandiali",
+"lat": 34.44983,
+"lon": 71.4257
+},
+{
+"id": "T217",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mohmand|Prang Ghar",
+"lat": 34.4383,
+"lon": 71.58456
+},
+{
+"id": "T218",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mohmand|Safi",
+"lat": 34.59401,
+"lon": 71.23152
+},
+{
+"id": "T219",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Mohmand|Yaka Ghund",
+"lat": 34.25368,
+"lon": 71.36415
+},
+{
+"id": "T220",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|North Waziristan|Data Khel",
+"lat": 32.96082,
+"lon": 69.71347
+},
+{
+"id": "T221",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|North Waziristan|Dossali",
+"lat": 32.8393,
+"lon": 70.02546
+},
+{
+"id": "T222",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|North Waziristan|Garyum",
+"lat": 32.75802,
+"lon": 70.12134
+},
+{
+"id": "T223",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|North Waziristan|Mir Ali",
+"lat": 32.96056,
+"lon": 70.24082
+},
+{
+"id": "T224",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|North Waziristan|Miran Shah",
+"lat": 32.98544,
+"lon": 70.03551
+},
+{
+"id": "T225",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|North Waziristan|Razmak",
+"lat": 32.72761,
+"lon": 69.85573
+},
+{
+"id": "T226",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|North Waziristan|Shewa",
+"lat": 33.26969,
+"lon": 70.45514
+},
+{
+"id": "T227",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|North Waziristan|Spinwam",
+"lat": 33.15431,
+"lon": 70.31264
+},
+{
+"id": "T228",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|North Waziristan|Shawal",
+"lat": 32.72795,
+"lon": 69.58697
+},
+{
+"id": "T229",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Nowshera|Nowshera",
+"lat": 33.99049,
+"lon": 71.97705
+},
+{
+"id": "T230",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Nowshera|Pabbi",
+"lat": 33.93424,
+"lon": 71.80944
+},
+{
+"id": "T231",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Orakzai|Central Orakzai",
+"lat": 33.69261,
+"lon": 70.9754
+},
+{
+"id": "T232",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Orakzai|Ismailzai",
+"lat": 33.60381,
+"lon": 70.92851
+},
+{
+"id": "T233",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Orakzai|Lower Orakzai",
+"lat": 33.75106,
+"lon": 71.16595
+},
+{
+"id": "T234",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Orakzai|Upper Orakzai",
+"lat": 33.69528,
+"lon": 70.71759
+},
+{
+"id": "T235",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Peshawar|Town-I",
+"lat": 34.0147,
+"lon": 71.58623
+},
+{
+"id": "T236",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Peshawar|Town-Ii",
+"lat": 34.09901,
+"lon": 71.54216
+},
+{
+"id": "T237",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Peshawar|Town-Iii",
+"lat": 33.99475,
+"lon": 71.47557
+},
+{
+"id": "T238",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Peshawar|Town-Iv",
+"lat": 33.87386,
+"lon": 71.61758
+},
+{
+"id": "T239",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Peshawar|Hassan Khel",
+"lat": 33.73407,
+"lon": 71.71868
+},
+{
+"id": "T240",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Shangla|Alpuri",
+"lat": 34.95849,
+"lon": 72.69383
+},
+{
+"id": "T241",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Shangla|Bisham",
+"lat": 34.86891,
+"lon": 72.87284
+},
+{
+"id": "T242",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Shangla|Chakisar",
+"lat": 34.78492,
+"lon": 72.77521
+},
+{
+"id": "T243",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Shangla|Makhuzai",
+"lat": 34.69029,
+"lon": 72.58975
+},
+{
+"id": "T244",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Shangla|Martoong",
+"lat": 34.63474,
+"lon": 72.75374
+},
+{
+"id": "T245",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Shangla|Puran",
+"lat": 34.74541,
+"lon": 72.66258
+},
+{
+"id": "T246",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|South Waziristan|Birmal",
+"lat": 32.40867,
+"lon": 69.39601
+},
+{
+"id": "T247",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|South Waziristan|Ladha",
+"lat": 32.60839,
+"lon": 69.95867
+},
+{
+"id": "T248",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|South Waziristan|Makin",
+"lat": 32.65658,
+"lon": 69.86401
+},
+{
+"id": "T249",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|South Waziristan|Sararogha",
+"lat": 32.46297,
+"lon": 70.07464
+},
+{
+"id": "T250",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|South Waziristan|Serwakai",
+"lat": 32.32105,
+"lon": 69.90916
+},
+{
+"id": "T251",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|South Waziristan|Tiarza",
+"lat": 32.45191,
+"lon": 69.72265
+},
+{
+"id": "T252",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|South Waziristan|Toi Khulla",
+"lat": 32.02752,
+"lon": 69.48942
+},
+{
+"id": "T253",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|South Waziristan|Wana",
+"lat": 32.12827,
+"lon": 69.76648
+},
+{
+"id": "T254",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Swabi|Swabi",
+"lat": 34.10367,
+"lon": 72.49709
+},
+{
+"id": "T255",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Swabi|Topi",
+"lat": 34.15481,
+"lon": 72.66012
+},
+{
+"id": "T256",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Swabi|Razar",
+"lat": 34.21827,
+"lon": 72.33551
+},
+{
+"id": "T257",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Swat|Babuzai",
+"lat": 34.73874,
+"lon": 72.41897
+},
+{
+"id": "T258",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Swat|Bahrain",
+"lat": 35.2736,
+"lon": 72.55654
+},
+{
+"id": "T259",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Swat|Barikot",
+"lat": 34.66667,
+"lon": 72.20792
+},
+{
+"id": "T260",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Swat|Charbagh",
+"lat": 34.85188,
+"lon": 72.51095
+},
+{
+"id": "T261",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Swat|Kabal",
+"lat": 34.8562,
+"lon": 72.26562
+},
+{
+"id": "T262",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Swat|Khwaza Khela",
+"lat": 34.99747,
+"lon": 72.5304
+},
+{
+"id": "T263",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Swat|Matta Kharirai",
+"lat": 35.05704,
+"lon": 72.4105
+},
+{
+"id": "T264",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Swat|Matta Sebujni",
+"lat": 35.03857,
+"lon": 72.30139
+},
+{
+"id": "T265",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Tank|Tank",
+"lat": 32.2461,
+"lon": 70.39386
+},
+{
+"id": "T266",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Tank|Jandola",
+"lat": 32.45519,
+"lon": 70.27854
+},
+{
+"id": "T267",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Tor Ghar|Judba",
+"lat": 34.65384,
+"lon": 72.84871
+},
+{
+"id": "T268",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Tor Ghar|Khander",
+"lat": 34.47786,
+"lon": 72.81852
+},
+{
+"id": "T269",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Upper Dir|Barawal",
+"lat": 35.10464,
+"lon": 71.69051
+},
+{
+"id": "T270",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Upper Dir|Dir",
+"lat": 35.21321,
+"lon": 71.85488
+},
+{
+"id": "T271",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Upper Dir|Kalkot",
+"lat": 35.44984,
+"lon": 72.18186
+},
+{
+"id": "T272",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Upper Dir|Khall",
+"lat": 34.89719,
+"lon": 72.02068
+},
+{
+"id": "T273",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Upper Dir|Shrengal",
+"lat": 35.4298,
+"lon": 71.99877
+},
+{
+"id": "T274",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Upper Dir|Wari",
+"lat": 35.01495,
+"lon": 72.06215
+},
+{
+"id": "T275",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Upper Dir|Larjam",
+"lat": 35.15759,
+"lon": 72.13313
+},
+{
+"id": "T276",
+"set": "tehsil",
+"name": "Punjab|Attock|Attock",
+"lat": 33.73039,
+"lon": 72.32199
+},
+{
+"id": "T277",
+"set": "tehsil",
+"name": "Punjab|Attock|Fateh Jang",
+"lat": 33.5183,
+"lon": 72.63125
+},
+{
+"id": "T278",
+"set": "tehsil",
+"name": "Punjab|Attock|Jand",
+"lat": 33.39217,
+"lon": 72.02893
+},
+{
+"id": "T279",
+"set": "tehsil",
+"name": "Punjab|Attock|Pindi Gheb",
+"lat": 33.2678,
+"lon": 72.2884
+},
+{
+"id": "T280",
+"set": "tehsil",
+"name": "Punjab|Bahawalnagar|Bahawalnagar",
+"lat": 29.84465,
+"lon": 73.1738
+},
+{
+"id": "T281",
+"set": "tehsil",
+"name": "Punjab|Bahawalnagar|Chishtian",
+"lat": 29.68846,
+"lon": 72.80482
+},
+{
+"id": "T282",
+"set": "tehsil",
+"name": "Punjab|Bahawalnagar|Fort Abbas",
+"lat": 29.10934,
+"lon": 72.67884
+},
+{
+"id": "T283",
+"set": "tehsil",
+"name": "Punjab|Bahawalnagar|Minchinabad",
+"lat": 30.1456,
+"lon": 73.64839
+},
+{
+"id": "T284",
+"set": "tehsil",
+"name": "Punjab|Bahawalpur|Ahmadpur East",
+"lat": 29.27328,
+"lon": 71.15314
+},
+{
+"id": "T285",
+"set": "tehsil",
+"name": "Punjab|Bahawalpur|Bahawalpur",
+"lat": 29.33935,
+"lon": 71.62906
+},
+{
+"id": "T286",
+"set": "tehsil",
+"name": "Punjab|Bahawalpur|Hasilpur",
+"lat": 29.63023,
+"lon": 72.51813
+},
+{
+"id": "T287",
+"set": "tehsil",
+"name": "Punjab|Bahawalpur|Khairpur Tamewali",
+"lat": 29.59701,
+"lon": 72.16943
+},
+{
+"id": "T288",
+"set": "tehsil",
+"name": "Punjab|Bhakkar|Bhakkar",
+"lat": 31.56367,
+"lon": 71.12229
+},
+{
+"id": "T289",
+"set": "tehsil",
+"name": "Punjab|Bhakkar|Darya Khan",
+"lat": 31.82629,
+"lon": 71.31828
+},
+{
+"id": "T290",
+"set": "tehsil",
+"name": "Punjab|Bhakkar|Mankera",
+"lat": 31.43726,
+"lon": 71.6238
+},
+{
+"id": "T291",
+"set": "tehsil",
+"name": "Punjab|Chakwal|Chakwal",
+"lat": 32.9979,
+"lon": 72.84181
+},
+{
+"id": "T292",
+"set": "tehsil",
+"name": "Punjab|Chakwal|Choa Saidan Shah",
+"lat": 32.73921,
+"lon": 73.02792
+},
+{
+"id": "T293",
+"set": "tehsil",
+"name": "Punjab|Chakwal|Kallar Kahar",
+"lat": 32.7658,
+"lon": 72.65918
+},
+{
+"id": "T294",
+"set": "tehsil",
+"name": "Punjab|Chakwal|Tala Gang",
+"lat": 32.88386,
+"lon": 72.19827
+},
+{
+"id": "T295",
+"set": "tehsil",
+"name": "Punjab|Chiniot|Bhawana",
+"lat": 31.53791,
+"lon": 72.71539
+},
+{
+"id": "T296",
+"set": "tehsil",
+"name": "Punjab|Chiniot|Chiniot",
+"lat": 31.69505,
+"lon": 73.02417
+},
+{
+"id": "T297",
+"set": "tehsil",
+"name": "Punjab|Chiniot|Lalian",
+"lat": 31.76497,
+"lon": 72.78682
+},
+{
+"id": "T298",
+"set": "tehsil",
+"name": "Punjab|Dera Ghazi Khan|Kot Chatta",
+"lat": 29.84945,
+"lon": 70.51591
+},
+{
+"id": "T299",
+"set": "tehsil",
+"name": "Punjab|Dera Ghazi Khan|Taunsa",
+"lat": 30.93535,
+"lon": 70.62672
+},
+{
+"id": "T300",
+"set": "tehsil",
+"name": "Punjab|Faisalabad|Chak Jhumra",
+"lat": 31.64456,
+"lon": 73.23626
+},
+{
+"id": "T301",
+"set": "tehsil",
+"name": "Punjab|Faisalabad|Faisalabad City",
+"lat": 31.43134,
+"lon": 73.0985
+},
+{
+"id": "T302",
+"set": "tehsil",
+"name": "Punjab|Faisalabad|Faisalabad Sadar",
+"lat": 31.35858,
+"lon": 73.01289
+},
+{
+"id": "T303",
+"set": "tehsil",
+"name": "Punjab|Faisalabad|Jaranwala",
+"lat": 31.34394,
+"lon": 73.40096
+},
+{
+"id": "T304",
+"set": "tehsil",
+"name": "Punjab|Faisalabad|Summundri",
+"lat": 31.05878,
+"lon": 72.94043
+},
+{
+"id": "T305",
+"set": "tehsil",
+"name": "Punjab|Faisalabad|Tandlian Wala",
+"lat": 30.92046,
+"lon": 73.06345
+},
+{
+"id": "T306",
+"set": "tehsil",
+"name": "Punjab|Gujranwala|Gujranwala",
+"lat": 32.14925,
+"lon": 74.18266
+},
+{
+"id": "T307",
+"set": "tehsil",
+"name": "Punjab|Gujranwala|Kamoke",
+"lat": 31.99364,
+"lon": 74.33404
+},
+{
+"id": "T308",
+"set": "tehsil",
+"name": "Punjab|Gujranwala|Nowshera Virkan",
+"lat": 31.99224,
+"lon": 73.97494
+},
+{
+"id": "T309",
+"set": "tehsil",
+"name": "Punjab|Gujranwala|Wazirabad",
+"lat": 32.32216,
+"lon": 73.96738
+},
+{
+"id": "T310",
+"set": "tehsil",
+"name": "Punjab|Gujrat|Gujrat",
+"lat": 32.63532,
+"lon": 74.13949
+},
+{
+"id": "T311",
+"set": "tehsil",
+"name": "Punjab|Gujrat|Kharian",
+"lat": 32.74994,
+"lon": 73.89603
+},
+{
+"id": "T312",
+"set": "tehsil",
+"name": "Punjab|Gujrat|Sarai Alamgir",
+"lat": 32.89141,
+"lon": 73.79285
+},
+{
+"id": "T313",
+"set": "tehsil",
+"name": "Punjab|Hafizabad|Hafizabad",
+"lat": 32.10704,
+"lon": 73.63943
+},
+{
+"id": "T314",
+"set": "tehsil",
+"name": "Punjab|Hafizabad|Pindi Bhattian",
+"lat": 31.95218,
+"lon": 73.37664
+},
+{
+"id": "T315",
+"set": "tehsil",
+"name": "Punjab|Jhang|Ahmadpur Sial",
+"lat": 30.81429,
+"lon": 71.87181
+},
+{
+"id": "T316",
+"set": "tehsil",
+"name": "Punjab|Jhang|Jhang",
+"lat": 31.40671,
+"lon": 72.35107
+},
+{
+"id": "T317",
+"set": "tehsil",
+"name": "Punjab|Jhang|Shorkot",
+"lat": 30.8815,
+"lon": 72.16606
+},
+{
+"id": "T318",
+"set": "tehsil",
+"name": "Punjab|Jhang|Athara Hazari",
+"lat": 31.18247,
+"lon": 71.99333
+},
+{
+"id": "T319",
+"set": "tehsil",
+"name": "Punjab|Jhelum|Dina",
+"lat": 33.00713,
+"lon": 73.58344
+},
+{
+"id": "T320",
+"set": "tehsil",
+"name": "Punjab|Jhelum|Jhelum",
+"lat": 32.83125,
+"lon": 73.52517
+},
+{
+"id": "T321",
+"set": "tehsil",
+"name": "Punjab|Jhelum|Pind Dadan Khan",
+"lat": 32.60544,
+"lon": 73.00041
+},
+{
+"id": "T322",
+"set": "tehsil",
+"name": "Punjab|Jhelum|Sohawa",
+"lat": 33.0111,
+"lon": 73.37193
+},
+{
+"id": "T323",
+"set": "tehsil",
+"name": "Punjab|Kasur|Kasur",
+"lat": 31.086,
+"lon": 74.38629
+},
+{
+"id": "T324",
+"set": "tehsil",
+"name": "Punjab|Kasur|Kot Radha Kishen",
+"lat": 31.17665,
+"lon": 74.16261
+},
+{
+"id": "T325",
+"set": "tehsil",
+"name": "Punjab|Kasur|Pattoki",
+"lat": 31.13312,
+"lon": 73.87105
+},
+{
+"id": "T326",
+"set": "tehsil",
+"name": "Punjab|Khanewal|Jahanian",
+"lat": 30.06124,
+"lon": 71.78671
+},
+{
+"id": "T327",
+"set": "tehsil",
+"name": "Punjab|Khanewal|Kabirwala",
+"lat": 30.51385,
+"lon": 71.88729
+},
+{
+"id": "T328",
+"set": "tehsil",
+"name": "Punjab|Khanewal|Khanewal",
+"lat": 30.29538,
+"lon": 72.02401
+},
+{
+"id": "T329",
+"set": "tehsil",
+"name": "Punjab|Khanewal|Mian Channu",
+"lat": 30.36424,
+"lon": 72.28062
+},
+{
+"id": "T330",
+"set": "tehsil",
+"name": "Punjab|Khushab|Khushab",
+"lat": 32.32356,
+"lon": 72.31701
+},
+{
+"id": "T331",
+"set": "tehsil",
+"name": "Punjab|Khushab|Naushera",
+"lat": 32.59212,
+"lon": 72.20616
+},
+{
+"id": "T332",
+"set": "tehsil",
+"name": "Punjab|Khushab|Noorpur",
+"lat": 31.86899,
+"lon": 71.94956
+},
+{
+"id": "T333",
+"set": "tehsil",
+"name": "Punjab|Khushab|Quaidabad",
+"lat": 32.34664,
+"lon": 71.95421
+},
+{
+"id": "T334",
+"set": "tehsil",
+"name": "Punjab|Lahore|Lahore Cantt",
+"lat": 31.49272,
+"lon": 74.44981
+},
+{
+"id": "T335",
+"set": "tehsil",
+"name": "Punjab|Lahore|Lahore City",
+"lat": 31.4197,
+"lon": 74.20952
+},
+{
+"id": "T336",
+"set": "tehsil",
+"name": "Punjab|Layyah|Choubara",
+"lat": 30.92916,
+"lon": 71.53034
+},
+{
+"id": "T337",
+"set": "tehsil",
+"name": "Punjab|Layyah|Karor Lal Esan",
+"lat": 31.22062,
+"lon": 71.02194
+},
+{
+"id": "T338",
+"set": "tehsil",
+"name": "Punjab|Layyah|Leiah",
+"lat": 30.87107,
+"lon": 71.00184
+},
+{
+"id": "T339",
+"set": "tehsil",
+"name": "Punjab|Lodhran|Dunyapur",
+"lat": 29.83026,
+"lon": 71.71249
+},
+{
+"id": "T340",
+"set": "tehsil",
+"name": "Punjab|Lodhran|Kahror Pacca",
+"lat": 29.64384,
+"lon": 71.88372
+},
+{
+"id": "T341",
+"set": "tehsil",
+"name": "Punjab|Lodhran|Lodhran",
+"lat": 29.58489,
+"lon": 71.54563
+},
+{
+"id": "T342",
+"set": "tehsil",
+"name": "Punjab|Mandi Bahauddin|Malakwal",
+"lat": 32.42281,
+"lon": 73.23791
+},
+{
+"id": "T343",
+"set": "tehsil",
+"name": "Punjab|Mandi Bahauddin|Mandi Bahauddin",
+"lat": 32.55464,
+"lon": 73.51437
+},
+{
+"id": "T344",
+"set": "tehsil",
+"name": "Punjab|Mandi Bahauddin|Phalia",
+"lat": 32.35758,
+"lon": 73.55202
+},
+{
+"id": "T345",
+"set": "tehsil",
+"name": "Punjab|Mianwali|Mianwali",
+"lat": 32.67314,
+"lon": 71.67319
+},
+{
+"id": "T346",
+"set": "tehsil",
+"name": "Punjab|Multan|Jalalpur Pirwala",
+"lat": 29.56857,
+"lon": 71.20362
+},
+{
+"id": "T347",
+"set": "tehsil",
+"name": "Punjab|Multan|Multan City",
+"lat": 30.18828,
+"lon": 71.45061
+},
+{
+"id": "T348",
+"set": "tehsil",
+"name": "Punjab|Multan|Multan Saddar",
+"lat": 30.14416,
+"lon": 71.54569
+},
+{
+"id": "T349",
+"set": "tehsil",
+"name": "Punjab|Multan|Shujabad",
+"lat": 29.83381,
+"lon": 71.3119
+},
+{
+"id": "T350",
+"set": "tehsil",
+"name": "Punjab|Muzaffargarh|Alipur",
+"lat": 29.31594,
+"lon": 70.77575
+},
+{
+"id": "T351",
+"set": "tehsil",
+"name": "Punjab|Muzaffargarh|Jatoi",
+"lat": 29.62011,
+"lon": 70.87213
+},
+{
+"id": "T352",
+"set": "tehsil",
+"name": "Punjab|Muzaffargarh|Kot Addu",
+"lat": 30.46116,
+"lon": 71.1184
+},
+{
+"id": "T353",
+"set": "tehsil",
+"name": "Punjab|Muzaffargarh|Muzaffargarh",
+"lat": 30.07311,
+"lon": 71.14506
+},
+{
+"id": "T354",
+"set": "tehsil",
+"name": "Punjab|Nankana Sahib|Nankana Sahib",
+"lat": 31.35087,
+"lon": 73.75293
+},
+{
+"id": "T355",
+"set": "tehsil",
+"name": "Punjab|Nankana Sahib|Sangla Hill",
+"lat": 31.7235,
+"lon": 73.41716
+},
+{
+"id": "T356",
+"set": "tehsil",
+"name": "Punjab|Nankana Sahib|Shah Kot",
+"lat": 31.58982,
+"lon": 73.56506
+},
+{
+"id": "T357",
+"set": "tehsil",
+"name": "Punjab|Narowal|Narowal",
+"lat": 32.07904,
+"lon": 74.78906
+},
+{
+"id": "T358",
+"set": "tehsil",
+"name": "Punjab|Okara|Okara",
+"lat": 30.83049,
+"lon": 73.44128
+},
+{
+"id": "T359",
+"set": "tehsil",
+"name": "Punjab|Okara|Renala Khurd",
+"lat": 30.93273,
+"lon": 73.65917
+},
+{
+"id": "T360",
+"set": "tehsil",
+"name": "Punjab|Pakpattan|Arif Wala",
+"lat": 30.24306,
+"lon": 73.07239
+},
+{
+"id": "T361",
+"set": "tehsil",
+"name": "Punjab|Pakpattan|Pakpattan",
+"lat": 30.35393,
+"lon": 73.39853
+},
+{
+"id": "T362",
+"set": "tehsil",
+"name": "Punjab|Rahim Yar Khan|Khanpur",
+"lat": 28.70286,
+"lon": 70.6068
+},
+{
+"id": "T363",
+"set": "tehsil",
+"name": "Punjab|Rahim Yar Khan|Liaqatpur",
+"lat": 28.35852,
+"lon": 70.7382
+},
+{
+"id": "T364",
+"set": "tehsil",
+"name": "Punjab|Rahim Yar Khan|Rahim Yar Khan",
+"lat": 28.50103,
+"lon": 70.33293
+},
+{
+"id": "T365",
+"set": "tehsil",
+"name": "Punjab|Rajanpur|Jampur",
+"lat": 29.55637,
+"lon": 70.3596
+},
+{
+"id": "T366",
+"set": "tehsil",
+"name": "Punjab|Rajanpur|Rajanpur",
+"lat": 29.16297,
+"lon": 70.31128
+},
+{
+"id": "T367",
+"set": "tehsil",
+"name": "Punjab|Rajanpur|Rajanpur (Tribal Area)",
+"lat": 29.22051,
+"lon": 69.77389
+},
+{
+"id": "T368",
+"set": "tehsil",
+"name": "Punjab|Rajanpur|Rojhan",
+"lat": 28.7503,
+"lon": 69.95938
+},
+{
+"id": "T369",
+"set": "tehsil",
+"name": "Punjab|Rawalpindi|Gujar Khan",
+"lat": 33.24334,
+"lon": 73.24388
+},
+{
+"id": "T370",
+"set": "tehsil",
+"name": "Punjab|Rawalpindi|Kahuta",
+"lat": 33.60306,
+"lon": 73.46667
+},
+{
+"id": "T371",
+"set": "tehsil",
+"name": "Punjab|Rawalpindi|Kallar Sayaddan",
+"lat": 33.43653,
+"lon": 73.44978
+},
+{
+"id": "T372",
+"set": "tehsil",
+"name": "Punjab|Rawalpindi|Kotli Sattian",
+"lat": 33.79521,
+"lon": 73.4859
+},
+{
+"id": "T373",
+"set": "tehsil",
+"name": "Punjab|Rawalpindi|Murree",
+"lat": 33.8681,
+"lon": 73.39629
+},
+{
+"id": "T374",
+"set": "tehsil",
+"name": "Punjab|Rawalpindi|Rawalpindi",
+"lat": 33.39858,
+"lon": 72.95449
+},
+{
+"id": "T375",
+"set": "tehsil",
+"name": "Punjab|Rawalpindi|Taxila",
+"lat": 33.73637,
+"lon": 72.78982
+},
+{
+"id": "T376",
+"set": "tehsil",
+"name": "Punjab|Sahiwal|Chichawatni",
+"lat": 30.43773,
+"lon": 72.65593
+},
+{
+"id": "T377",
+"set": "tehsil",
+"name": "Punjab|Sahiwal|Sahiwal",
+"lat": 30.65519,
+"lon": 73.12313
+},
+{
+"id": "T378",
+"set": "tehsil",
+"name": "Punjab|Sargodha|Bhalwal",
+"lat": 32.2912,
+"lon": 72.92763
+},
+{
+"id": "T379",
+"set": "tehsil",
+"name": "Punjab|Sargodha|Kot Momin",
+"lat": 32.11077,
+"lon": 73.09704
+},
+{
+"id": "T380",
+"set": "tehsil",
+"name": "Punjab|Sargodha|Sahiwal",
+"lat": 31.88677,
+"lon": 72.38518
+},
+{
+"id": "T381",
+"set": "tehsil",
+"name": "Punjab|Sargodha|Sargodha",
+"lat": 32.04513,
+"lon": 72.73951
+},
+{
+"id": "T382",
+"set": "tehsil",
+"name": "Punjab|Sargodha|Shahpur",
+"lat": 32.22108,
+"lon": 72.50426
+},
+{
+"id": "T383",
+"set": "tehsil",
+"name": "Punjab|Sargodha|Sillanwali",
+"lat": 31.78949,
+"lon": 72.53608
+},
+{
+"id": "T384",
+"set": "tehsil",
+"name": "Punjab|Sargodha|Bhera",
+"lat": 32.44269,
+"lon": 72.93821
+},
+{
+"id": "T385",
+"set": "tehsil",
+"name": "Punjab|Sheikhupura|Ferozewala",
+"lat": 31.70343,
+"lon": 74.25858
+},
+{
+"id": "T386",
+"set": "tehsil",
+"name": "Punjab|Sheikhupura|Muridke",
+"lat": 31.87271,
+"lon": 74.44723
+},
+{
+"id": "T387",
+"set": "tehsil",
+"name": "Punjab|Sheikhupura|Safdarabad",
+"lat": 31.75077,
+"lon": 73.63257
+},
+{
+"id": "T388",
+"set": "tehsil",
+"name": "Punjab|Sheikhupura|Sharak Pur",
+"lat": 31.51362,
+"lon": 74.08356
+},
+{
+"id": "T389",
+"set": "tehsil",
+"name": "Punjab|Sheikhupura|Sheikhupura",
+"lat": 31.72924,
+"lon": 73.88582
+},
+{
+"id": "T390",
+"set": "tehsil",
+"name": "Punjab|Sialkot|Daska",
+"lat": 32.29056,
+"lon": 74.40863
+},
+{
+"id": "T391",
+"set": "tehsil",
+"name": "Punjab|Sialkot|Pasrur",
+"lat": 32.30166,
+"lon": 74.69499
+},
+{
+"id": "T392",
+"set": "tehsil",
+"name": "Punjab|Sialkot|Sambrial",
+"lat": 32.49258,
+"lon": 74.32037
+},
+{
+"id": "T393",
+"set": "tehsil",
+"name": "Punjab|Sialkot|Sialkot",
+"lat": 32.58385,
+"lon": 74.55588
+},
+{
+"id": "T394",
+"set": "tehsil",
+"name": "Punjab|Toba Tek Singh|Gojra",
+"lat": 31.14655,
+"lon": 72.68288
+},
+{
+"id": "T395",
+"set": "tehsil",
+"name": "Punjab|Toba Tek Singh|Kamalia",
+"lat": 30.65831,
+"lon": 72.49774
+},
+{
+"id": "T396",
+"set": "tehsil",
+"name": "Punjab|Toba Tek Singh|Toba Tek Singh",
+"lat": 30.93183,
+"lon": 72.54122
+},
+{
+"id": "T397",
+"set": "tehsil",
+"name": "Punjab|Toba Tek Singh|Pir Mahal",
+"lat": 30.75188,
+"lon": 72.4364
+},
+{
+"id": "T398",
+"set": "tehsil",
+"name": "Punjab|Vehari|Burewala",
+"lat": 30.14004,
+"lon": 72.7558
+},
+{
+"id": "T399",
+"set": "tehsil",
+"name": "Punjab|Vehari|Mailsi",
+"lat": 29.87888,
+"lon": 72.07314
+},
+{
+"id": "T400",
+"set": "tehsil",
+"name": "Punjab|Vehari|Vehari",
+"lat": 30.02166,
+"lon": 72.41061
+},
+{
+"id": "T401",
+"set": "tehsil",
+"name": "Sindh|Badin|Badin",
+"lat": 24.49255,
+"lon": 68.90061
+},
+{
+"id": "T402",
+"set": "tehsil",
+"name": "Sindh|Badin|Matli",
+"lat": 25.1065,
+"lon": 68.83914
+},
+{
+"id": "T403",
+"set": "tehsil",
+"name": "Sindh|Badin|Shaheed Fazil Rahu",
+"lat": 24.63185,
+"lon": 68.56292
+},
+{
+"id": "T404",
+"set": "tehsil",
+"name": "Sindh|Badin|Talhar",
+"lat": 24.87925,
+"lon": 68.87614
+},
+{
+"id": "T405",
+"set": "tehsil",
+"name": "Sindh|Badin|Tando Bago",
+"lat": 24.79023,
+"lon": 69.11613
+},
+{
+"id": "T406",
+"set": "tehsil",
+"name": "Sindh|Central Karachi|Gulberg Town",
+"lat": 24.93464,
+"lon": 67.06986
+},
+{
+"id": "T407",
+"set": "tehsil",
+"name": "Sindh|Central Karachi|Liaqatabad Town",
+"lat": 24.90197,
+"lon": 67.03764
+},
+{
+"id": "T408",
+"set": "tehsil",
+"name": "Sindh|Central Karachi|New Karachi Town",
+"lat": 24.98165,
+"lon": 67.0679
+},
+{
+"id": "T409",
+"set": "tehsil",
+"name": "Sindh|Central Karachi|North Nazimabad Town",
+"lat": 24.9358,
+"lon": 67.0385
+},
+{
+"id": "T410",
+"set": "tehsil",
+"name": "Sindh|Dadu|Dadu",
+"lat": 26.79619,
+"lon": 67.78666
+},
+{
+"id": "T411",
+"set": "tehsil",
+"name": "Sindh|Dadu|Johi",
+"lat": 26.61878,
+"lon": 67.42987
+},
+{
+"id": "T412",
+"set": "tehsil",
+"name": "Sindh|Dadu|Khairpur Nathan Shah",
+"lat": 27.11169,
+"lon": 67.42722
+},
+{
+"id": "T413",
+"set": "tehsil",
+"name": "Sindh|Dadu|Mehar",
+"lat": 27.2132,
+"lon": 67.76322
+},
+{
+"id": "T414",
+"set": "tehsil",
+"name": "Sindh|East Karachi|Gulshan Iqbal Town",
+"lat": 24.95702,
+"lon": 67.16029
+},
+{
+"id": "T415",
+"set": "tehsil",
+"name": "Sindh|East Karachi|Jamshaid Town",
+"lat": 24.89502,
+"lon": 67.09425
+},
+{
+"id": "T416",
+"set": "tehsil",
+"name": "Sindh|Ghotki|Daharki",
+"lat": 27.81455,
+"lon": 69.83389
+},
+{
+"id": "T417",
+"set": "tehsil",
+"name": "Sindh|Ghotki|Ghotki",
+"lat": 28.0202,
+"lon": 69.35438
+},
+{
+"id": "T418",
+"set": "tehsil",
+"name": "Sindh|Ghotki|Khangarh",
+"lat": 27.63235,
+"lon": 69.35435
+},
+{
+"id": "T419",
+"set": "tehsil",
+"name": "Sindh|Ghotki|Mirpur Mathelo",
+"lat": 27.8327,
+"lon": 69.44815
+},
+{
+"id": "T420",
+"set": "tehsil",
+"name": "Sindh|Ghotki|Ubauro",
+"lat": 28.19417,
+"lon": 69.71324
+},
+{
+"id": "T421",
+"set": "tehsil",
+"name": "Sindh|Hyderabad|Hyderabad",
+"lat": 25.36014,
+"lon": 68.48552
+},
+{
+"id": "T422",
+"set": "tehsil",
+"name": "Sindh|Hyderabad|Hyderabad City",
+"lat": 25.36726,
+"lon": 68.35249
+},
+{
+"id": "T423",
+"set": "tehsil",
+"name": "Sindh|Hyderabad|Latifabad",
+"lat": 25.24678,
+"lon": 68.39802
+},
+{
+"id": "T424",
+"set": "tehsil",
+"name": "Sindh|Hyderabad|Qasimabad",
+"lat": 25.4102,
+"lon": 68.3191
+},
+{
+"id": "T425",
+"set": "tehsil",
+"name": "Sindh|Jacobabad|Garhi Khairo",
+"lat": 28.04524,
+"lon": 68.15229
+},
+{
+"id": "T426",
+"set": "tehsil",
+"name": "Sindh|Jacobabad|Jacobabad",
+"lat": 28.2352,
+"lon": 68.38059
+},
+{
+"id": "T427",
+"set": "tehsil",
+"name": "Sindh|Jamshoro|Kotri",
+"lat": 25.51579,
+"lon": 68.15042
+},
+{
+"id": "T428",
+"set": "tehsil",
+"name": "Sindh|Jamshoro|Manjhand",
+"lat": 25.89445,
+"lon": 68.06296
+},
+{
+"id": "T429",
+"set": "tehsil",
+"name": "Sindh|Jamshoro|Sehwan Sharif",
+"lat": 26.23681,
+"lon": 67.69746
+},
+{
+"id": "T430",
+"set": "tehsil",
+"name": "Sindh|Jamshoro|Thano Bula Khan",
+"lat": 25.50431,
+"lon": 67.62735
+},
+{
+"id": "T431",
+"set": "tehsil",
+"name": "Sindh|Qambar Shahdadkot|Meero Khan",
+"lat": 27.75071,
+"lon": 67.93606
+},
+{
+"id": "T432",
+"set": "tehsil",
+"name": "Sindh|Qambar Shahdadkot|Nasir Abad",
+"lat": 27.39231,
+"lon": 67.93655
+},
+{
+"id": "T433",
+"set": "tehsil",
+"name": "Sindh|Qambar Shahdadkot|Qambar Ali Khan",
+"lat": 27.56423,
+"lon": 67.58995
+},
+{
+"id": "T434",
+"set": "tehsil",
+"name": "Sindh|Qambar Shahdadkot|Qubo Saeed Khan",
+"lat": 27.80564,
+"lon": 67.58358
+},
+{
+"id": "T435",
+"set": "tehsil",
+"name": "Sindh|Qambar Shahdadkot|Shahdad Kot",
+"lat": 27.90852,
+"lon": 67.93225
+},
+{
+"id": "T436",
+"set": "tehsil",
+"name": "Sindh|Qambar Shahdadkot|Sijawal Junejo",
+"lat": 27.80724,
+"lon": 68.11368
+},
+{
+"id": "T437",
+"set": "tehsil",
+"name": "Sindh|Qambar Shahdadkot|Warah",
+"lat": 27.42251,
+"lon": 67.7331
+},
+{
+"id": "T438",
+"set": "tehsil",
+"name": "Sindh|Kashmore|Kandh Kot",
+"lat": 28.1798,
+"lon": 69.15846
+},
+{
+"id": "T439",
+"set": "tehsil",
+"name": "Sindh|Kashmore|Kashmore",
+"lat": 28.33268,
+"lon": 69.43341
+},
+{
+"id": "T440",
+"set": "tehsil",
+"name": "Sindh|Kashmore|Tangwani",
+"lat": 28.28097,
+"lon": 69.02097
+},
+{
+"id": "T441",
+"set": "tehsil",
+"name": "Sindh|Khairpur|Faiz Ganj",
+"lat": 26.77889,
+"lon": 68.45997
+},
+{
+"id": "T442",
+"set": "tehsil",
+"name": "Sindh|Khairpur|Gambat",
+"lat": 27.46007,
+"lon": 68.41973
+},
+{
+"id": "T443",
+"set": "tehsil",
+"name": "Sindh|Khairpur|Khairpur",
+"lat": 27.51034,
+"lon": 68.71496
+},
+{
+"id": "T444",
+"set": "tehsil",
+"name": "Sindh|Khairpur|Kingri",
+"lat": 27.62419,
+"lon": 68.6111
+},
+{
+"id": "T445",
+"set": "tehsil",
+"name": "Sindh|Khairpur|Kot Diji",
+"lat": 27.32973,
+"lon": 68.6603
+},
+{
+"id": "T446",
+"set": "tehsil",
+"name": "Sindh|Khairpur|Sobho Dero",
+"lat": 27.26315,
+"lon": 68.3569
+},
+{
+"id": "T447",
+"set": "tehsil",
+"name": "Sindh|Khairpur|Thari Meer Wah",
+"lat": 27.0669,
+"lon": 68.53792
+},
+{
+"id": "T448",
+"set": "tehsil",
+"name": "Sindh|Korangi|Korangi Town",
+"lat": 24.82618,
+"lon": 67.12071
+},
+{
+"id": "T449",
+"set": "tehsil",
+"name": "Sindh|Korangi|Landhi Town",
+"lat": 24.84368,
+"lon": 67.18045
+},
+{
+"id": "T450",
+"set": "tehsil",
+"name": "Sindh|Korangi|Shah Faisal Town",
+"lat": 24.87314,
+"lon": 67.16083
+},
+{
+"id": "T451",
+"set": "tehsil",
+"name": "Sindh|Larkana|Baqrani",
+"lat": 27.4244,
+"lon": 68.16849
+},
+{
+"id": "T452",
+"set": "tehsil",
+"name": "Sindh|Larkana|Dokri",
+"lat": 27.25886,
+"lon": 68.0637
+},
+{
+"id": "T453",
+"set": "tehsil",
+"name": "Sindh|Larkana|Larkana",
+"lat": 27.58959,
+"lon": 68.21791
+},
+{
+"id": "T454",
+"set": "tehsil",
+"name": "Sindh|Larkana|Rato Dero",
+"lat": 27.74728,
+"lon": 68.29476
+},
+{
+"id": "T455",
+"set": "tehsil",
+"name": "Sindh|Malir|Bin Qasim Town",
+"lat": 24.80848,
+"lon": 67.32179
+},
+{
+"id": "T456",
+"set": "tehsil",
+"name": "Sindh|Malir|Gadap Town",
+"lat": 25.21551,
+"lon": 67.26743
+},
+{
+"id": "T457",
+"set": "tehsil",
+"name": "Sindh|Malir|Malir Town",
+"lat": 24.88899,
+"lon": 67.19943
+},
+{
+"id": "T458",
+"set": "tehsil",
+"name": "Sindh|Matiari|Hala",
+"lat": 25.82605,
+"lon": 68.37711
+},
+{
+"id": "T459",
+"set": "tehsil",
+"name": "Sindh|Matiari|Matiari",
+"lat": 25.62536,
+"lon": 68.52196
+},
+{
+"id": "T460",
+"set": "tehsil",
+"name": "Sindh|Matiari|Saeedabad",
+"lat": 25.99407,
+"lon": 68.40198
+},
+{
+"id": "T461",
+"set": "tehsil",
+"name": "Sindh|Mirpur Khas|Digri",
+"lat": 25.14058,
+"lon": 69.10573
+},
+{
+"id": "T462",
+"set": "tehsil",
+"name": "Sindh|Mirpur Khas|Hussain Bux Muree",
+"lat": 25.61881,
+"lon": 68.96619
+},
+{
+"id": "T463",
+"set": "tehsil",
+"name": "Sindh|Mirpur Khas|Jhudo",
+"lat": 24.97143,
+"lon": 69.35339
+},
+{
+"id": "T464",
+"set": "tehsil",
+"name": "Sindh|Mirpur Khas|Kot Ghulam Muhammad",
+"lat": 25.26558,
+"lon": 69.23285
+},
+{
+"id": "T465",
+"set": "tehsil",
+"name": "Sindh|Mirpur Khas|Mirpur Khas",
+"lat": 25.49461,
+"lon": 68.98154
+},
+{
+"id": "T466",
+"set": "tehsil",
+"name": "Sindh|Mirpur Khas|Shuja Abad",
+"lat": 25.42487,
+"lon": 69.06206
+},
+{
+"id": "T467",
+"set": "tehsil",
+"name": "Sindh|Mirpur Khas|Sindhri",
+"lat": 25.66784,
+"lon": 69.17458
+},
+{
+"id": "T468",
+"set": "tehsil",
+"name": "Sindh|Naushahro Feroze|Bhiria",
+"lat": 26.89567,
+"lon": 68.18239
+},
+{
+"id": "T469",
+"set": "tehsil",
+"name": "Sindh|Naushahro Feroze|Kandiaro",
+"lat": 27.07578,
+"lon": 68.12307
+},
+{
+"id": "T470",
+"set": "tehsil",
+"name": "Sindh|Naushahro Feroze|Mehrab Pur",
+"lat": 27.04932,
+"lon": 68.33298
+},
+{
+"id": "T471",
+"set": "tehsil",
+"name": "Sindh|Naushahro Feroze|Moro",
+"lat": 26.69155,
+"lon": 67.95894
+},
+{
+"id": "T472",
+"set": "tehsil",
+"name": "Sindh|Naushahro Feroze|Naushahro Feroze",
+"lat": 26.76076,
+"lon": 68.14057
+},
+{
+"id": "T473",
+"set": "tehsil",
+"name": "Sindh|Sanghar|Jam Nawaz Ali",
+"lat": 25.79683,
+"lon": 68.87071
+},
+{
+"id": "T474",
+"set": "tehsil",
+"name": "Sindh|Sanghar|Khipro",
+"lat": 25.89876,
+"lon": 69.65997
+},
+{
+"id": "T475",
+"set": "tehsil",
+"name": "Sindh|Sanghar|Sanghar",
+"lat": 26.10811,
+"lon": 69.04523
+},
+{
+"id": "T476",
+"set": "tehsil",
+"name": "Sindh|Sanghar|Shahdadpur",
+"lat": 26.03376,
+"lon": 68.59061
+},
+{
+"id": "T477",
+"set": "tehsil",
+"name": "Sindh|Sanghar|Sinjhoro",
+"lat": 26.05486,
+"lon": 68.8104
+},
+{
+"id": "T478",
+"set": "tehsil",
+"name": "Sindh|Sanghar|Tando Adam",
+"lat": 25.81313,
+"lon": 68.64381
+},
+{
+"id": "T479",
+"set": "tehsil",
+"name": "Sindh|Shaheed Benazir Abad|Daulat Pur",
+"lat": 26.43106,
+"lon": 68.05858
+},
+{
+"id": "T480",
+"set": "tehsil",
+"name": "Sindh|Shaheed Benazir Abad|Daur",
+"lat": 26.43587,
+"lon": 68.52135
+},
+{
+"id": "T481",
+"set": "tehsil",
+"name": "Sindh|Shaheed Benazir Abad|Nawabshah",
+"lat": 26.27483,
+"lon": 68.32674
+},
+{
+"id": "T482",
+"set": "tehsil",
+"name": "Sindh|Shaheed Benazir Abad|Sakrand",
+"lat": 26.14433,
+"lon": 68.21406
+},
+{
+"id": "T483",
+"set": "tehsil",
+"name": "Sindh|Shikarpur|Garhi Yasin",
+"lat": 27.85937,
+"lon": 68.45568
+},
+{
+"id": "T484",
+"set": "tehsil",
+"name": "Sindh|Shikarpur|Khanpur",
+"lat": 28.04115,
+"lon": 68.81307
+},
+{
+"id": "T485",
+"set": "tehsil",
+"name": "Sindh|Shikarpur|Lakhi",
+"lat": 27.87543,
+"lon": 68.74498
+},
+{
+"id": "T486",
+"set": "tehsil",
+"name": "Sindh|Shikarpur|Shikarpur",
+"lat": 28.03925,
+"lon": 68.51764
+},
+{
+"id": "T487",
+"set": "tehsil",
+"name": "Sindh|Keamari|Kemari Town",
+"lat": 24.90923,
+"lon": 66.84606
+},
+{
+"id": "T488",
+"set": "tehsil",
+"name": "Sindh|South Karachi|Liyari Town",
+"lat": 24.84813,
+"lon": 66.99356
+},
+{
+"id": "T489",
+"set": "tehsil",
+"name": "Sindh|South Karachi|Saddar Town",
+"lat": 24.81908,
+"lon": 67.05086
+},
+{
+"id": "T490",
+"set": "tehsil",
+"name": "Sindh|Sujawal|Jati",
+"lat": 24.2594,
+"lon": 68.40106
+},
+{
+"id": "T491",
+"set": "tehsil",
+"name": "Sindh|Sujawal|Kharo Chan",
+"lat": 24.00039,
+"lon": 67.61257
+},
+{
+"id": "T492",
+"set": "tehsil",
+"name": "Sindh|Sujawal|Mirpur Bathoro",
+"lat": 24.79035,
+"lon": 68.23662
+},
+{
+"id": "T493",
+"set": "tehsil",
+"name": "Sindh|Sujawal|Shah Bunder",
+"lat": 24.0947,
+"lon": 67.96828
+},
+{
+"id": "T494",
+"set": "tehsil",
+"name": "Sindh|Sujawal|Sujawal",
+"lat": 24.64718,
+"lon": 68.09249
+},
+{
+"id": "T495",
+"set": "tehsil",
+"name": "Sindh|Sukkur|New Sukkur",
+"lat": 27.7773,
+"lon": 68.81597
+},
+{
+"id": "T496",
+"set": "tehsil",
+"name": "Sindh|Sukkur|Pano Aqil",
+"lat": 27.83773,
+"lon": 69.08038
+},
+{
+"id": "T497",
+"set": "tehsil",
+"name": "Sindh|Sukkur|Rohri",
+"lat": 27.599,
+"lon": 69.009
+},
+{
+"id": "T498",
+"set": "tehsil",
+"name": "Sindh|Sukkur|Sukkur",
+"lat": 27.71484,
+"lon": 68.82804
+},
+{
+"id": "T499",
+"set": "tehsil",
+"name": "Sindh|Tando Allahyar|Chamber",
+"lat": 25.32347,
+"lon": 68.82162
+},
+{
+"id": "T500",
+"set": "tehsil",
+"name": "Sindh|Tando Allahyar|Jhando Mari",
+"lat": 25.59818,
+"lon": 68.79287
+},
+{
+"id": "T501",
+"set": "tehsil",
+"name": "Sindh|Tando Allahyar|Tando Allahyar",
+"lat": 25.44605,
+"lon": 68.69899
+},
+{
+"id": "T502",
+"set": "tehsil",
+"name": "Sindh|Tando Muhammad Khan|Bulri Shah Karim",
+"lat": 24.98538,
+"lon": 68.37683
+},
+{
+"id": "T503",
+"set": "tehsil",
+"name": "Sindh|Tando Muhammad Khan|Tando Ghulam Hyder",
+"lat": 24.93246,
+"lon": 68.63994
+},
+{
+"id": "T504",
+"set": "tehsil",
+"name": "Sindh|Tando Muhammad Khan|Tando Muhammad Khan",
+"lat": 25.13647,
+"lon": 68.57959
+},
+{
+"id": "T505",
+"set": "tehsil",
+"name": "Sindh|Tharparkar|Chachro",
+"lat": 25.08688,
+"lon": 70.39971
+},
+{
+"id": "T506",
+"set": "tehsil",
+"name": "Sindh|Tharparkar|Islam Kot",
+"lat": 24.57118,
+"lon": 70.25039
+},
+{
+"id": "T507",
+"set": "tehsil",
+"name": "Sindh|Tharparkar|Mithi",
+"lat": 24.81452,
+"lon": 69.85807
+},
+{
+"id": "T508",
+"set": "tehsil",
+"name": "Sindh|Tharparkar|Kaloi",
+"lat": 24.66184,
+"lon": 69.41424
+},
+{
+"id": "T509",
+"set": "tehsil",
+"name": "Sindh|Thatta|Ghorabari",
+"lat": 24.29709,
+"lon": 67.61505
+},
+{
+"id": "T510",
+"set": "tehsil",
+"name": "Sindh|Thatta|Thatta",
+"lat": 25.02188,
+"lon": 67.95567
+},
+{
+"id": "T511",
+"set": "tehsil",
+"name": "Sindh|Umer Kot|Kunri",
+"lat": 25.07921,
+"lon": 69.55515
+},
+{
+"id": "T512",
+"set": "tehsil",
+"name": "Sindh|Umer Kot|Pithoro",
+"lat": 25.49686,
+"lon": 69.36309
+},
+{
+"id": "T513",
+"set": "tehsil",
+"name": "Sindh|Umer Kot|Samaro",
+"lat": 25.31837,
+"lon": 69.42784
+},
+{
+"id": "T514",
+"set": "tehsil",
+"name": "Sindh|Umer Kot|Umer Kot",
+"lat": 25.43809,
+"lon": 69.93583
+},
+{
+"id": "T515",
+"set": "tehsil",
+"name": "Sindh|Keamari|Baldia Town",
+"lat": 24.92225,
+"lon": 66.96058
+},
+{
+"id": "T516",
+"set": "tehsil",
+"name": "Sindh|West Karachi|Orangi Town",
+"lat": 25.01612,
+"lon": 67.01883
+},
+{
+"id": "T517",
+"set": "tehsil",
+"name": "Sindh|Keamari|Site Town",
+"lat": 24.89915,
+"lon": 66.9982
+},
+{
+"id": "T518",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Haripur|Haripur",
+"lat": 34.03654,
+"lon": 72.94533
+},
+{
+"id": "T519",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Abbottabad|Abbottabad",
+"lat": 34.16836,
+"lon": 73.34299
+},
+{
+"id": "T520",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Abbottabad|Havelian",
+"lat": 34.0119,
+"lon": 73.19864
+},
+{
+"id": "T521",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Abbottabad|Lora",
+"lat": 33.92334,
+"lon": 73.29679
+},
+{
+"id": "T522",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Abbottabad|Lower Tanawal",
+"lat": 34.196,
+"lon": 73.08579
+},
+{
+"id": "T523",
+"set": "tehsil",
+"name": "Azad Kashmir|Bhimber|Bhimber",
+"lat": 33.02291,
+"lon": 74.00116
+},
+{
+"id": "T524",
+"set": "tehsil",
+"name": "Azad Kashmir|Hattian|Leepa",
+"lat": 34.29835,
+"lon": 73.8579
+},
+{
+"id": "T525",
+"set": "tehsil",
+"name": "Azad Kashmir|Kotli|Kotli",
+"lat": 33.51346,
+"lon": 73.93628
+},
+{
+"id": "T526",
+"set": "tehsil",
+"name": "Azad Kashmir|Kotli|Sehnsa",
+"lat": 33.52367,
+"lon": 73.71272
+},
+{
+"id": "T527",
+"set": "tehsil",
+"name": "Azad Kashmir|Neelam Valley|Athmuqam",
+"lat": 34.66123,
+"lon": 73.87027
+},
+{
+"id": "T528",
+"set": "tehsil",
+"name": "Balochistan|Chagai|Dalbandin",
+"lat": 28.95283,
+"lon": 64.13277
+},
+{
+"id": "T529",
+"set": "tehsil",
+"name": "Balochistan|Chagai|Nokkundi",
+"lat": 28.79625,
+"lon": 62.85749
+},
+{
+"id": "T530",
+"set": "tehsil",
+"name": "Balochistan|Chagai|Chagai",
+"lat": 29.34195,
+"lon": 64.74706
+},
+{
+"id": "T531",
+"set": "tehsil",
+"name": "Balochistan|Gwadar|Sunster",
+"lat": 25.49208,
+"lon": 61.84392
+},
+{
+"id": "T532",
+"set": "tehsil",
+"name": "Balochistan|Jaffarabad|Jhat Pat",
+"lat": 28.33778,
+"lon": 68.21593
+},
+{
+"id": "T533",
+"set": "tehsil",
+"name": "Balochistan|Killa Abdullah|Gulistan",
+"lat": 30.32515,
+"lon": 66.43186
+},
+{
+"id": "T534",
+"set": "tehsil",
+"name": "Balochistan|Kohlu|Kahan",
+"lat": 29.41805,
+"lon": 68.85189
+},
+{
+"id": "T535",
+"set": "tehsil",
+"name": "Balochistan|Hub|Dureji",
+"lat": 25.94661,
+"lon": 67.19423
+},
+{
+"id": "T536",
+"set": "tehsil",
+"name": "Balochistan|Hub|Gaddani",
+"lat": 25.07317,
+"lon": 66.78809
+},
+{
+"id": "T537",
+"set": "tehsil",
+"name": "Balochistan|Musakhel|Kingri",
+"lat": 30.59179,
+"lon": 69.78305
+},
+{
+"id": "T538",
+"set": "tehsil",
+"name": "Balochistan|Nushki|Nushki",
+"lat": 29.45417,
+"lon": 65.76876
+},
+{
+"id": "T539",
+"set": "tehsil",
+"name": "Balochistan|Pishin|Barshore",
+"lat": 31.0055,
+"lon": 67.40891
+},
+{
+"id": "T540",
+"set": "tehsil",
+"name": "Balochistan|Zhob|Kakar Khurasan",
+"lat": 31.49891,
+"lon": 68.47367
+},
+{
+"id": "T541",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Ghanche|Mashabbrum",
+"lat": 35.34946,
+"lon": 76.85395
+},
+{
+"id": "T542",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Hunza|Gojal",
+"lat": 36.59855,
+"lon": 75.15441
+},
+{
+"id": "T543",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Darel|Darel",
+"lat": 35.70755,
+"lon": 73.7834
+},
+{
+"id": "T544",
+"set": "tehsil",
+"name": "Gilgit Baltistan|Gupis Yasin|Phandar",
+"lat": 36.0865,
+"lon": 72.88047
+},
+{
+"id": "T545",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Chitral Lower|Lotkoh",
+"lat": 36.09404,
+"lon": 71.69833
+},
+{
+"id": "T546",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Chitral Upper|Mulkhow",
+"lat": 36.48681,
+"lon": 72.27436
+},
+{
+"id": "T547",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Dera Ismail Khan|Paharpur",
+"lat": 32.24127,
+"lon": 71.03832
+},
+{
+"id": "T548",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Haripur|Ghazi",
+"lat": 34.08266,
+"lon": 72.74165
+},
+{
+"id": "T549",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Haripur|Khanpur",
+"lat": 33.82744,
+"lon": 73.01015
+},
+{
+"id": "T550",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Kurram|Lower Kurram",
+"lat": 33.55912,
+"lon": 70.32243
+},
+{
+"id": "T551",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|North Waziristan|Ghulam Khan",
+"lat": 33.11581,
+"lon": 70.02758
+},
+{
+"id": "T552",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Nowshera|Jehangira",
+"lat": 33.87143,
+"lon": 72.08914
+},
+{
+"id": "T553",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Swabi|Lahor",
+"lat": 34.02193,
+"lon": 72.32587
+},
+{
+"id": "T554",
+"set": "tehsil",
+"name": "Khyber Pakhtunkhwa|Swat|Kalam",
+"lat": 35.62847,
+"lon": 72.52948
+},
+{
+"id": "T555",
+"set": "tehsil",
+"name": "Punjab|Attock|Hasan Abdal",
+"lat": 33.81738,
+"lon": 72.6717
+},
+{
+"id": "T556",
+"set": "tehsil",
+"name": "Punjab|Attock|Hazro",
+"lat": 33.9023,
+"lon": 72.44379
+},
+{
+"id": "T557",
+"set": "tehsil",
+"name": "Punjab|Bahawalnagar|Haroonabad",
+"lat": 29.44721,
+"lon": 73.00734
+},
+{
+"id": "T558",
+"set": "tehsil",
+"name": "Punjab|Bahawalpur|Yazman",
+"lat": 28.68066,
+"lon": 71.71225
+},
+{
+"id": "T559",
+"set": "tehsil",
+"name": "Punjab|Bhakkar|Kalur Kot",
+"lat": 32.06463,
+"lon": 71.43298
+},
+{
+"id": "T560",
+"set": "tehsil",
+"name": "Punjab|Kasur|Chunian",
+"lat": 30.9034,
+"lon": 74.0629
+},
+{
+"id": "T561",
+"set": "tehsil",
+"name": "Punjab|Mianwali|Isakhel",
+"lat": 32.87801,
+"lon": 71.37442
+},
+{
+"id": "T562",
+"set": "tehsil",
+"name": "Punjab|Mianwali|Piplan",
+"lat": 32.31712,
+"lon": 71.44107
+},
+{
+"id": "T563",
+"set": "tehsil",
+"name": "Punjab|Narowal|Shakargarh",
+"lat": 32.21113,
+"lon": 75.16009
+},
+{
+"id": "T564",
+"set": "tehsil",
+"name": "Punjab|Narowal|Zafarwal",
+"lat": 32.33403,
+"lon": 74.98523
+},
+{
+"id": "T565",
+"set": "tehsil",
+"name": "Punjab|Okara|Depalpur",
+"lat": 30.59532,
+"lon": 73.80913
+},
+{
+"id": "T566",
+"set": "tehsil",
+"name": "Punjab|Rahim Yar Khan|Sadiqabad",
+"lat": 28.2754,
+"lon": 69.97623
+},
+{
+"id": "T567",
+"set": "tehsil",
+"name": "Sindh|Jacobabad|Thul",
+"lat": 28.28245,
+"lon": 68.71551
+},
+{
+"id": "T568",
+"set": "tehsil",
+"name": "Sindh|Khairpur|Nara",
+"lat": 26.67253,
+"lon": 69.29064
+},
+{
+"id": "T569",
+"set": "tehsil",
+"name": "Sindh|Sukkur|Salehpat",
+"lat": 27.33854,
+"lon": 69.29416
+},
+{
+"id": "T570",
+"set": "tehsil",
+"name": "Sindh|Tharparkar|Dahli",
+"lat": 25.4642,
+"lon": 70.47805
+},
+{
+"id": "T571",
+"set": "tehsil",
+"name": "Sindh|Tharparkar|Diplo",
+"lat": 24.39331,
+"lon": 69.52441
+},
+{
+"id": "T572",
+"set": "tehsil",
+"name": "Sindh|Tharparkar|Nagar Parkar",
+"lat": 24.61262,
+"lon": 70.77451
+},
+{
+"id": "T573",
+"set": "tehsil",
+"name": "Sindh|Sujawal|Keti Bunder",
+"lat": 23.97231,
+"lon": 67.40859
+},
+{
+"id": "T574",
+"set": "tehsil",
+"name": "Sindh|Thatta|Mirpur Sakro",
+"lat": 24.58579,
+"lon": 67.51676
+},
+{
+"id": "T575",
+"set": "tehsil",
+"name": "Indian Illegally Occupied Jammu Kashmir|Indian Illegally Occupied Jammu Kashmir|Indian Illegally Occupied Jammu Kashmir",
+"lat": 33.78097,
+"lon": 76.57001
+},
+{
+"id": "T576",
+"set": "tehsil",
+"name": "Punjab|Dera Ghazi Khan|Dera Ghazi Khan",
+"lat": 30.35942,
+"lon": 70.36203
+},
+{
+"id": "R00",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 35.07975,
+"lon": 73.72331
+},
+{
+"id": "R01",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 35.70136,
+"lon": 72.18278
+},
+{
+"id": "R02",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 36.65185,
+"lon": 72.43828
+},
+{
+"id": "R03",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 35.2133,
+"lon": 74.36803
+},
+{
+"id": "R04",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 35.95711,
+"lon": 74.43932
+},
+{
+"id": "R05",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 35.74578,
+"lon": 75.16972
+},
+{
+"id": "R06",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 35.85644,
+"lon": 75.49773
+},
+{
+"id": "R07",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 35.73983,
+"lon": 71.95341
+},
+{
+"id": "R08",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 36.89509,
+"lon": 73.46629
+},
+{
+"id": "R09",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 35.2078,
+"lon": 76.91982
+},
+{
+"id": "R10",
+"set": "random",
+"name": "desert Thar/Cholistan/Kharan",
+"lat": 27.03851,
+"lon": 67.96986
+},
+{
+"id": "R11",
+"set": "random",
+"name": "desert Thar/Cholistan/Kharan",
+"lat": 26.63487,
+"lon": 65.83542
+},
+{
+"id": "R12",
+"set": "random",
+"name": "desert Thar/Cholistan/Kharan",
+"lat": 29.19167,
+"lon": 70.80814
+},
+{
+"id": "R13",
+"set": "random",
+"name": "desert Thar/Cholistan/Kharan",
+"lat": 26.55083,
+"lon": 66.23664
+},
+{
+"id": "R14",
+"set": "random",
+"name": "desert Thar/Cholistan/Kharan",
+"lat": 28.1895,
+"lon": 63.76935
+},
+{
+"id": "R15",
+"set": "random",
+"name": "desert Thar/Cholistan/Kharan",
+"lat": 27.63032,
+"lon": 66.08507
+},
+{
+"id": "R16",
+"set": "random",
+"name": "desert Thar/Cholistan/Kharan",
+"lat": 28.55724,
+"lon": 65.73565
+},
+{
+"id": "R17",
+"set": "random",
+"name": "desert Thar/Cholistan/Kharan",
+"lat": 28.70548,
+"lon": 65.52948
+},
+{
+"id": "R18",
+"set": "random",
+"name": "coast Sindh/Makran",
+"lat": 25.20132,
+"lon": 61.97611
+},
+{
+"id": "R19",
+"set": "random",
+"name": "coast Sindh/Makran",
+"lat": 25.39701,
+"lon": 64.46262
+},
+{
+"id": "R20",
+"set": "random",
+"name": "coast Sindh/Makran",
+"lat": 25.27021,
+"lon": 62.67481
+},
+{
+"id": "R21",
+"set": "random",
+"name": "coast Sindh/Makran",
+"lat": 24.15687,
+"lon": 67.413
+},
+{
+"id": "R22",
+"set": "random",
+"name": "coast Sindh/Makran",
+"lat": 25.0691,
+"lon": 66.93148
+},
+{
+"id": "R23",
+"set": "random",
+"name": "coast Sindh/Makran",
+"lat": 25.38391,
+"lon": 61.91771
+},
+{
+"id": "R24",
+"set": "random",
+"name": "coast Sindh/Makran",
+"lat": 25.04964,
+"lon": 67.41073
+},
+{
+"id": "R25",
+"set": "random",
+"name": "coast Sindh/Makran",
+"lat": 25.15108,
+"lon": 67.73445
+},
+{
+"id": "R26",
+"set": "random",
+"name": "LoC-adjacent AJK/GB",
+"lat": 34.92629,
+"lon": 74.26397
+},
+{
+"id": "R27",
+"set": "random",
+"name": "LoC-adjacent AJK/GB",
+"lat": 34.07972,
+"lon": 74.86665
+},
+{
+"id": "R28",
+"set": "random",
+"name": "LoC-adjacent AJK/GB",
+"lat": 35.14028,
+"lon": 75.27964
+},
+{
+"id": "R29",
+"set": "random",
+"name": "LoC-adjacent AJK/GB",
+"lat": 34.87721,
+"lon": 74.8982
+},
+{
+"id": "R30",
+"set": "random",
+"name": "LoC-adjacent AJK/GB",
+"lat": 35.09475,
+"lon": 74.41843
+},
+{
+"id": "R31",
+"set": "random",
+"name": "LoC-adjacent AJK/GB",
+"lat": 33.85757,
+"lon": 74.16747
+},
+{
+"id": "R32",
+"set": "random",
+"name": "LoC-adjacent AJK/GB",
+"lat": 33.00703,
+"lon": 74.59101
+},
+{
+"id": "R33",
+"set": "random",
+"name": "LoC-adjacent AJK/GB",
+"lat": 33.52432,
+"lon": 73.62816
+},
+{
+"id": "R34",
+"set": "random",
+"name": "anywhere",
+"lat": 25.15276,
+"lon": 67.22631
+},
+{
+"id": "R35",
+"set": "random",
+"name": "anywhere",
+"lat": 28.66414,
+"lon": 67.12477
+},
+{
+"id": "R36",
+"set": "random",
+"name": "anywhere",
+"lat": 28.59811,
+"lon": 68.68012
+},
+{
+"id": "R37",
+"set": "random",
+"name": "anywhere",
+"lat": 29.45149,
+"lon": 63.06815
+},
+{
+"id": "R38",
+"set": "random",
+"name": "anywhere",
+"lat": 34.20715,
+"lon": 77.22233
+},
+{
+"id": "R39",
+"set": "random",
+"name": "anywhere",
+"lat": 27.70578,
+"lon": 65.77653
+},
+{
+"id": "R40",
+"set": "random",
+"name": "city Karachi Saddar",
+"lat": 24.8546,
+"lon": 67.0207
+},
+{
+"id": "R41",
+"set": "random",
+"name": "city Lahore Gulberg",
+"lat": 31.5204,
+"lon": 74.3587
+},
+{
+"id": "R42",
+"set": "random",
+"name": "city Peshawar city",
+"lat": 34.008,
+"lon": 71.5785
+},
+{
+"id": "R43",
+"set": "random",
+"name": "city Quetta city",
+"lat": 30.196,
+"lon": 67.009
+},
+{
+"id": "R44",
+"set": "random",
+"name": "city Faisalabad",
+"lat": 31.418,
+"lon": 73.079
+},
+{
+"id": "R45",
+"set": "random",
+"name": "city Multan",
+"lat": 30.1975,
+"lon": 71.47
+},
+{
+"id": "R46",
+"set": "random",
+"name": "city Hyderabad",
+"lat": 25.392,
+"lon": 68.374
+},
+{
+"id": "R47",
+"set": "random",
+"name": "city Rawalpindi Saddar",
+"lat": 33.5975,
+"lon": 73.05
+},
+{
+"id": "R48",
+"set": "random",
+"name": "city Sialkot",
+"lat": 32.4945,
+"lon": 74.5229
+},
+{
+"id": "R49",
+"set": "random",
+"name": "city Gujranwala",
+"lat": 32.1617,
+"lon": 74.1883
+},
+{
+"id": "Q0",
+"set": "quiet",
+"name": "E-7 Islamabad",
+"lat": 33.7233,
+"lon": 73.0435
+},
+{
+"id": "Q1",
+"set": "quiet",
+"name": "F-6 Islamabad",
+"lat": 33.729,
+"lon": 73.076
+},
+{
+"id": "Q2",
+"set": "quiet",
+"name": "Murree",
+"lat": 33.907,
+"lon": 73.3943
+},
+{
+"id": "Q3",
+"set": "quiet",
+"name": "Quetta Cantt",
+"lat": 30.183,
+"lon": 66.995
+},
+{
+"id": "S0",
+"set": "standard",
+"name": "Islamabad I-8",
+"lat": 33.66443,
+"lon": 73.08339
+},
+{
+"id": "S1",
+"set": "standard",
+"name": "Lahore Cantt",
+"lat": 31.515,
+"lon": 74.388
+},
+{
+"id": "S2",
+"set": "standard",
+"name": "Karachi coast",
+"lat": 24.8138,
+"lon": 67.03
+},
+{
+"id": "S3",
+"set": "standard",
+"name": "Gilgit",
+"lat": 35.9208,
+"lon": 74.308
+},
+{
+"id": "S4",
+"set": "standard",
+"name": "Quetta",
+"lat": 30.1798,
+"lon": 66.975
+}
+]

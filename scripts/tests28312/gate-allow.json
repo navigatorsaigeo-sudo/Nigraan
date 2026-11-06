@@ -1,0 +1,110 @@
+{
+ "version": "v91.17.283.17",
+ "rule": "A page script may name a forbidden address (a weather or hazard value of a point computed outside the point state, or the provider itself) only when it is listed here with its reason. Every listed script is either operator-only, not a point value (transport, documentation, land-surface or air-quality inputs, place look-up), or a reviewed exception that cannot be rewired before 6 Nov without a large rewrite. A new script, or a new kind of forbidden address in a listed script, fails the build.",
+ "v28315": "item 3: the ensemble outlook, multi-model card, nowcast, skill archive, river flow (reach and gauges), CMIP6 (analyst, reports, Customize), urban heat offset, land-input card and the three place searches read the server (GET /api/pointstate/product through the page store; the urban field in the point-state record; the server place search). A listed script that no longer names a forbidden address now FAILS the gate (the list only shrinks).",
+ "static": {
+  "AI_GEO_NIGRAAN_v91_17_MACH.html": {
+   "#4": {
+    "kinds": [
+     "provider-host"
+    ],
+    "class": "not a value",
+    "why": "AGN.providers: the register of provider hosts (names only, no request)"
+   },
+   "#15": {
+    "kinds": [
+     "provider-host"
+    ],
+    "class": "not a value",
+    "why": "AGN.api transport: maps provider hosts onto the server proxy; carries the requests of the scripts listed here, starts none"
+   },
+   "#16": {
+    "kinds": [
+     "v1-forecast-point"
+    ],
+    "class": "not a value",
+    "why": "endpoint contract register (documentation object, no request)"
+   },
+   "#22": {
+    "kinds": [
+     "provider-host"
+    ],
+    "class": "not a value",
+    "why": "the connect-source list text of the build (no request)"
+   },
+   "agn-v77-4-stabilization-js": {
+    "kinds": [
+     "v1-forecast-point"
+    ],
+    "class": "not a value",
+    "why": "a requirements text naming a planned endpoint (no request)"
+   },
+   "#125": {
+    "kinds": [
+     "point-forecast"
+    ],
+    "class": "not a value",
+    "why": "a sentence in the report evidence naming the old endpoint as the chain's origin (no request)",
+    "renumbered": "v91.17.283.27: was #127; the page lost the code script agn-rain-clim-js (item 1), so the scripts after it moved up by one; v91.17.283.28: was #126, the code script mach-v11-heatmap-wiring (P2, the sector matrix) was deleted before it"
+   },
+   "mach-openmeteo-wiring": {
+    "kinds": [
+     "provider-host"
+    ],
+    "class": "not a point value",
+    "why": "the page engine's district sweep (DISTRICT_IN, engine input), the feature card top-up and the history replay (reanalysis). Kept in v283.15: its district sweep is engine input (the engine move, after 6 Nov)"
+   },
+   "#58": {
+    "kinds": [
+     "provider-host"
+    ],
+    "class": "exception",
+    "why": "the page's national hazard engine: the tehsil and district sweeps (the inputs the server engine runs on), SPI archive, air quality, river flow, ensemble; replacing them is the engine move (large rewrite, after 6 Nov)"
+   },
+   "mach-district-forecast-repair": {
+    "kinds": [
+     "provider-host"
+    ],
+    "class": "exception",
+    "why": "the page engine's district sweep repair (engine input)"
+   },
+   "agn-cascade-engine": {
+    "kinds": [
+     "provider-host"
+    ],
+    "class": "exception",
+    "why": "the cascade engine's national sweep (engine input)"
+   },
+   "agn-v91-tmap-js": {
+    "kinds": [
+     "hyperlocal"
+    ],
+    "class": "exception",
+    "why": "the 250 m temperature field over the map view (a spatial field, labelled; not a point value). Kept in v283.15: a server field anchored on the point-state chain is not built yet; serving the same field from another address would only rename it"
+   },
+   "agn-v274-st250-js": {
+    "kinds": [
+     "hyperlocal"
+    ],
+    "class": "exception",
+    "why": "the 250 m temperature field on the street map (the same field). Kept in v283.15 for the same reason"
+   },
+   "agn-v2833-js": {
+    "kinds": [
+     "ecmwf010-point"
+    ],
+    "class": "operator",
+    "why": "the 9 km open-data test: asked only in the operator view"
+   }
+  },
+  "NIGRAAN_START.html": {},
+  "NIGRAAN_3.html": {}
+ },
+ "runtimeTransport": [
+  "#14",
+  "agn-v93-op-js",
+  "#201"
+ ],
+ "v28317": "ordinals remapped by build/v28317/remap_gate_allow.mjs (two named boot scripts added before them; the same code, matched by its text): #3 -> #4, #14 -> #15, #15 -> #16, #21 -> #22, #125 -> #127, #52 -> #54 (edited in v283.17), #56 -> #58 (edited in v283.17)",
+ "v28319": "v91.17.283.19: entries removed because the script no longer names the address: #54 (fetchHourlyForecast reads the land part of the place bundle), mach-fast-audit-script (the district sweep is engine-only, in the repair block), agn-obs-js (the station-correction line reads the record build), agn-state-card-js (the physical-state card and /api/state/point are retired)"
+}

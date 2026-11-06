@@ -1,0 +1,9 @@
+v91.17.273 REP2 · files taken out of nigraan-local. The deploy MOVES them to D:\NIGRAAN\_admin\archive\v273\<same relative path>
+(move, never delete).
+
+artefact/NIGRAAN_4.html                        (REP2 item 2: financial and ESG removed from NIGRAAN, owner decision 14 Oct)
+  The rebuilt console retired in v91.17.256. It is never served (the server answers /NIGRAAN_4.html and /next with a redirect to /,
+  scripts/tests256/one_page.test.mjs) and it is not in artefact/MANIFEST.json, but the file still carried a Financial tab and the
+  financial/sustainability step names. Nothing reads the file (grep over server/, scripts/, artefact/).
+
+No test is retired.

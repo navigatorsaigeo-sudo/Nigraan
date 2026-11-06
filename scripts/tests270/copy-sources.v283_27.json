@@ -1,0 +1,194 @@
+{
+  "version": "cs-91.17.283.25",
+  "built": "2026-10-27",
+  "about": "COPY, NOT FETCH (CEO rule, 16 Oct 2026). Data LAMHA already holds is copied read only into NIGRAAN's own folder (nig/copies/<source>/ = D:\\NIGRAAN\\nig\\copies, the same relative paths as the source) every everyMin minutes, validated, and only then fed to NIGRAAN's consumers (server/api/copies.mjs). A dataset whose copy is older than staleMin, or fails validation, sends its consumer back to NIGRAAN's own fetch (MACH, METAR) or skips the run (PMD-EWS; since the EWS own-fetch package of 28 Oct 2026 the lamha_ews files can come from NIGRAAN's own fetch instead, see lamha_ews.ownFetch). Copy-only datasets (kind meta: LAMHA's MACH QC tables, the PMD-origin AEGIS catalogue and synoptic list) are validated (columns) and feed no served path. v91.17.283.25 (owner, 27 Oct 2026: NIGRAAN leaves D:\\DATA LAKE completely): the AGN data lake is no longer a source. Its five datasets (MACH mach_obs, OpenAQ, IMERG half-hourly, USGS earthquakes, GEM faults) are read from NIGRAAN's own feeds only: the MACH database call (fleet.mjs) after LAMHA's copy, the OpenAQ API (openaq.mjs, openaq.key), NASA GES DISC IMERG (imerg.mjs, earthdata.key), the USGS feeds (quake.mjs) and NIGRAAN's own fault file data/gem-active-faults-pk.json (faults.mjs). Files copied from the lake before 27 Oct stay in nig\\copies\\lake untouched (nothing reads, moves or deletes them). Folders: NIGRAAN_LAMHA_DIR (default D:\\LAMHA, three levels above nigraan-local), NIGRAAN_COPIES_DIR or the key 'copies' (default nig\\copies). NIGRAAN_COPY=0 stops all copies (own fetches only); NIGRAAN_LAMHA=0 stops the LAMHA source.",
+  "everyMin": 15,
+  "staleMin": 30,
+  "rule": {
+    "countShare": 0.5,
+    "countShareWhy": "a copy fails when fewer stations report than half of the reference count (the rolling median of the last 7 days of passing checks, at least minHistory checks; before that the seed measured from the record). Measured in normal operation: MACH 71-83 stations with a reading within 60 min, median 78, lowest/median 0.91 (LAMHA database copy, 8-14 Oct 2026, 883 ten-minute steps); METAR 7-8 airports, median 8 (1,446 steps, 2-13 Oct 2026, network gaps left out); PMD-EWS 64-81 stations with temperature in 2 h, median 78 (297 half-hour steps, 7-14 Oct 2026). A drop below half is not station churn; it is the 'register drops more than half the fleet' guard the LAMHA review asked for (15 Oct 2026: LAMHA's register dropped all 108 stations).",
+    "unitShare": 0.5,
+    "unitShareWhy": "a copy fails when more than half of the newest readings lie outside physical ranges (a whole feed in the wrong unit); single bad readings are left to each consumer's own screen, as before",
+    "minHistory": 36,
+    "historyDays": 7
+  },
+  "copies": {
+    "label": "NIGRAAN's copies (D:\\NIGRAAN\\nig\\copies)",
+    "env": "NIGRAAN_COPIES_DIR",
+    "default": [
+      "..",
+      "copies"
+    ],
+    "why": "v269 integration: the copies are NIGRAAN's own files, outside station-lake"
+  },
+  "sources": {
+    "lamha": {
+      "label": "LAMHA (D:\\LAMHA)",
+      "env": "NIGRAAN_LAMHA_DIR",
+      "default": [
+        "..",
+        "..",
+        "..",
+        "LAMHA"
+      ],
+      "off": "NIGRAAN_LAMHA"
+    }
+  },
+  "datasets": {
+    "lamha_mach": {
+      "source": "lamha",
+      "kind": "mach",
+      "staleMin": 30,
+      "freshMin": 60,
+      "seedCount": 78,
+      "use": "MACH fleet poll (server/api/fleet.mjs)",
+      "files": [
+        {
+          "path": "data/mach/db/obs_{Y}{M}{D}.csv",
+          "days": [
+            -1,
+            0
+          ],
+          "validate": true
+        },
+        {
+          "path": "data/mach/db/last_sync.txt"
+        },
+        {
+          "path": "data/mach/db/sync_log.txt",
+          "role": "log",
+          "optional": true
+        },
+        {
+          "path": "data/mach/db/latest_status.json",
+          "role": "status"
+        },
+        {
+          "path": "data/mach/clean/mach_station_status.csv",
+          "role": "register",
+          "optional": true
+        }
+      ]
+    },
+    "lamha_mach_meta": {
+      "source": "lamha",
+      "kind": "meta",
+      "staleMin": null,
+      "use": "internal evidence only (the registry review, F1/F2): LAMHA's MACH QC and register tables; no served path reads them",
+      "files": [
+        {
+          "path": "data/mach/clean/duplicate_feeds.csv",
+          "columns": [
+            "station",
+            "other",
+            "action"
+          ]
+        },
+        {
+          "path": "data/mach/clean/manual_flags.csv",
+          "columns": [
+            "key",
+            "variable",
+            "reason"
+          ]
+        },
+        {
+          "path": "data/mach/clean/hourly/qc_by_station.csv",
+          "columns": [
+            "stationKey",
+            "readings_used",
+            "register"
+          ]
+        }
+      ]
+    },
+    "lamha_metar": {
+      "source": "lamha",
+      "kind": "metar",
+      "staleMin": 60,
+      "freshMin": 75,
+      "seedCount": 8,
+      "use": "airport readings of the synoptic running correction (server/api/synop.mjs)",
+      "staleWhy": "reports come every 30 min (:00 and :30; Gwadar hourly): the copy is stale when its newest report is older than the 30-min limit plus one 30-min report cycle",
+      "files": [
+        {
+          "path": "data/obs_other/metar_live/metar_{Y}{M}.csv",
+          "months": [
+            -1,
+            0
+          ],
+          "validate": true
+        },
+        {
+          "path": "data/obs_other/metar_live/airports.csv",
+          "role": "airports"
+        }
+      ]
+    },
+    "lamha_ews": {
+      "source": "lamha",
+      "kind": "ews",
+      "staleMin": 60,
+      "freshMin": 120,
+      "seedCount": 78,
+      "use": "PMD-EWS append into the station archive (station-lake/scripts/append_lamha_ews.py, every 6 h; internal only)",
+      "staleWhy": "LAMHA's AEGIS sync runs every 30 min: stale after the 30-min limit plus one sync cycle",
+      "files": [
+        {
+          "path": "data/pmd/ews_live/raw/ews_raw_{Y}{M}{D}.csv.gz",
+          "days": [
+            -13,
+            0
+          ],
+          "validate": "newest"
+        },
+        {
+          "path": "data/pmd/ews_live/sync_status.json",
+          "role": "status"
+        }
+      ],
+      "origin": "PMD",
+      "internal": true,
+      "ownFetch": "EWS own fetch (28 Oct 2026): data/ews-source.json (mode lamha | own | failover, default failover) decides the SOURCE of this dataset: D:\\LAMHA, or NIGRAAN's own store <copies>/ews_own (station-lake/scripts/ews_sync.py, LAMHA's folder layout) while NIGRAAN is the active fetcher (LAMHA missed 3 syncs while NIGRAAN watched). The destination (nig/copies/lamha), the files, the checks and the consumers stay the same: one set of files from one source at a time (server/api/ewssource.mjs; status() ewsSource)."
+    },
+    "lamha_pmd": {
+      "source": "lamha",
+      "kind": "meta",
+      "staleMin": null,
+      "origin": "PMD",
+      "internal": true,
+      "use": "internal only, copied and never fetched (no PMD account is used by NIGRAAN): the AEGIS (PMD-EWS) station catalogue and the synoptic station list for training, calibration and verification; pmd_synop_live is NIGRAAN's own synoptic log as LAMHA keeps it (no feedback: NIGRAAN's synop.mjs never reads it)",
+      "files": [
+        {
+          "path": "data/pmd/aegis_gb_station_catalog.csv",
+          "columns": [
+            "stationId",
+            "latitude",
+            "longitude"
+          ]
+        },
+        {
+          "path": "data/pmd/synop_stations.csv",
+          "columns": [
+            "station_id",
+            "lat",
+            "lon"
+          ]
+        },
+        {
+          "path": "data/pmd/pmd_synop_live_{Y}-{M}.jsonl",
+          "months": [
+            -1,
+            0
+          ],
+          "optional": true,
+          "jsonl": [
+            "sid",
+            "t"
+          ]
+        }
+      ]
+    }
+  },
+  "internalRule": "datasets marked internal (origin PMD) are copied for internal training, calibration and verification only: no consumer that reaches a client reads them. NIGRAAN fetches the EWS readings itself only as the failover of data/ews-source.json (its own login, never at the same time as LAMHA in normal operation); every other PMD-origin dataset is copied, never fetched"
+}

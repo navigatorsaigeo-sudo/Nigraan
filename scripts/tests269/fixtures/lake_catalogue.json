@@ -1,0 +1,922 @@
+{
+ "lake": "AGN_LAKE",
+ "version": "1.0",
+ "updated": "2026-10-09",
+ "root": "D:\\AGN_LAKE (set AGN_LAKE to move it; every path below is relative to the root)",
+ "visibilityLevels": {
+  "public": "may be shown to customers as is, with its credit line",
+  "derived": "may reach customers only through an AGN model or product output, never as raw values",
+  "internal": "testing, training and verification only; never named or shown in customer outputs"
+ },
+ "datasets": [
+  {
+   "id": "mach_obs",
+   "title": "MACH fleet observations (all readings)",
+   "state": "live",
+   "collectorGroup": "mach",
+   "cadenceMin": 10,
+   "staleMin": 40,
+   "path": "data/mach_obs/daily/obs_YYYYMMDD.csv[.gz]",
+   "partition": "UTC day; files older than 3 days are gzip-compressed",
+   "key": [
+    "stationKey",
+    "time"
+   ],
+   "timeColumn": "time (UTC)",
+   "units": "metric, as the MACH database states them",
+   "source": "AGN MACH observations database (mach-obs-api, aggn.aigeo360.com/obs)",
+   "licence": "AGN proprietary",
+   "visibility": "public",
+   "credit": "MACH (AGN)",
+   "first": "2026-03-25",
+   "consumers": [
+    "NIGRAAN",
+    "LAMHA",
+    "agn-platform"
+   ],
+   "qc": "none in the lake; each product keeps its own screen",
+   "maxObsLagMin": 40
+  },
+  {
+   "id": "mach_stations",
+   "title": "MACH station registry and latest status",
+   "state": "live",
+   "collectorGroup": "mach",
+   "cadenceMin": 60,
+   "staleMin": 150,
+   "path": "data/mach_stations/stations.json, latest.json, stations_YYYYMMDD.json (copy on every change)",
+   "source": "mach-obs-api /v1/stations, /v1/latest",
+   "licence": "AGN proprietary",
+   "visibility": "public",
+   "credit": "MACH (AGN)",
+   "consumers": [
+    "NIGRAAN",
+    "LAMHA",
+    "agn-platform"
+   ]
+  },
+  {
+   "id": "quake_usgs",
+   "title": "Earthquake catalogue 20-40N 55-82E, M2.5+",
+   "state": "live",
+   "collectorGroup": "quake",
+   "cadenceMin": 10,
+   "staleMin": 40,
+   "path": "data/quake_usgs/events.csv (newest version per event), revisions/rev_YYYYMM.csv (every version received)",
+   "key": [
+    "id"
+   ],
+   "timeColumn": "time (UTC)",
+   "source": "USGS ComCat fdsnws",
+   "licence": "public domain (US Government)",
+   "visibility": "public",
+   "credit": "USGS",
+   "first": "1973-01-01",
+   "consumers": [
+    "NIGRAAN",
+    "agn-platform"
+   ]
+  },
+  {
+   "id": "aq_openaq",
+   "title": "Air-quality sensors in Pakistan (OpenAQ)",
+   "state": "live",
+   "collectorGroup": "aq",
+   "cadenceMin": 60,
+   "staleMin": 180,
+   "path": "data/aq_openaq/aq_openaq_YYYY-MM.csv",
+   "key": [
+    "sensor_id",
+    "observed_at_utc"
+   ],
+   "timeColumn": "observed_at_utc",
+   "source": "OpenAQ API v3",
+   "licence": "per data provider (mostly CC BY 4.0)",
+   "visibility": "derived",
+   "credit": "OpenAQ",
+   "consumers": [
+    "NIGRAAN"
+   ],
+   "note": "raw low-cost sensor values; NIGRAAN serves them only through its national PM2.5 model",
+   "maxObsLagMin": 180
+  },
+  {
+   "id": "aq_punjab_epa",
+   "title": "Punjab EPA air-quality stations",
+   "state": "live",
+   "collectorGroup": "aq",
+   "cadenceMin": 60,
+   "staleMin": 180,
+   "path": "data/aq_punjab_epa/aq_punjab_epa_YYYY-MM.csv",
+   "key": [
+    "station_id",
+    "observed"
+   ],
+   "timeColumn": "observed (as the page gives it)",
+   "source": "aqi.punjab.gov.pk",
+   "licence": "government website, no open licence stated",
+   "visibility": "internal",
+   "credit": null,
+   "consumers": [
+    "NIGRAAN"
+   ],
+   "note": "calibration reference only",
+   "maxObsLagMin": 240
+  },
+  {
+   "id": "metar",
+   "title": "METAR, Pakistani airports (8 active)",
+   "state": "live",
+   "collectorGroup": "metar",
+   "cadenceMin": 60,
+   "staleMin": 180,
+   "path": "data/metar/metar_YYYY-MM.csv",
+   "key": [
+    "station",
+    "valid_utc"
+   ],
+   "timeColumn": "valid_utc",
+   "source": "Iowa Environmental Mesonet ASOS/METAR archive",
+   "licence": "free, no login (IEM)",
+   "visibility": "public",
+   "credit": "Iowa Environmental Mesonet",
+   "onRequest": "any earlier month",
+   "consumers": [
+    "NIGRAAN",
+    "LAMHA"
+   ],
+   "maxObsLagMin": 180
+  },
+  {
+   "id": "isd_lite",
+   "title": "NOAA ISD-Lite hourly, Pakistan synoptic stations",
+   "state": "live",
+   "collectorGroup": "isd",
+   "cadenceMin": 10080,
+   "staleMin": 20160,
+   "path": "data/isd_lite/isd_lite_YYYY.csv.gz, isd_stations.csv",
+   "key": [
+    "usaf",
+    "time_utc"
+   ],
+   "source": "NOAA NCEI",
+   "licence": "public domain",
+   "visibility": "public",
+   "credit": "NOAA NCEI",
+   "onRequest": "any year from 1973",
+   "note": "NOAA has no Pakistan data after 2025-08-24; history only (METAR is the current airport feed)",
+   "consumers": [
+    "NIGRAAN",
+    "LAMHA"
+   ]
+  },
+  {
+   "id": "ffd_river",
+   "title": "FFD daily river figures (AGN team sheet)",
+   "state": "live",
+   "collectorGroup": "ffd",
+   "cadenceMin": 180,
+   "staleMin": 1800,
+   "path": "data/ffd_river/ffd_river.csv, versions/",
+   "key": [
+    "date",
+    "Station"
+   ],
+   "source": "AGN's own Google Sheet, filled by hand from the public FFD page (catalogue/ffd_drive.json)",
+   "licence": "FFD: all rights reserved",
+   "visibility": "internal",
+   "credit": null,
+   "consumers": [
+    "NIGRAAN"
+   ],
+   "maxObsLagMin": 2880
+  },
+  {
+   "id": "imerg_late_hh",
+   "title": "GPM IMERG Late run, half-hourly, 0.1 deg, Pakistan box",
+   "state": "live",
+   "collectorGroup": "imerg",
+   "cadenceMin": 30,
+   "staleMin": 1440,
+   "path": "data/imerg_hh/late/YYYY/imerg_late_YYYYMMDD.nc",
+   "source": "NASA GES DISC (OPeNDAP window)",
+   "licence": "NASA open data",
+   "visibility": "public",
+   "credit": "NASA GPM IMERG",
+   "onRequest": "any period from 2000-06",
+   "consumers": [
+    "NIGRAAN",
+    "LAMHA",
+    "agn-platform"
+   ],
+   "note": "about 12-14 h behind real time",
+   "maxObsLagMin": 1440
+  },
+  {
+   "id": "imerg_final_hh",
+   "title": "GPM IMERG Final run (research grade)",
+   "state": "on-request",
+   "path": "data/imerg_hh/final/YYYY/imerg_final_YYYYMMDD.nc",
+   "source": "NASA GES DISC",
+   "licence": "NASA open data",
+   "visibility": "public",
+   "credit": "NASA GPM IMERG",
+   "onRequest": "any period from 2000-06 to the end of NASA's Final V07 run (2025-09-30 on 8 Oct 2026)",
+   "consumers": [
+    "NIGRAAN",
+    "LAMHA",
+    "agn-platform"
+   ]
+  },
+  {
+   "id": "imerg_early_hh",
+   "title": "GPM IMERG Early run (about 4 h behind)",
+   "state": "on-request",
+   "path": "data/imerg_hh/early/YYYY/imerg_early_YYYYMMDD.nc",
+   "source": "NASA GES DISC",
+   "licence": "NASA open data",
+   "visibility": "public",
+   "credit": "NASA GPM IMERG",
+   "consumers": [
+    "LAMHA"
+   ]
+  },
+  {
+   "id": "era5land_points",
+   "title": "ERA5-Land hourly at points (MACH stations and any point a product asks for)",
+   "state": "live",
+   "collectorGroup": "era5land",
+   "cadenceMin": 360,
+   "staleMin": 10080,
+   "path": "data/era5land_points/cells/cell_<lat>_<lon>.csv.gz, point_cells.csv",
+   "key": [
+    "time_utc"
+   ],
+   "source": "Copernicus CDS reanalysis-era5-land-timeseries",
+   "licence": "CC BY 4.0",
+   "visibility": "public",
+   "credit": "Copernicus Climate Change Service (ERA5-Land)",
+   "onRequest": "new points (whole series from 1991)",
+   "consumers": [
+    "NIGRAAN",
+    "LAMHA",
+    "agn-platform"
+   ],
+   "note": "about 5-6 days behind real time",
+   "maxObsLagMin": 10080
+  },
+  {
+   "id": "chirps_pentad",
+   "title": "CHIRPS v3 rainfall pentads, 0.05 deg, Pakistan box",
+   "state": "live",
+   "collectorGroup": "chirps",
+   "cadenceMin": 1440,
+   "staleMin": 14400,
+   "path": "data/chirps_pentad/YYYY/chirps_YYYY.MM.P.nc",
+   "source": "UCSB Climate Hazards Center",
+   "licence": "CC BY 4.0",
+   "visibility": "public",
+   "credit": "CHIRPS (UCSB Climate Hazards Center)",
+   "onRequest": "any pentad from 1981",
+   "consumers": [
+    "NIGRAAN",
+    "agn-platform"
+   ],
+   "maxObsLagMin": 64800
+  },
+  {
+   "id": "glofas_daily",
+   "title": "GloFAS v4 river discharge, daily, 0.05 deg, Indus basin",
+   "state": "live",
+   "collectorGroup": "glofas",
+   "cadenceMin": 1440,
+   "staleMin": 4320,
+   "path": "data/glofas_daily/YYYY/glofas_YYYYMM.nc",
+   "source": "Copernicus EWDS cems-glofas-historical",
+   "licence": "Copernicus licence (free, attribution)",
+   "visibility": "public",
+   "credit": "Copernicus Emergency Management Service (GloFAS)",
+   "onRequest": "any month from 1979",
+   "consumers": [
+    "NIGRAAN",
+    "agn-platform"
+   ],
+   "maxObsLagMin": 7200
+  },
+  {
+   "id": "suparco_glacial_lakes",
+   "title": "SUPARCO glacial-lake inventory",
+   "state": "live",
+   "collectorGroup": "suparco",
+   "cadenceMin": 10080,
+   "staleMin": 20160,
+   "path": "data/suparco_glacial_lakes/lakes.csv, lakes_YYYYMMDD.csv",
+   "source": "SUPARCO Glacier Geospatial Portal (public WFS)",
+   "visibility": "public",
+   "credit": "SUPARCO Glacier Geospatial Portal",
+   "consumers": [
+    "NIGRAAN",
+    "agn-platform"
+   ]
+  },
+  {
+   "id": "img_imerg_rate",
+   "title": "IMERG precipitation-rate image, Pakistan box, half-hourly (PNG)",
+   "state": "live",
+   "collectorGroup": "generic",
+   "cadenceMin": 30,
+   "staleMin": 720,
+   "path": "data/img_imerg_rate/YYYY/MM/DD/img_imerg_rate_YYYYMMDDTHHMMZ.png",
+   "source": "NASA GIBS (sources.json nasa_gibs schedule)",
+   "licence": "NASA open data",
+   "visibility": "public",
+   "credit": "NASA GIBS / GPM IMERG",
+   "consumers": [
+    "LAMHA",
+    "NIGRAAN"
+   ],
+   "note": "image feed defined only by a schedule entry in sources.json (no code): the pattern any future radar or satellite image feed follows"
+  },
+  {
+   "id": "img_modis_truecolor",
+   "title": "MODIS Terra true-colour image, Pakistan box, daily (PNG)",
+   "state": "live",
+   "collectorGroup": "generic",
+   "cadenceMin": 30,
+   "staleMin": 4320,
+   "path": "data/img_modis_truecolor/YYYY/MM/DD/img_modis_truecolor_YYYYMMDDT0000Z.png",
+   "source": "NASA GIBS (sources.json nasa_gibs schedule)",
+   "licence": "NASA open data",
+   "visibility": "public",
+   "credit": "NASA GIBS / MODIS",
+   "consumers": [
+    "NIGRAAN",
+    "agn-platform"
+   ],
+   "note": "smoke, dust, fog, snow and flood extent at a glance"
+  },
+  {
+   "id": "api_archive",
+   "title": "every answer the gateway fetched for any product (paid and free APIs)",
+   "state": "live-gateway",
+   "path": "data/api_archive/<sourceId>/YYYY-MM-DD/<hash>_<time>.<ext>.gz + index_YYYY-MM-DD.jsonl",
+   "source": "bin/gateway.py",
+   "visibility": "as its source",
+   "consumers": [
+    "NIGRAAN",
+    "LAMHA",
+    "agn-platform"
+   ],
+   "note": "nothing a product asks an outside API for is lost; keys are never stored"
+  },
+  {
+   "id": "pmd_ews_live",
+   "title": "PMD-EWS mountain network, live readings (AEGIS portal)",
+   "state": "moves-in",
+   "step": 3,
+   "visibility": "internal",
+   "credit": null,
+   "source": "AEGIS portal via AGN's own login; synced every 30 min by LAMHA (scripts\\pmd\\aegis_sync.py), allowed by AGN on 8 Oct 2026 (an API sync, not scraping)",
+   "consumers": [
+    "LAMHA",
+    "NIGRAAN"
+   ],
+   "note": "moves into the lake at step 3; LAMHA's sync keeps running until then"
+  },
+  {
+   "id": "pmd_held",
+   "title": "PMD station data AGN already holds (synop, AWS, EWS exports)",
+   "state": "held",
+   "step": 3,
+   "visibility": "internal",
+   "credit": null,
+   "source": "files supplied by AGN; no automated PMD fetching",
+   "consumers": [
+    "NIGRAAN",
+    "LAMHA"
+   ],
+   "path": "data/pmd_held/",
+   "heldFrom": [
+    "LAMHA",
+    "NIGRAAN"
+   ],
+   "files": 137,
+   "sizeGB": 0.31,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "nwp_gfs_asissued",
+   "title": "NOAA GFS as-issued runs (points + rain fields)",
+   "state": "moves-in",
+   "step": 3,
+   "heldBy": "LAMHA (data/nwp/gfs_asissued)",
+   "licence": "public domain",
+   "visibility": "public",
+   "credit": "NOAA GFS",
+   "consumers": [
+    "LAMHA",
+    "NIGRAAN"
+   ]
+  },
+  {
+   "id": "nwp_ifs_asissued",
+   "title": "ECMWF IFS open data as-issued runs",
+   "state": "moves-in",
+   "step": 3,
+   "heldBy": "LAMHA (data/nwp/ifs_asissued)",
+   "licence": "CC BY 4.0",
+   "visibility": "public",
+   "credit": "Contains ECMWF open data",
+   "consumers": [
+    "LAMHA",
+    "NIGRAAN"
+   ]
+  },
+  {
+   "id": "nwp_aifs_asissued",
+   "title": "ECMWF AIFS as-issued runs",
+   "state": "moves-in",
+   "step": 3,
+   "heldBy": "LAMHA (data/nwp/aifs_asissued)",
+   "licence": "CC BY 4.0",
+   "visibility": "public",
+   "credit": "Contains ECMWF open data",
+   "consumers": [
+    "LAMHA",
+    "NIGRAAN"
+   ]
+  },
+  {
+   "id": "seviri_cloud",
+   "title": "Meteosat IODC cloud mask and cloud-top height",
+   "state": "held",
+   "step": 3,
+   "heldBy": "LAMHA (data/satellite)",
+   "licence": "EUMETSAT core data (free)",
+   "visibility": "public",
+   "credit": "Contains modified EUMETSAT data",
+   "consumers": [
+    "LAMHA"
+   ],
+   "path": "data/seviri_cloud/",
+   "heldFrom": [
+    "LAMHA"
+   ],
+   "files": 36,
+   "sizeGB": 0.53,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "irsa_daily",
+   "title": "IRSA daily river flows (AGN team sheet)",
+   "state": "moves-in",
+   "step": 3,
+   "heldBy": "NIGRAAN (station-lake raw/irsa_daily)",
+   "visibility": "internal",
+   "credit": null,
+   "consumers": [
+    "NIGRAAN"
+   ]
+  },
+  {
+   "id": "mach_history_wu",
+   "title": "MACH 2023-2026 history from Weather Underground (Mach1-36)",
+   "state": "held",
+   "step": 3,
+   "heldBy": "LAMHA (data/mach/history_5min)",
+   "visibility": "public",
+   "credit": "MACH (AGN)",
+   "consumers": [
+    "LAMHA",
+    "NIGRAAN"
+   ],
+   "path": "data/mach_history_wu/",
+   "heldFrom": [
+    "LAMHA"
+   ],
+   "files": 28,
+   "sizeGB": 0.151,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "openmeteo_forecast_archive",
+   "title": "Open-Meteo forecasts and ensembles as issued (paid key)",
+   "state": "paid-switch",
+   "step": 4,
+   "heldBy": "NIGRAAN (ensemble archive, forecast pairs)",
+   "visibility": "derived",
+   "credit": "weather data by Open-Meteo.com (CC BY 4.0)",
+   "note": "moves when NIGRAAN switches, so the paid quota is never spent twice"
+  },
+  {
+   "id": "openmeteo_air_quality",
+   "title": "CAMS air-quality forecasts via Open-Meteo (paid key)",
+   "state": "paid-switch",
+   "step": 4,
+   "heldBy": "NIGRAAN",
+   "visibility": "derived",
+   "credit": "CAMS / Open-Meteo"
+  },
+  {
+   "id": "openmeteo_flood",
+   "title": "GloFAS forecasts via Open-Meteo flood API (paid key)",
+   "state": "paid-switch",
+   "step": 4,
+   "heldBy": "NIGRAAN",
+   "visibility": "derived",
+   "credit": "Copernicus GloFAS / Open-Meteo"
+  },
+  {
+   "id": "visualcrossing_archive",
+   "title": "Visual Crossing forecasts archived daily (paid key)",
+   "state": "paid-switch",
+   "step": 4,
+   "heldBy": "NIGRAAN (vc archive)",
+   "visibility": "derived",
+   "credit": "Visual Crossing"
+  },
+  {
+   "id": "weatherkit_fallback",
+   "title": "Apple WeatherKit fallback forecasts (paid key)",
+   "state": "paid-switch",
+   "step": 4,
+   "heldBy": "NIGRAAN",
+   "visibility": "internal",
+   "credit": null
+  },
+  {
+   "id": "census_2023",
+   "title": "PBS Census 2023 population and households",
+   "state": "planned",
+   "step": 5,
+   "visibility": "public",
+   "credit": "Pakistan Bureau of Statistics",
+   "consumers": [
+    "NIGRAAN",
+    "agn-platform"
+   ]
+  },
+  {
+   "id": "boundaries_agn",
+   "title": "AGN Pakistan boundaries (national, province, district, 577 tehsils)",
+   "state": "held",
+   "step": 5,
+   "visibility": "public",
+   "licence": "AGN",
+   "credit": "AGN",
+   "consumers": [
+    "NIGRAAN",
+    "LAMHA",
+    "agn-platform"
+   ],
+   "path": "data/boundaries_agn/",
+   "heldFrom": [
+    "agn-platform"
+   ],
+   "files": 5,
+   "sizeGB": 0.004,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "feat_grid_250m",
+   "title": "National 250 m feature grid (terrain, land cover, NDVI, climatology, population)",
+   "state": "held",
+   "step": 5,
+   "visibility": "derived",
+   "credit": "per band",
+   "consumers": [
+    "NIGRAAN",
+    "LAMHA"
+   ],
+   "path": "data/feat_grid_250m/",
+   "heldFrom": [
+    "NIGRAAN"
+   ],
+   "files": 197,
+   "sizeGB": 0.416,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "smap_soil_moisture",
+   "title": "NASA SMAP soil moisture",
+   "state": "planned",
+   "step": 5,
+   "visibility": "public",
+   "credit": "NASA SMAP",
+   "consumers": [
+    "NIGRAAN",
+    "agn-platform"
+   ]
+  },
+  {
+   "id": "modis_snow",
+   "title": "MODIS snow cover",
+   "state": "planned",
+   "step": 5,
+   "visibility": "public",
+   "credit": "NASA MODIS",
+   "consumers": [
+    "NIGRAAN",
+    "LAMHA"
+   ]
+  },
+  {
+   "id": "ndvi_landsat_s2",
+   "title": "NDVI / land-surface layers (Planetary Computer)",
+   "state": "planned",
+   "step": 5,
+   "visibility": "derived",
+   "credit": "per source",
+   "consumers": [
+    "NIGRAAN",
+    "agn-platform"
+   ]
+  },
+  {
+   "id": "gsod",
+   "title": "NOAA Global Summary of the Day, Pakistan stations",
+   "state": "planned",
+   "step": 4,
+   "visibility": "public",
+   "licence": "public domain",
+   "credit": "NOAA NCEI",
+   "consumers": [
+    "agn-platform",
+    "NIGRAAN"
+   ]
+  },
+  {
+   "id": "cmip6_tehsil",
+   "title": "CMIP6 projections at tehsils and districts",
+   "state": "moves-in",
+   "step": 5,
+   "heldBy": "agn-platform (data/tables/cmip6_*)",
+   "visibility": "derived",
+   "licence": "CC BY 4.0",
+   "credit": "CMIP6 via Copernicus CDS",
+   "consumers": [
+    "agn-platform",
+    "NIGRAAN"
+   ]
+  },
+  {
+   "id": "exposure_layers",
+   "title": "roads, schools, hospitals, telecom, railways, airports, ports, transmission lines, fault lines, protected areas",
+   "state": "held",
+   "step": 5,
+   "heldBy": "agn-platform (Cat_data)",
+   "visibility": "derived",
+   "credit": "per layer",
+   "consumers": [
+    "agn-platform",
+    "NIGRAAN"
+   ],
+   "path": "data/exposure_layers/",
+   "heldFrom": [
+    "agn-platform"
+   ],
+   "files": 261,
+   "sizeGB": 2.252,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "ghsl_2020",
+   "title": "GHSL built-up volume and population 2020, 3 arc-sec",
+   "state": "held",
+   "step": 5,
+   "heldBy": "agn-platform (engine-inputs/_tif)",
+   "visibility": "derived",
+   "licence": "CC BY 4.0",
+   "credit": "European Commission GHSL",
+   "consumers": [
+    "agn-platform",
+    "NIGRAAN"
+   ],
+   "path": "data/ghsl_2020/",
+   "heldFrom": [
+    "agn-platform"
+   ],
+   "files": 12,
+   "sizeGB": 0.671,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "jrc_flood_depth",
+   "title": "JRC river-flood depth maps, return periods 10-500 years",
+   "state": "held",
+   "step": 5,
+   "heldBy": "agn-platform (engine-inputs/jrc)",
+   "visibility": "derived",
+   "licence": "CC BY 4.0",
+   "credit": "European Commission JRC",
+   "consumers": [
+    "agn-platform",
+    "NIGRAAN"
+   ],
+   "path": "data/jrc_flood_depth/",
+   "heldFrom": [
+    "agn-platform"
+   ],
+   "files": 28,
+   "sizeGB": 1.011,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "ghcnd",
+   "title": "GHCN-Daily, Pakistan stations",
+   "state": "held",
+   "step": 4,
+   "heldBy": "agn-drought (inputs/ghcnd)",
+   "visibility": "public",
+   "licence": "public domain",
+   "credit": "NOAA NCEI",
+   "consumers": [
+    "agn-drought",
+    "NIGRAAN"
+   ],
+   "path": "data/ghcnd/",
+   "heldFrom": [
+    "agn-drought"
+   ],
+   "files": 25,
+   "sizeGB": 0.038,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "epd_bulletins",
+   "title": "EPD daily air-quality bulletins (PDF)",
+   "state": "held",
+   "step": 5,
+   "heldBy": "NIGRAAN (deploy/DATA)",
+   "visibility": "internal",
+   "credit": null,
+   "consumers": [
+    "NIGRAAN"
+   ],
+   "path": "data/epd_bulletins/",
+   "heldFrom": [
+    "NIGRAAN"
+   ],
+   "files": 1227,
+   "sizeGB": 0.434,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "nwp_asissued",
+   "title": "GFS, IFS and AIFS forecast runs as issued (points and fields)",
+   "state": "held",
+   "path": "data/nwp_asissued/",
+   "heldFrom": [
+    "LAMHA"
+   ],
+   "visibility": "public",
+   "credit": "NOAA GFS; Contains ECMWF open data",
+   "files": 335,
+   "sizeGB": 2.554,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "seviri_hrseviri",
+   "title": "Meteosat IODC HRSEVIRI channels (raw downloads and extracts)",
+   "state": "held",
+   "path": "data/seviri_hrseviri/",
+   "heldFrom": [
+    "LAMHA"
+   ],
+   "visibility": "public",
+   "credit": "Contains modified EUMETSAT data",
+   "files": 994,
+   "sizeGB": 28.117,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "glofas_v4_reanalysis",
+   "title": "GloFAS v4 reanalysis 1979-2025, yearly GRIB",
+   "state": "held",
+   "path": "data/glofas_v4_reanalysis/",
+   "heldFrom": [
+    "agn-platform"
+   ],
+   "visibility": "public",
+   "credit": "Copernicus Emergency Management Service (GloFAS)",
+   "files": 47,
+   "sizeGB": 4.912,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "era5land_grid_tp",
+   "title": "ERA5-Land precipitation 1979-2025, yearly NetCDF",
+   "state": "held",
+   "path": "data/era5land_grid_tp/",
+   "heldFrom": [
+    "agn-platform"
+   ],
+   "visibility": "public",
+   "credit": "Copernicus Climate Change Service (ERA5-Land)",
+   "files": 47,
+   "sizeGB": 0.565,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "flopros",
+   "title": "FLOPROS flood protection standards (Scussolini et al. 2016)",
+   "state": "held",
+   "path": "data/flopros/",
+   "heldFrom": [
+    "agn-platform"
+   ],
+   "visibility": "derived",
+   "credit": "Scussolini et al. 2016, NHESS",
+   "files": 1,
+   "sizeGB": 0.014,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "census_pbs",
+   "title": "PBS census tables",
+   "state": "held",
+   "path": "data/census_pbs/",
+   "heldFrom": [
+    "agn-platform"
+   ],
+   "visibility": "public",
+   "credit": "Pakistan Bureau of Statistics",
+   "files": 138,
+   "sizeGB": 0.063,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "crop_yields",
+   "title": "wheat yields (PBS, Punjab)",
+   "state": "held",
+   "path": "data/crop_yields/",
+   "heldFrom": [
+    "agn-drought"
+   ],
+   "visibility": "public",
+   "credit": "PBS; Punjab Crop Reporting Service",
+   "files": 2,
+   "sizeGB": 0.0,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "nigraan_station_archive",
+   "title": "NIGRAAN research archive (stations, ISD, METAR, synop, OpenAQ, ensembles, static layers)",
+   "state": "held",
+   "path": "data/nigraan_station_archive/",
+   "heldFrom": [
+    "NIGRAAN"
+   ],
+   "visibility": "internal",
+   "credit": null,
+   "files": 2309,
+   "sizeGB": 1.729,
+   "importedUtc": "2026-10-08T13:45:02Z"
+  },
+  {
+   "id": "gem_active_faults",
+   "title": "Active faults, Pakistan and neighbouring source zones (GEM Global Active Faults, clipped 20-40 N, 58-80 E)",
+   "state": "static",
+   "visibility": "public",
+   "licence": "CC BY-SA (GEM GAF-DB repository)",
+   "credit": "GEM Global Active Faults (Styron & Pagani 2020), CC BY-SA",
+   "consumers": [
+    "NIGRAAN",
+    "agn-platform"
+   ],
+   "path": "data/gem_faults/gem_active_faults_pk.geojson",
+   "source": "github.com/GEMScienceTools/gem-global-active-faults (harmonized GeoJSON)",
+   "citation": "Styron & Pagani (2020), Earthquake Spectra 36(1_suppl):160-180, doi:10.1177/8755293020944182",
+   "features": 403,
+   "note": "catalogues EMME (141), HimaTibetMap (244), Bird 2003 plate boundaries (18); slip rate [best,min,max] mm/yr; a reference layer, not a hazard model",
+   "fetchedUtc": "2026-10-09"
+  },
+  {
+   "id": "agnp_climada",
+   "title": "agn-platform loss run (CLIMADA flood and cyclone, OpenQuake earthquake): district yearly loss by peril and the building value it rests on",
+   "state": "live",
+   "collectorGroup": "agnp",
+   "cadenceMin": 360,
+   "staleMin": 1500,
+   "visibility": "derived",
+   "licence": "AGN",
+   "credit": "AGN catastrophe model",
+   "consumers": [
+    "NIGRAAN"
+   ],
+   "path": "data/agn_platform/climada/current.json",
+   "sourceRoot": "D:\\dataset hazards\\agn-platform",
+   "note": "one frozen copy per run (results_<run_id>.json); taken only when the run passes the platform contract and every calibration test; current.json names the run in use"
+  }
+ ],
+ "states": {
+  "live": "collected by the lake on its own schedule",
+  "on-request": "fetched when a product asks (lake.py need, or a requests\\ file)",
+  "moves-in": "collected today inside one product; the lake takes it over at that product's switch step",
+  "paid-switch": "paid API: the lake takes it over when NIGRAAN switches, so the quota is never spent twice",
+  "planned": "collector not built yet",
+  "live-gateway": "filled by the gateway as products call outside APIs through it",
+  "held": "copied into the lake from a product (one copy); refreshed when that product switches",
+  "static": "fetched once from a published release; refreshed by hand when the source publishes a new version (fetchedUtc says which)"
+ }
+}

@@ -1,0 +1,23 @@
+{ "what": "v91.17.283.28 consistency fixture: 20 places (plains, coast, hills, mountains, the named cities, Islamabad G-9/4) and one place read with a failed provider part (fault: ensemble HTTP 500). The page builder's Playwright check reads the same list.",
+  "places": [
+  { "id": "lahore", "name": "Lahore", "lat": 31.5204, "lon": 74.3587, "kind": "plains" },
+  { "id": "karachi", "name": "Karachi", "lat": 24.8607, "lon": 67.0011, "kind": "coast" },
+  { "id": "islamabad-g94", "name": "Islamabad G-9/4", "lat": 33.6844, "lon": 73.0479, "kind": "plains" },
+  { "id": "gilgit", "name": "Gilgit", "lat": 35.9208, "lon": 74.308, "kind": "mountain" },
+  { "id": "quetta", "name": "Quetta", "lat": 30.1798, "lon": 66.975, "kind": "mountain" },
+  { "id": "peshawar", "name": "Peshawar", "lat": 34.0151, "lon": 71.5249, "kind": "plains" },
+  { "id": "multan", "name": "Multan", "lat": 30.1575, "lon": 71.5249, "kind": "plains" },
+  { "id": "faisalabad", "name": "Faisalabad", "lat": 31.4504, "lon": 73.135, "kind": "plains" },
+  { "id": "hyderabad", "name": "Hyderabad", "lat": 25.396, "lon": 68.3578, "kind": "plains" },
+  { "id": "sukkur", "name": "Sukkur", "lat": 27.7052, "lon": 68.8574, "kind": "plains" },
+  { "id": "gwadar", "name": "Gwadar", "lat": 25.1264, "lon": 62.3225, "kind": "coast" },
+  { "id": "muzaffarabad", "name": "Muzaffarabad", "lat": 34.37, "lon": 73.4711, "kind": "hills" },
+  { "id": "murree", "name": "Murree", "lat": 33.907, "lon": 73.3943, "kind": "hills" },
+  { "id": "skardu", "name": "Skardu", "lat": 35.2971, "lon": 75.6333, "kind": "mountain" },
+  { "id": "chitral", "name": "Chitral", "lat": 35.8518, "lon": 71.7864, "kind": "mountain" },
+  { "id": "bahawalpur", "name": "Bahawalpur", "lat": 29.3956, "lon": 71.6836, "kind": "plains" },
+  { "id": "turbat", "name": "Turbat", "lat": 26.0023, "lon": 63.044, "kind": "plains" },
+  { "id": "abbottabad", "name": "Abbottabad", "lat": 34.1688, "lon": 73.2215, "kind": "hills" },
+  { "id": "naran", "name": "Naran", "lat": 34.909, "lon": 73.6505, "kind": "mountain" },
+  { "id": "sialkot-fault", "name": "Sialkot (provider part failing)", "lat": 32.4945, "lon": 74.5229, "kind": "plains", "fault": { "mode": "500", "paths": ["/v1/ensemble"] } }
+  ] }

@@ -1,0 +1,52 @@
+{
+ "2022|CHIRPS_maxPentad": {
+  "n": 403,
+  "auc_current": 0.7568,
+  "auc_fixed": 0.7556,
+  "diff_ci": [
+   -0.0041,
+   0.0015
+  ],
+  "fixedWorse": false
+ },
+ "2024|IMERG_maxDay": {
+  "n": 405,
+  "auc_current": 0.7592,
+  "auc_fixed": 0.7526,
+  "diff_ci": [
+   -0.0104,
+   -0.0033
+  ],
+  "fixedWorse": true
+ },
+ "2024|CHIRPS_maxPentad": {
+  "n": 405,
+  "auc_current": 0.8058,
+  "auc_fixed": 0.8005,
+  "diff_ci": [
+   -0.0084,
+   -0.0026
+  ],
+  "fixedWorse": true
+ },
+ "2025|IMERG_maxDay": {
+  "n": 264,
+  "auc_current": 0.7357,
+  "auc_fixed": 0.7352,
+  "diff_ci": [
+   -0.0055,
+   0.0052
+  ],
+  "fixedWorse": false
+ },
+ "2025|CHIRPS_maxPentad": {
+  "n": 264,
+  "auc_current": 0.7164,
+  "auc_fixed": 0.7164,
+  "diff_ci": [
+   -0.004,
+   0.004
+  ],
+  "fixedWorse": false
+ }
+}

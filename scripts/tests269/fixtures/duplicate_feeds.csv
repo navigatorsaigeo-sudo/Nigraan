@@ -1,0 +1,20 @@
+station,week,other,km,action
+Bad,2026-07-06/2026-07-12 .. 2026-09-21/2026-09-27 (9 weeks),E11,4.4,duplicate_of
+faizan_sav,2026-05-18/2026-05-24 .. 2026-10-05/2026-10-11 (12 weeks),Faizan,3.4,duplicate_of
+pw_kwu,2026-05-18/2026-05-24 .. 2026-10-05/2026-10-11 (21 weeks),PW,1.5,duplicate_of
+easyweather_wifi_51128,2026-05-18/2026-05-24 .. 2026-10-05/2026-10-11 (21 weeks),PakWeather,0.3,duplicate_of
+easyweatherpro_5,2026-06-29/2026-07-05 .. 2026-10-05/2026-10-11 (15 weeks),RahimyarKhan_avenue,1.0,duplicate_of
+e_7_4,2026-06-15/2026-06-21 .. 2026-10-05/2026-10-11 (7 weeks),Shah,5.6,duplicate_of
+dha_avenue,2026-05-18/2026-05-24 .. 2026-09-21/2026-09-27 (17 weeks),easyweather_wifi_40979,4.1,duplicate_of
+nova,2026-06-29/2026-07-05 .. 2026-09-28/2026-10-04 (14 weeks),expo_avenue,0.9,duplicate_of
+gw1100c_wifi547f,2026-09-28/2026-10-04,mach8,810.1,blanked (feed mix-up)
+i_9_2,2026-06-15/2026-06-21,sargodha_avenue,120.3,blanked (feed mix-up)
+sargodha_avenue,2026-06-15/2026-06-21,i_9_2,120.3,blanked (feed mix-up)
+i_9_2,2026-06-29/2026-07-05,sargodha_avenue,120.3,blanked (feed mix-up)
+i_9_2,2026-07-06/2026-07-12,sargodha_avenue,120.3,blanked (feed mix-up)
+i_9_2,2026-10-05/2026-10-11,sargodha_avenue,120.3,blanked (feed mix-up)
+mach2,2026-06-29/2026-07-05,mach8,136.4,blanked (feed mix-up)
+mach2,2026-07-06/2026-07-12,mach8,136.4,blanked (feed mix-up)
+mach2,2026-07-20/2026-07-26,mach8,136.4,blanked (feed mix-up)
+mach2,2026-10-05/2026-10-11,mach8,136.4,blanked (feed mix-up)
+malir,2026-06-08/2026-06-14 .. 2026-09-28/2026-10-04 (9 weeks),saadi,5.6,duplicate_of

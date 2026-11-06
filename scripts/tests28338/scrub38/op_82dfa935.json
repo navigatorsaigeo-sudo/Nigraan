@@ -1,0 +1,5 @@
+{
+  "error": "not_found",
+  "path": "/api/glof/status",
+  "note": "the contract lives under /api/v1/ (89 endpoints); see /api/v1/... or GET /health"
+}

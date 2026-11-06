@@ -1,0 +1,32 @@
+/* v91.17.283.44 · EWS full scale: the server switches are OFF by default and change nothing when off */
+import { strict as assert } from 'node:assert';
+import { mkdtempSync, mkdirSync, writeFileSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { tmpdir } from 'node:os';
+import { fileURLToPath } from 'node:url';
+const API = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'server', 'api');
+const A = await import(join(API, 'ewsanchor.mjs')); const R = await import(join(API, 'ewsrain.mjs'));
+let n = 0; const t = (name, f) => { f(); n++; console.log('ok', name); };
+const own = mkdtempSync(join(tmpdir(), 'ews44_')); mkdirSync(join(own, 'data', 'pmd', 'ews_live'), { recursive: true });
+writeFileSync(join(own, 'data', 'pmd', 'ews_live', 'aegis_elements.csv'), 'element_id,station_id,station,element,unit,latitude,longitude\n1,10,A_AWS_1,Air Temperature,C,36,74\n2,20,B_AWS-H_1,Air Temperature THS,C,36,74\n3,20,B_AWS-H_1,Air Temperature Hukseflux,C,36,74\n4,20,B_AWS-H_1,Relative Humidity THS,%,36,74\n5,30,C_AWS_1,Air Temperature,C,36,74\n6,30,C_AWS_1,Air Temperature THS,C,36,74\n');
+delete process.env.NIGRAAN_EWS_THS;
+t('channel switch off: only Air Temperature, as before', () => { const a = A.ewsAccept(own, 'T'); assert.equal(a('10', 'Air Temperature'), true); assert.equal(a('20', 'Air Temperature THS'), false); assert.equal(a('20', 'Air Temperature Hukseflux'), false);
+  const h = A.ewsAccept(own, 'RH'); assert.equal(h('20', 'Relative Humidity THS'), false); assert.equal(h('10', 'Relative Humidity'), true); });
+process.env.NIGRAAN_EWS_THS = '1';
+t('channel switch on: THS where no Air Temperature, never Hukseflux, Air Temperature first', () => { const a = A.ewsAccept(own, 'T');
+  assert.equal(a('20', 'Air Temperature THS'), true); assert.equal(a('20', 'Air Temperature Hukseflux'), false); assert.equal(a('30', 'Air Temperature'), true); assert.equal(a('30', 'Air Temperature THS'), false);
+  const h = A.ewsAccept(own, 'RH'); assert.equal(h('20', 'Relative Humidity THS'), true); });
+t('channel switch on without a catalogue: as before', () => { const a = A.ewsAccept(join(own, 'nothing'), 'T'); assert.equal(a('20', 'Air Temperature THS'), false); assert.equal(a('10', 'Air Temperature'), true); });
+delete process.env.NIGRAAN_EWS_THS;
+const dd = mkdtempSync(join(tmpdir(), 'ews44d_')); const now = Date.parse('2026-11-01T12:30:00Z');
+writeFileSync(join(dd, 'ews-rain24.json'), JSON.stringify({ end: '2026-11-01T12:00Z', gauges: [{ id: 1, lat: 36.0, lon: 74.0, elev: 3000, mm24: 4.2, complete: true }, { id: 2, lat: 36.01, lon: 74.0, elev: 3000, mm24: 9, complete: true }, { id: 3, lat: 36.0, lon: 74.001, mm24: null, complete: false }] }));
+writeFileSync(join(dd, 'ews-rain24-gauges.json'), JSON.stringify({ ids: [1, 3] }));
+process.env.NIGRAAN_EWS_RAIN24 = '0';   /* v283.45: served by default; '0' is the off state */
+t('measured rain off: null', () => assert.equal(R.measuredRain24(dd, 36.0, 74.0, 3000, now), null));
+process.env.NIGRAAN_EWS_RAIN24 = '1';
+t('measured rain on: nearest allowed complete gauge', () => { const m = R.measuredRain24(dd, 36.001, 74.0, 3100, now); assert.equal(m.mm, 4.2); assert.ok(m.km < 0.2); assert.ok(/measured/.test(m.basis)); assert.ok(!/PMD|EWS|FFD|IRSA|EPD/.test(JSON.stringify(m))); });
+t('measured rain on: a gauge not in the allow list is never shown', () => { const m = R.measuredRain24(dd, 36.01, 74.0, 3000, now); assert.equal(m.mm, 4.2); });
+t('measured rain on: beyond 5 km or 500 m height: null', () => { assert.equal(R.measuredRain24(dd, 36.2, 74.0, 3000, now), null); assert.equal(R.measuredRain24(dd, 36.0, 74.0, 3600, now), null); });
+t('measured rain on: a file older than 3 h: null', () => assert.equal(R.measuredRain24(dd, 36.0, 74.0, 3000, now + 4 * 3600e3), null));
+delete process.env.NIGRAAN_EWS_RAIN24;
+console.log(n + ' passed');

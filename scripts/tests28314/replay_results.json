@@ -1,0 +1,3211 @@
+{
+ "what": "v91.17.283.14 replay of the value-level quality control on NIGRAAN copies (read only), 24 Sep - 23 Oct 2026 (correction replay 10-23 Oct)",
+ "verification": {
+  "RH|coast": {
+   "nBefore": 21551,
+   "maeBefore": 12.761,
+   "nAfter": 20459,
+   "maeAfter": 11.564
+  },
+  "RH|hills": {
+   "nBefore": 7366,
+   "maeBefore": 11.749,
+   "nAfter": 7154,
+   "maeAfter": 11.529
+  },
+  "RH|mountain": {
+   "nBefore": 64890,
+   "maeBefore": 16.297,
+   "nAfter": 63768,
+   "maeAfter": 15.535
+  },
+  "RH|plains": {
+   "nBefore": 76518,
+   "maeBefore": 12.238,
+   "nAfter": 66086,
+   "maeAfter": 9.558
+  },
+  "TN|coast": {
+   "nBefore": 695,
+   "maeBefore": 0.948,
+   "nAfter": 637,
+   "maeAfter": 0.932
+  },
+  "TN|hills": {
+   "nBefore": 120,
+   "maeBefore": 1.648,
+   "nAfter": 120,
+   "maeAfter": 1.648
+  },
+  "TN|mountain": {
+   "nBefore": 2397,
+   "maeBefore": 2.362,
+   "nAfter": 2346,
+   "maeAfter": 2.289
+  },
+  "TN|plains": {
+   "nBefore": 2248,
+   "maeBefore": 1.497,
+   "nAfter": 2013,
+   "maeAfter": 1.321
+  },
+  "TX|coast": {
+   "nBefore": 695,
+   "maeBefore": 1.55,
+   "nAfter": 637,
+   "maeAfter": 1.408
+  },
+  "TX|hills": {
+   "nBefore": 120,
+   "maeBefore": 1.576,
+   "nAfter": 120,
+   "maeAfter": 1.576
+  },
+  "TX|mountain": {
+   "nBefore": 2397,
+   "maeBefore": 2.417,
+   "nAfter": 2346,
+   "maeAfter": 2.397
+  },
+  "TX|plains": {
+   "nBefore": 2248,
+   "maeBefore": 1.533,
+   "nAfter": 2013,
+   "maeAfter": 1.219
+  },
+  "T|coast": {
+   "nBefore": 21551,
+   "maeBefore": 1.184,
+   "nAfter": 20722,
+   "maeAfter": 1.101
+  },
+  "T|hills": {
+   "nBefore": 7366,
+   "maeBefore": 1.712,
+   "nAfter": 7312,
+   "maeAfter": 1.684
+  },
+  "T|mountain": {
+   "nBefore": 64726,
+   "maeBefore": 2.514,
+   "nAfter": 64284,
+   "maeAfter": 2.477
+  },
+  "T|plains": {
+   "nBefore": 76521,
+   "maeBefore": 1.664,
+   "nAfter": 71629,
+   "maeAfter": 1.444
+  },
+  "W|coast": {
+   "nBefore": 20876,
+   "maeBefore": 5.574,
+   "nAfter": 21269,
+   "maeAfter": 5.562
+  },
+  "W|hills": {
+   "nBefore": 6387,
+   "maeBefore": 5.273,
+   "nAfter": 6337,
+   "maeAfter": 5.175
+  },
+  "W|mountain": {
+   "nBefore": 28251,
+   "maeBefore": 3.923,
+   "nAfter": 27802,
+   "maeAfter": 3.487
+  },
+  "W|plains": {
+   "nBefore": 76504,
+   "maeBefore": 5.027,
+   "nAfter": 82462,
+   "maeAfter": 4.943
+  }
+ },
+ "liveCorrection": {
+  "L2_plains": {
+   "n": 12058,
+   "maeBasis": 1.787,
+   "maeBefore": 1.644,
+   "maeAfter": 1.529,
+   "correctedHoursBefore": 7532,
+   "correctedHoursAfter": 11397,
+   "appliesIn": [
+    "plains"
+   ]
+  },
+  "L3": {
+   "coast": {
+    "n": 3632,
+    "maeServed": 1.355,
+    "maeBefore": 1.028,
+    "maeAfter": 1.006
+   },
+   "mountain": {
+    "n": 520,
+    "maeServed": 2.326,
+    "maeBefore": 2.065,
+    "maeAfter": 2.067
+   },
+   "plains": {
+    "n": 12058,
+    "maeServed": 1.453,
+    "maeBefore": 1.31,
+    "maeAfter": 1.299
+   }
+  }
+ },
+ "droppedShareByVariableZone": {
+  "T|plains": {
+   "n": 43227,
+   "failPct": 13.6,
+   "tests": {
+    "buddy": 598,
+    "jump": 113,
+    "stuck-replay": 1141,
+    "frozen": 710,
+    "internal": 370,
+    "copy": 1711,
+    "background": 744,
+    "climate-range": 186,
+    "array-silent": 319
+   }
+  },
+  "Td|plains": {
+   "n": 41564,
+   "failPct": 17.8,
+   "tests": {
+    "internal": 4067,
+    "step": 65,
+    "stuck-replay": 219,
+    "persistence": 721,
+    "buddy": 296,
+    "copy": 1491,
+    "gross-range": 237,
+    "array-silent": 312
+   }
+  },
+  "RH|plains": {
+   "n": 43226,
+   "failPct": 19.5,
+   "tests": {
+    "internal": 5013,
+    "stuck-replay": 343,
+    "step": 269,
+    "buddy": 514,
+    "copy": 1474,
+    "background": 513,
+    "array-silent": 319
+   }
+  },
+  "P|plains": {
+   "n": 31034,
+   "failPct": 12.1,
+   "tests": {
+    "stuck-replay": 949,
+    "persistence": 781,
+    "internal": 327,
+    "copy": 1687,
+    "step": 5
+   }
+  },
+  "W|plains": {
+   "n": 43212,
+   "failPct": 1.1,
+   "tests": {
+    "background": 177,
+    "array-silent": 319
+   }
+  },
+  "T|mountain": {
+   "n": 33643,
+   "failPct": 1.9,
+   "tests": {
+    "array-silent": 265,
+    "frozen": 2,
+    "climate-range": 56,
+    "background": 15,
+    "buddy": 301,
+    "jump": 11
+   }
+  },
+  "Td|mountain": {
+   "n": 2792,
+   "failPct": 9.7,
+   "tests": {
+    "persistence": 4,
+    "array-silent": 265,
+    "step": 1
+   }
+  },
+  "RH|mountain": {
+   "n": 33718,
+   "failPct": 3,
+   "tests": {
+    "array-silent": 265,
+    "background": 192,
+    "buddy": 26,
+    "step": 8,
+    "internal": 511
+   }
+  },
+  "P|mountain": {
+   "n": 1410,
+   "failPct": 0,
+   "tests": {}
+  },
+  "W|mountain": {
+   "n": 15130,
+   "failPct": 4.1,
+   "tests": {
+    "background": 357,
+    "array-silent": 265
+   }
+  },
+  "T|hills": {
+   "n": 4544,
+   "failPct": 11.7,
+   "tests": {
+    "background": 27,
+    "owner-mark": 504
+   }
+  },
+  "Td|hills": {
+   "n": 2545,
+   "failPct": 4.6,
+   "tests": {
+    "internal": 117
+   }
+  },
+  "RH|hills": {
+   "n": 4544,
+   "failPct": 14.6,
+   "tests": {
+    "internal": 117,
+    "background": 41,
+    "owner-mark": 504
+   }
+  },
+  "P|hills": {
+   "n": 117,
+   "failPct": 0,
+   "tests": {}
+  },
+  "W|hills": {
+   "n": 3535,
+   "failPct": 0.7,
+   "tests": {
+    "background": 26
+   }
+  },
+  "T|coast": {
+   "n": 11242,
+   "failPct": 6.6,
+   "tests": {
+    "jump": 3,
+    "stuck-replay": 185,
+    "buddy": 279,
+    "copy": 94,
+    "frozen": 134,
+    "climate-range": 4,
+    "array-silent": 19,
+    "internal": 2,
+    "background": 18
+   }
+  },
+  "Td|coast": {
+   "n": 11130,
+   "failPct": 7.8,
+   "tests": {
+    "internal": 502,
+    "stuck-replay": 38,
+    "copy": 94,
+    "persistence": 179,
+    "step": 21,
+    "buddy": 13,
+    "gross-range": 21,
+    "array-silent": 2
+   }
+  },
+  "RH|coast": {
+   "n": 11242,
+   "failPct": 7.3,
+   "tests": {
+    "internal": 504,
+    "stuck-replay": 69,
+    "copy": 93,
+    "step": 51,
+    "buddy": 91,
+    "array-silent": 2,
+    "background": 16
+   }
+  },
+  "P|coast": {
+   "n": 8530,
+   "failPct": 4.3,
+   "tests": {
+    "stuck-replay": 185,
+    "copy": 94,
+    "persistence": 90,
+    "step": 1
+   }
+  },
+  "W|coast": {
+   "n": 10849,
+   "failPct": 0.8,
+   "tests": {
+    "background": 72,
+    "array-silent": 19
+   }
+  }
+ },
+ "stationVariablesOver50pct": [
+  {
+   "pid": "mach:mach11",
+   "name": "Paniola, Rawalakot",
+   "zone": "hills",
+   "v": "Td",
+   "n": 117,
+   "failPct": 100,
+   "tests": {
+    "internal": 117
+   }
+  },
+  {
+   "pid": "mach:mach11",
+   "name": "Paniola, Rawalakot",
+   "zone": "hills",
+   "v": "RH",
+   "n": 117,
+   "failPct": 100,
+   "tests": {
+    "internal": 117
+   }
+  },
+  {
+   "pid": "mach:FLT",
+   "name": "Gulzar-e-Quaid, Islamabad",
+   "zone": "plains",
+   "v": "RH",
+   "n": 585,
+   "failPct": 100,
+   "tests": {
+    "internal": 585
+   }
+  },
+  {
+   "pid": "aws:Sishper-Ultar_ARG_1",
+   "name": "Sishper-Ultar_ARG_1",
+   "zone": "mountain",
+   "v": "RH",
+   "n": 503,
+   "failPct": 100,
+   "tests": {
+    "internal": 503
+   }
+  },
+  {
+   "pid": "aws:Kandia_Warisabad Thooty Bar_ARG_1",
+   "name": "Kandia_Warisabad Thooty Bar_ARG_1",
+   "zone": "hills",
+   "v": "T",
+   "n": 504,
+   "failPct": 100,
+   "tests": {
+    "owner-mark": 504
+   }
+  },
+  {
+   "pid": "aws:Kandia_Warisabad Thooty Bar_ARG_1",
+   "name": "Kandia_Warisabad Thooty Bar_ARG_1",
+   "zone": "hills",
+   "v": "RH",
+   "n": 504,
+   "failPct": 100,
+   "tests": {
+    "owner-mark": 504
+   }
+  },
+  {
+   "pid": "mach:sharifabad_avenue",
+   "name": "Garhi Kapura, Mardan",
+   "zone": "plains",
+   "v": "T",
+   "n": 517,
+   "failPct": 93,
+   "tests": {
+    "background": 24,
+    "copy": 410,
+    "buddy": 3,
+    "stuck-replay": 14,
+    "frozen": 18,
+    "climate-range": 12
+   }
+  },
+  {
+   "pid": "mach:sharifabad_avenue",
+   "name": "Garhi Kapura, Mardan",
+   "zone": "plains",
+   "v": "Td",
+   "n": 490,
+   "failPct": 86.9,
+   "tests": {
+    "copy": 339,
+    "persistence": 10,
+    "internal": 63,
+    "stuck-replay": 2,
+    "step": 12
+   }
+  },
+  {
+   "pid": "mach:AKZSFWS",
+   "name": "Kot Radha Kishan, Kasur",
+   "zone": "plains",
+   "v": "T",
+   "n": 632,
+   "failPct": 86.2,
+   "tests": {
+    "stuck-replay": 15,
+    "background": 322,
+    "climate-range": 158,
+    "frozen": 48,
+    "jump": 2
+   }
+  },
+  {
+   "pid": "mach:kanju_avenue",
+   "name": "Kanju, Swat",
+   "zone": "plains",
+   "v": "P",
+   "n": 364,
+   "failPct": 85.7,
+   "tests": {
+    "internal": 312
+   }
+  },
+  {
+   "pid": "mach:sharifabad_avenue",
+   "name": "Garhi Kapura, Mardan",
+   "zone": "plains",
+   "v": "RH",
+   "n": 517,
+   "failPct": 84.5,
+   "tests": {
+    "copy": 337,
+    "stuck-replay": 8,
+    "buddy": 1,
+    "background": 1,
+    "step": 27,
+    "internal": 63
+   }
+  },
+  {
+   "pid": "mach:sharifabad_avenue",
+   "name": "Garhi Kapura, Mardan",
+   "zone": "plains",
+   "v": "P",
+   "n": 517,
+   "failPct": 84.3,
+   "tests": {
+    "copy": 405,
+    "stuck-replay": 14,
+    "persistence": 17
+   }
+  },
+  {
+   "pid": "mach:Bad",
+   "name": "Sarai Kharbuza, Islamabad",
+   "zone": "plains",
+   "v": "Td",
+   "n": 590,
+   "failPct": 78.6,
+   "tests": {
+    "internal": 108,
+    "copy": 339,
+    "step": 1,
+    "stuck-replay": 7,
+    "persistence": 9
+   }
+  },
+  {
+   "pid": "mach:Bad",
+   "name": "Sarai Kharbuza, Islamabad",
+   "zone": "plains",
+   "v": "RH",
+   "n": 619,
+   "failPct": 75.9,
+   "tests": {
+    "internal": 108,
+    "copy": 331,
+    "stuck-replay": 17,
+    "step": 13,
+    "buddy": 1
+   }
+  },
+  {
+   "pid": "mach:Bad",
+   "name": "Sarai Kharbuza, Islamabad",
+   "zone": "plains",
+   "v": "T",
+   "n": 619,
+   "failPct": 75.1,
+   "tests": {
+    "copy": 414,
+    "jump": 6,
+    "buddy": 1,
+    "stuck-replay": 40,
+    "frozen": 4
+   }
+  },
+  {
+   "pid": "mach:Bad",
+   "name": "Sarai Kharbuza, Islamabad",
+   "zone": "plains",
+   "v": "P",
+   "n": 619,
+   "failPct": 74,
+   "tests": {
+    "copy": 412,
+    "stuck-replay": 40,
+    "persistence": 6
+   }
+  },
+  {
+   "pid": "mach:G15",
+   "name": "G-15, Islamabad",
+   "zone": "plains",
+   "v": "RH",
+   "n": 627,
+   "failPct": 72.4,
+   "tests": {
+    "internal": 40,
+    "buddy": 351,
+    "stuck-replay": 55,
+    "step": 8
+   }
+  },
+  {
+   "pid": "mach:mach2",
+   "name": "Sholgara, Charsadda",
+   "zone": "plains",
+   "v": "T",
+   "n": 517,
+   "failPct": 72.3,
+   "tests": {
+    "background": 10,
+    "buddy": 35,
+    "copy": 328,
+    "frozen": 1
+   }
+  },
+  {
+   "pid": "mach:E11",
+   "name": "E-11, Islamabad",
+   "zone": "plains",
+   "v": "Td",
+   "n": 657,
+   "failPct": 71.1,
+   "tests": {
+    "copy": 346,
+    "internal": 109,
+    "step": 1,
+    "stuck-replay": 8,
+    "persistence": 3
+   }
+  },
+  {
+   "pid": "mach:E11",
+   "name": "E-11, Islamabad",
+   "zone": "plains",
+   "v": "RH",
+   "n": 666,
+   "failPct": 70.9,
+   "tests": {
+    "copy": 337,
+    "internal": 109,
+    "stuck-replay": 12,
+    "step": 14
+   }
+  },
+  {
+   "pid": "mach:qadir_farmhouse",
+   "name": "Nokkundi, Chagai",
+   "zone": "plains",
+   "v": "Td",
+   "n": 249,
+   "failPct": 69.1,
+   "tests": {
+    "internal": 172
+   }
+  },
+  {
+   "pid": "mach:E11",
+   "name": "E-11, Islamabad",
+   "zone": "plains",
+   "v": "T",
+   "n": 666,
+   "failPct": 68.5,
+   "tests": {
+    "copy": 418,
+    "jump": 2,
+    "stuck-replay": 34,
+    "frozen": 2
+   }
+  },
+  {
+   "pid": "mach:E11",
+   "name": "E-11, Islamabad",
+   "zone": "plains",
+   "v": "P",
+   "n": 666,
+   "failPct": 68,
+   "tests": {
+    "copy": 416,
+    "stuck-replay": 34,
+    "persistence": 3
+   }
+  },
+  {
+   "pid": "mach:al_jazari",
+   "name": "Shahdara, Lahore",
+   "zone": "plains",
+   "v": "T",
+   "n": 518,
+   "failPct": 67.4,
+   "tests": {
+    "buddy": 30,
+    "frozen": 7,
+    "array-silent": 312
+   }
+  },
+  {
+   "pid": "mach:khaplu",
+   "name": "Khaplu, Ghanche",
+   "zone": "mountain",
+   "v": "RH",
+   "n": 401,
+   "failPct": 67.1,
+   "tests": {
+    "array-silent": 265,
+    "background": 4
+   }
+  },
+  {
+   "pid": "mach:al_jazari",
+   "name": "Shahdara, Lahore",
+   "zone": "plains",
+   "v": "RH",
+   "n": 518,
+   "failPct": 66.8,
+   "tests": {
+    "buddy": 34,
+    "array-silent": 312
+   }
+  },
+  {
+   "pid": "mach:G15",
+   "name": "G-15, Islamabad",
+   "zone": "plains",
+   "v": "Td",
+   "n": 618,
+   "failPct": 66.8,
+   "tests": {
+    "internal": 34,
+    "buddy": 281,
+    "stuck-replay": 55,
+    "step": 11,
+    "persistence": 32
+   }
+  },
+  {
+   "pid": "mach:khaplu",
+   "name": "Khaplu, Ghanche",
+   "zone": "mountain",
+   "v": "T",
+   "n": 401,
+   "failPct": 66.6,
+   "tests": {
+    "array-silent": 265,
+    "frozen": 2
+   }
+  },
+  {
+   "pid": "mach:khaplu",
+   "name": "Khaplu, Ghanche",
+   "zone": "mountain",
+   "v": "Td",
+   "n": 401,
+   "failPct": 66.1,
+   "tests": {
+    "array-silent": 265
+   }
+  },
+  {
+   "pid": "mach:khaplu",
+   "name": "Khaplu, Ghanche",
+   "zone": "mountain",
+   "v": "W",
+   "n": 401,
+   "failPct": 66.1,
+   "tests": {
+    "array-silent": 265
+   }
+  },
+  {
+   "pid": "mach:khaplu",
+   "name": "Khaplu, Ghanche",
+   "zone": "mountain",
+   "v": "G",
+   "n": 401,
+   "failPct": 66.1,
+   "tests": {
+    "array-silent": 265
+   }
+  },
+  {
+   "pid": "mach:khaplu",
+   "name": "Khaplu, Ghanche",
+   "zone": "mountain",
+   "v": "S",
+   "n": 401,
+   "failPct": 66.1,
+   "tests": {
+    "array-silent": 265
+   }
+  },
+  {
+   "pid": "mach:qadir_farmhouse",
+   "name": "Nokkundi, Chagai",
+   "zone": "plains",
+   "v": "RH",
+   "n": 264,
+   "failPct": 65.5,
+   "tests": {
+    "internal": 172,
+    "background": 1
+   }
+  },
+  {
+   "pid": "mach:mach2",
+   "name": "Sholgara, Charsadda",
+   "zone": "plains",
+   "v": "RH",
+   "n": 517,
+   "failPct": 65,
+   "tests": {
+    "background": 4,
+    "copy": 328,
+    "buddy": 4
+   }
+  },
+  {
+   "pid": "mach:mach2",
+   "name": "Sholgara, Charsadda",
+   "zone": "plains",
+   "v": "Td",
+   "n": 514,
+   "failPct": 64,
+   "tests": {
+    "copy": 326,
+    "persistence": 3
+   }
+  },
+  {
+   "pid": "mach:mach2",
+   "name": "Sholgara, Charsadda",
+   "zone": "plains",
+   "v": "P",
+   "n": 517,
+   "failPct": 63.6,
+   "tests": {
+    "copy": 326,
+    "persistence": 3
+   }
+  },
+  {
+   "pid": "mach:al_jazari",
+   "name": "Shahdara, Lahore",
+   "zone": "plains",
+   "v": "Td",
+   "n": 518,
+   "failPct": 63.1,
+   "tests": {
+    "array-silent": 312,
+    "gross-range": 1,
+    "persistence": 14
+   }
+  },
+  {
+   "pid": "mach:al_jazari",
+   "name": "Shahdara, Lahore",
+   "zone": "plains",
+   "v": "W",
+   "n": 518,
+   "failPct": 60.2,
+   "tests": {
+    "array-silent": 312
+   }
+  },
+  {
+   "pid": "mach:al_jazari",
+   "name": "Shahdara, Lahore",
+   "zone": "plains",
+   "v": "G",
+   "n": 518,
+   "failPct": 60.2,
+   "tests": {
+    "array-silent": 312
+   }
+  },
+  {
+   "pid": "mach:al_jazari",
+   "name": "Shahdara, Lahore",
+   "zone": "plains",
+   "v": "S",
+   "n": 518,
+   "failPct": 60.2,
+   "tests": {
+    "array-silent": 312
+   }
+  },
+  {
+   "pid": "mach:gw1100c_wifi547f",
+   "name": "Nushki",
+   "zone": "plains",
+   "v": "RH",
+   "n": 510,
+   "failPct": 57.8,
+   "tests": {
+    "background": 241,
+    "copy": 54
+   }
+  },
+  {
+   "pid": "mach:palosa_avenue",
+   "name": "Palosa, Swabi",
+   "zone": "plains",
+   "v": "RH",
+   "n": 336,
+   "failPct": 57.7,
+   "tests": {
+    "internal": 187,
+    "step": 4,
+    "copy": 3
+   }
+  },
+  {
+   "pid": "mach:palosa_avenue",
+   "name": "Palosa, Swabi",
+   "zone": "plains",
+   "v": "Td",
+   "n": 295,
+   "failPct": 56.9,
+   "tests": {
+    "copy": 3,
+    "persistence": 13,
+    "internal": 152
+   }
+  }
+ ],
+ "formerStationExclusions": [
+  {
+   "pid": "mach:Shah",
+   "name": "F-10, Islamabad",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "registry exclude (duplicate)",
+     "why": "carries the sensor of MACH 31 (e_7_4) through a second feed: one device under two keys"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "carries the sensor of MACH 31 (e_7_4) through a second feed: one device under two keys"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 635,
+     "passPct": 89.8,
+     "failPct": 10.2,
+     "tests": {
+      "stuck-replay": 40,
+      "jump": 4,
+      "buddy": 8,
+      "frozen": 1,
+      "copy": 12
+     }
+    },
+    "Td": {
+     "n": 611,
+     "passPct": 79.9,
+     "failPct": 20.1,
+     "tests": {
+      "internal": 103,
+      "persistence": 2,
+      "stuck-replay": 6,
+      "copy": 12
+     }
+    },
+    "RH": {
+     "n": 635,
+     "passPct": 78.4,
+     "failPct": 21.6,
+     "tests": {
+      "internal": 103,
+      "step": 10,
+      "stuck-replay": 12,
+      "copy": 12
+     }
+    },
+    "P": {
+     "n": 635,
+     "passPct": 91.5,
+     "failPct": 8.5,
+     "tests": {
+      "stuck-replay": 40,
+      "persistence": 2,
+      "copy": 12
+     }
+    },
+    "W": {
+     "n": 635,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:PW",
+   "name": "Malir Halt, Karachi",
+   "zone": "coast",
+   "where": [
+    {
+     "where": "registry exclude (duplicate)",
+     "why": "carries the sensor of MACH 69 (pw_kwu) through a second feed: one device under two keys"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "carries the sensor of MACH 69 (pw_kwu) through a second feed: one device under two keys"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 617,
+     "passPct": 86.4,
+     "failPct": 13.6,
+     "tests": {
+      "jump": 1,
+      "stuck-replay": 30,
+      "buddy": 16,
+      "copy": 23,
+      "frozen": 14
+     }
+    },
+    "Td": {
+     "n": 594,
+     "passPct": 79.8,
+     "failPct": 20.2,
+     "tests": {
+      "internal": 83,
+      "stuck-replay": 6,
+      "copy": 23,
+      "persistence": 7,
+      "step": 1
+     }
+    },
+    "RH": {
+     "n": 617,
+     "passPct": 79.3,
+     "failPct": 20.7,
+     "tests": {
+      "internal": 83,
+      "stuck-replay": 12,
+      "copy": 23,
+      "step": 10
+     }
+    },
+    "P": {
+     "n": 617,
+     "passPct": 89.5,
+     "failPct": 10.5,
+     "tests": {
+      "stuck-replay": 30,
+      "copy": 23,
+      "persistence": 12
+     }
+    },
+    "W": {
+     "n": 616,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:PakWeather",
+   "name": "Saadi Town, Karachi",
+   "zone": "coast",
+   "where": [
+    {
+     "where": "registry exclude (duplicate)",
+     "why": "carries the sensor of MACH 68 (easyweather_wifi_51128) through a second feed: one device under two keys"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "carries the sensor of MACH 68 (easyweather_wifi_51128) through a second feed: one device under two keys"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 623,
+     "passPct": 91.7,
+     "failPct": 8.3,
+     "tests": {
+      "buddy": 9,
+      "stuck-replay": 26,
+      "copy": 16,
+      "frozen": 1
+     }
+    },
+    "Td": {
+     "n": 604,
+     "passPct": 83.4,
+     "failPct": 16.6,
+     "tests": {
+      "internal": 70,
+      "persistence": 7,
+      "copy": 16,
+      "stuck-replay": 3,
+      "step": 4
+     }
+    },
+    "RH": {
+     "n": 623,
+     "passPct": 82.3,
+     "failPct": 17.7,
+     "tests": {
+      "internal": 70,
+      "stuck-replay": 10,
+      "buddy": 4,
+      "step": 10,
+      "copy": 16
+     }
+    },
+    "P": {
+     "n": 623,
+     "passPct": 92.6,
+     "failPct": 7.4,
+     "tests": {
+      "stuck-replay": 26,
+      "persistence": 3,
+      "copy": 16,
+      "step": 1
+     }
+    },
+    "W": {
+     "n": 622,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:Faizan",
+   "name": "Orangi Town North, Karachi",
+   "zone": "coast",
+   "where": [
+    {
+     "where": "registry exclude (duplicate)",
+     "why": "carries the sensor of MACH 71 (faizan_sav) through a second feed: one device under two keys"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "carries the sensor of MACH 71 (faizan_sav) through a second feed: one device under two keys"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 623,
+     "passPct": 85.7,
+     "failPct": 14.3,
+     "tests": {
+      "buddy": 22,
+      "stuck-replay": 34,
+      "copy": 28,
+      "frozen": 4,
+      "climate-range": 1
+     }
+    },
+    "Td": {
+     "n": 597,
+     "passPct": 78.6,
+     "failPct": 21.4,
+     "tests": {
+      "internal": 93,
+      "stuck-replay": 2,
+      "copy": 28,
+      "persistence": 5
+     }
+    },
+    "RH": {
+     "n": 623,
+     "passPct": 78.8,
+     "failPct": 21.2,
+     "tests": {
+      "internal": 93,
+      "buddy": 1,
+      "stuck-replay": 7,
+      "copy": 28,
+      "step": 3
+     }
+    },
+    "P": {
+     "n": 623,
+     "passPct": 89.1,
+     "failPct": 10.9,
+     "tests": {
+      "stuck-replay": 34,
+      "copy": 28,
+      "persistence": 6
+     }
+    },
+    "W": {
+     "n": 623,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:AKZSFWS",
+   "name": "Kot Radha Kishan, Kasur",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "registry exclude (site)",
+     "why": "reads about 12 C colder than Lahore and every MACH station around it, consistently: the feed carries another place's readings or another device, not a reading o"
+    },
+    {
+     "where": "station hold",
+     "why": "temperature sensor fault: reads 12.7 C colder than its 3 neighbours [11.8, 13.5] every hour, 23 days (diagnostic agent 2026-10-21)"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "reads about 12 C colder than Lahore and every MACH station around it, consistently: the feed carries another place's readings or another device, not a reading o"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 632,
+     "passPct": 13.8,
+     "failPct": 86.2,
+     "tests": {
+      "stuck-replay": 15,
+      "background": 322,
+      "climate-range": 158,
+      "frozen": 48,
+      "jump": 2
+     }
+    },
+    "Td": {
+     "n": 609,
+     "passPct": 83.9,
+     "failPct": 16.1,
+     "tests": {
+      "internal": 71,
+      "stuck-replay": 8,
+      "step": 9,
+      "persistence": 10
+     }
+    },
+    "RH": {
+     "n": 632,
+     "passPct": 77.1,
+     "failPct": 22.9,
+     "tests": {
+      "internal": 71,
+      "stuck-replay": 8,
+      "step": 18,
+      "background": 48
+     }
+    },
+    "W": {
+     "n": 632,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:RahimyarKhan_avenue",
+   "name": "Rahim Yar Khan",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "registry exclude (duplicate)",
+     "why": "carries the sensor of MACH 53 (easyweatherpro_5) through a second feed: one device under two keys"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "carries the sensor of MACH 53 (easyweatherpro_5) through a second feed: one device under two keys"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 599,
+     "passPct": 89.1,
+     "failPct": 10.9,
+     "tests": {
+      "frozen": 4,
+      "stuck-replay": 24,
+      "background": 9,
+      "internal": 9,
+      "copy": 19
+     }
+    },
+    "Td": {
+     "n": 580,
+     "passPct": 77.4,
+     "failPct": 22.6,
+     "tests": {
+      "internal": 110,
+      "copy": 19,
+      "stuck-replay": 2
+     }
+    },
+    "RH": {
+     "n": 599,
+     "passPct": 74,
+     "failPct": 26,
+     "tests": {
+      "internal": 119,
+      "background": 11,
+      "stuck-replay": 4,
+      "copy": 19,
+      "step": 3
+     }
+    },
+    "P": {
+     "n": 599,
+     "passPct": 92.3,
+     "failPct": 7.7,
+     "tests": {
+      "persistence": 3,
+      "stuck-replay": 24,
+      "copy": 19
+     }
+    },
+    "W": {
+     "n": 599,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:i_9_2",
+   "name": "I-9, Islamabad",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "registry exclude (mixup)",
+     "why": "carries the device of MACH 55 (sargodha_avenue, Kharian), 121 km away: not a reading of this site"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "carries the device of MACH 55 (sargodha_avenue, Kharian), 121 km away: not a reading of this site"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 519,
+     "passPct": 88.4,
+     "failPct": 11.6,
+     "tests": {
+      "buddy": 22,
+      "copy": 35,
+      "frozen": 3
+     }
+    },
+    "Td": {
+     "n": 519,
+     "passPct": 92.3,
+     "failPct": 7.7,
+     "tests": {
+      "copy": 35,
+      "gross-range": 3,
+      "buddy": 2
+     }
+    },
+    "RH": {
+     "n": 519,
+     "passPct": 92.5,
+     "failPct": 7.5,
+     "tests": {
+      "copy": 35,
+      "buddy": 4
+     }
+    },
+    "P": {
+     "n": 519,
+     "passPct": 92.7,
+     "failPct": 7.3,
+     "tests": {
+      "copy": 35,
+      "persistence": 3
+     }
+    },
+    "W": {
+     "n": 519,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:al_jazari",
+   "name": "Shahdara, Lahore",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "registry exclude (indoor)",
+     "why": "indoor or enclosed sensor: damped daily cycle, warm nights"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "indoor or enclosed sensor: damped daily cycle, warm nights"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 518,
+     "passPct": 32.6,
+     "failPct": 67.4,
+     "tests": {
+      "buddy": 30,
+      "frozen": 7,
+      "array-silent": 312
+     }
+    },
+    "Td": {
+     "n": 518,
+     "passPct": 36.9,
+     "failPct": 63.1,
+     "tests": {
+      "array-silent": 312,
+      "gross-range": 1,
+      "persistence": 14
+     }
+    },
+    "RH": {
+     "n": 518,
+     "passPct": 33.2,
+     "failPct": 66.8,
+     "tests": {
+      "buddy": 34,
+      "array-silent": 312
+     }
+    },
+    "P": {
+     "n": 518,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    },
+    "W": {
+     "n": 518,
+     "passPct": 39.8,
+     "failPct": 60.2,
+     "tests": {
+      "array-silent": 312
+     }
+    }
+   }
+  },
+  {
+   "pid": "mach:mach2",
+   "name": "Sholgara, Charsadda",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "registry exclude (mixup)",
+     "why": "carries the readings of MACH 8 (Misrial, Rawalpindi), 137 km away: not a reading of this site"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "carries the readings of MACH 8 (Misrial, Rawalpindi), 137 km away: not a reading of this site"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 517,
+     "passPct": 27.7,
+     "failPct": 72.3,
+     "tests": {
+      "background": 10,
+      "buddy": 35,
+      "copy": 328,
+      "frozen": 1
+     }
+    },
+    "Td": {
+     "n": 514,
+     "passPct": 36,
+     "failPct": 64,
+     "tests": {
+      "copy": 326,
+      "persistence": 3
+     }
+    },
+    "RH": {
+     "n": 517,
+     "passPct": 35,
+     "failPct": 65,
+     "tests": {
+      "background": 4,
+      "copy": 328,
+      "buddy": 4
+     }
+    },
+    "P": {
+     "n": 517,
+     "passPct": 36.4,
+     "failPct": 63.6,
+     "tests": {
+      "copy": 326,
+      "persistence": 3
+     }
+    },
+    "W": {
+     "n": 517,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:expo_avenue",
+   "name": "Johar Town, Lahore",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "registry exclude (duplicate)",
+     "why": "carries the sensor of MACH 38 (nova) through a second feed: one device under two keys"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "carries the sensor of MACH 38 (nova) through a second feed: one device under two keys"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 318,
+     "passPct": 68.2,
+     "failPct": 31.8,
+     "tests": {
+      "stuck-replay": 16,
+      "frozen": 31,
+      "buddy": 32,
+      "jump": 1,
+      "background": 3,
+      "copy": 18
+     }
+    },
+    "Td": {
+     "n": 299,
+     "passPct": 70.9,
+     "failPct": 29.1,
+     "tests": {
+      "stuck-replay": 11,
+      "internal": 21,
+      "persistence": 37,
+      "copy": 18
+     }
+    },
+    "RH": {
+     "n": 318,
+     "passPct": 83,
+     "failPct": 17,
+     "tests": {
+      "stuck-replay": 15,
+      "internal": 21,
+      "copy": 18
+     }
+    },
+    "P": {
+     "n": 273,
+     "passPct": 91.2,
+     "failPct": 8.8,
+     "tests": {
+      "stuck-replay": 9,
+      "persistence": 10,
+      "copy": 5
+     }
+    },
+    "W": {
+     "n": 317,
+     "passPct": 97.2,
+     "failPct": 2.8,
+     "tests": {
+      "background": 9
+     }
+    }
+   }
+  },
+  {
+   "pid": "mach:gw1100c_wifi547f",
+   "name": "Nushki",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "registry exclude (mixup)",
+     "why": "carries the readings of MACH 8 (Misrial, Rawalpindi) through the feed of MACH 41, 800 km away: not a reading of this site"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "carries the readings of MACH 8 (Misrial, Rawalpindi) through the feed of MACH 41, 800 km away: not a reading of this site"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 510,
+     "passPct": 70.8,
+     "failPct": 29.2,
+     "tests": {
+      "copy": 54,
+      "background": 94,
+      "frozen": 1
+     }
+    },
+    "Td": {
+     "n": 507,
+     "passPct": 89.3,
+     "failPct": 10.7,
+     "tests": {
+      "copy": 54
+     }
+    },
+    "RH": {
+     "n": 510,
+     "passPct": 42.2,
+     "failPct": 57.8,
+     "tests": {
+      "background": 241,
+      "copy": 54
+     }
+    },
+    "P": {
+     "n": 510,
+     "passPct": 88.8,
+     "failPct": 11.2,
+     "tests": {
+      "copy": 54,
+      "persistence": 3
+     }
+    },
+    "W": {
+     "n": 510,
+     "passPct": 99.4,
+     "failPct": 0.6,
+     "tests": {
+      "background": 3
+     }
+    }
+   }
+  },
+  {
+   "pid": "mach:yarhussain_weath",
+   "name": "Razar, Swabi",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "registry exclude (site)",
+     "why": "reads 7 to 13 C warm every evening after 19 PKT: a heat source at the sensor; silent most nights, so the night check cannot see it"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "reads 7 to 13 C warm every evening after 19 PKT: a heat source at the sensor; silent most nights, so the night check cannot see it"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 330,
+     "passPct": 65.8,
+     "failPct": 34.2,
+     "tests": {
+      "background": 24,
+      "internal": 25,
+      "climate-range": 6,
+      "frozen": 58
+     }
+    },
+    "Td": {
+     "n": 309,
+     "passPct": 67.6,
+     "failPct": 32.4,
+     "tests": {
+      "persistence": 3,
+      "gross-range": 97
+     }
+    },
+    "RH": {
+     "n": 330,
+     "passPct": 88.8,
+     "failPct": 11.2,
+     "tests": {
+      "internal": 25,
+      "background": 12
+     }
+    },
+    "P": {
+     "n": 330,
+     "passPct": 63,
+     "failPct": 37,
+     "tests": {
+      "persistence": 122
+     }
+    },
+    "W": {
+     "n": 330,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:dha_avenue",
+   "name": "DHA City North, Karachi",
+   "zone": "coast",
+   "where": [
+    {
+     "where": "registry exclude (duplicate)",
+     "why": "carries the sensor of MACH 72 (easyweather_wifi_40979) through a second feed: one device under two keys"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "carries the sensor of MACH 72 (easyweather_wifi_40979) through a second feed: one device under two keys"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 609,
+     "passPct": 85.1,
+     "failPct": 14.9,
+     "tests": {
+      "stuck-replay": 30,
+      "buddy": 26,
+      "background": 1,
+      "copy": 27,
+      "internal": 1,
+      "frozen": 1,
+      "jump": 2,
+      "climate-range": 3
+     }
+    },
+    "Td": {
+     "n": 594,
+     "passPct": 77.1,
+     "failPct": 22.9,
+     "tests": {
+      "internal": 98,
+      "copy": 27,
+      "persistence": 3,
+      "step": 8
+     }
+    },
+    "RH": {
+     "n": 609,
+     "passPct": 76.2,
+     "failPct": 23.8,
+     "tests": {
+      "internal": 99,
+      "step": 16,
+      "copy": 26,
+      "stuck-replay": 3,
+      "buddy": 1
+     }
+    },
+    "P": {
+     "n": 609,
+     "passPct": 90.6,
+     "failPct": 9.4,
+     "tests": {
+      "stuck-replay": 30,
+      "copy": 27
+     }
+    },
+    "W": {
+     "n": 609,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:palosa_avenue",
+   "name": "Palosa, Swabi",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "registry exclude (duplicate)",
+     "why": "carries the sensor of MACH 63 (yarhussain_weath) through a second feed: one device under two keys"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "carries the sensor of MACH 63 (yarhussain_weath) through a second feed: one device under two keys"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 336,
+     "passPct": 58.9,
+     "failPct": 41.1,
+     "tests": {
+      "internal": 35,
+      "copy": 3,
+      "frozen": 78,
+      "background": 17,
+      "climate-range": 5
+     }
+    },
+    "Td": {
+     "n": 295,
+     "passPct": 43.1,
+     "failPct": 56.9,
+     "tests": {
+      "copy": 3,
+      "persistence": 13,
+      "internal": 152
+     }
+    },
+    "RH": {
+     "n": 336,
+     "passPct": 42.3,
+     "failPct": 57.7,
+     "tests": {
+      "internal": 187,
+      "step": 4,
+      "copy": 3
+     }
+    },
+    "P": {
+     "n": 336,
+     "passPct": 95.2,
+     "failPct": 4.8,
+     "tests": {
+      "persistence": 13,
+      "copy": 3
+     }
+    },
+    "W": {
+     "n": 335,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:sharifabad_avenue",
+   "name": "Garhi Kapura, Mardan",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "registry exclude (mixup)",
+     "why": "carries the Karachi feed of MACH 19 (PW), about 1,200 km away: not a reading of this site"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "carries the Karachi feed of MACH 19 (PW), about 1,200 km away: not a reading of this site"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 517,
+     "passPct": 7,
+     "failPct": 93,
+     "tests": {
+      "background": 24,
+      "copy": 410,
+      "buddy": 3,
+      "stuck-replay": 14,
+      "frozen": 18,
+      "climate-range": 12
+     }
+    },
+    "Td": {
+     "n": 490,
+     "passPct": 13.1,
+     "failPct": 86.9,
+     "tests": {
+      "copy": 339,
+      "persistence": 10,
+      "internal": 63,
+      "stuck-replay": 2,
+      "step": 12
+     }
+    },
+    "RH": {
+     "n": 517,
+     "passPct": 15.5,
+     "failPct": 84.5,
+     "tests": {
+      "copy": 337,
+      "stuck-replay": 8,
+      "buddy": 1,
+      "background": 1,
+      "step": 27,
+      "internal": 63
+     }
+    },
+    "P": {
+     "n": 517,
+     "passPct": 15.7,
+     "failPct": 84.3,
+     "tests": {
+      "copy": 405,
+      "stuck-replay": 14,
+      "persistence": 17
+     }
+    },
+    "W": {
+     "n": 516,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:khaplu",
+   "name": "Khaplu, Ghanche",
+   "zone": "mountain",
+   "where": [
+    {
+     "where": "station hold (permanent)",
+     "why": "outdoor data not credible (frozen packet repeats)"
+    },
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "indoor or enclosed sensor: damped daily cycle, warm nights, no seasonal cooling"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 401,
+     "passPct": 33.4,
+     "failPct": 66.6,
+     "tests": {
+      "array-silent": 265,
+      "frozen": 2
+     }
+    },
+    "Td": {
+     "n": 401,
+     "passPct": 33.9,
+     "failPct": 66.1,
+     "tests": {
+      "array-silent": 265
+     }
+    },
+    "RH": {
+     "n": 401,
+     "passPct": 32.9,
+     "failPct": 67.1,
+     "tests": {
+      "array-silent": 265,
+      "background": 4
+     }
+    },
+    "P": {
+     "n": 401,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    },
+    "W": {
+     "n": 401,
+     "passPct": 33.9,
+     "failPct": 66.1,
+     "tests": {
+      "array-silent": 265
+     }
+    }
+   }
+  },
+  {
+   "pid": "mach:FLT",
+   "name": "Gulzar-e-Quaid, Islamabad",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "station hold",
+     "why": "humidity sensor fault: reads 69 points drier than neighbours [66.8, 71.9] and frozen (one value all day) on 20 days (diagnostic agent 2026-10-21)"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 585,
+     "passPct": 90.8,
+     "failPct": 9.2,
+     "tests": {
+      "stuck-replay": 33,
+      "buddy": 8,
+      "jump": 3,
+      "frozen": 10
+     }
+    },
+    "RH": {
+     "n": 585,
+     "passPct": 0,
+     "failPct": 100,
+     "tests": {
+      "internal": 585
+     }
+    },
+    "P": {
+     "n": 585,
+     "passPct": 92.5,
+     "failPct": 7.5,
+     "tests": {
+      "stuck-replay": 33,
+      "persistence": 11
+     }
+    },
+    "W": {
+     "n": 584,
+     "passPct": 99.8,
+     "failPct": 0.2,
+     "tests": {
+      "background": 1
+     }
+    }
+   }
+  },
+  {
+   "pid": "aws:Kandia_Warisabad Thooty Bar_ARG_1",
+   "name": "Kandia_Warisabad Thooty Bar_ARG_1",
+   "zone": "hills",
+   "where": [
+    {
+     "where": "non-representative list (training, verification)",
+     "why": "rain-gauge (ARG) site on a 39.5 deg south-west facing slope; persistent held-out bias -2.6 C in the national OOF; it alone drives the reported hills bias (-2.1 "
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 504,
+     "passPct": 0,
+     "failPct": 100,
+     "tests": {
+      "owner-mark": 504
+     }
+    },
+    "RH": {
+     "n": 504,
+     "passPct": 0,
+     "failPct": 100,
+     "tests": {
+      "owner-mark": 504
+     }
+    }
+   }
+  },
+  {
+   "pid": "mach:Buriro",
+   "name": "Larkana",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict bad siting (running correction)",
+     "why": "site offset -3.5 C by day, -0.7 C at night; scatter against the forecast, relative to checked stations in the plains zone IQR 3.1 C"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 633,
+     "passPct": 91.9,
+     "failPct": 8.1,
+     "tests": {
+      "background": 12,
+      "stuck-replay": 25,
+      "internal": 13,
+      "frozen": 1
+     }
+    },
+    "Td": {
+     "n": 609,
+     "passPct": 84.9,
+     "failPct": 15.1,
+     "tests": {
+      "internal": 91,
+      "stuck-replay": 1
+     }
+    },
+    "RH": {
+     "n": 633,
+     "passPct": 81,
+     "failPct": 19,
+     "tests": {
+      "background": 10,
+      "internal": 104,
+      "stuck-replay": 4,
+      "step": 2
+     }
+    },
+    "P": {
+     "n": 633,
+     "passPct": 94.8,
+     "failPct": 5.2,
+     "tests": {
+      "stuck-replay": 25,
+      "persistence": 7,
+      "step": 1
+     }
+    },
+    "W": {
+     "n": 633,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:Bilal",
+   "name": "Khanpur, Rahim Yar Khan",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict bad siting (running correction)",
+     "why": "site offset -3.3 C by day, -2.5 C at night"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 627,
+     "passPct": 91.4,
+     "failPct": 8.6,
+     "tests": {
+      "stuck-replay": 26,
+      "background": 17,
+      "internal": 8,
+      "frozen": 3
+     }
+    },
+    "Td": {
+     "n": 600,
+     "passPct": 78.7,
+     "failPct": 21.3,
+     "tests": {
+      "internal": 120,
+      "stuck-replay": 3,
+      "persistence": 5
+     }
+    },
+    "RH": {
+     "n": 627,
+     "passPct": 74.2,
+     "failPct": 25.8,
+     "tests": {
+      "internal": 128,
+      "background": 26,
+      "stuck-replay": 3,
+      "step": 5
+     }
+    },
+    "W": {
+     "n": 626,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:DANDAO",
+   "name": "Takht Bhai, Mardan",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict bad siting (running correction)",
+     "why": "reads 1.9 C warm by day and -0.2 C at night: sun on the sensor"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 631,
+     "passPct": 90.3,
+     "failPct": 9.7,
+     "tests": {
+      "jump": 5,
+      "stuck-replay": 19,
+      "background": 11,
+      "climate-range": 2,
+      "frozen": 2,
+      "internal": 22
+     }
+    },
+    "Td": {
+     "n": 598,
+     "passPct": 83.3,
+     "failPct": 16.7,
+     "tests": {
+      "internal": 90,
+      "persistence": 4,
+      "stuck-replay": 4,
+      "step": 2
+     }
+    },
+    "RH": {
+     "n": 631,
+     "passPct": 79.2,
+     "failPct": 20.8,
+     "tests": {
+      "internal": 112,
+      "step": 4,
+      "stuck-replay": 4,
+      "background": 11
+     }
+    },
+    "P": {
+     "n": 631,
+     "passPct": 95.9,
+     "failPct": 4.1,
+     "tests": {
+      "stuck-replay": 19,
+      "persistence": 7
+     }
+    },
+    "W": {
+     "n": 631,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:Talg",
+   "name": "Talagang",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict bad siting (running correction)",
+     "why": "reads 2.3 C warm by day and -1.1 C at night: sun on the sensor"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 296,
+     "passPct": 98,
+     "failPct": 2,
+     "tests": {
+      "internal": 1,
+      "background": 5
+     }
+    },
+    "RH": {
+     "n": 296,
+     "passPct": 99,
+     "failPct": 1,
+     "tests": {
+      "background": 2,
+      "internal": 1
+     }
+    },
+    "P": {
+     "n": 296,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    },
+    "W": {
+     "n": 296,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    },
+    "Td": {
+     "n": 293,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:abid_town_avenue",
+   "name": "Ferozewala, Sheikhupura",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict bad siting (running correction)",
+     "why": "scatter against the forecast, relative to checked stations in the plains zone IQR 3.4 C"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 611,
+     "passPct": 90.8,
+     "failPct": 9.2,
+     "tests": {
+      "stuck-replay": 23,
+      "jump": 2,
+      "buddy": 12,
+      "internal": 16,
+      "frozen": 3
+     }
+    },
+    "Td": {
+     "n": 593,
+     "passPct": 80.9,
+     "failPct": 19.1,
+     "tests": {
+      "internal": 100,
+      "persistence": 8,
+      "stuck-replay": 1,
+      "step": 4
+     }
+    },
+    "RH": {
+     "n": 611,
+     "passPct": 79.7,
+     "failPct": 20.3,
+     "tests": {
+      "internal": 116,
+      "stuck-replay": 1,
+      "step": 7
+     }
+    },
+    "P": {
+     "n": 611,
+     "passPct": 95.1,
+     "failPct": 4.9,
+     "tests": {
+      "stuck-replay": 23,
+      "persistence": 7
+     }
+    },
+    "W": {
+     "n": 610,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:dolmen_tb",
+   "name": "Clifton Block 4, Karachi",
+   "zone": "coast",
+   "where": [
+    {
+     "where": "siting screen verdict bad siting (running correction)",
+     "why": "site offset -3.8 C by day, -1.4 C at night"
+    },
+    {
+     "where": "siting offsets held out (live layer)",
+     "why": "its last 24 hours\u2019 range was 20 % of the forecast daily cycle at its place, beyond the far-out fence of all station-days (35 %): an indoor, enclosed or stuck se"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 520,
+     "passPct": 83.1,
+     "failPct": 16.9,
+     "tests": {
+      "buddy": 88
+     }
+    },
+    "Td": {
+     "n": 520,
+     "passPct": 98.7,
+     "failPct": 1.3,
+     "tests": {
+      "persistence": 4,
+      "step": 3
+     }
+    },
+    "RH": {
+     "n": 520,
+     "passPct": 95.4,
+     "failPct": 4.6,
+     "tests": {
+      "buddy": 21,
+      "step": 3
+     }
+    },
+    "P": {
+     "n": 520,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    },
+    "W": {
+     "n": 520,
+     "passPct": 89.6,
+     "failPct": 10.4,
+     "tests": {
+      "background": 54
+     }
+    }
+   }
+  },
+  {
+   "pid": "mach:easyweather_wifi",
+   "name": "Kallar Kahar, Chakwal",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict bad siting (running correction)",
+     "why": "site offset -0.8 C by day, -2.7 C at night"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 511,
+     "passPct": 96.1,
+     "failPct": 3.9,
+     "tests": {
+      "background": 20
+     }
+    },
+    "Td": {
+     "n": 511,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    },
+    "RH": {
+     "n": 511,
+     "passPct": 99.2,
+     "failPct": 0.8,
+     "tests": {
+      "background": 4
+     }
+    },
+    "P": {
+     "n": 511,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    },
+    "W": {
+     "n": 511,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:easyweatherpro_5",
+   "name": "Abbasia Town, Rahim Yar Khan",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict bad siting (running correction)",
+     "why": "site offset -3.0 C by day, -2.7 C at night"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 514,
+     "passPct": 98.6,
+     "failPct": 1.4,
+     "tests": {
+      "internal": 3,
+      "background": 4
+     }
+    },
+    "Td": {
+     "n": 514,
+     "passPct": 99.4,
+     "failPct": 0.6,
+     "tests": {
+      "gross-range": 3
+     }
+    },
+    "RH": {
+     "n": 514,
+     "passPct": 98.4,
+     "failPct": 1.6,
+     "tests": {
+      "background": 5,
+      "internal": 3
+     }
+    },
+    "P": {
+     "n": 514,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    },
+    "W": {
+     "n": 514,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:jadeed_agricultu",
+   "name": "Yazman, Bahawalpur",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict bad siting (running correction)",
+     "why": "site offset -0.8 C by day, -3.7 C at night"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 502,
+     "passPct": 99,
+     "failPct": 1,
+     "tests": {
+      "background": 3,
+      "internal": 2
+     }
+    },
+    "Td": {
+     "n": 500,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    },
+    "RH": {
+     "n": 502,
+     "passPct": 99.6,
+     "failPct": 0.4,
+     "tests": {
+      "internal": 2
+     }
+    },
+    "P": {
+     "n": 502,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    },
+    "W": {
+     "n": 502,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:jadeed_farm",
+   "name": "Chak 41/10-R, Khanewal",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict bad siting (running correction)",
+     "why": "site offset -1.4 C by day, -2.8 C at night"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 270,
+     "passPct": 95.9,
+     "failPct": 4.1,
+     "tests": {
+      "frozen": 10,
+      "background": 1
+     }
+    },
+    "Td": {
+     "n": 258,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    },
+    "RH": {
+     "n": 270,
+     "passPct": 97,
+     "failPct": 3,
+     "tests": {
+      "background": 8
+     }
+    },
+    "P": {
+     "n": 270,
+     "passPct": 95.6,
+     "failPct": 4.4,
+     "tests": {
+      "persistence": 12
+     }
+    },
+    "W": {
+     "n": 270,
+     "passPct": 99.6,
+     "failPct": 0.4,
+     "tests": {
+      "background": 1
+     }
+    }
+   }
+  },
+  {
+   "pid": "mach:kamra",
+   "name": "Kamra, Attock",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict bad siting (running correction)",
+     "why": "reads 1.8 C warm by day and -0.4 C at night: sun on the sensor"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 619,
+     "passPct": 90.8,
+     "failPct": 9.2,
+     "tests": {
+      "stuck-replay": 24,
+      "jump": 3,
+      "background": 13,
+      "climate-range": 1,
+      "internal": 13,
+      "frozen": 3
+     }
+    },
+    "Td": {
+     "n": 599,
+     "passPct": 82.3,
+     "failPct": 17.7,
+     "tests": {
+      "internal": 100,
+      "step": 1,
+      "persistence": 1,
+      "stuck-replay": 4
+     }
+    },
+    "RH": {
+     "n": 619,
+     "passPct": 80.5,
+     "failPct": 19.5,
+     "tests": {
+      "internal": 113,
+      "step": 4,
+      "stuck-replay": 4
+     }
+    },
+    "P": {
+     "n": 619,
+     "passPct": 94.3,
+     "failPct": 5.7,
+     "tests": {
+      "stuck-replay": 24,
+      "persistence": 11
+     }
+    },
+    "W": {
+     "n": 617,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:kuri_road",
+   "name": "Kuri, Islamabad",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict bad siting (running correction)",
+     "why": "reads 2.3 C warm by day and 0.6 C at night: sun on the sensor"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 367,
+     "passPct": 67,
+     "failPct": 33,
+     "tests": {
+      "buddy": 56,
+      "internal": 5,
+      "frozen": 60
+     }
+    },
+    "Td": {
+     "n": 362,
+     "passPct": 74,
+     "failPct": 26,
+     "tests": {
+      "persistence": 2,
+      "gross-range": 92
+     }
+    },
+    "RH": {
+     "n": 367,
+     "passPct": 97.5,
+     "failPct": 2.5,
+     "tests": {
+      "internal": 5,
+      "buddy": 4
+     }
+    },
+    "P": {
+     "n": 367,
+     "passPct": 73.6,
+     "failPct": 26.4,
+     "tests": {
+      "persistence": 97
+     }
+    },
+    "W": {
+     "n": 367,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:mach8",
+   "name": "Misrial, Rawalpindi",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict bad siting (running correction)",
+     "why": "reads 2.3 C warm by day and 0.2 C at night: sun on the sensor"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 682,
+     "passPct": 80.4,
+     "failPct": 19.6,
+     "tests": {
+      "buddy": 134
+     }
+    },
+    "Td": {
+     "n": 682,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    },
+    "RH": {
+     "n": 682,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    },
+    "P": {
+     "n": 682,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    },
+    "W": {
+     "n": 682,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:mianwali_avenue",
+   "name": "Mianwali",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict bad siting (running correction)",
+     "why": "reads 2.6 C warm by day and -1.8 C at night: sun on the sensor; site offset 2.6 C by day, -1.8 C at night; scatter against the forecast, relative to checked sta"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 583,
+     "passPct": 87,
+     "failPct": 13,
+     "tests": {
+      "stuck-replay": 22,
+      "frozen": 17,
+      "background": 10,
+      "internal": 26,
+      "jump": 1
+     }
+    },
+    "Td": {
+     "n": 551,
+     "passPct": 75.5,
+     "failPct": 24.5,
+     "tests": {
+      "internal": 126,
+      "persistence": 9
+     }
+    },
+    "RH": {
+     "n": 583,
+     "passPct": 73.1,
+     "failPct": 26.9,
+     "tests": {
+      "internal": 152,
+      "background": 1,
+      "step": 4
+     }
+    },
+    "P": {
+     "n": 583,
+     "passPct": 94.2,
+     "failPct": 5.8,
+     "tests": {
+      "stuck-replay": 22,
+      "persistence": 12
+     }
+    },
+    "W": {
+     "n": 583,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:sahiwal_avenue",
+   "name": "Hasilpur, Bahawalpur",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict bad siting (running correction)",
+     "why": "scatter against the forecast, relative to checked stations in the plains zone IQR 3.1 C"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 367,
+     "passPct": 80.1,
+     "failPct": 19.9,
+     "tests": {
+      "frozen": 53,
+      "background": 5,
+      "stuck-replay": 13,
+      "jump": 2
+     }
+    },
+    "Td": {
+     "n": 367,
+     "passPct": 65.4,
+     "failPct": 34.6,
+     "tests": {
+      "internal": 77,
+      "persistence": 47,
+      "stuck-replay": 3
+     }
+    },
+    "RH": {
+     "n": 367,
+     "passPct": 77.9,
+     "failPct": 22.1,
+     "tests": {
+      "internal": 77,
+      "stuck-replay": 3,
+      "step": 1
+     }
+    },
+    "P": {
+     "n": 367,
+     "passPct": 88.3,
+     "failPct": 11.7,
+     "tests": {
+      "persistence": 30,
+      "stuck-replay": 13
+     }
+    },
+    "W": {
+     "n": 367,
+     "passPct": 98.4,
+     "failPct": 1.6,
+     "tests": {
+      "background": 6
+     }
+    }
+   }
+  },
+  {
+   "pid": "mach:park",
+   "name": "Park View City, Islamabad",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "Apple reading: a forecast product, not a station"
+    }
+   ],
+   "vars": {}
+  },
+  {
+   "pid": "mach:Bad",
+   "name": "Sarai Kharbuza, Islamabad",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "one source station under two MACH keys"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 619,
+     "passPct": 24.9,
+     "failPct": 75.1,
+     "tests": {
+      "copy": 414,
+      "jump": 6,
+      "buddy": 1,
+      "stuck-replay": 40,
+      "frozen": 4
+     }
+    },
+    "Td": {
+     "n": 590,
+     "passPct": 21.4,
+     "failPct": 78.6,
+     "tests": {
+      "internal": 108,
+      "copy": 339,
+      "step": 1,
+      "stuck-replay": 7,
+      "persistence": 9
+     }
+    },
+    "RH": {
+     "n": 619,
+     "passPct": 24.1,
+     "failPct": 75.9,
+     "tests": {
+      "internal": 108,
+      "copy": 331,
+      "stuck-replay": 17,
+      "step": 13,
+      "buddy": 1
+     }
+    },
+    "P": {
+     "n": 619,
+     "passPct": 26,
+     "failPct": 74,
+     "tests": {
+      "copy": 412,
+      "stuck-replay": 40,
+      "persistence": 6
+     }
+    },
+    "W": {
+     "n": 618,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:E11",
+   "name": "E-11, Islamabad",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "one source station under two MACH keys"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 666,
+     "passPct": 31.5,
+     "failPct": 68.5,
+     "tests": {
+      "copy": 418,
+      "jump": 2,
+      "stuck-replay": 34,
+      "frozen": 2
+     }
+    },
+    "Td": {
+     "n": 657,
+     "passPct": 28.9,
+     "failPct": 71.1,
+     "tests": {
+      "copy": 346,
+      "internal": 109,
+      "step": 1,
+      "stuck-replay": 8,
+      "persistence": 3
+     }
+    },
+    "RH": {
+     "n": 666,
+     "passPct": 29.1,
+     "failPct": 70.9,
+     "tests": {
+      "copy": 337,
+      "internal": 109,
+      "stuck-replay": 12,
+      "step": 14
+     }
+    },
+    "P": {
+     "n": 666,
+     "passPct": 32,
+     "failPct": 68,
+     "tests": {
+      "copy": 416,
+      "stuck-replay": 34,
+      "persistence": 3
+     }
+    },
+    "W": {
+     "n": 664,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    }
+   }
+  },
+  {
+   "pid": "mach:h12",
+   "name": "Mohra Noor, Islamabad",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "Apple reading: a forecast product, not a station"
+    }
+   ],
+   "vars": {}
+  },
+  {
+   "pid": "mach:adyala",
+   "name": "Adiala, Rawalpindi",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "Apple reading: a forecast product, not a station"
+    }
+   ],
+   "vars": {}
+  },
+  {
+   "pid": "mach:shaheed",
+   "name": "Shaheed Colony, Rawalpindi",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "Apple reading: a forecast product, not a station"
+    }
+   ],
+   "vars": {}
+  },
+  {
+   "pid": "mach:chakian",
+   "name": "Chakian, Rawalpindi",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "Apple reading: a forecast product, not a station"
+    }
+   ],
+   "vars": {}
+  },
+  {
+   "pid": "mach:sanam",
+   "name": "Koral, Islamabad",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "Apple reading: a forecast product, not a station"
+    }
+   ],
+   "vars": {}
+  },
+  {
+   "pid": "mach:malir",
+   "name": "Malir Cantonment, Karachi",
+   "zone": "coast",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "Apple reading: a forecast product, not a station"
+    }
+   ],
+   "vars": {}
+  },
+  {
+   "pid": "mach:sheldon",
+   "name": "Saddar, Karachi",
+   "zone": "coast",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "Apple reading: a forecast product, not a station"
+    }
+   ],
+   "vars": {}
+  },
+  {
+   "pid": "mach:saadi",
+   "name": "Saadi Town Block 2, Karachi",
+   "zone": "coast",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "Apple reading: a forecast product, not a station"
+    }
+   ],
+   "vars": {}
+  },
+  {
+   "pid": "mach:mian",
+   "name": "Mian Mandi, Mohmand",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "Apple reading: a forecast product, not a station"
+    }
+   ],
+   "vars": {}
+  },
+  {
+   "pid": "mach:muslimcolony",
+   "name": "Pakka Garha, Sialkot",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "Apple reading: a forecast product, not a station"
+    }
+   ],
+   "vars": {}
+  },
+  {
+   "pid": "mach:bahadurabad",
+   "name": "Bahadurabad, Mardan",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "Apple reading: a forecast product, not a station"
+    }
+   ],
+   "vars": {}
+  },
+  {
+   "pid": "mach:surjani",
+   "name": "Surjani Town, Karachi",
+   "zone": "coast",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "Apple reading: a forecast product, not a station"
+    }
+   ],
+   "vars": {}
+  },
+  {
+   "pid": "mach:waris",
+   "name": "Waris Khan, Rawalpindi",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "Apple reading: a forecast product, not a station"
+    }
+   ],
+   "vars": {}
+  },
+  {
+   "pid": "mach:puli",
+   "name": "Puli Pahuran, Rahim Yar Khan",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting screen verdict excluded (running correction)",
+     "why": "Apple reading: a forecast product, not a station"
+    }
+   ],
+   "vars": {}
+  },
+  {
+   "pid": "mach:test_device",
+   "name": "Old City, Lahore",
+   "zone": "plains",
+   "where": [
+    {
+     "where": "siting offsets held out (live layer)",
+     "why": "no reference station in reach, and it reads -7.26 C from the forecast in the night (forecast minus reading), beyond the far-out fences (-4.1 to 4.79 C) of all s"
+    }
+   ],
+   "vars": {
+    "T": {
+     "n": 57,
+     "passPct": 80.7,
+     "failPct": 19.3,
+     "tests": {
+      "buddy": 4,
+      "internal": 7
+     }
+    },
+    "Td": {
+     "n": 47,
+     "passPct": 100,
+     "failPct": 0,
+     "tests": {}
+    },
+    "RH": {
+     "n": 57,
+     "passPct": 87.7,
+     "failPct": 12.3,
+     "tests": {
+      "internal": 7
+     }
+    },
+    "P": {
+     "n": 57,
+     "passPct": 82.5,
+     "failPct": 17.5,
+     "tests": {
+      "persistence": 10
+     }
+    },
+    "W": {
+     "n": 57,
+     "passPct": 98.2,
+     "failPct": 1.8,
+     "tests": {
+      "background": 1
+     }
+    }
+   }
+  }
+ ],
+ "spatial": {
+  "checked": 37740,
+  "background": 42040,
+  "unchecked": 7047
+ }
+}

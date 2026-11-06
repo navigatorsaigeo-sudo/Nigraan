@@ -1,0 +1,69 @@
+{
+ "written": "2026-10-31 08:17 PKT (file time 08:17:48), before any C6-C10 data was staged (first staging 08:18:25 PKT) or any result computed (v91.17.283.40)",
+ "re_run": "the same rules are re-run unchanged after the 1 Nov 2026 06:00 PKT retrain (scripts/tests28340/ctests40.py); results are saved with the run date",
+ "forecast_source": "the multi-model previous-runs archive (station-lake/archive/fc_archive/prev/ecmwf_ifs025, IFS 0.25 deg, the model the served ensemble is run from), 3-hourly, leads 1, 2, 3 days (v_previous_dayK); every forecast was issued before the hour it is scored on, nothing is fitted, so every row is out of sample",
+ "truth": "station measurements already held on the laptop (NIGRAAN folders first, LAMHA read-only copies second): gusts = MACH clean hourly gust maximum; rain = rain gauges (PMD AWS hourly, MACH clean hourly, mountain network) summed per PKT day; a day with any missing hour is not scored (never filled)",
+ "pairing": "forecast point = the truth station's own point in points.csv (same pid); exposure group = the station's terrain zone (tehsil-terrain-zone.json of the tehsil it lies in: plains, coast, hills, mountains); the 31 mountain tehsils = tehsils with mountainShare >= 0.5 that hold a truth station",
+ "uncertainty": "95 % percentile interval, B = 1000 bootstrap resamples of whole calendar days (all stations of a day together), seed 40",
+ "scores": "2x2 table of forecast >= threshold vs observed >= threshold per station-day: POD, FAR, CSI, Peirce skill score PSS = POD - POFD",
+ "pass_rule_categorical": "PASS for a group and lead only when: observed events >= 20, POD >= 0.5, FAR <= 0.5 and the 95 % lower bound of PSS > 0. Fewer than 20 events = INCONCLUSIVE (stays withheld). A level is released only where every lead it is served at passes",
+ "tests": {
+  "C6": {
+   "what": "wind gust Beaufort classes by exposure, and the 31 mountain tehsils",
+   "forecast": "daily (PKT) maximum of the 3-hourly wind_gusts_10m",
+   "observed": "daily maximum of the hourly gust maximum, station-days with >= 20 of 24 hours",
+   "thresholds_kmh": {
+    "gale": 62,
+    "storm": 89
+   },
+   "threshold_source": "Beaufort scale onsets (WMO-No. 8 / WMO Manual on Codes): gale force 8 from 62 km/h, storm force 10 from 89 km/h",
+   "release_if_pass": "the Beaufort gale (and storm) class on the forecast gust, for that exposure group, labelled 'Beaufort class, not a damage level'",
+   "ensemble_chance_mountains": "the ensemble chance of a client limit in the mountains needs the archived ensemble at leads 1-3: the archive starts 29 Oct 2026; tested when it holds >= 20 observed exceedance days in the mountain group"
+  },
+  "C7": {
+   "what": "rain triggers: 3-day total >= 75 mm (rain3_75) and the day amounts 10/25/50/100 mm (pr10..pr100) on held-out data, with client consequences",
+   "forecast": "3-day total = sum of the 3 forecast PKT days at leads 1-3 (day 1 at lead 1, day 2 at lead 2, day 3 at lead 3); day amount = the PKT-day sum at the lead",
+   "observed": "gauge PKT-day sums (complete days only)",
+   "thresholds_mm": {
+    "rain3_75": 75,
+    "pr10": 10,
+    "pr25": 25,
+    "pr50": 50,
+    "pr100": 100
+   },
+   "threshold_source": "the thresholds of the withheld events themselves (outlook.mjs EVENTS_ALL / THRESHOLDS_ALL)",
+   "consequences": "per station and year: false alarms and misses a client with that trigger would have had (counts per 365 days)",
+   "chance_limits": "the served day events are ENSEMBLE chances; their reliability needs the archived ensemble (from 29 Oct 2026): INCONCLUSIVE until it holds >= 20 observed events per threshold; the deterministic categorical test above is reported as the evidence on the model's amounts"
+  },
+  "C8": {
+   "what": "heavy rain in the coast and hills groups (the untested tehsils)",
+   "forecast": "PKT-day sum at leads 1-3",
+   "observed": "gauge PKT-day sum",
+   "threshold_mm": 15.6,
+   "threshold_source": "IMD 24-h rain category 'heavy' onset 15.6 mm (the tested product's own threshold, hazard-scale.json)",
+   "release_if_pass": "the heavy-rain level is served in that group's tehsils with the method of the tested tehsils (instead of 'not tested')"
+  },
+  "C9": {
+   "what": "area heat/cold summary rule (a tehsil's level = the level reached over >= 25 % of its area) and heat exposure duration / activity",
+   "test": "the rule is a summary convention; a test needs an outcome per tehsil-day (heat illness, hospital or mortality records, or worker exposure logs) or >= 3 truth stations inside one tehsil to compare the 25 % rule with the observed spread",
+   "pass_rule": "PASS only if, on tehsil-days with >= 3 truth stations, the level served by the 25 % rule equals the level reached by >= 25 % of the stations on >= 80 % of days (95 % lower bound >= 0.7); otherwise INCONCLUSIVE when fewer than 30 such tehsil-days with any heat level >= Moderate exist"
+  },
+  "C10": {
+   "what": "ventilation (dispersion) bands vs measured PM2.5",
+   "bands_m2s": [
+    6000,
+    2350,
+    1000
+   ],
+   "bands_source": "smog.mjs house bands (untested)",
+   "test": "daily mean measured PM2.5 (EPA AQI 2024 classes) against the day's ventilation index (mixing height x mean wind) from the held archive; Spearman correlation and the PM2.5 distribution per band",
+   "pass_rule": "PASS only if: >= 200 station-days with both values, Spearman rho < 0 with 95 % upper bound < 0, the median PM2.5 falls monotonically from the poorest band to the best, and adjacent bands differ (Mann-Whitney, Holm-adjusted p < 0.05). A ventilation history at the stations' hours is required: if the archive holds none, INCONCLUSIVE with the data named"
+  }
+ },
+ "amendments": [
+  "2026-10-31 08:23 PKT, after the first run, implementation only (no threshold, rule or pass criterion changed): (1) the synop day total is the two 12-h reports ending 12 and 00 UTC (the stations report 12-h totals, not the 6-h totals the first code expected; the first run paired no synop day); (2) the forecast gust at leads 1-3 is empty in the archive, so lead 0 is added as a DIAGNOSTIC only (never used for release)",
+  "2026-10-31 09:02 PKT, before the widened run (owner request): OBSERVATION SET WIDENED, thresholds and pass rules unchanged. Truth = every held station source overlapping the forecast archive (2024-02 onward): official AWS 10-min (rain_day_total_mm, daily total = the last value before its 00 UTC reset, day complete when a reading at or after 23:30 UTC exists), mountain network 10-min rain increments (sum per UTC day, >= 132 of 144 values), synop (Meteostat hourly when >= 20 hourly rain values, else the two 12-h reports), MACH hourly gust maximum 2023-2026, mountain network 10-min gust, synop gusts. Per-value QC: a value flagged by its source (CIMO range, sentinel, spike) or physically impossible (rain > 50 mm in 10 min, > 500 mm in a day; gust > 250 km/h) is dropped alone, never the station; a day left incomplete by a drop is not scored (never filled). Duplicates: the mountain network counters are read only from the increment table (not again from the raw counters); one synop source per station-day. C6 forecast: every harvested model with wind_gusts_10m at leads 1-3 (checked: gfs_seamless, icon_seamless, gem_global full; cma_grapes from 2026-09; ukmo partial; ecmwf_ifs025/ecmwf_ifs/arpege lead 0 only; aifs/jma none); gfs_seamless is run (the full-period model staged). C9 duration (same categorical pass rule): heat index (NWS Rothfusz, with its low-humidity / high-humidity adjustments) at the 3-hourly forecast steps vs the station at the same steps; event = a PKT day with any step at or above the NWS Danger onset 41 degC (secondary: Extreme Caution 32 degC); duration = number of steps x 3 h at or above the band, reported as MAE; C9 area rule: on tehsil-days with >= 3 truth stations, the band reached by >= 25 % of the stations (daily maximum heat index), forecast vs observed: PASS if agreement >= 80 % with 95 % lower bound >= 0.7 on days where either reaches >= Extreme Caution, given >= 30 such days",
+  "2026-10-31 09:26 PKT, before the heat re-run for the release build (owner \"ok both\" 09:17): the C9 bands are put on the PUBLISHED NWS onsets exactly instead of the rounded 32 / 41 degC of the 09:02 run: Extreme Caution 90 F = 32.2 degC, Danger 105 F = 40.6 degC, Extreme Danger 130 F = 54.4 degC (NWS Technical Attachment SR 90-23, Rothfusz 1990, classification table; the method server/api/heatindex.mjs already cites). The heat index of every step is the SERVED function (heatindex.mjs heatIndexDetail with RH from T and Td): a step outside the published table (air temperature above 43.3 degC or index above 58.3 degC) is refused, and a day with a refused step is not scored (the served day is then not assessed). Months April-October 2024-2026 (the heat season; November-March adds only days below 32.2 degC). Pass rule unchanged. Extreme Danger is reported, released only if it passes on its own.",
+  "2026-10-31 10:03 PKT, before the addendum run (owner request: include the Desktop 'New folder' observations, D:\\NIGRAAN\\inputs\\met_parquet_add_20261031): TRUTH WIDENED, thresholds and pass rules unchanged. Script ctests40w_add.py / heat40_add.py (copies; the 09:02 / 09:26 scripts are untouched). (1) official AWS rain 2026-07-01..2026-10-22 (43 stations): no day total is held, so the UTC-day total = the sum of the 10-min since-last-transmission values (RN1), day complete with >= 132 of 144 slots, value dropped alone if CIMO-flagged or > 50 mm in 10 min; check on the 1,160 station-days 2022-2025 where both fields exist: within 0.5 mm on 93.6 % of wet days, identical counts at 15.6 / 25 / 50 mm (64/64, 36/36, 20/20) when the 00:00 UTC day-total reading is given to the day it closes; used only for station-days without a day total. (2) observatory daily rain sheets (24 h ending 03 UTC = 08 PKT, 2025-01..2026-09; time basis tested: matches the coded 12-h SYNOP totals only with this window, best-match share 0.41 vs 0.07 / 0.06 one day either side), only stations linked to a WMO number by exact agreement of their Tmax/Tmin with the coded reports (45) or by registry name (6), only station-days with no coded synop value for the overlapping UTC day; scored against the forecast summed over the SAME 03-03 UTC window (8 three-hourly steps); trace (0.01) counts as 0 mm; 3-day totals only within one window type. (3) C9 / heat: official AWS 10-min temperature (TA1) and dew point (DP) 2026-07..10 at the 3-hourly steps added as truth, dew point used only where the met_parquet hourly RH screen (qc_rh_pass) passes. (4) Implementation check reported, not silently applied: the 09:02 code takes the official AWS daily maximum of rain_day_total_mm over the calendar day, which includes the 00:00 UTC reading = the previous day's closing total (the counter resets at 00:10); the rule text says 'the last value before its 00 UTC reset'. The run is made twice: as coded (dayfix 0) and as the rule text says (dayfix 1, the 00:00 reading goes to the day it closes); both are saved."
+ ]
+}

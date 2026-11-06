@@ -1,0 +1,52 @@
+{
+ "version": "v91.17.283-ws8.core",
+ "blocks": [
+  2,
+  3,
+  4,
+  6,
+  8,
+  10,
+  23,
+  42,
+  46,
+  51,
+  52,
+  54,
+  55,
+  62,
+  66,
+  72,
+  79,
+  91,
+  92,
+  109,
+  169,
+  174,
+  178,
+  185,
+  199,
+  204,
+  227,
+  228,
+  231,
+  243
+ ],
+ "data": [
+  "agn-lcz",
+  "agn-glofas",
+  "agn-geo",
+  "agn-hydro",
+  "agn-soil",
+  "agn-elev-correction"
+ ],
+ "edits": [
+  {
+   "block": 35,
+   "why": "urban heat: the obsolete measured-island rendering after the unconditional return in renderStrip() never ran (page script 35, artefact line ~5529); deleted",
+   "old": "    return;\n    \n\n    var _meas=null;\n    try{\n      var _sel=(window.AGN&&AGN.selection&&AGN.selection.get)?AGN.selection.get():null;\n      var _k=(_sel&&(_sel.key||_sel.name))||(window.__agnActiveUnit||null);\n      if(!_k){ try{ _k=(document.getElementById('opsSub')||{}).textContent||''; _k=_k.replace(/ safety and planning guidance$/,'').trim(); }catch(_e){} }\n      var _r=_k?((window.DISTRICT_IN||{})[_k]||null):null;\n      if(_r && _r.uhi && isFinite(_r.uhi.popWeightedC)) _meas=_r.uhi;\n    }catch(_e){}\n    const u=document.getElementById('uhiSignal'),n=document.getElementById('uhiSignalNote');\n    if(_meas){\n      var _mv=Number(_meas.popWeightedC), _ma=Math.abs(_mv);\n      if(u)u.textContent=(_ma>=3?'Strong':_ma>=1.5?'Moderate':_ma>=0.5?'Slight':'Negligible')\n        +(_ma<0.5?'':(_mv>0?' urban heat island':' urban cool island'))\n        +' \\u00b7 '+(_mv>=0?'+':'\\u2212')+_ma.toFixed(1)+' \\u00b0C';\n      if(n)n.textContent='Maximum nocturnal heat island for the average resident of this unit, from '\n        +'measured built surface, building height and vegetation at about 270 m'\n        +(_meas.spreadC!=null?('. It ranges over '+_meas.spreadC+' \\u00b0C inside this unit alone'):'')\n        +'. An amount on top of the forecast, not a temperature.';\n      return;\n    }\n    if(u)u.textContent=r.status==='regional-model-only'?'Unresolved':(d>=1.5?'Strong local uplift':d>=.4?'Local uplift':d<=-.4?'Local cooling':'Near regional');\n    if(n)n.textContent=r.status==='regional-model-only'?'Neighbourhood microclimate not resolved':((d>0?'+':'')+fmt(d)+'\\u00b0C provisional urban adjustment \\u00b7 '+(r.microclimate.lczCandidate||''));}\n",
+   "new": "    return;\n  }\n"
+  }
+ ],
+ "note": "the 30 page scripts the identity test needs on its frozen inputs (min.mjs); not shipped: deps.mjs shows code paths these inputs did not reach that read names only other scripts define | v91.17.283.27 item 1: agn-rain-clim (the ERA5 wet-day rain table) and agn-rain-clim-js deleted from the page: rain rarity has one home, data/rain-return-levels.json (server/api/hazsci.mjs)."
+}

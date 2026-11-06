@@ -1,0 +1,41 @@
+# What must NOT ship — v91.17.16, SEC-02 / SEC-05
+#
+# Pass-1 audit finding: no packaging manifest existed anywhere in this tree —
+# no .gitignore, no `files` field, no release script — so "what ships" was
+# undefined by any artefact in it. That is why a live credential sitting in
+# secrets/ and 523 MB of operator runtime state under data/ were rated as
+# highly as they were: nothing in the repository said they were excluded.
+#
+# This file is that statement. scripts/pack-release.mjs reads it.
+
+secrets/                 # a build carrying the key in plaintext. DELETED in v91.17.16.
+mach.key                 # the paid provider key
+earthdata.key            # the NASA Earthdata user token (v91.17.32)
+earthdata.key.txt        # the same, as Notepad names it
+.env                     # operator environment, may carry the key
+data/                    # ALL operator runtime state — see below
+node_modules/
+build/                   # build tooling and UI source fragments, not distribution
+audit/                   # audit reports
+scripts/rebrand.py       # build tooling: the FIX list carries superseded wording it replaces (v91.17.34)
+*.log
+*.pid
+*.bak
+*~
+*.orig
+*.swp
+*.rej
+
+# data/ in detail, measured 2026-09-20:
+#   data/backups/            372 MB, 47 files
+#   data/cache/provider/      40 MB, 171 cached provider responses
+#   data/nigraan-db.json      11 MB, the live database
+#   data/nigraan-db.json.*.bak 56 MB
+#   data/nightly/             12 MB snapshot
+#   data/token-secret         the HMAC signing secret
+# The science data the build NEEDS (climatology.json, pk-tehsils.json,
+# anomaly-climate.json, lcz-grid.json, mos-table.json, obs/) is listed in
+# scripts/pack-release.mjs as an explicit include, so a new install gets the
+# science and none of the operator's state.
+cds.key                  # the Copernicus CDS key (v91.17.78)
+openaq.key               # the OpenAQ v3 key (air quality, v199 candidate)

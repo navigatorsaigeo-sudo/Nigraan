@@ -1,0 +1,28 @@
+{
+ "schema": "agn.idf.v1",
+ "durationsMin": [
+  10,
+  20,
+  30,
+  60,
+  120,
+  180,
+  360,
+  720,
+  1440
+ ],
+ "returnYears": [
+  2,
+  5,
+  10,
+  25,
+  50
+ ],
+ "method": "Gumbel (EV1) by the method of moments on annual maximum accumulations of the station rain record",
+ "minYears": 3,
+ "stations": {},
+ "fitted": 0,
+ "why": "WITHHELD (v91.17.68): no gauge holds three complete annual maxima. The AGN/PMD mountain accumulator record runs 2023-09 to 2026-08 (two complete calendar years at best), and the rainfall trust screen passes 19 of 46 gauges. The earlier table (26 gauges, 234 fitted rows) was built from partial years counted as full ones and included gauges the trust screen marks dead or blocked (Arandu_Bhomal Gulabpur_ARG_3: 71.5 mm/yr, model/obs 8.4) because the screen was never applied; it is withdrawn rather than corrected. Earliest a defensible table can exist: after the 2027 season (three complete years for gauges recording since 2023-09), and then only the 2-year level.",
+ "rule": "a year enters the annual-maximum sample only with 80 % of its 10-minute slots recorded; only gauges with rain_trust = ok; Gumbel by moments needs at least 3 such years",
+ "builtAt": "2026-09-25"
+}

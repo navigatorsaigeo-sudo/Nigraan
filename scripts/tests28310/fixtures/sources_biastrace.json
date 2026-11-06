@@ -1,0 +1,38 @@
+{
+ "replays": [
+  {
+   "name": "bias trace 22 Oct 2026 (plains and coast PMD / ISD, Jan-Oct 2026, lead 1)",
+   "runs": {
+    "best_match": "/tmp/claude-0/biastrace/out/rb_raw.jsonl",
+    "served": "/tmp/claude-0/biastrace/out/rb_blend.jsonl"
+   },
+   "points": "/mnt/user-data/uploads/NIGRAAN/nig/station-lake/archive/national/points.csv",
+   "truth": {
+    "kind": "daily_tntx",
+    "file": "/mnt/user-data/uploads/LAMHA/data/incoming/pmd_bulletins_2026/pmd_bulletin_daily_2026.parquet",
+    "map": {
+     "GUJRANWALA*": "pmd:GUJRANWALA",
+     "KASUR": "pmd:KASUR",
+     "KOTADDU": "pmd:KOT_ADDU",
+     "OKARA": "pmd:OKARA",
+     "SAHIWAL": "pmd:SAHIWAL",
+     "TANDOJAM": "pmd:TANDOJAM",
+     "THATTA": "pmd:THATTA",
+     "TTSINGH": "pmd:TOBA_TEK_SINGH",
+     "MUZAFFARABADAIRPORT": "isd:415320",
+     "SHORKOT": "isd:416720"
+    }
+   },
+   "windows": {
+    "tn_utc": [
+     0,
+     5
+    ],
+    "tx_utc": [
+     3,
+     15
+    ]
+   }
+  }
+ ]
+}

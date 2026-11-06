@@ -1,0 +1,225 @@
+{
+ "2022": {
+  "year": "2022",
+  "extent": "Flood_2022.shp",
+  "window": [
+   "2022-06-15",
+   "2022-09-15"
+  ],
+  "frame": [
+   61.615,
+   23.708,
+   75.371,
+   36.894
+  ],
+  "frameShare": 0.02134,
+  "sources": {
+   "CHIRPS_maxPentad": {
+    "tehsils": 403,
+    "events": 95,
+    "auc_P": 0.738,
+    "auc_P_ci": [
+     0.678,
+     0.795
+    ],
+    "auc_Q": 0.757,
+    "auc_Q_ci": [
+     0.699,
+     0.81
+    ],
+    "auc_diff_ci": [
+     0.006,
+     0.031
+    ],
+    "rho_P": 0.308,
+    "rho_Q": 0.344,
+    "rho_diff_ci": [
+     0.014,
+     0.057
+    ],
+    "S2_partialRho_lowRetention_vs_share_given_P": 0.205,
+    "S2_ci": [
+     0.111,
+     0.296
+    ],
+    "cnAddsSkill": true,
+    "cnWorse": false
+   }
+  }
+ },
+ "2024": {
+  "year": "2024",
+  "extent": "VIIRS_20240902_20240910_MaximumFloodExtent_PAK.shp",
+  "window": [
+   "2024-07-15",
+   "2024-09-10"
+  ],
+  "frame": [
+   61.656,
+   23.708,
+   77.613,
+   37.035
+  ],
+  "frameShare": 0.02442,
+  "sources": {
+   "IMERG_maxDay": {
+    "tehsils": 405,
+    "events": 96,
+    "auc_P": 0.721,
+    "auc_P_ci": [
+     0.668,
+     0.77
+    ],
+    "auc_Q": 0.759,
+    "auc_Q_ci": [
+     0.709,
+     0.808
+    ],
+    "auc_diff_ci": [
+     0.015,
+     0.064
+    ],
+    "rho_P": 0.306,
+    "rho_Q": 0.359,
+    "rho_diff_ci": [
+     0.022,
+     0.089
+    ],
+    "S2_partialRho_lowRetention_vs_share_given_P": 0.258,
+    "S2_ci": [
+     0.172,
+     0.351
+    ],
+    "cnAddsSkill": true,
+    "cnWorse": false
+   },
+   "CHIRPS_maxPentad": {
+    "tehsils": 405,
+    "events": 96,
+    "auc_P": 0.794,
+    "auc_P_ci": [
+     0.748,
+     0.838
+    ],
+    "auc_Q": 0.806,
+    "auc_Q_ci": [
+     0.759,
+     0.849
+    ],
+    "auc_diff_ci": [
+     -0.003,
+     0.025
+    ],
+    "rho_P": 0.393,
+    "rho_Q": 0.414,
+    "rho_diff_ci": [
+     0.004,
+     0.038
+    ],
+    "S2_partialRho_lowRetention_vs_share_given_P": 0.196,
+    "S2_ci": [
+     0.104,
+     0.283
+    ],
+    "cnAddsSkill": false,
+    "cnWorse": false
+   }
+  }
+ },
+ "2025": {
+  "year": "2025",
+  "extent": "Flood_2025.shp",
+  "window": [
+   "2025-06-15",
+   "2025-09-30"
+  ],
+  "frame": [
+   67.817,
+   24.443,
+   77.123,
+   34.315
+  ],
+  "frameShare": 0.00197,
+  "sources": {
+   "IMERG_maxDay": {
+    "tehsils": 264,
+    "events": 17,
+    "auc_P": 0.745,
+    "auc_P_ci": [
+     0.571,
+     0.903
+    ],
+    "auc_Q": 0.736,
+    "auc_Q_ci": [
+     0.557,
+     0.894
+    ],
+    "auc_diff_ci": [
+     -0.038,
+     0.016
+    ],
+    "rho_P": 0.229,
+    "rho_Q": 0.223,
+    "rho_diff_ci": [
+     -0.03,
+     0.017
+    ],
+    "S2_partialRho_lowRetention_vs_share_given_P": 0.014,
+    "S2_ci": [
+     -0.087,
+     0.098
+    ],
+    "cnAddsSkill": false,
+    "cnWorse": false
+   },
+   "CHIRPS_maxPentad": {
+    "tehsils": 264,
+    "events": 17,
+    "auc_P": 0.716,
+    "auc_P_ci": [
+     0.524,
+     0.885
+    ],
+    "auc_Q": 0.716,
+    "auc_Q_ci": [
+     0.536,
+     0.872
+    ],
+    "auc_diff_ci": [
+     -0.027,
+     0.032
+    ],
+    "rho_P": 0.201,
+    "rho_Q": 0.199,
+    "rho_diff_ci": [
+     -0.025,
+     0.024
+    ],
+    "S2_partialRho_lowRetention_vs_share_given_P": -0.027,
+    "S2_ci": [
+     -0.131,
+     0.079
+    ],
+    "cnAddsSkill": false,
+    "cnWorse": false
+   }
+  }
+ },
+ "decision": {
+  "primarySourcePerYear": {
+   "2022": "CHIRPS_maxPentad",
+   "2024": "IMERG_maxDay",
+   "2025": "IMERG_maxDay"
+  },
+  "yearsWhereCnAddsSkill": 2,
+  "anyYearWorse": false,
+  "supported": true,
+  "rule": "SUPPORTED iff the paired AUC(Q)-AUC(P) CI > 0 in >= 2 of 3 years and < 0 in none (RULES.md S1)"
+ },
+ "grid": {
+  "cell_deg": 0.01,
+  "domainKm": 29.0,
+  "minNonRiverineCells": 25,
+  "rivers": "data/pk-rivers.json coords (11 major rivers)"
+ }
+}

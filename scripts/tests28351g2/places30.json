@@ -1,0 +1,241 @@
+[
+{
+"id": "Q0",
+"set": "quiet",
+"name": "E-7 Islamabad",
+"lat": 33.7233,
+"lon": 73.0435,
+"cat": "E-7 Islamabad"
+},
+{
+"id": "Q1",
+"set": "quiet",
+"name": "F-6 Islamabad",
+"lat": 33.729,
+"lon": 73.076,
+"cat": "F-6 Islamabad"
+},
+{
+"id": "Q2",
+"set": "quiet",
+"name": "Murree",
+"lat": 33.907,
+"lon": 73.3943,
+"cat": "Murree"
+},
+{
+"id": "Q3",
+"set": "quiet",
+"name": "Quetta Cantt",
+"lat": 30.183,
+"lon": 66.995,
+"cat": "Quetta Cantt"
+},
+{
+"id": "S0",
+"set": "standard",
+"name": "Islamabad I-8",
+"lat": 33.66443,
+"lon": 73.08339,
+"cat": "Islamabad I-8"
+},
+{
+"id": "S1",
+"set": "standard",
+"name": "Lahore Cantt",
+"lat": 31.515,
+"lon": 74.388,
+"cat": "Lahore Cantt"
+},
+{
+"id": "S2",
+"set": "standard",
+"name": "Karachi coast",
+"lat": 24.8138,
+"lon": 67.03,
+"cat": "Karachi coast"
+},
+{
+"id": "S3",
+"set": "standard",
+"name": "Gilgit",
+"lat": 35.9208,
+"lon": 74.308,
+"cat": "Gilgit"
+},
+{
+"id": "S4",
+"set": "standard",
+"name": "Quetta",
+"lat": 30.1798,
+"lon": 66.975,
+"cat": "Quetta"
+},
+{
+"id": "R00",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 35.07975,
+"lon": 73.72331,
+"cat": "mountains GB/Chitral"
+},
+{
+"id": "R02",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 36.65185,
+"lon": 72.43828,
+"cat": "mountains GB/Chitral"
+},
+{
+"id": "R04",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 35.95711,
+"lon": 74.43932,
+"cat": "mountains GB/Chitral"
+},
+{
+"id": "R05",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 35.74578,
+"lon": 75.16972,
+"cat": "mountains GB/Chitral"
+},
+{
+"id": "R09",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 35.2078,
+"lon": 76.91982,
+"cat": "mountains GB/Chitral"
+},
+{
+"id": "R08",
+"set": "random",
+"name": "mountains GB/Chitral",
+"lat": 36.89509,
+"lon": 73.46629,
+"cat": "mountains GB/Chitral"
+},
+{
+"id": "R10",
+"set": "random",
+"name": "desert Thar/Cholistan/Kharan",
+"lat": 27.03851,
+"lon": 67.96986,
+"cat": "desert Thar/Cholistan/Kharan"
+},
+{
+"id": "R12",
+"set": "random",
+"name": "desert Thar/Cholistan/Kharan",
+"lat": 29.19167,
+"lon": 70.80814,
+"cat": "desert Thar/Cholistan/Kharan"
+},
+{
+"id": "R14",
+"set": "random",
+"name": "desert Thar/Cholistan/Kharan",
+"lat": 28.1895,
+"lon": 63.76935,
+"cat": "desert Thar/Cholistan/Kharan"
+},
+{
+"id": "M1",
+"set": "random",
+"name": "Mithi Thar",
+"lat": 24.7366,
+"lon": 69.7985,
+"cat": "desert Thar/Cholistan/Kharan"
+},
+{
+"id": "R11",
+"set": "random",
+"name": "desert Thar/Cholistan/Kharan",
+"lat": 26.63487,
+"lon": 65.83542,
+"cat": "desert Thar/Cholistan/Kharan"
+},
+{
+"id": "R18",
+"set": "random",
+"name": "coast Sindh/Makran",
+"lat": 25.20132,
+"lon": 61.97611,
+"cat": "coast Sindh/Makran"
+},
+{
+"id": "R21",
+"set": "random",
+"name": "coast Sindh/Makran",
+"lat": 24.15687,
+"lon": 67.413,
+"cat": "coast Sindh/Makran"
+},
+{
+"id": "R22",
+"set": "random",
+"name": "coast Sindh/Makran",
+"lat": 25.0691,
+"lon": 66.93148,
+"cat": "coast Sindh/Makran"
+},
+{
+"id": "R24",
+"set": "random",
+"name": "coast Sindh/Makran",
+"lat": 25.04964,
+"lon": 67.41073,
+"cat": "coast Sindh/Makran"
+},
+{
+"id": "C1",
+"set": "random",
+"name": "Clifton Block 5 Karachi",
+"lat": 24.8203,
+"lon": 67.0306,
+"cat": "coast Sindh/Makran"
+},
+{
+"id": "R40",
+"set": "random",
+"name": "city Karachi Saddar",
+"lat": 24.8546,
+"lon": 67.0207,
+"cat": "city Karachi Saddar"
+},
+{
+"id": "R42",
+"set": "random",
+"name": "city Peshawar city",
+"lat": 34.008,
+"lon": 71.5785,
+"cat": "city Peshawar city"
+},
+{
+"id": "R45",
+"set": "random",
+"name": "city Multan",
+"lat": 30.1975,
+"lon": 71.47,
+"cat": "city Multan"
+},
+{
+"id": "R26",
+"set": "random",
+"name": "LoC-adjacent AJK/GB",
+"lat": 34.92629,
+"lon": 74.26397,
+"cat": "LoC-adjacent AJK/GB"
+},
+{
+"id": "R29",
+"set": "random",
+"name": "LoC-adjacent AJK/GB",
+"lat": 34.87721,
+"lon": 74.8982
+}
+]

@@ -1,0 +1,15 @@
+{
+  "name": "nigraan-local",
+  "version": "91.17.283.52",
+  "private": true,
+  "type": "module",
+  "description": "Local deployment for the sealed AI GEO NIGRAAN artefact, with a backend that keeps the provider key out of the browser.",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "start": "node server/server.mjs",
+    "verify": "node scripts/verify.mjs",
+    "test": "node scripts/run-tests.mjs"
+  }
+}

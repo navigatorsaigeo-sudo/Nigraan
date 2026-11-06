@@ -1,0 +1,3 @@
+smog.json run 2026-10-14T02:16:38.209Z unit-days with ventilation 2880
+dispersion class raised by the 925 hPa inversion step (would revert): 921
+smogDay flips: 61

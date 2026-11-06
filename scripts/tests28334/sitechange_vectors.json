@@ -1,0 +1,458 @@
+{
+ "units": {
+  "runoff_mm": [
+   {
+    "P": 100,
+    "cn": 70,
+    "f": 1.0,
+    "q": 32.711
+   },
+   {
+    "P": 100,
+    "cn": 85,
+    "f": 0.8,
+    "q": 66.962
+   },
+   {
+    "P": 10,
+    "cn": 55,
+    "f": 1.0,
+    "q": 0.0
+   }
+  ],
+  "kirpich": [
+   {
+    "L": 200,
+    "S": 0.04,
+    "sealed": 0,
+    "tc": 5.0
+   },
+   {
+    "L": 200,
+    "S": 0.04,
+    "sealed": 1,
+    "tc": 5.0
+   }
+  ],
+  "bell": [
+   {
+    "D": 5,
+    "r": 0.3075
+   },
+   {
+    "D": 30,
+    "r": 0.7638
+   },
+   {
+    "D": 60,
+    "r": 1.0029
+   }
+  ],
+  "tr55": [
+   {
+    "alpha": 0.3,
+    "ratio": 0.3789
+   },
+   {
+    "alpha": 0.5,
+    "ratio": 0.2765
+   }
+  ],
+  "f_slope": [
+   {
+    "slope": 1,
+    "f": 1.0
+   },
+   {
+    "slope": 12,
+    "f": 0.8
+   },
+   {
+    "slope": 40,
+    "f": 0.6
+   }
+  ]
+ },
+ "cases": [
+  {
+   "name": "islamabad_2ha_grass_to_70pct_built",
+   "uid": "Federal Capital|Islamabad|Islamabad",
+   "A_m2": 20000,
+   "L_m": 200,
+   "slope_pct": 4,
+   "hsg": {
+    "C": 1.0
+   },
+   "before": {
+    "trees": 0.3,
+    "grass": 0.6,
+    "bare": 0.1
+   },
+   "after": {
+    "built": 0.7,
+    "grass": 0.2,
+    "trees": 0.1
+   },
+   "rl": {
+    "2": {
+     "1h": 21.8,
+     "3h": 44.0,
+     "6h": 59.6,
+     "24h": 74.1,
+     "24h_point": 108.6
+    },
+    "10": {
+     "1h": 30.8,
+     "3h": 61.2,
+     "6h": 84.4,
+     "24h": 107.4,
+     "24h_point": 190.8
+    },
+    "25": {
+     "1h": 35.3,
+     "3h": 69.7,
+     "6h": 96.9,
+     "24h": 126.6,
+     "24h_point": 225.0
+    }
+   },
+   "pond_m3": 500,
+   "result": {
+    "2": {
+     "before": {
+      "P_mm": 108.6,
+      "runoff_mm": 54.98,
+      "volume_m3": 1099.5,
+      "C": 0.506,
+      "tc_min": 5.0,
+      "i_mmph": 80.4,
+      "peak_m3s": 0.2262
+     },
+     "after": {
+      "P_mm": 108.6,
+      "runoff_mm": 91.53,
+      "volume_m3": 1830.6,
+      "C": 0.843,
+      "tc_min": 5.0,
+      "i_mmph": 80.4,
+      "peak_m3s": 0.3766
+     },
+     "extra_volume_m3": 731.1,
+     "alpha": 0.601,
+     "alpha_in_chart_range": true,
+     "storage_peak_m3": 440.3,
+     "storage_needed_m3": 731.1,
+     "pond_m3": 500,
+     "pond_enough": false
+    },
+    "10": {
+     "before": {
+      "P_mm": 190.8,
+      "runoff_mm": 126.72,
+      "volume_m3": 2534.4,
+      "C": 0.664,
+      "tc_min": 5.0,
+      "i_mmph": 113.6,
+      "peak_m3s": 0.4193
+     },
+     "after": {
+      "P_mm": 190.8,
+      "runoff_mm": 170.3,
+      "volume_m3": 3406.1,
+      "C": 0.893,
+      "tc_min": 5.0,
+      "i_mmph": 113.6,
+      "peak_m3s": 0.5636
+     },
+     "extra_volume_m3": 871.7,
+     "alpha": 0.744,
+     "alpha_in_chart_range": true,
+     "storage_peak_m3": 663.4,
+     "storage_needed_m3": 871.7,
+     "pond_m3": 500,
+     "pond_enough": false
+    },
+    "25": {
+     "before": {
+      "P_mm": 225.0,
+      "runoff_mm": 158.32,
+      "volume_m3": 3166.3,
+      "C": 0.704,
+      "tc_min": 5.0,
+      "i_mmph": 130.3,
+      "peak_m3s": 0.5092
+     },
+     "after": {
+      "P_mm": 225.0,
+      "runoff_mm": 203.65,
+      "volume_m3": 4073.0,
+      "C": 0.905,
+      "tc_min": 5.0,
+      "i_mmph": 130.3,
+      "peak_m3s": 0.655
+     },
+     "extra_volume_m3": 906.7,
+     "alpha": 0.777,
+     "alpha_in_chart_range": true,
+     "storage_peak_m3": 748.3,
+     "storage_needed_m3": 906.7,
+     "pond_m3": 500,
+     "pond_enough": false
+    }
+   }
+  },
+  {
+   "name": "islamabad_2ha_with_green_roof",
+   "uid": "Federal Capital|Islamabad|Islamabad",
+   "A_m2": 20000,
+   "L_m": 200,
+   "slope_pct": 4,
+   "hsg": {
+    "C": 1.0
+   },
+   "before": {
+    "trees": 0.3,
+    "grass": 0.6,
+    "bare": 0.1
+   },
+   "after": {
+    "built": 0.35,
+    "green_roof": 0.35,
+    "grass": 0.2,
+    "trees": 0.1
+   },
+   "rl": {
+    "2": {
+     "1h": 21.8,
+     "3h": 44.0,
+     "6h": 59.6,
+     "24h": 74.1,
+     "24h_point": 108.6
+    },
+    "10": {
+     "1h": 30.8,
+     "3h": 61.2,
+     "6h": 84.4,
+     "24h": 107.4,
+     "24h_point": 190.8
+    },
+    "25": {
+     "1h": 35.3,
+     "3h": 69.7,
+     "6h": 96.9,
+     "24h": 126.6,
+     "24h_point": 225.0
+    }
+   },
+   "pond_m3": 0,
+   "result": {
+    "2": {
+     "before": {
+      "P_mm": 108.6,
+      "runoff_mm": 54.98,
+      "volume_m3": 1099.5,
+      "C": 0.506,
+      "tc_min": 5.0,
+      "i_mmph": 80.4,
+      "peak_m3s": 0.2262
+     },
+     "after": {
+      "P_mm": 108.6,
+      "runoff_mm": 78.39,
+      "volume_m3": 1567.8,
+      "C": 0.722,
+      "tc_min": 5.0,
+      "i_mmph": 80.4,
+      "peak_m3s": 0.3226
+     },
+     "extra_volume_m3": 468.3,
+     "alpha": 0.701,
+     "alpha_in_chart_range": true,
+     "storage_peak_m3": 326.8,
+     "storage_needed_m3": 468.3,
+     "pond_m3": 0,
+     "pond_enough": false
+    },
+    "10": {
+     "before": {
+      "P_mm": 190.8,
+      "runoff_mm": 126.72,
+      "volume_m3": 2534.4,
+      "C": 0.664,
+      "tc_min": 5.0,
+      "i_mmph": 113.6,
+      "peak_m3s": 0.4193
+     },
+     "after": {
+      "P_mm": 190.8,
+      "runoff_mm": 155.61,
+      "volume_m3": 3112.2,
+      "C": 0.816,
+      "tc_min": 5.0,
+      "i_mmph": 113.6,
+      "peak_m3s": 0.5149
+     },
+     "extra_volume_m3": 577.8,
+     "alpha": 0.814,
+     "alpha_in_chart_range": false,
+     "storage_peak_m3": 547.6,
+     "storage_needed_m3": 577.8,
+     "pond_m3": 0,
+     "pond_enough": false
+    },
+    "25": {
+     "before": {
+      "P_mm": 225.0,
+      "runoff_mm": 158.32,
+      "volume_m3": 3166.3,
+      "C": 0.704,
+      "tc_min": 5.0,
+      "i_mmph": 130.3,
+      "peak_m3s": 0.5092
+     },
+     "after": {
+      "P_mm": 225.0,
+      "runoff_mm": 188.6,
+      "volume_m3": 3772.0,
+      "C": 0.838,
+      "tc_min": 5.0,
+      "i_mmph": 130.3,
+      "peak_m3s": 0.6066
+     },
+     "extra_volume_m3": 605.7,
+     "alpha": 0.839,
+     "alpha_in_chart_range": false,
+     "storage_peak_m3": 663.7,
+     "storage_needed_m3": 663.7,
+     "pond_m3": 0,
+     "pond_enough": false
+    }
+   }
+  },
+  {
+   "name": "karachi_5ha_crop_to_industrial_soilD",
+   "uid": "Sindh|East Karachi|Gulshan Iqbal Town",
+   "A_m2": 50000,
+   "L_m": 320,
+   "slope_pct": 1,
+   "hsg": {
+    "D": 1.0
+   },
+   "before": {
+    "crops": 0.8,
+    "bare": 0.2
+   },
+   "after": {
+    "built": 0.85,
+    "bare": 0.15
+   },
+   "rl": {
+    "2": {
+     "1h": 13.6,
+     "3h": 25.3,
+     "6h": 33.7,
+     "24h": 48.1,
+     "24h_point": 70.5
+    },
+    "10": {
+     "1h": 28.3,
+     "3h": 50.9,
+     "6h": 65.4,
+     "24h": 99.5,
+     "24h_point": 176.7
+    },
+    "25": {
+     "1h": 35.6,
+     "3h": 63.4,
+     "6h": 81.5,
+     "24h": 129.2,
+     "24h_point": 229.6
+    }
+   },
+   "pond_m3": 0,
+   "result": {
+    "2": {
+     "before": {
+      "P_mm": 70.5,
+      "runoff_mm": 45.35,
+      "volume_m3": 2267.4,
+      "C": 0.643,
+      "tc_min": 9.7,
+      "i_mmph": 38.0,
+      "peak_m3s": 0.3396
+     },
+     "after": {
+      "P_mm": 70.5,
+      "runoff_mm": 68.05,
+      "volume_m3": 3402.7,
+      "C": 0.965,
+      "tc_min": 5.0,
+      "i_mmph": 50.2,
+      "peak_m3s": 0.6728
+     },
+     "extra_volume_m3": 1135.3,
+     "alpha": 0.505,
+     "alpha_in_chart_range": true,
+     "storage_peak_m3": 934.5,
+     "storage_needed_m3": 1135.3,
+     "pond_m3": 0,
+     "pond_enough": false
+    },
+    "10": {
+     "before": {
+      "P_mm": 176.7,
+      "runoff_mm": 146.86,
+      "volume_m3": 7342.8,
+      "C": 0.831,
+      "tc_min": 9.7,
+      "i_mmph": 79.1,
+      "peak_m3s": 0.9131
+     },
+     "after": {
+      "P_mm": 176.7,
+      "runoff_mm": 173.99,
+      "volume_m3": 8699.5,
+      "C": 0.985,
+      "tc_min": 5.0,
+      "i_mmph": 104.4,
+      "peak_m3s": 1.4281
+     },
+     "extra_volume_m3": 1356.7,
+     "alpha": 0.639,
+     "alpha_in_chart_range": true,
+     "storage_peak_m3": 1983.3,
+     "storage_needed_m3": 1983.3,
+     "pond_m3": 0,
+     "pond_enough": false
+    },
+    "25": {
+     "before": {
+      "P_mm": 229.6,
+      "runoff_mm": 198.88,
+      "volume_m3": 9944.2,
+      "C": 0.866,
+      "tc_min": 9.7,
+      "i_mmph": 99.5,
+      "peak_m3s": 1.1972
+     },
+     "after": {
+      "P_mm": 229.6,
+      "runoff_mm": 226.84,
+      "volume_m3": 11342.2,
+      "C": 0.988,
+      "tc_min": 5.0,
+      "i_mmph": 131.4,
+      "peak_m3s": 1.8025
+     },
+     "extra_volume_m3": 1398.0,
+     "alpha": 0.664,
+     "alpha_in_chart_range": true,
+     "storage_peak_m3": 2496.6,
+     "storage_needed_m3": 2496.6,
+     "pond_m3": 0,
+     "pond_enough": false
+    }
+   }
+  }
+ ]
+}

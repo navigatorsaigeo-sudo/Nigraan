@@ -1,0 +1,1 @@
+(function(){ var B=window.AGN_BOOT; if(B&&B.place){ var l=document.getElementById('cityLabel'); if(l) l.textContent=B.place.name||'Selected point'; } })();   /* v91.17.283.17: the handed-over place from the first paint */

@@ -1,0 +1,265 @@
+{
+  "schema": "agn.riverpoints.v1",
+  "basis": "Main-stem gauging points and barrages on the Indus system. Coordinates are the NOMINAL structure or town location; each is snapped to the nearest GloFAS river cell at build time because a point a few kilometres off the modelled channel returns a discharge of zero, which is not a low flow but an absence of river.",
+  "points": [
+    {
+      "id": "tarbela",
+      "name": "Tarbela Dam",
+      "river": "Indus",
+      "kind": "dam",
+      "lat": 34.09,
+      "lon": 72.698,
+      "province": "Khyber Pakhtunkhwa"
+    },
+    {
+      "id": "attock",
+      "name": "Attock",
+      "river": "Indus",
+      "kind": "reach",
+      "lat": 33.9,
+      "lon": 72.24,
+      "province": "Punjab"
+    },
+    {
+      "id": "kalabagh",
+      "name": "Kalabagh",
+      "river": "Indus",
+      "kind": "reach",
+      "lat": 32.96,
+      "lon": 71.55,
+      "province": "Punjab"
+    },
+    {
+      "id": "chashma",
+      "name": "Chashma Barrage",
+      "river": "Indus",
+      "kind": "barrage",
+      "lat": 32.43,
+      "lon": 71.38,
+      "province": "Punjab"
+    },
+    {
+      "id": "taunsa",
+      "name": "Taunsa Barrage",
+      "river": "Indus",
+      "kind": "barrage",
+      "lat": 30.51,
+      "lon": 70.85,
+      "province": "Punjab"
+    },
+    {
+      "id": "guddu",
+      "name": "Guddu Barrage",
+      "river": "Indus",
+      "kind": "barrage",
+      "lat": 28.42,
+      "lon": 69.72,
+      "province": "Sindh"
+    },
+    {
+      "id": "sukkur",
+      "name": "Sukkur Barrage",
+      "river": "Indus",
+      "kind": "barrage",
+      "lat": 27.69,
+      "lon": 68.85,
+      "province": "Sindh"
+    },
+    {
+      "id": "kotri",
+      "name": "Kotri Barrage",
+      "river": "Indus",
+      "kind": "barrage",
+      "lat": 25.44,
+      "lon": 68.31,
+      "province": "Sindh"
+    },
+    {
+      "id": "besham",
+      "name": "Besham Qila",
+      "river": "Indus",
+      "kind": "reach",
+      "lat": 34.92,
+      "lon": 72.88,
+      "province": "Khyber Pakhtunkhwa"
+    },
+    {
+      "id": "partab",
+      "name": "Partab Bridge",
+      "river": "Indus",
+      "kind": "reach",
+      "lat": 35.74,
+      "lon": 74.62,
+      "province": "Gilgit Baltistan"
+    },
+    {
+      "id": "kachura",
+      "name": "Kachura (Skardu)",
+      "river": "Indus",
+      "kind": "reach",
+      "lat": 35.44,
+      "lon": 75.43,
+      "province": "Gilgit Baltistan"
+    },
+    {
+      "id": "mangla",
+      "name": "Mangla Dam",
+      "river": "Jhelum",
+      "kind": "dam",
+      "lat": 33.15,
+      "lon": 73.64,
+      "province": "Azad Kashmir"
+    },
+    {
+      "id": "rasul",
+      "name": "Rasul Barrage",
+      "river": "Jhelum",
+      "kind": "barrage",
+      "lat": 32.68,
+      "lon": 73.51,
+      "province": "Punjab"
+    },
+    {
+      "id": "marala",
+      "name": "Marala Headworks",
+      "river": "Chenab",
+      "kind": "headworks",
+      "lat": 32.67,
+      "lon": 74.46,
+      "province": "Punjab"
+    },
+    {
+      "id": "khanki",
+      "name": "Khanki Headworks",
+      "river": "Chenab",
+      "kind": "headworks",
+      "lat": 32.4,
+      "lon": 73.97,
+      "province": "Punjab"
+    },
+    {
+      "id": "qadirabad",
+      "name": "Qadirabad Headworks",
+      "river": "Chenab",
+      "kind": "headworks",
+      "lat": 32.32,
+      "lon": 73.68,
+      "province": "Punjab"
+    },
+    {
+      "id": "trimmu",
+      "name": "Trimmu Barrage",
+      "river": "Chenab",
+      "kind": "barrage",
+      "lat": 31.14,
+      "lon": 72.15,
+      "province": "Punjab"
+    },
+    {
+      "id": "balloki",
+      "name": "Balloki Headworks",
+      "river": "Ravi",
+      "kind": "headworks",
+      "lat": 31.22,
+      "lon": 73.86,
+      "province": "Punjab"
+    },
+    {
+      "id": "sidhnai",
+      "name": "Sidhnai Barrage",
+      "river": "Ravi",
+      "kind": "barrage",
+      "lat": 30.63,
+      "lon": 72.19,
+      "province": "Punjab"
+    },
+    {
+      "id": "sulemanki",
+      "name": "Sulemanki Headworks",
+      "river": "Sutlej",
+      "kind": "headworks",
+      "lat": 30.37,
+      "lon": 73.87,
+      "province": "Punjab"
+    },
+    {
+      "id": "islam",
+      "name": "Islam Headworks",
+      "river": "Sutlej",
+      "kind": "headworks",
+      "lat": 29.83,
+      "lon": 72.55,
+      "province": "Punjab"
+    },
+    {
+      "id": "panjnad",
+      "name": "Panjnad Headworks",
+      "river": "Panjnad",
+      "kind": "headworks",
+      "lat": 29.35,
+      "lon": 71.02,
+      "province": "Punjab"
+    },
+    {
+      "id": "nowshera",
+      "name": "Nowshera",
+      "river": "Kabul",
+      "kind": "reach",
+      "lat": 34.02,
+      "lon": 71.97,
+      "province": "Khyber Pakhtunkhwa"
+    },
+    {
+      "id": "warsak",
+      "name": "Warsak Dam",
+      "river": "Kabul",
+      "kind": "dam",
+      "lat": 34.15,
+      "lon": 71.41,
+      "province": "Khyber Pakhtunkhwa"
+    },
+    {
+      "id": "chakdara",
+      "name": "Chakdara",
+      "river": "Swat",
+      "kind": "reach",
+      "lat": 34.65,
+      "lon": 72.03,
+      "province": "Khyber Pakhtunkhwa",
+      "tributary": true,
+      "tributaryWhy": "a mountain tributary. GloFAS at 5 km does not resolve this channel: measured against eight mountain gauges the day-to-day change in modelled discharge correlates with the observed change at 0.00. Held in the list so the refusal is explicit rather than the point simply being absent."
+    },
+    {
+      "id": "gilgit",
+      "name": "Gilgit",
+      "river": "Gilgit",
+      "kind": "reach",
+      "lat": 35.92,
+      "lon": 74.31,
+      "province": "Gilgit Baltistan",
+      "tributary": true,
+      "tributaryWhy": "a mountain tributary. GloFAS at 5 km does not resolve this channel: measured against eight mountain gauges the day-to-day change in modelled discharge correlates with the observed change at 0.00. Held in the list so the refusal is explicit rather than the point simply being absent."
+    },
+    {
+      "id": "danyor",
+      "name": "Danyor (Hunza)",
+      "river": "Hunza",
+      "kind": "reach",
+      "lat": 35.93,
+      "lon": 74.37,
+      "province": "Gilgit Baltistan",
+      "tributary": true,
+      "tributaryWhy": "a mountain tributary. GloFAS at 5 km does not resolve this channel: measured against eight mountain gauges the day-to-day change in modelled discharge correlates with the observed change at 0.00. Held in the list so the refusal is explicit rather than the point simply being absent."
+    },
+    {
+      "id": "chenab_head",
+      "name": "Chenab at Akhnoor reach",
+      "river": "Chenab",
+      "kind": "reach",
+      "lat": 32.9,
+      "lon": 74.74,
+      "province": "Azad Kashmir"
+    }
+  ],
+  "snapRule": "Nearest GloFAS cell carrying at least 20% of the largest discharge in the tight ring, searched outward from the nominal point. Nearest rather than largest: the largest cell in a 30 km neighbourhood is often a different river, and a headworks on the Ravi that snaps to the Chenab reports the wrong river confidently. A point with no qualifying cell within 15 km is refused rather than moved."
+}

@@ -1,0 +1,110 @@
+# MACH station register, database copy, 10-min steps 2026-10-12 08:10 to 2026-10-13 08:10 UTC (145 steps). Rules in mach_status.py.
+key,name,no,lat,lon,status,use_T,use_humidity,use_P,use_wind,use_rain,native_units,reasons,evidence
+mach1,"I-8, Islamabad",1,33.66467,73.08307,active,True,True,True,True,True,metric,,median age 0 min
+nutech,"G-10, Islamabad",2,33.681592,73.016402,active,True,True,True,True,True,metric,,median age 4 min
+E11,"E-11, Islamabad",3,33.707197,72.95462,active,True,True,True,True,True,metric,,median age 2 min
+G15,"G-15, Islamabad",4,33.633453,72.917575,partial,True,False,True,True,True,metric,"manual: humidity sensor faulty (RH 12-99 % within hours, 7-9 Oct 2026); excluded after live verification",median age 4 min
+Banigala,"Bani Gala, Islamabad",5,33.722366,73.178319,active,True,True,True,True,True,metric,,median age 4 min
+FLT,"Gulzar-e-Quaid, Islamabad",6,33.562521,73.042589,partial,True,False,True,True,True,metric,R4 humidity sensor failed (RH <= 2 % in 100% of readings),median age 4 min
+Quaid,"Nurpur Shahan, Islamabad",7,33.749127,73.142605,active,True,True,True,True,True,metric,,median age 4 min
+mach8,"Misrial, Rawalpindi",8,33.596,73.0,active,True,True,True,True,True,metric,,median age 0 min
+Rawal,"Satellite Town, Rawalpindi",9,33.636947,73.05928,active,True,True,True,True,True,metric,,median age 4 min
+Zaraj,"DHA Phase 2, Islamabad",10,33.530668,73.147026,active,True,True,True,True,True,metric,,median age 4 min
+mach11,"Paniola, Rawalakot",11,33.856,73.765,dropped,False,False,False,False,False,metric,R1 dead (no reading within 60 min in most polls),no timestamp
+Davis,"Westridge, Rawalpindi",12,33.61262,73.019556,dropped,False,False,False,False,False,metric,R1 dead (no reading within 60 min in most polls),no timestamp
+Shah,"F-10, Islamabad",13,33.692973,72.998158,active,True,True,True,True,True,metric,,median age 3 min
+Miana,"Miana Thob, Islamabad",14,33.560536,73.263693,active,True,True,True,True,True,metric,,median age 3 min
+Garden,"Burma Town, Islamabad",15,33.63483,73.133713,active,True,True,True,True,True,metric,,median age 3 min
+Gulshanabad,"Dhaman Syedan, Rawalpindi",16,33.526885,73.053673,active,True,True,True,True,True,metric,,median age 3 min
+MianaThub,"Gulberg, Islamabad",17,33.565333,73.294395,active,True,True,True,True,True,metric,,median age 3 min
+phase8,"Bahria Town, Rawalpindi",18,33.50228,73.068171,active,True,True,True,True,True,metric,,median age 3 min
+PW,"Malir Halt, Karachi",19,24.918527,67.190244,active,True,True,True,True,True,metric,,median age 2 min
+PakWeather,"Saadi Town, Karachi",20,24.967713,67.171677,active,True,True,True,True,True,metric,,median age 3 min
+Buriro,Larkana,21,27.561161,68.193875,active,True,True,True,True,True,metric,,median age 3 min
+Mirpurkhas,Mirpur Khas,22,25.527659,68.992881,active,True,True,True,True,True,metric,,median age 3 min
+Jawad,"Clifton, Karachi",23,24.832334,67.03179,active,True,True,True,True,True,metric,,median age 3 min
+Tahir,"DHA, Karachi",24,24.796871,67.052276,active,True,True,True,True,True,metric,,median age 3 min
+Faizan,"Orangi Town North, Karachi",25,25.014323,67.041188,active,True,True,True,True,True,metric,,median age 3 min
+Cantt,"DHA, Lahore",26,31.486151,74.390391,active,True,True,True,True,True,metric,,median age 3 min
+AKZSFWS,"Kot Radha Kishan, Kasur",27,31.159438,74.118216,active,True,True,True,True,True,metric,,median age 3 min
+Bilal,"Khanpur, Rahim Yar Khan",28,28.554206,70.702161,active,True,True,True,True,True,metric,,median age 3 min
+DANDAO,"Takht Bhai, Mardan",29,34.302102,71.859183,active,True,True,True,True,True,metric,,median age 3 min
+Chitti,"Muradpur, Sialkot",30,32.538596,74.496939,active,True,True,True,True,True,metric,,median age 3 min
+e_7_4,"E-7, Islamabad",31,33.724178,73.045664,active,True,True,True,True,True,metric,,median age 2 min
+RahimyarKhan_avenue,Rahim Yar Khan,32,28.434628,70.296911,active,True,True,True,True,True,metric,,median age 3 min
+i_9_2,"I-9, Islamabad",33,33.658931,73.059795,active,True,True,True,True,True,metric,,median age 2 min
+multan_avenue,Vehari,34,30.036155,72.336297,active,True,True,True,True,True,metric,,median age 3 min
+kuri_road,"Kuri, Islamabad",35,33.681037,73.177322,active,True,True,True,True,True,metric,,median age 2 min
+alaudin_road,"Lahore Cantt, Lahore",36,31.526686,74.361233,active,True,True,True,True,True,metric,,median age 2 min
+test_device,"Old City, Lahore",37,31.580393,74.321752,dropped,False,False,False,False,False,metric,R1 dead (no reading within 60 min in most polls),no timestamp
+nova,"Township, Lahore",38,31.469715,74.255208,active,True,True,True,True,True,metric,,median age 2 min
+al_jazari,"Shahdara, Lahore",39,31.611577,74.340631,active,True,True,True,True,True,metric,,median age 2 min
+easyweatherpro_8,Peshawar City,40,34.029035,71.606077,active,True,True,True,True,True,metric,,median age 2 min
+mach2,"Sholgara, Charsadda",41,34.173167,71.688864,active,True,True,True,True,True,metric,,median age 2 min
+defence_avenue,"Bahria Town, Lahore",42,31.392549,74.178312,active,True,True,True,True,True,metric,,median age 3 min
+easyweatherpro_b,Swabi,43,34.087309,72.459651,dropped,False,False,False,False,False,metric,R1 dead (no reading within 60 min in most polls),no timestamp
+dolmen_tb,"Clifton Block 4, Karachi",44,24.808722,67.032451,partial,False,True,True,True,True,metric,R5 damped temperature (daily range 0.38 x neighbours; fence 0.39),median age 2 min
+easyweatherpro_3,"DHA Phase 6, Karachi",45,24.800661,67.058888,active,True,True,True,True,True,metric,,median age 2 min
+expo_avenue,"Johar Town, Lahore",46,31.4614,74.253718,active,True,True,True,True,True,metric,,median age 3 min
+easyweatherpro_8_317339,"Hijrat Colony, Karachi",47,24.834113,67.02152,dropped,False,False,False,False,False,metric,R1 dead (no reading within 60 min in most polls),no timestamp
+zeeshan_baldia,"Baldia Town, Karachi",48,24.907441,66.96339,active,True,True,True,True,True,metric,,median age 2 min
+police_training,"Saeedabad, Karachi",49,24.915754,66.958379,dropped,False,False,False,False,False,metric,R1 dead (no reading within 60 min in most polls),no timestamp
+kpgc,"Gulshan Town, Karachi",50,24.894875,67.067532,active,True,True,True,True,True,metric,,median age 2 min
+jadeed_feeds,"Gulshan-e-Iqbal, Faisalabad",51,31.362012,73.053842,active,True,True,True,True,True,metric,,median age 2 min
+wapda_city,"WAPDA City, Faisalabad",52,31.497525,73.214126,active,True,True,True,True,True,metric,,median age 2 min
+easyweatherpro_5,"Abbasia Town, Rahim Yar Khan",53,28.43063,70.305589,active,True,True,True,True,True,metric,,median age 2 min
+jadeed_agricultu,"Yazman, Bahawalpur",54,29.118527,71.741042,active,True,True,True,True,True,metric,,median age 2 min
+sargodha_avenue,"Kharian, Gujrat",55,32.803844,73.860283,active,True,True,True,True,True,metric,,median age 3 min
+jadeed_agri,"Muhammad Wala, Jhang",56,31.537869,72.106011,active,True,True,True,True,True,metric,,median age 2 min
+easyweather_wifi,"Kallar Kahar, Chakwal",57,32.758482,72.74242,active,True,True,True,True,True,metric,,median age 2 min
+jadeed_rest,"Kabirwala, Khanewal",58,30.350567,71.8529,dropped,False,False,False,False,False,metric,R1 dead (no reading within 60 min in most polls),no timestamp
+jadeed_farm,"Chak 41/10-R, Khanewal",59,30.277738,72.059662,active,True,True,True,True,True,metric,,median age 2 min
+jadeed_pirowal1,"Pirowal, Khanewal",60,30.341786,72.029645,dropped,False,False,False,False,False,metric,R1 dead (no reading within 60 min in most polls),no timestamp
+gw1100c_wifi547f,Nushki,61,29.549253,66.018419,dropped,False,False,False,False,False,metric,R3 duplicate feed of mach2 (79% of its readings appear there first),median age 1 min
+qadir_farmhouse,"Nokkundi, Chagai",62,28.818566,62.754413,active,True,True,True,True,True,metric,,median age 1 min
+yarhussain_weath,"Razar, Swabi",63,34.124784,72.287493,partial,True,True,True,True,False,metric,R6 rain total never returns to 0 (daily minimum 221.3 mm): not a daily total,median age 1 min
+easyweather_wifi_142762,"Hijrat Colony 2, Karachi",64,24.839149,67.021851,dropped,False,False,False,False,False,metric,R1 dead (no reading within 60 min in most polls),no timestamp
+gsit,"Federal B Area, Karachi",65,24.946189,67.05774,active,True,True,True,True,True,metric,,median age 1 min
+easyweather_wifi_87910,"Gulistan-e-Jauhar, Karachi",66,24.924596,67.124239,dropped,False,False,False,False,False,metric,R1 dead (no reading within 60 min in most polls),no timestamp
+usman_ghani,"Safoora, Karachi",67,24.924422,67.164526,active,True,True,True,True,True,metric,,median age 1 min
+easyweather_wifi_51128,"Saadi Town Block 3, Karachi",68,24.965753,67.170268,active,True,True,True,True,True,metric,,median age 1 min
+pw_kwu,"Model Colony, Karachi",69,24.9056,67.187994,active,True,True,True,True,True,metric,,median age 1 min
+factory_ws,"Bin Qasim, Karachi",70,24.830924,67.274295,active,True,True,True,True,True,metric,,median age 1 min
+faizan_sav,"New Karachi, Karachi",71,24.993577,67.066175,active,True,True,True,True,True,metric,,median age 1 min
+easyweather_wifi_40979,"DHA City South, Karachi",72,25.023623,67.423652,active,True,True,True,True,True,metric,,median age 1 min
+kamra,"Kamra, Attock",73,33.778291,72.35997,active,True,True,True,True,True,metric,,median age 3 min
+attock,"Pindi Gheb, Attock",74,33.405874,72.294792,active,True,True,True,True,True,metric,,median age 3 min
+dha_avenue,"DHA City North, Karachi",75,25.051893,67.397186,active,True,True,True,True,True,metric,,median age 3 min
+model_town_avenue,"Mailsi, Vehari",76,29.810728,72.177399,active,True,True,True,True,True,metric,,median age 3 min
+sahiwal_avenue,"Hasilpur, Bahawalpur",77,29.82783,72.654083,active,True,True,True,True,True,metric,,median age 2 min
+abid_town_avenue,"Ferozewala, Sheikhupura",78,31.71145,74.269245,active,True,True,True,True,True,metric,,median age 2 min
+tiwana_avenue,"Mitha Tiwana, Khushab",79,32.246366,72.105426,active,True,True,True,True,True,metric,,median age 2 min
+mianwali_avenue,Mianwali,80,32.722051,71.534903,active,True,True,True,True,True,metric,,median age 2 min
+wakeel_abad_avenue,"Lahor, Swabi",81,34.045934,72.373293,active,True,True,True,True,True,metric,,median age 2 min
+palosa_avenue,"Palosa, Swabi",82,34.127848,72.314222,partial,True,True,True,True,False,metric,R6 rain total never returns to 0 (daily minimum 221.2 mm): not a daily total,median age 2 min
+kunjah_avenue,"Kunjah, Gujrat",83,32.536839,73.977428,active,True,True,True,True,True,metric,,median age 2 min
+kanju_avenue,"Kanju, Swat",84,34.834073,72.346807,dropped,False,False,False,False,False,metric,R1 dead (no reading within 60 min in most polls),no timestamp
+sharifabad_avenue,"Garhi Kapura, Mardan",85,34.102534,72.148114,dropped,False,False,False,False,False,metric,R3 identical feed to PW (same readings at the same times; the readings fit PW's neighbours) - check the MACH server key mapping,median age 2 min
+h12,"Mohra Noor, Islamabad",86,33.750654,73.152324,dropped,False,False,False,False,False,metric,R2 forecast not observation (Apple in 100% of polls),median age 1 min
+adyala,"Adiala, Rawalpindi",87,33.523769,73.051365,dropped,False,False,False,False,False,metric,R2 forecast not observation (Apple in 100% of polls),median age 1 min
+shaheed,"Shaheed Colony, Rawalpindi",88,33.595744,73.036806,dropped,False,False,False,False,False,metric,R2 forecast not observation (Apple in 100% of polls),median age 1 min
+chakian,"Chakian, Rawalpindi",89,33.566151,73.257073,dropped,False,False,False,False,False,metric,R2 forecast not observation (Apple in 100% of polls),median age 1 min
+sanam,"Koral, Islamabad",90,33.640025,73.120218,dropped,False,False,False,False,False,metric,R2 forecast not observation (Apple in 100% of polls),median age 1 min
+malir,"Malir Cantonment, Karachi",91,24.933824,67.205277,dropped,False,False,False,False,False,metric,R2 forecast not observation (Apple in 100% of polls),median age 1 min
+sheldon,"Saddar, Karachi",92,24.86164,67.008684,dropped,False,False,False,False,False,metric,R2 forecast not observation (Apple in 100% of polls),median age 1 min
+saadi,"Saadi Town Block 2, Karachi",93,24.9728,67.1699,dropped,False,False,False,False,False,metric,R2 forecast not observation (Apple in 100% of polls),median age 1 min
+mian,"Mian Mandi, Mohmand",94,34.3665,71.3359,dropped,False,False,False,False,False,metric,R2 forecast not observation (Apple in 100% of polls),median age 1 min
+muslimcolony,"Pakka Garha, Sialkot",95,32.510105,74.510214,dropped,False,False,False,False,False,metric,R2 forecast not observation (Apple in 100% of polls),median age 1 min
+bahadurabad,"Bahadurabad, Mardan",96,34.313278,71.862508,dropped,False,False,False,False,False,metric,R2 forecast not observation (Apple in 100% of polls),median age 1 min
+surjani,"Surjani Town, Karachi",97,25.039555,67.06077,dropped,False,False,False,False,False,metric,R2 forecast not observation (Apple in 100% of polls),median age 1 min
+waris,"Waris Khan, Rawalpindi",98,33.617297,73.072434,dropped,False,False,False,False,False,metric,R2 forecast not observation (Apple in 100% of polls),median age 1 min
+puli,"Puli Pahuran, Rahim Yar Khan",99,28.818561,70.54671,dropped,False,False,False,False,False,metric,R2 forecast not observation (Apple in 100% of polls),median age 1 min
+park,"Park View City, Islamabad",100,33.727979,73.19577,dropped,False,False,False,False,False,metric,R2 forecast not observation (Apple in 100% of polls),median age 1 min
+Fedral,"Sihala, Rawalpindi",101,33.555244,73.19577,active,True,True,True,True,True,metric,,median age 2 min
+Avenue,"Dhamial, Rawalpindi",102,33.535235,72.99464,active,True,True,True,True,True,metric,,median age 2 min
+PWS,"Mangral Town, Rawalpindi",103,33.601086,73.116974,active,True,True,True,True,True,metric,,median age 2 min
+Bad,"Sarai Kharbuza, Islamabad",104,33.684145,72.916514,dropped,False,False,False,False,False,metric,"R3 identical feed to E11 (same readings at the same times; neighbours cannot tell them apart, the lower MACH number (E11) is kept) - check the MACH server key mapping",median age 2 min
+gilgit,Gilgit,105,35.901151,74.369656,active,True,True,True,True,True,metric,,median age 0 min
+khaplu,"Khaplu, Ghanche",106,35.171,76.324,active,True,True,True,True,True,metric,,median age 1 min
+Talg,Talagang,107,32.94,72.41,active,True,True,True,True,True,metric,,median age 0 min
+danyore,"Danyore, Gilgit",108,35.986521,74.351465,active,True,True,True,True,True,metric,,median age 0 min

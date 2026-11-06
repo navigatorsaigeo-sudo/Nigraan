@@ -1,0 +1,708 @@
+{
+ "method": "v91.17.275 ARCH task 3 - the mountain dew point check (GRID v274 finding: since 13 Oct the served dew point at gilgit / danyore / khaplu\nis worse than the raw provider dew point, 3.64 -> 5.89 C). Extended to every fleet pair since 23 Sep and to the synoptic mountain stations.\n\nThree dew points are compared against the measured one (all read only, nothing fetched):\n  served   what NIGRAAN served: the national dew point model (data/moist-model.json dew.zones.mountain.applied = true)\n  raw      the provider's own dew point (best_match; the model's input T0 dew point)\n  off      what NIGRAAN WOULD serve with the mountain zone switched off in moist-model.json (the data switch): server/api/verification.mjs\n           then runs the earlier steps - inside 34.7-36.9 N / 71.4-76.6 E / 1000-5000 m the valley humidity model (humwind-model.json,\n           RH replaced, dew point from the served temperature and that RH), elsewhere the raw dew point at the served temperature.\n           Evaluated with the server's own tree code (scripts/arch275/humwind_rh.mjs).\nSources\n  fleet    station-lake fleet_pairs_2026-09/10 (the server's own served and raw point values at each MACH station, shortest lead), MACH\n           readings stuck-screened (scripts/arch275/common.py = the v274 GRID readers), mountain zone by the data/model-zone.json rule.\n  synop    WMO synoptic mountain stations (synop_ogimet_all.parquet + synop_2026-10.jsonl); raw = ds2 wx/served (the provider's day-0\n           historical forecast at the station height = the moist model's own T0 basis); served temperature at the station = synop\n           served_c where held; served DEW at a synop station is not archived by NIGRAAN, so the served side there is the served tehsil\n           archive (nearest mountain tehsil centre <= 25 km, served height within 300 m, latest issue before the hour) - a different\n           lead and place, reported as such.",
+ "gate": "worse beyond doubt = 90 % interval (whole days) of the MAE difference above 0 since 13 Oct AND over 23 Sep - 15 Oct, no network contradicting beyond doubt",
+ "fleet": {
+  "stations": [
+   "danyore",
+   "gilgit",
+   "khaplu"
+  ],
+  "pairs": 523,
+  "from": "2026-09-30 06:00:00+00:00",
+  "to": "2026-10-15 05:00:00+00:00",
+  "servedDiffersFromRaw": 0.994,
+  "byDayApplied": {
+   "2026-09-30": 1.0,
+   "2026-10-01": 1.0,
+   "2026-10-02": 1.0,
+   "2026-10-03": 1.0,
+   "2026-10-04": 1.0,
+   "2026-10-05": 1.0,
+   "2026-10-06": 1.0,
+   "2026-10-07": 1.0,
+   "2026-10-08": 1.0,
+   "2026-10-09": 0.98,
+   "2026-10-10": 0.98,
+   "2026-10-11": 1.0,
+   "2026-10-12": 1.0,
+   "2026-10-13": 0.98,
+   "2026-10-14": 1.0,
+   "2026-10-15": 1.0
+  },
+  "since13Oct": {
+   "served_vs_raw": {
+    "pairs": 141,
+    "days": 3,
+    "stations": 3,
+    "maeA": 3.56,
+    "maeB": 5.8,
+    "biasA": -3.44,
+    "biasB": -5.79,
+    "diff": 2.24,
+    "diff90days": [
+     2.0,
+     2.53
+    ],
+    "diff90stations": [
+     1.41,
+     3.09
+    ],
+    "stationsWorse": 3,
+    "perStation": {
+     "danyore": [
+      4.99,
+      6.09,
+      46
+     ],
+     "gilgit": [
+      1.12,
+      3.16,
+      50
+     ],
+     "khaplu": [
+      4.81,
+      8.43,
+      45
+     ]
+    }
+   },
+   "served_vs_off": {
+    "pairs": 141,
+    "days": 3,
+    "stations": 3,
+    "maeA": 11.42,
+    "maeB": 5.8,
+    "biasA": -11.42,
+    "biasB": -5.79,
+    "diff": -5.62,
+    "diff90days": [
+     -5.97,
+     -5.34
+    ],
+    "diff90stations": [
+     -6.37,
+     -4.87
+    ],
+    "stationsWorse": 0,
+    "perStation": {
+     "danyore": [
+      10.43,
+      6.09,
+      46
+     ],
+     "gilgit": [
+      9.1,
+      3.16,
+      50
+     ],
+     "khaplu": [
+      15.02,
+      8.43,
+      45
+     ]
+    }
+   },
+   "off_vs_raw": {
+    "pairs": 141,
+    "days": 3,
+    "stations": 3,
+    "maeA": 3.56,
+    "maeB": 11.42,
+    "biasA": -3.44,
+    "biasB": -11.42,
+    "diff": 7.86,
+    "diff90days": [
+     7.34,
+     8.5
+    ],
+    "diff90stations": [
+     6.29,
+     9.46
+    ],
+    "stationsWorse": 3,
+    "perStation": {
+     "danyore": [
+      4.99,
+      10.43,
+      46
+     ],
+     "gilgit": [
+      1.12,
+      9.1,
+      50
+     ],
+     "khaplu": [
+      4.81,
+      15.02,
+      45
+     ]
+    }
+   }
+  },
+  "23Sep-15Oct": {
+   "served_vs_raw": {
+    "pairs": 523,
+    "days": 16,
+    "stations": 3,
+    "maeA": 4.03,
+    "maeB": 4.84,
+    "biasA": -2.7,
+    "biasB": -3.33,
+    "diff": 0.81,
+    "diff90days": [
+     0.05,
+     1.42
+    ],
+    "diff90stations": [
+     0.45,
+     2.02
+    ],
+    "stationsWorse": 2,
+    "perStation": {
+     "danyore": [
+      4.37,
+      6.32,
+      101
+     ],
+     "gilgit": [
+      2.57,
+      2.28,
+      272
+     ],
+     "khaplu": [
+      6.43,
+      8.48,
+      150
+     ]
+    }
+   },
+   "served_vs_off": {
+    "pairs": 523,
+    "days": 16,
+    "stations": 3,
+    "maeA": 8.06,
+    "maeB": 4.84,
+    "biasA": -7.71,
+    "biasB": -3.33,
+    "diff": -3.23,
+    "diff90days": [
+     -4.04,
+     -2.36
+    ],
+    "diff90stations": [
+     -5.33,
+     -1.59
+    ],
+    "stationsWorse": 0,
+    "perStation": {
+     "danyore": [
+      7.85,
+      6.32,
+      101
+     ],
+     "gilgit": [
+      3.97,
+      2.28,
+      272
+     ],
+     "khaplu": [
+      15.63,
+      8.48,
+      150
+     ]
+    }
+   },
+   "off_vs_raw": {
+    "pairs": 523,
+    "days": 16,
+    "stations": 3,
+    "maeA": 4.03,
+    "maeB": 8.06,
+    "biasA": -2.7,
+    "biasB": -7.71,
+    "diff": 4.04,
+    "diff90days": [
+     2.55,
+     5.25
+    ],
+    "diff90stations": [
+     2.09,
+     7.29
+    ],
+    "stationsWorse": 3,
+    "perStation": {
+     "danyore": [
+      4.37,
+      7.85,
+      101
+     ],
+     "gilgit": [
+      2.57,
+      3.97,
+      272
+     ],
+     "khaplu": [
+      6.43,
+      15.63,
+      150
+     ]
+    }
+   }
+  },
+  "byHourPKT": {
+   "0": {
+    "n": 72,
+    "srv": 4.39,
+    "raw": 4.1,
+    "bias_srv": -3.33,
+    "bias_raw": -2.24
+   },
+   "3": {
+    "n": 55,
+    "srv": 3.81,
+    "raw": 4.06,
+    "bias_srv": -2.58,
+    "bias_raw": -2.22
+   },
+   "6": {
+    "n": 45,
+    "srv": 3.68,
+    "raw": 3.42,
+    "bias_srv": -2.51,
+    "bias_raw": -2.47
+   },
+   "9": {
+    "n": 72,
+    "srv": 4.26,
+    "raw": 4.06,
+    "bias_srv": -3.47,
+    "bias_raw": -3.3
+   },
+   "12": {
+    "n": 78,
+    "srv": 5.08,
+    "raw": 4.06,
+    "bias_srv": -4.05,
+    "bias_raw": -3.23
+   },
+   "15": {
+    "n": 74,
+    "srv": 6.06,
+    "raw": 4.52,
+    "bias_srv": -3.55,
+    "bias_raw": -3.66
+   },
+   "18": {
+    "n": 63,
+    "srv": 5.85,
+    "raw": 3.99,
+    "bias_srv": -3.44,
+    "bias_raw": -2.39
+   },
+   "21": {
+    "n": 64,
+    "srv": 4.98,
+    "raw": 3.72,
+    "bias_srv": -3.14,
+    "bias_raw": -1.69
+   }
+  },
+  "obsCheck": {
+   "danyore": {
+    "rh_obs": 60.9,
+    "rh_raw": 52.3,
+    "rh_srv": 45.6,
+    "td_obs": 7.8,
+    "t_obs": 16.8,
+    "t_srv": 14.7,
+    "el": 1543
+   },
+   "gilgit": {
+    "rh_obs": 40.5,
+    "rh_raw": 39.7,
+    "rh_srv": 46.5,
+    "td_obs": 6.0,
+    "t_obs": 22.0,
+    "t_srv": 19.9,
+    "el": 1496
+   },
+   "khaplu": {
+    "rh_obs": 66.4,
+    "rh_raw": 45.9,
+    "rh_srv": 41.1,
+    "td_obs": 7.7,
+    "t_obs": 14.2,
+    "t_srv": 13.4,
+    "el": 2471
+   }
+  }
+ },
+ "synop": {
+  "stations": {
+   "41506": "Chitral",
+   "41515": "Drosh",
+   "41516": "Gilgit",
+   "41517": "Skardu",
+   "41518": "Bunji",
+   "41519": "Chillas",
+   "41573": "Murree",
+   "41696": "Kalat"
+  },
+  "pairs": 1398,
+  "from": "2026-09-23 00:00:00+00:00",
+  "to": "2026-10-15 03:00:00+00:00",
+  "tehsilMatch": {
+   "41506": [
+    "Chitral",
+    "Khyber Pakhtunkhwa|Chitral Lower|Chitral",
+    13.8,
+    1550,
+    1500.0
+   ],
+   "41515": [
+    "Drosh",
+    "Khyber Pakhtunkhwa|Chitral Lower|Drosh",
+    7.2,
+    1430,
+    1465.0
+   ],
+   "41516": [
+    "Gilgit",
+    "Gilgit Baltistan|Gilgit|Gilgit",
+    16.6,
+    1604,
+    1457.2
+   ],
+   "41517": [
+    "Skardu",
+    "Gilgit Baltistan|Skardu|Skardu",
+    13.4,
+    2250,
+    2316.5
+   ],
+   "41519": [
+    "Chillas",
+    "Gilgit Baltistan|Diamir|Chilas",
+    11.0,
+    1242,
+    1251.0
+   ]
+  },
+  "since13Oct": {
+   "off_vs_raw": {
+    "pairs": 144,
+    "days": 3,
+    "stations": 8,
+    "maeA": 2.61,
+    "maeB": 3.19,
+    "biasA": -2.02,
+    "biasB": -2.66,
+    "diff": 0.59,
+    "diff90days": [
+     0.54,
+     0.67
+    ],
+    "diff90stations": [
+     0.0,
+     1.25
+    ],
+    "stationsWorse": 5,
+    "perStation": {
+     "41506": [
+      1.5,
+      2.81,
+      18
+     ],
+     "41515": [
+      1.05,
+      1.52,
+      18
+     ],
+     "41516": [
+      3.92,
+      6.76,
+      18
+     ],
+     "41517": [
+      5.43,
+      4.2,
+      18
+     ],
+     "41518": [
+      1.48,
+      2.12,
+      18
+     ],
+     "41519": [
+      1.68,
+      2.36,
+      18
+     ],
+     "41573": [
+      2.14,
+      2.14,
+      18
+     ],
+     "41696": [
+      3.64,
+      3.64,
+      18
+     ]
+    }
+   },
+   "tehsilServed_vs_raw": {
+    "pairs": 75,
+    "days": 2,
+    "stations": 5,
+    "maeA": 2.79,
+    "maeB": 3.24,
+    "biasA": -2.26,
+    "biasB": -2.68,
+    "diff": 0.44,
+    "diff90days": [
+     0.18,
+     0.68
+    ],
+    "diff90stations": [
+     -0.23,
+     1.12
+    ],
+    "stationsWorse": 3,
+    "perStation": {
+     "41506": [
+      1.21,
+      2.42,
+      15
+     ],
+     "41515": [
+      1.19,
+      0.91,
+      15
+     ],
+     "41516": [
+      4.19,
+      5.91,
+      15
+     ],
+     "41517": [
+      5.54,
+      4.76,
+      15
+     ],
+     "41519": [
+      1.84,
+      2.19,
+      15
+     ]
+    }
+   },
+   "tehsilServed_vs_off": {
+    "pairs": 75,
+    "days": 2,
+    "stations": 5,
+    "maeA": 3.54,
+    "maeB": 3.24,
+    "biasA": -3.13,
+    "biasB": -2.68,
+    "diff": -0.3,
+    "diff90days": [
+     -0.51,
+     -0.11
+    ],
+    "diff90stations": [
+     -0.64,
+     0.05
+    ],
+    "stationsWorse": 1,
+    "perStation": {
+     "41506": [
+      2.5,
+      2.42,
+      15
+     ],
+     "41515": [
+      1.54,
+      0.91,
+      15
+     ],
+     "41516": [
+      6.85,
+      5.91,
+      15
+     ],
+     "41517": [
+      4.41,
+      4.76,
+      15
+     ],
+     "41519": [
+      2.37,
+      2.19,
+      15
+     ]
+    }
+   }
+  },
+  "23Sep-15Oct": {
+   "off_vs_raw": {
+    "pairs": 1398,
+    "days": 23,
+    "stations": 8,
+    "maeA": 3.5,
+    "maeB": 3.5,
+    "biasA": -2.12,
+    "biasB": -2.0,
+    "diff": -0.0,
+    "diff90days": [
+     -0.17,
+     0.16
+    ],
+    "diff90stations": [
+     -0.34,
+     0.35
+    ],
+    "stationsWorse": 3,
+    "perStation": {
+     "41506": [
+      3.95,
+      3.02,
+      175
+     ],
+     "41515": [
+      3.32,
+      2.59,
+      175
+     ],
+     "41516": [
+      4.78,
+      5.42,
+      175
+     ],
+     "41517": [
+      3.7,
+      4.66,
+      174
+     ],
+     "41518": [
+      2.91,
+      3.02,
+      174
+     ],
+     "41519": [
+      2.7,
+      2.64,
+      175
+     ],
+     "41573": [
+      3.22,
+      3.22,
+      175
+     ],
+     "41696": [
+      3.43,
+      3.43,
+      175
+     ]
+    }
+   },
+   "tehsilServed_vs_raw": {
+    "pairs": 679,
+    "days": 18,
+    "stations": 5,
+    "maeA": 3.67,
+    "maeB": 3.77,
+    "biasA": -2.68,
+    "biasB": -3.08,
+    "diff": 0.1,
+    "diff90days": [
+     -0.4,
+     0.66
+    ],
+    "diff90stations": [
+     -0.14,
+     0.35
+    ],
+    "stationsWorse": 3,
+    "perStation": {
+     "41506": [
+      3.81,
+      3.89,
+      136
+     ],
+     "41515": [
+      3.25,
+      2.85,
+      136
+     ],
+     "41516": [
+      4.86,
+      5.23,
+      136
+     ],
+     "41517": [
+      3.89,
+      4.41,
+      135
+     ],
+     "41519": [
+      2.53,
+      2.47,
+      136
+     ]
+    }
+   },
+   "tehsilServed_vs_off": {
+    "pairs": 679,
+    "days": 18,
+    "stations": 5,
+    "maeA": 3.64,
+    "maeB": 3.77,
+    "biasA": -2.54,
+    "biasB": -3.08,
+    "diff": 0.13,
+    "diff90days": [
+     -0.29,
+     0.61
+    ],
+    "diff90stations": [
+     -0.23,
+     0.53
+    ],
+    "stationsWorse": 2,
+    "perStation": {
+     "41506": [
+      2.83,
+      3.89,
+      136
+     ],
+     "41515": [
+      2.57,
+      2.85,
+      136
+     ],
+     "41516": [
+      5.37,
+      5.23,
+      136
+     ],
+     "41517": [
+      4.97,
+      4.41,
+      135
+     ],
+     "41519": [
+      2.49,
+      2.47,
+      136
+     ]
+    }
+   }
+  }
+ },
+ "decision": {
+  "fleetServedWorseThanOffBeyondDoubt": false,
+  "fleetServedWorseThanRawBeyondDoubt": true,
+  "synopContradicts": false,
+  "switch": false
+ }
+}

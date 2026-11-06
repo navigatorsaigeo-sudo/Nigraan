@@ -1,0 +1,107 @@
+{
+ "design": "Question: for a point more than MARGIN m above the highest station the national residual model was trained on, does the served",
+ "marginM": 300.0,
+ "topTrainingStationM": 4669.0,
+ "widenC_mountain_nopool": 1.84,
+ "candHeightSha256": "e1634a42bb0fbe427d27e634026b04e51c42a873298ba9c68df0855e59245ae2",
+ "extrapolationBias": {
+  "stations": 26,
+  "hourWeightedMeanC": 2.175,
+  "ci95C": [
+   1.544,
+   2.719
+  ],
+  "B_C": 2.72
+ },
+ "cuts": {
+  "3500": {
+   "fit_max_elev_m": 3500.0,
+   "scored_stations": 17,
+   "scored_hours": 54135,
+   "bias_model_C": 2.176,
+   "coverage_current": [
+    0.792,
+    0.716,
+    0.854
+   ],
+   "coverage_widened": [
+    0.965,
+    0.941,
+    0.984
+   ],
+   "below_current": 0.195,
+   "above_current": 0.013,
+   "below_widened": 0.021,
+   "winkler_current": 14.709,
+   "winkler_widened": 12.844,
+   "mean_width_current": 8.46,
+   "mean_width_widened": 11.19,
+   "loso_B": [
+    2.51,
+    2.82
+   ],
+   "pass_": true,
+   "candidate2": {
+    "loso_B2": [
+     1.9,
+     2.2
+    ],
+    "coverage": [
+     0.944,
+     0.912,
+     0.969
+    ],
+    "below": 0.042,
+    "winkler": 12.554,
+    "mean_width": 10.49,
+    "pass_": true
+   }
+  },
+  "4000": {
+   "fit_max_elev_m": 3905.0,
+   "scored_stations": 9,
+   "scored_hours": 28647,
+   "bias_model_C": 2.174,
+   "coverage_current": [
+    0.857,
+    0.782,
+    0.916
+   ],
+   "coverage_widened": [
+    0.988,
+    0.978,
+    0.997
+   ],
+   "below_current": 0.141,
+   "above_current": 0.001,
+   "below_widened": 0.01,
+   "winkler_current": 11.136,
+   "winkler_widened": 10.969,
+   "mean_width_current": 8.11,
+   "mean_width_widened": 10.81,
+   "loso_B": [
+    2.47,
+    2.83
+   ],
+   "pass_": false,
+   "candidate2": {
+    "loso_B2": [
+     1.9,
+     2.04
+    ],
+    "coverage": [
+     0.976,
+     0.955,
+     0.992
+    ],
+    "below": 0.022,
+    "winkler": 10.462,
+    "mean_width": 10.1,
+    "pass_": false
+   }
+  }
+ },
+ "pass": false,
+ "candidate2_pass": false,
+ "candidate2_B_C": 2.04
+}

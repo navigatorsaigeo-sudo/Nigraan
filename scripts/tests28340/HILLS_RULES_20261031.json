@@ -1,0 +1,12 @@
+{
+ "written": "2026-10-31 09:21 PKT, before the hills fit was run (owner OK \"ok both\" 31 Oct 09:17 PKT)",
+ "what": "hills heavy rain day 1 (>= 15.6 mm): the calibrated chance of method d (data/rain-prob-coefs-ifsdet.json) fitted and gated for the hills group exactly as the plains passed",
+ "method": "the plains rules unchanged (data/evidence/rain-station/rules.json, sha256 e57d67e0...; score.py): same forecast (IFS deterministic open data day totals at the station points, fcst.parquet), same truth (truth.parquet: no filled synop hours, 90 % day coverage), same logistic model (log1p(F) + monsoon term; per class x lead x zone fit when >= 30 training events, else the pooled fit), same frozen cut (training ETS maximum), same two-way cluster bootstrap B 1000 seed 20261027, 90 % intervals",
+ "split": "train 2023-01-01..2025-12-31, test 2026-01-01..2026-10-31 (by time, as the plains)",
+ "only_change": "the zone of a station = the zone of the TEHSIL it lies in (data/model-zone.json units, the served unit and the file of the widened C8 test), not the zone of the station elevation; this is the hills tehsil list the release would apply to",
+ "gate": "15.6|1 hills is released only if: the class x lead passes G1-G5 (pooled, as before) AND in the hills group: >= 20 test events, test BSS 90 % lower bound > 0, level ETS 90 % lower bound > 0 (the plains zone rule). Leads 2-3 are not released whatever the result (owner).",
+ "if_fail": "hills stays \"not tested\"; report which condition failed",
+ "amendments": [
+  "2026-10-31 10:03 PKT, before the addendum refit: TRUTH WIDENED only (method, gate, split, model, cut rule unchanged): truth.parquet is rebuilt by the same truth.py rules (truth_add20261031.py = truth.py + the addendum 10-min official AWS rain 2026-07-01..10-22 read with the archive table) into truth_add20261031.parquet; the observatory daily sheets (24 h to 03 UTC) are NOT used here because the frozen truth windows are PKT-day (19-19 UTC) and 18-18 UTC only."
+ ]
+}

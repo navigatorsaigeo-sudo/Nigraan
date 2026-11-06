@@ -1,0 +1,95 @@
+{
+ "servedAuc": 0.74,
+ "bands": [
+  {
+   "band": "<1",
+   "events": 44,
+   "ordinaryDays": 75441,
+   "observedVsOrdinaryDay": 0.67,
+   "ci95": [
+    0.45,
+    1.0
+   ]
+  },
+  {
+   "band": "1-2",
+   "events": 39,
+   "ordinaryDays": 37458,
+   "observedVsOrdinaryDay": 1.19,
+   "ci95": [
+    1.02,
+    1.35
+   ]
+  },
+  {
+   "band": "2-5",
+   "events": 68,
+   "ordinaryDays": 30755,
+   "observedVsOrdinaryDay": 2.52,
+   "ci95": [
+    1.5,
+    4.73
+   ]
+  },
+  {
+   "band": "5-10",
+   "events": 48,
+   "ordinaryDays": 9231,
+   "observedVsOrdinaryDay": 5.94,
+   "ci95": [
+    3.14,
+    11.53
+   ]
+  },
+  {
+   "band": "10-20",
+   "events": 24,
+   "ordinaryDays": 2408,
+   "observedVsOrdinaryDay": 11.38,
+   "ci95": [
+    6.06,
+    24.48
+   ]
+  },
+  {
+   "band": ">=20",
+   "events": 13,
+   "ordinaryDays": 683,
+   "observedVsOrdinaryDay": 21.73,
+   "ci95": [
+    6.96,
+    59.18
+   ]
+  }
+ ],
+ "detection": [
+  {
+   "cut": 2,
+   "eventsAtOrAbove": 0.648,
+   "ordinaryDaysAtOrAbove": 0.2762,
+   "ordinaryDaysPerYearPerPlace": 100.8
+  },
+  {
+   "cut": 5,
+   "eventsAtOrAbove": 0.36,
+   "ordinaryDaysAtOrAbove": 0.079,
+   "ordinaryDaysPerYearPerPlace": 28.8
+  },
+  {
+   "cut": 10,
+   "eventsAtOrAbove": 0.157,
+   "ordinaryDaysAtOrAbove": 0.0198,
+   "ordinaryDaysPerYearPerPlace": 7.2
+  },
+  {
+   "cut": 20,
+   "eventsAtOrAbove": 0.055,
+   "ordinaryDaysAtOrAbove": 0.0044,
+   "ordinaryDaysPerYearPerPlace": 1.6
+  }
+ ],
+ "aucMonsoon": 0.742,
+ "aucOther": 0.74,
+ "eventsMonsoon": 115,
+ "eventsOther": 121
+}

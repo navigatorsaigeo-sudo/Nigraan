@@ -1,0 +1,52 @@
+station_id,name,lat,lon,elev_m,coord_status
+41508,Dir,35.2,71.85,1369,ok
+41515,Drosh,35.5667,71.7833,1464,ok
+41516,Gilgit / Sonikot,35.9167,74.3333,1453,ok
+41523,Saidu Sharif,34.7333,72.35,950,ok
+41530,Peshawar,34.0167,71.5833,359,ok
+41533,Risalpur,34.0667,71.9833,315,ok
+41535,Kakul,34.1833,73.25,1308,ok
+41536,Balakot,34.3833,73.35,980,ok
+41560,Parachinar,33.8667,70.0833,1725,ok
+41571,Islamabad Airport,33.6167,73.1,507,ok
+41573,Murree,33.9167,73.3833,2126,ok
+41592,Mianwali,32.55,71.5167,210,ok
+41593,Sukkur / Dhapsari,32.05,72.6667,60,suspect
+41594,Sargodha,32.05,72.6667,187,ok
+41598,Jhelum,32.9333,73.7167,232,ok
+41620,Zhob,31.35,69.4667,1405,ok
+41624,Dera Ismail Khan,31.8167,70.9167,172,ok
+41630,Faisal Abad / Triqbd,31.4333,73.1,183,ok
+41640,Lahore City,31.55,74.3333,214,ok
+41641,Lahore Airport,31.5167,74.4,216,ok
+41660,Quetta Airport,30.25,66.8833,1587,ok
+41675,Multan,30.2,71.4333,122,ok
+41678,Bahawalnagar,29.95,73.25,162,ok
+41685,Bar Khan,29.8833,69.7167,1097,ok
+41696,Kalat / Zirat Shh-i-Mardn,29.0333,66.5833,2015,ok
+41697,Sibi,29.55,67.8833,133,ok
+41700,Bahawalpur,29.4,71.7833,112,ok
+41710,Nokkundi,28.8167,62.75,682,ok
+41712,Dal Bandin,28.8833,64.4,848,ok
+41715,Jacobabad,28.3,68.4667,55,ok
+41718,Khanpur,28.65,70.6833,87,ok
+41725,Rohri,27.6667,68.9,67,ok
+41739,Panjgur,26.9667,64.1,980,ok
+41744,Khuzdar,27.8333,66.6333,1231,ok
+41746,Pad Idan,26.85,68.1333,46,ok
+41749,Nawabshah,26.25,68.3667,37,ok
+41756,Jiwani,25.0667,61.8,56,ok
+41759,Pasni,25.2667,63.4833,4,ok
+41764,Hyderabad Airport,25.3833,68.4167,40,ok
+41768,Chhor,25.5167,69.7833,5,ok
+41780,Karachi Airport,24.9,67.1333,21,ok
+41781,Karachi Masroor,24.9,66.9333,11,ok
+41785,Badin,24.6333,68.9,10,ok
+KQJQ0,Jacobabad / Goth Alaora Khn,28.28,68.45,55,ok
+OPFA0,Faisalabad / Chak Two Hundred Thirty-One RB,31.365,72.9948,180,ok
+OPGD0,Gwadar / Gatti,25.2333,62.3295,11,ok
+OPMJ0,Moenjodaro / Hji Mashri Goth,27.3352,68.1431,47,ok
+OPOR0,Ormara / Ormra,25.2167,64.6333,2,ok
+OPRK0,Rahim Yar Khan / Bindor,28.3839,70.2796,83,ok
+OPSD0,Skardu / Ranga,35.3355,75.536,2230,ok
+OPST0,Sialkot / Hamboke,32.5356,74.3639,247,ok

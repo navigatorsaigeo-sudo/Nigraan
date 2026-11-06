@@ -1,0 +1,40 @@
+/* v91.17.283.22 . the hour-by-hour strip (served as /agn-hour-strip.css; server/api/hourstrip_ui.js draws it on the start page and the
+   analyst page). Moved here from the start page's own style (v91.17.283.21); the colours are the start page's, set once on the strip. */
+.agnhs{--hs-line:#D3DCD9;--hs-ink:#1F2A2B;--hs-now:#2F6468;--hs-fc:#5B9AA0;--hs-mut:#5A6866;--hs-river:#4AB3BB;color:var(--hs-ink);font-size:13px}
+.agnhs h2,.agnhs .hsTitle{margin:14px 0 2px;font-size:16px;font-weight:700;color:var(--hs-ink)}
+.agnhs .small{font-size:12px;color:var(--hs-mut);line-height:1.45}
+.agnhs .note{font-size:12px;color:var(--hs-mut);line-height:1.45;margin-top:6px}
+.agnhs .hsRes{display:flex;gap:6px;margin:2px 0 8px}
+.agnhs .hsRes button{font:700 12px/1.3 inherit;font-family:inherit;border:1px solid var(--hs-line);background:#fff;color:var(--hs-ink);border-radius:999px;padding:3px 11px;cursor:pointer}
+.agnhs .hsRes button[aria-pressed="true"]{background:var(--hs-now);border-color:var(--hs-now);color:#fff}
+.agnhs .hsWrap{display:flex;border-top:1px solid var(--hs-line);border-bottom:1px solid var(--hs-line);background:#fff}
+.agnhs .hsLab{flex:0 0 84px;background:color-mix(in srgb,var(--hs-fc) 6%,#fff);border-right:1px solid var(--hs-line)}
+.agnhs .hsLab div{height:30px;display:flex;flex-direction:column;justify-content:center;padding-left:7px;font-size:11.5px;font-weight:700;color:var(--hs-ink);line-height:1.05;overflow:hidden}
+.agnhs .hsLab small{font-weight:500;color:var(--hs-mut);font-size:10px;white-space:nowrap}
+.agnhs .hsScroll{overflow-x:auto;overflow-y:hidden;position:relative;flex:1 1 auto;min-width:0;scrollbar-width:thin}
+.agnhs .hsIn{position:relative}
+.agnhs .hsDays{position:relative;height:40px}
+.agnhs .hsDh{position:absolute;top:0;height:40px;box-sizing:border-box;padding:3px 0 0 6px;font-size:12px;white-space:nowrap;overflow:hidden}
+.agnhs .hsDh b{display:block;color:var(--hs-ink)}
+.agnhs .hsChip{display:inline-block;font-size:10.5px;background:color-mix(in srgb,var(--hs-fc) 14%,#fff);color:var(--hs-now);border-radius:9px;padding:1px 6px;margin:2px 4px 0 0}
+.agnhs .hsChip.r{background:color-mix(in srgb,var(--hs-river) 12%,#fff);color:#338186}
+.agnhs .hsSep{position:absolute;top:0;bottom:0;border-left:1px dashed #C9D4D1;pointer-events:none}
+.agnhs .hsRow{display:flex;height:30px;align-items:center}
+.agnhs .hsRow>div{flex:0 0 auto;text-align:center;font-size:12px;box-sizing:border-box}
+.agnhs .hsRow .z{color:#B4C0C0}.agnhs .hsRow .w{color:#338186;font-weight:700}.agnhs .hsRow .scr{font-style:italic}
+.agnhs .hsRow .g{display:inline-block;padding:1px 5px;border-radius:4px}.agnhs .hsRow .g.hi{background:var(--hs-now);color:#fff}
+.agnhs .hsWinRow>div{border-left:1px solid #EEF2F1}
+.agnhs .hsRow .lim{display:block;width:100%;text-align:left;padding-left:8px;font-size:11.5px;color:#8A5A12;white-space:nowrap}
+.agnhs .hsT{font-size:10.5px;font-weight:700;fill:var(--hs-ink)}
+.agnhs .hsLeg{display:flex;flex-wrap:wrap;gap:4px 12px;margin:6px 0 2px}
+.agnhs .hsLeg i{display:inline-block;width:18px;vertical-align:middle;margin-right:4px;border-top:2px solid #2F6468}
+.agnhs .hsLeg i.d{border-top:2px dashed #C8781E}
+.agnhs .hsNow{list-style:none;margin:6px 0;padding:0}
+.agnhs .hsNow li{padding:7px 0;border-bottom:1px solid var(--hs-line);font-size:13px}
+/* the 3-hour window cells of the hourly tables (start drawer "Next 12 hours", analyst "Next 24 hours") */
+.agnw3{display:flex;flex-direction:column;flex:0 0 auto;gap:4px}
+.agnw3 .agnw3h{display:flex;gap:8px}
+.agnw3 .agnw3f{font-size:11px;font-weight:700;text-align:center;border-top:2px solid #C9D4D1;padding:3px 2px 0;color:#338186;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.agnw3 .agnw3f .z{color:#8A9897;font-weight:600}.agnw3 .agnw3f .scr{font-style:italic}.agnw3 .agnw3f .lim{color:#8A5A12;font-weight:600}
+td.agnw3c{text-align:center;vertical-align:middle;border-left:1px solid #EEF2F1;font-weight:700;color:#338186}
+td.agnw3c .z{color:#8A9897;font-weight:600}td.agnw3c .scr{font-style:italic}td.agnw3c .lim{color:#8A5A12;font-weight:600;font-size:11px}

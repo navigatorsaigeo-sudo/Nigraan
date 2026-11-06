@@ -1,0 +1,368 @@
+{
+ "version": "v91.17.283.20-ws8.2",
+ "selectorRule": "each kept page script is named by its id, or (a script without an id) by a line of its code that occurs in exactly one page script; never by its position",
+ "blocks": [
+  {
+   "id": "agn-idle-governor"
+  },
+  {
+   "id": "agn-ffd-indus-calibration"
+  },
+  {
+   "anchor": "G.AGN_RELEASE=G.AGN_VERSION;"
+  },
+  {
+   "anchor": "(function(){var G=(typeof window!=='undefined')?window:this;G.AGN=G.AGN||{};"
+  },
+  {
+   "id": "agn-vendor-leaflet"
+  },
+  {
+   "anchor": "const listeners = new Map();"
+  },
+  {
+   "anchor": "const initial = Object.freeze({"
+  },
+  {
+   "anchor": "const SECTION_NAMES = ['overview','livedata','airisk','assessments','operations','modelab','hybridlab'];"
+  },
+  {
+   "anchor": "const contracts = Object.freeze({"
+  },
+  {
+   "anchor": "const registry=new Map();"
+  },
+  {
+   "anchor": "const listeners = new Set();"
+  },
+  {
+   "anchor": "const adapters = new Map();"
+  },
+  {
+   "anchor": "const nativeFetch = global.fetch ? global.fetch.bind(global) : null;"
+  },
+  {
+   "anchor": "const endpoints = new Map();"
+  },
+  {
+   "anchor": "const profiles = new Map();"
+  },
+  {
+   "anchor": "const repositories = new Map();"
+  },
+  {
+   "anchor": "const workflows=new Map(),stats=new Map();"
+  },
+  {
+   "anchor": "return String(path).split('.').reduce(function(value,key){return value == null ? undefined : value[key];},global);"
+  },
+  {
+   "anchor": "const records=new Map();"
+  },
+  {
+   "anchor": "const serviceToSection = Object.freeze({"
+  },
+  {
+   "anchor": "const state={mode:'disconnected',profileId:'offline',baseUrl:null,lastHealth:null,lastProbe:null,lastError:null,connectedAt:null};"
+  },
+  {
+   "anchor": "{id:'isb-f7-provisional',name:'F-7',aliases:[],latitude:33.7204,longitude:73.0561,matchRadiusKm:1.2,lczCandidate:'LCZ 6 / B transitional',lczLabel:'Open low-rise with scattered trees',profileStatus:'provisional_expert_demonstration',features:{tree_canopy_fraction:.38,impervious_fraction:.42,building_fraction:.23,mean_building_height_m:8,sky_view_factor:.76,ndvi:.38,road_fraction:.10,distance_to_green_m:90,distance_to_hills_km:2,ventilation_factor:1.15,lst_anomaly_c:-.7,anthropogenic_heat_index:.2}},"
+  },
+  {
+   "id": "agn-map-invalidate"
+  },
+  {
+   "anchor": "try{ window.PK_DISTRICTS = PK_DISTRICTS; }catch(e){}"
+  },
+  {
+   "anchor": "window.AGNConditions = {"
+  },
+  {
+   "id": "agn-formula-registry"
+  },
+  {
+   "id": "agn-diagnostics"
+  },
+  {
+   "id": "agn-settlements"
+  },
+  {
+   "anchor": "\"Punjab\":\"#7FB069\",\"Sindh\":\"#E6B655\",\"Khyber Pakhtunkhwa\":\"#14B8A6\","
+  },
+  {
+   "id": "agn-wetness"
+  },
+  {
+   "id": "agn-nss"
+  },
+  {
+   "anchor": "const FLOOD_RC_FLOOR_BY_ZONE = {"
+  },
+  {
+   "id": "mach-fast-visual-script"
+  },
+  {
+   "id": "mach-openmeteo-wiring"
+  },
+  {
+   "id": "mach-fast-audit-script"
+  },
+  {
+   "anchor": "const D = window.DISTRICT_IN; if(!D) return {live:0,total:0};"
+  },
+  {
+   "id": "mach-district-forecast-repair"
+  },
+  {
+   "id": "mach-place-search"
+  },
+  {
+   "id": "agn-seismic-cyclone"
+  },
+  {
+   "id": "agn-assessment-workspaces"
+  },
+  {
+   "id": "agn-v77-5-district-rollup"
+  },
+  {
+   "id": "agn-operations-centre"
+  },
+  {
+   "id": "agn-storyline-search"
+  },
+  {
+   "id": "agn-cmip6"
+  },
+  {
+   "id": "agn-nss-controls"
+  },
+  {
+   "id": "agn-coordination"
+  },
+  {
+   "id": "agn-v72-day-controller"
+  },
+  {
+   "id": "agn-cascade-engine"
+  },
+  {
+   "id": "agn-llm-controller"
+  },
+  {
+   "id": "agn-v77-4-stabilization-js"
+  },
+  {
+   "anchor": "var META = null, TEH = null, GRID = null, GRIDMETA = null;"
+  },
+  {
+   "anchor": "var el = document.getElementById('agn-elev-correction');"
+  },
+  {
+   "anchor": "var REC = Object.create(null);"
+  },
+  {
+   "anchor": "return String(s == null ? '' : s).replace(/[&<>\"]/g, function (c) {"
+  },
+  {
+   "anchor": "var MODE = { SCREEN: 'screen', WATCH: 'watch' };"
+  },
+  {
+   "anchor": "label: 'No plan configured (paid key absent; the server refuses provider calls)',"
+  },
+  {
+   "anchor": "var STATE = { RETRIEVED: 'retrieved', DESIGN: 'design', ABSENT: 'absent' };"
+  },
+  {
+   "anchor": "function reg(p) { return G.FR('field.' + p); }"
+  },
+  {
+   "anchor": "try { return (G.AGN && G.AGN.viz) ? G.AGN.viz : null; } catch (_) { return null; }"
+  },
+  {
+   "id": "agn-viz"
+  },
+  {
+   "id": "agn-export"
+  },
+  {
+   "id": "agn-ledger"
+  },
+  {
+   "id": "agn-nowcast"
+  },
+  {
+   "id": "agn-assets"
+  },
+  {
+   "id": "agn-ui-legend"
+  },
+  {
+   "id": "agn-context-bar"
+  },
+  {
+   "id": "agn-client-project"
+  },
+  {
+   "id": "agn-assets-ui"
+  },
+  {
+   "id": "agn-skill"
+  },
+  {
+   "id": "agn-confidence"
+  },
+  {
+   "id": "agn-final-time"
+  },
+  {
+   "id": "agn-intake-v914"
+  },
+  {
+   "id": "agn-urban-card"
+  },
+  {
+   "id": "agn-spatial-evidence"
+  },
+  {
+   "id": "agn-v91-decision-journey"
+  },
+  {
+   "id": "agn-v9116-freeze-spec"
+  },
+  {
+   "id": "agn-v9163-subject"
+  },
+  {
+   "id": "agn-clean-view-js"
+  },
+  {
+   "id": "agn-outlook-js"
+  },
+  {
+   "id": "agn-report-plus-js"
+  },
+  {
+   "id": "agn-actions-js"
+  },
+  {
+   "id": "agn-hz5-js"
+  },
+  {
+   "id": "agn-map-plus-js"
+  },
+  {
+   "id": "agn-hzmask-js"
+  },
+  {
+   "id": "agn-maplook75-js"
+  },
+  {
+   "id": "agn-terrain-js"
+  },
+  {
+   "id": "agn-map76-js"
+  },
+  {
+   "id": "agn-map77-js"
+  },
+  {
+   "id": "agn-map77g-js"
+  },
+  {
+   "id": "agn-crossings-js"
+  },
+  {
+   "id": "agn-eng-baseline-js"
+  },
+  {
+   "anchor": "var cache=Object.create(null), inflight=Object.create(null), TTL=20*60e3;"
+  },
+  {
+   "id": "agn-p75-ai"
+  },
+  {
+   "id": "agn-p76-ai"
+  },
+  {
+   "anchor": "function activeAsset(){ try{ return AGN.project&&AGN.project.activeAsset?AGN.project.activeAsset():null; }catch(_){ return null; } }"
+  },
+  {
+   "anchor": "function n(v,d){ return (v==null||!isFinite(v))?'—':Number(v).toFixed(d==null?1:d); }"
+  },
+  {
+   "id": "agn-levels-js"
+  },
+  {
+   "id": "agn-operator-js"
+  },
+  {
+   "id": "agn-scn76-js"
+  },
+  {
+   "id": "agn-quake-js"
+  },
+  {
+   "id": "agn-sr79-js"
+  },
+  {
+   "id": "agn-rp79-js"
+  },
+  {
+   "id": "agn-v85-ops-js"
+  },
+  {
+   "anchor": "var G=window, D=document, GT=G.AGN_MODEL_GATE; G.AGN=G.AGN||{};"
+  },
+  {
+   "anchor": "var G=window, D=document; G.AGN=G.AGN||{};"
+  },
+  {
+   "anchor": "var G=window; G.AGN=G.AGN||{};"
+  },
+  {
+   "id": "agn-streets-lib"
+  },
+  {
+   "id": "agn-streets-js"
+  },
+  {
+   "id": "agn-v122-now"
+  },
+  {
+   "id": "agn-place-js"
+  },
+  {
+   "id": "agn-alerts-one"
+  },
+  {
+   "id": "agn-v251"
+  },
+  {
+   "id": "agn-v256-citypop"
+  },
+  {
+   "id": "agn-m2-js"
+  },
+  {
+   "id": "agn-r272-site"
+  },
+  {
+   "id": "agn-r268-js"
+  }
+ ],
+ "data": [
+  "agn-lcz",
+  "agn-glofas",
+  "agn-geo",
+  "agn-hydro",
+  "agn-soil",
+  "agn-elev-correction"
+ ],
+ "edits": [],
+ "dropped": [
+  "agn-perf-js",
+  "agn-rain-clim-js"
+ ],
+ "note": "v91.17.283.20 (science audit item 8): not kept, deleted from the page in v283.20: agn-perf-js (agn-perf-js: the second MACH_TIME definition; the first, in mach-openmeteo-wiring, is kept).  v283.17 added a head script, so the position-keyed list of v283.9 selected the wrong scripts in v283.17-283.19 (agn-hz5-js, agn-alerts-one, mach-district-forecast-repair dropped, UI scripts in); the list is now keyed by script identity. keep-core.json closed under deps.mjs (every global name a kept script reads is defined by a kept script; every data block it names is kept) | v283 INTEG: the page itself no longer carries the dead urban-heat block (WS6 item 6), so the block-35 edit is dropped (it no longer matches). | v91.17.283.4: re-extracted after the audit text fixes (A4 flood antecedent without the humidity fallback, A11 wind wording); the new display block agn-v2834-js is the last page script and is not a science module. | v91.17.283.27 item 1: agn-rain-clim (the ERA5 wet-day rain table) and agn-rain-clim-js deleted from the page: rain rarity has one home, data/rain-return-levels.json (server/api/hazsci.mjs)."
+}

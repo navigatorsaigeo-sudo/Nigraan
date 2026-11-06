@@ -1,0 +1,258 @@
+{
+ "schema": "agn.place-aliases.v1",
+ "what": "alternate names the place search must know, moved out of code (server/api/gazetteer.mjs ALIASES, v91.17.3-v91.17.283.17) and data/place-spellings.json (canonical spellings) into one input of scripts/places/build_places.mjs. Each alias becomes an alternate name of the record named 'of' (the confirmed record of that name with the largest population; a unit record when no place carries the name); a spelling sets the display name of the records named 'from' (within 'km' of 'near' when given) and keeps the old spelling as an alternate name. No code reads this file.",
+ "aliases": [
+  {
+   "alias": "gulkin",
+   "of": "Ghulkin"
+  },
+  {
+   "alias": "ghulkin",
+   "of": "Gulkin"
+  },
+  {
+   "alias": "hopper",
+   "of": "Hoper"
+  },
+  {
+   "alias": "hoper",
+   "of": "Hopper"
+  },
+  {
+   "alias": "shishper",
+   "of": "Sishper"
+  },
+  {
+   "alias": "sishper",
+   "of": "Shishper"
+  },
+  {
+   "alias": "gb",
+   "of": "Gilgit Baltistan",
+   "was": "Gilgit"
+  },
+  {
+   "alias": "ajk",
+   "of": "Azad Kashmir",
+   "was": "Muzaffarabad"
+  },
+  {
+   "alias": "pindi",
+   "of": "Rawalpindi"
+  },
+  {
+   "alias": "isb",
+   "of": "Islamabad"
+  },
+  {
+   "alias": "khi",
+   "of": "Karachi"
+  },
+  {
+   "alias": "lhr",
+   "of": "Lahore"
+  },
+  {
+   "alias": "quetta city",
+   "of": "Quetta"
+  },
+  {
+   "alias": "peshawar city",
+   "of": "Peshawar"
+  },
+  {
+   "alias": "murree hills",
+   "of": "Murree"
+  },
+  {
+   "alias": "skardu city",
+   "of": "Skardu"
+  },
+  {
+   "alias": "hunza valley",
+   "of": "Hunza"
+  },
+  {
+   "alias": "nagar valley",
+   "of": "Nagar"
+  },
+  {
+   "alias": "swat valley",
+   "of": "Swat"
+  },
+  {
+   "alias": "kalam valley",
+   "of": "Kalam"
+  },
+  {
+   "alias": "thar",
+   "of": "Tharparkar"
+  },
+  {
+   "alias": "cholistan",
+   "of": "Bahawalpur"
+  },
+  {
+   "alias": "diamer",
+   "of": "Diamir"
+  },
+  {
+   "alias": "diamir",
+   "of": "Diamer"
+  },
+  {
+   "alias": "neelum",
+   "of": "Neelam Valley"
+  },
+  {
+   "alias": "neelum valley",
+   "of": "Neelam Valley"
+  },
+  {
+   "alias": "neelam",
+   "of": "Neelam Valley"
+  },
+  {
+   "alias": "athmuqan",
+   "of": "Athmuqam"
+  },
+  {
+   "alias": "gwadur",
+   "of": "Gwadar"
+  },
+  {
+   "alias": "gawadar",
+   "of": "Gwadar"
+  },
+  {
+   "alias": "multaan",
+   "of": "Multan"
+  },
+  {
+   "alias": "di khan",
+   "of": "Dera Ismail Khan"
+  },
+  {
+   "alias": "dikhan",
+   "of": "Dera Ismail Khan"
+  },
+  {
+   "alias": "d i khan",
+   "of": "Dera Ismail Khan"
+  },
+  {
+   "alias": "dg khan",
+   "of": "Dera Ghazi Khan"
+  },
+  {
+   "alias": "dgkhan",
+   "of": "Dera Ghazi Khan"
+  },
+  {
+   "alias": "d g khan",
+   "of": "Dera Ghazi Khan"
+  },
+  {
+   "alias": "makran",
+   "of": "Kech"
+  },
+  {
+   "alias": "turbat",
+   "of": "Kech"
+  },
+  {
+   "alias": "kech turbat",
+   "of": "Kech"
+  },
+  {
+   "alias": "attabad",
+   "of": "Atabad"
+  },
+  {
+   "alias": "attabad lake",
+   "of": "Atabad"
+  },
+  {
+   "alias": "atta abad",
+   "of": "Atabad"
+  },
+  {
+   "alias": "shispar",
+   "of": "Shispare"
+  },
+  {
+   "alias": "shisper",
+   "of": "Shispare"
+  },
+  {
+   "alias": "shishper glacier",
+   "of": "Shispare"
+  },
+  {
+   "alias": "shisper glacier",
+   "of": "Shispare"
+  },
+  {
+   "alias": "shispar glacier",
+   "of": "Shispare"
+  },
+  {
+   "alias": "batakundi",
+   "of": "Battakundi"
+  },
+  {
+   "alias": "bata kundi",
+   "of": "Battakundi"
+  },
+  {
+   "alias": "ict",
+   "of": "Federal Capital"
+  },
+  {
+   "alias": "islamabad capital territory",
+   "of": "Federal Capital"
+  },
+  {
+   "alias": "kp",
+   "of": "Khyber Pakhtunkhwa"
+  },
+  {
+   "alias": "kpk",
+   "of": "Khyber Pakhtunkhwa"
+  },
+  {
+   "alias": "nwfp",
+   "of": "Khyber Pakhtunkhwa"
+  },
+  {
+   "alias": "azad jammu and kashmir",
+   "of": "Azad Kashmir"
+  },
+  {
+   "alias": "gilgit-baltistan",
+   "of": "Gilgit Baltistan"
+  }
+ ],
+ "spellings": [
+  {
+   "from": "Khumar",
+   "to": "Khomar",
+   "near": [
+    35.91471,
+    74.33884
+   ],
+   "km": 3,
+   "why": "the Gilgit locality is registered by AGN as Khomar (MACH 108, 'Khomar, Gilgit'); GeoNames indexes it as Khumar (PPLX). Khumar in Haripur district is a different place and keeps its name."
+  },
+  {
+   "from": "Khunjrab",
+   "to": "Khunjerab",
+   "why": "the pass and river are Khunjerab in the place index (GeoNames) and on the national boundary data; Khunjrab is a variant transliteration"
+  },
+  {
+   "from": "Khunjarab",
+   "to": "Khunjerab",
+   "why": "variant transliteration of Khunjerab"
+  }
+ ]
+}
