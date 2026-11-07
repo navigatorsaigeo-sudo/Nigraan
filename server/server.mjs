@@ -2108,7 +2108,7 @@ function onRequest0(req, res) {
   if (key) { const e = INFLIGHT.get(key); if (e) { e.waiters.push({ res, retry: () => serve(req, res) }); return; } dedupeLead(key, res); }
   return serve(req, res);
 }
-/* The built React app (web/dist) is the page at /, /analyst and /customize.
+/* The built React app (web/dist) is the page at /, /analyst, /customize and /dashboard.
    /ui/* redirects onto those addresses. /n3 stays the sealed Customize document
    the React route frames, and /classic plus /?operator stay the old console. */
 function serveBuiltReact(req, res, url) {
@@ -2122,7 +2122,7 @@ function serveBuiltReact(req, res, url) {
   else if (path.startsWith('/ui/')) path = path.slice(3) || '/';
   const consoleHome = path === '/' && CONSOLE_Q.some((k) => url.searchParams.has(k));
   const bare = path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path;
-  const page = !consoleHome && (bare === '/' || bare === '/analyst' || bare === '/customize');
+  const page = !consoleHome && (bare === '/' || bare === '/analyst' || bare === '/customize' || bare === '/dashboard');
   if (p !== path && page) {
     res.writeHead(302, { location: bare + (url.search || '') });
     res.end();
@@ -2147,6 +2147,7 @@ function serveBuiltReact(req, res, url) {
    from its own edge: the browser still revalidates (max-age=0), and a tokened (operator) or non-GET request is never cached. */
 const EDGE_TTL_RULES = [
   [/^\/n3\/[^/]+\.(json|geojson)$/, [3600, 86400]],      // sealed geo tables (tehsils, rivers): change only on a data release
+  [/^\/agn-[a-z0-9.-]+\.(js|css)$/, [3600, 86400]],      // hour-strip / place-search UI scripts served by the Node process
   [/^\/tiles\//, [86400, 604800]],                       // basemap and overlay tiles
   [/^\/api\/levels$/, [240, 900]],                       // issued hazard levels (published on a schedule)
   [/^\/api\/registry\/levels$/, [3600, 86400]],          // the legend registry
@@ -2292,7 +2293,11 @@ async function handleRequest(req, res) {
   }
   if (p.startsWith(BACKEND_PREFIX + '/')) return proxyConnector(req, res, url);
   if (p === '/api/operator/status') return operatorStatus(req, res);
-  if (p === '/api/dashboard/session' && req.method === 'GET') return dashJson(res, 200, { open: dashGate().open(req) });
+  if (p === '/api/dashboard/session' && req.method === 'GET') {
+    const open = dashGate().open(req);
+    if (open) try { dashGate().touch(req); } catch (_) {}
+    return dashJson(res, 200, { open });
+  }
   if (p === '/api/dashboard/gate' && req.method === 'GET') { if (!dashComputer(req)) return dashJson(res, 403, { error: 'this_computer_only' }); return dashJson(res, 200, dashGate().view(req)); }
   if (p === '/api/dashboard/password' && req.method === 'POST') return dashJson(res, 410, { error: 'password_is_in_env' });
   if (p === '/api/dashboard/login' && req.method === 'POST') {
@@ -2307,7 +2312,10 @@ async function handleRequest(req, res) {
     if (!dashGate().admin(req)) return dashJson(res, 401, { error: 'dashboard_password_required' });
     const body = await readDashBody(req);
     if (!body) return dashJson(res, 400, { error: 'bad_json' });
-    if (body.action === 'lock') return dashJson(res, 200, dashGate().lock(), { 'set-cookie': dashSetCookie(dashGate().cookie, '', true) });
+    if (body.action === 'lock') {
+      const out = dashGate().lock();
+      return dashJson(res, 200, out, { 'set-cookie': [dashSetCookie(dashGate().cookie, '', true), dashSetCookie(dashGate().sessionCookie, '', true)] });
+    }
     if (body.action === 'issue') return dashJson(res, 200, dashGate().issue());
     return dashJson(res, 400, { error: 'bad_action' });
   }
@@ -2315,7 +2323,10 @@ async function handleRequest(req, res) {
     const body = await readDashBody(req);
     const token = body && String(body.token || '').trim();
     if (!token || !dashGate().accepts(token)) return dashJson(res, 403, { open: false, error: 'token_rejected' });
-    return dashJson(res, 200, { open: true }, { 'set-cookie': dashSetCookie(dashGate().cookie, token) });
+    const session = dashGate().recordUnlock(req);
+    const cookies = [dashSetCookie(dashGate().cookie, token)];
+    if (session && session.id) cookies.push(dashSetCookie(dashGate().sessionCookie, session.id));
+    return dashJson(res, 200, { open: true }, { 'set-cookie': cookies });
   }
   if ((req.method === 'GET' || req.method === 'HEAD') && (p === '/customize' || p === '/customize/' || p === '/n3' || p === '/n3/') && !dashGate().open(req)) return lockedDocument(res);
   /* v91.17.256 · the page switch endpoint is removed with the rebuilt console (one main page) */

@@ -14,11 +14,13 @@ Environment=NODE_ENV=production
 Environment=HOST=0.0.0.0
 Environment=PORT=8787
 Environment=NIGRAAN_ALLOW_HOSTS=nigraan-api.aigeo360.com,152.67.162.136,100.78.253.98,nigraan.aigeo360.com,nigraan-beta.vercel.app,nigraan-aigeo.vercel.app
+# Default V8 heap (~2 GB) OOMs under production load; machine has 121 GB RAM.
+Environment=NODE_OPTIONS=--max-old-space-size=8192
 # Prefer nvm Node 20; fall back to system node.
 ExecStart=/bin/bash -lc 'NODEBIN="${HOME}/.nvm/versions/node/v20.20.2/bin/node"; [ -x "$NODEBIN" ] || NODEBIN="$(command -v node)"; exec "$NODEBIN" server/server.mjs'
 Restart=on-failure
 RestartSec=5
-MemoryMax=4G
+MemoryMax=12G
 LimitNOFILE=65536
 TimeoutStartSec=120
 TimeoutStopSec=60
