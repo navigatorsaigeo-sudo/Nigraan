@@ -6,8 +6,8 @@
    AI's headline) is built from those two only, so a place with unhealthy air read as all-clear.
 
    DECISION (documented in BUILD_NOTES_113_data.md):
-   - Air quality enters the place summary. The hazard count also adds it, on the same line: "Unhealthy for sensitive groups" or worse
-     is Moderate or above. The hazard list stays the weather hazards. Neither gains a forecast-skill claim.
+   - Air quality enters the SUMMARY, not the hazard list and not the hazard count. The hazard count stays "hazards at Moderate or above"
+     (its scale and the national surface are unchanged); the hazard list stays the weather hazards; neither gains a forecast-skill claim.
    - The air class is the SERVED class (smog.mjs: the US EPA AQI 2024 category of the day's served daily mean PM2.5 / PM10, the value the
      map's air-quality layer and the report table show). No new threshold: it raises the summary at the first category of the published
      scale whose health statement names effects ("Unhealthy for sensitive groups"; US EPA AQI Technical Assistance Document 2024), i.e. any

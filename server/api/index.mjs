@@ -694,16 +694,16 @@ export function createBackend({ root, dataDir }) {
   app.floodOutcome = createFloodOutcome(app, { dataDir });   /* v91.17.283.33 · Scenario Lab only */
   app.scenario = createScenario(app, { dataDir });
   app.siteChange = createSiteChange(app, { dataDir, root });   /* v91.17.283.34 · Scenario Lab B: site change */
-  /* the GLOF value of the point's tehsil as the map serves it (the served unit's glof layer). It is counted with the other hazards at Moderate or above. */
+  /* v91.17.283.39 · the GLOF value of the point's tehsil as the map serves it (the served unit's glof layer, one value per tehsil-day, the
+     Analyst map's own value): the bottom panel of the start page lists it beside the point's hazards; it is not counted */
   const glofOfUnit = (c) => { try { const T = c.uid ? tehsilLevelsOf(app, c.uid) : null; return T && T.ready && T.layers && T.layers.glof ? T.layers.glof : null; } catch (_) { return null; } };
   /* v91.17.283.49 · 1.0.10 item 1 · the served air-quality class of the point's tehsil by lead 0-3 (the hazard count's day summary) */
   const airLeads = (c) => { try { if (!c.uid || !app.smog) return null; const u = app.smog.unit(c.uid); const today = new Date(Date.now() + 5 * 3600e3).toISOString().slice(0, 10);
     return airDays(u, today).map((d) => ({ ...d, lead: Math.round((Date.parse(d.date) - Date.parse(today)) / 864e5) })).filter((d) => d.lead >= 0 && d.lead <= 3); } catch (_) { return null; } };
-  app.hazardCountExtra = (c) => ({ glof: glofOfUnit(c), air: airLeads(c) });
   const POINT_PARTS = {
     placeRecord: (c) => app.placeRecord.record(c),
     siteLevels: (c) => app.placeRecord.siteLevels(c),
-    hazardCount: (c) => countOf(app.placeRecord.siteLevels(c), app.gate, null, { glof: glofOfUnit(c), air: airLeads(c) }),
+    hazardCount: (c) => countOf(app.placeRecord.siteLevels(c), app.gate, null, { glof: glofOfUnit(c), air: airLeads(c) }),   /* v283.49 item 1: + the served air quality of the tehsil (summary only) */   /* v91.17.283.37 · the count the national surface shows at this point; v283.39: + the tehsil's GLOF state (an area value, not counted) */
     levels: (c) => (c.uid ? withRun(servedUnit(app, c.uid, c.view === 'operator')) : noUnit),
     rainChance: (c) => (c.uid && app.rainChance ? rainChanceView(app.rainChance.unit(c.uid), c.view !== 'operator') : noUnit),
     outlook: (c) => { const u = c.uid && app.outlook.findUnit(c.uid); const r = u && app.outlook.unit(u.unitId, { lat: c.lat, lon: c.lon }); return r ? { ...r, resolvedBy: 'point' } : { ready: false, why: u ? 'the outlook of this tehsil is not ready' : noUnit.why }; },

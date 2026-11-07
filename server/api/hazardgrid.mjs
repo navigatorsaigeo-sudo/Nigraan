@@ -48,7 +48,7 @@ export function createHazardGrid(app, opts = {}) {
   /* the cycle a moment belongs to: its PKT date and the latest start hour passed (before the first start: the previous day's last) */
   function cycleOf(ms) { const p = new Date(ms + 5 * 3600e3), h = p.getUTCHours() + p.getUTCMinutes() / 60; let k = -1; STARTS.forEach((s, i) => { if (h >= s) k = i; });
     if (k < 0) return pktDate(ms - 24 * 3600e3) + '#' + (STARTS.length - 1); return pktDate(ms) + '#' + k; }
-  function load() { if (S.cur) return S.cur; try { if (existsSync(file)) { const j = JSON.parse(readFileSync(file, 'utf8')); if (j && j.version === HAZGRID_VERSION && j.countVersion === HAZARD_COUNT_VERSION && j.grid && j.grid.km === KM) S.cur = j; } } catch (_) { S.cur = null; } return S.cur; }
+  function load() { if (S.cur) return S.cur; try { if (existsSync(file)) { const j = JSON.parse(readFileSync(file, 'utf8')); if (j && j.version === HAZGRID_VERSION && j.grid && j.grid.km === KM) S.cur = j; } } catch (_) { S.cur = null; } return S.cur; }
   function writeAtomic(obj) { const tmp = file + '.tmp-' + process.pid; writeFileSync(tmp, JSON.stringify(obj)); renameSync(tmp, file); }
 
   /* the land points: inside Pakistan-administered territory and not at sea (the point state's own placement rule, places.pointRow) */
@@ -71,7 +71,7 @@ export function createHazardGrid(app, opts = {}) {
         let st = []; try { stamps.add(app.pointState.runStamp().stamp); st = await app.pointState.many(pts, { tag: 'hazard-grid', noCache: true }); } catch (_) { st = []; errors++; }
         idx.forEach((i, j) => { const ps = st[j]; if (!ps || !ps.ok) return;
           const c = app.point.siteCtx(pts[j].lat, pts[j].lon, ps, 'customer');
-          let n = null; try { const extra = app.hazardCountExtra ? app.hazardCountExtra(c) : null; n = countOf(app.placeRecord.siteLevels(c), app.gate, rule, extra); } catch (_) { n = null; errors++; }
+          let n = null; try { n = countOf(app.placeRecord.siteLevels(c), app.gate, rule); } catch (_) { n = null; errors++; }
           if (!n || !n.ok) return; n.days.forEach((d) => { if (d.lead >= 0 && d.lead <= 3) { vals[d.lead][i] = isN(d.count) ? d.count : null; if (d.date && !dates[d.lead]) dates[d.lead] = d.date; } }); });
         /* the rest after a chunk is set by the CPU the chunk used (process.cpuUsage), not its wall time: waiting for the provider costs no rest */
         const cu = process.cpuUsage(c0), cpu = (cu.user + cu.system) / 1000, el = performance.now() - t; cpuMs += cpu; S.progress.done = Math.min(land.length, k + CHUNK);

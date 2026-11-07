@@ -3,8 +3,8 @@
    2  SAME VALUE RULE: at >= 200 grid points (edge points of the land mask first, then spread interior points) the grid's count for every
       day (0-3) equals the place record's count at that exact point (GET /api/point part hazardCount: the bundle every page reads), under
       the same point-state stamp (a point compared under another stamp is not counted as compared)
-   3  the count is the COUNTED bars at Moderate or above, including river flood, landslide, wind (when a level is issued), drought,
-      glacial-lake flood and air quality; the served rule lists those keys as counted
+   3  uncounted hazards are never counted: in every compared record, count = the number of COUNTED bars at Moderate or above; river flood,
+      landslide, wind, drought and air quality are never counted; the served rule lists them as not counted
    4  nothing assessed -> no value (never 0): points outside Pakistan-administered territory, at sea and in IIOJK are null in the grid
    5  the client answer carries no run id or code text; a bad day is refused (400)
    usage: node scripts/tests28337/grid37.test.mjs [base]     (NIGRAAN_G37_N: points to compare, default 220) */
@@ -34,7 +34,7 @@ step(edge, Math.min(edge.length, Math.round(N * 0.4))); step(inner, N - pick.len
 ok(pick.length >= 200, 'at least 200 grid points to compare (' + edge.length + ' edge points, ' + inner.length + ' interior)', pick.length);
 /* 2 / 3 the same value at each point */
 let cmp = 0, diffs = 0, stampSkip = 0, uncountedBad = 0, ruleBad = 0; const D = [];
-const NOW = ['flood', 'landslide', 'wind', 'drought', 'glof', 'air'];
+const NEVER = ['flood', 'landslide', 'wind', 'drought', 'air'];
 const dates = P.dates;
 async function one(p) {
   let B = (await get('/api/point?lat=' + p.lat.toFixed(5) + '&lon=' + p.lon.toFixed(5))).j;
@@ -48,15 +48,15 @@ async function one(p) {
     if (rec !== grid) { diffs++; if (D.length < 30) D.push(p.lat + ',' + p.lon + ' day ' + d + ': grid ' + grid + ' vs place record ' + rec); }
     if (day) { const counted = day.bars.filter((b) => b.counted && b.state === 'level' && b.level >= 2).length; const anyCounted = day.bars.some((b) => b.counted && b.state === 'level');
       if ((anyCounted ? counted : null) !== day.count) uncountedBad++;
-      if (day.bars.some((b) => NOW.includes(b.key) && b.state === 'level' && b.level >= 2 && !b.counted)) uncountedBad++;
+      if (day.bars.some((b) => NEVER.includes(b.key) && b.counted)) uncountedBad++;
       if (day.bars.some((b) => b.state !== 'level' && /normal/i.test(b.word))) uncountedBad++; } }
-  if (!NOW.every((k) => (V.counted || []).some((x) => x.key === k)) || (V.notCounted || []).some((x) => NOW.includes(x.key))) ruleBad++;
+  if ((V.counted || []).some((x) => NEVER.includes(x.key)) || !NEVER.every((k) => (V.notCounted || []).some((x) => x.key === k))) ruleBad++;
 }
 for (let i = 0; i < pick.length; i += 4) await Promise.all(pick.slice(i, i + 4).map(one));
 ok(cmp >= 200, 'compared at >= 200 grid points under the grid\'s own stamp (' + cmp + ' compared, ' + stampSkip + ' under another stamp)', cmp);
 ok(diffs === 0, 'grid count == place record count at every compared point and day (' + (cmp * 4) + ' values, ' + diffs + ' differences)', D.join(' | '));
-ok(uncountedBad === 0, 'the count is the counted bars at Moderate or above, including flood, landslide, drought, GLOF and air when they have a level; no "Normal" without a level', uncountedBad);
-ok(ruleBad === 0, 'the served rule counts river flood, landslide, wind, drought, glacial-lake flood and air quality', ruleBad);
+ok(uncountedBad === 0, 'uncounted hazards are never counted (count = counted bars at Moderate or above; flood, landslide, wind, drought, air never counted; no "Normal" without a level)', uncountedBad);
+ok(ruleBad === 0, 'the served rule lists river flood, landslide, wind, drought and air quality as not counted', ruleBad);
 /* 4 nothing assessed -> null, never 0 */
 const probe = [[33.0, 76.0, 'IIOJK'], [24.0, 64.0, 'Arabian Sea'], [34.0, 69.0, 'Afghanistan'], [30.0, 76.5, 'India'], [29.0, 60.95, 'Iran']];
 const day0 = (await get('/api/hazardgrid?day=0')).j;

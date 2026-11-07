@@ -43,19 +43,9 @@ const C0 = countOf(SL, gate, null, {});
 const C1 = countOf(SL, gate, null, { air: PS.airDays(SMOG, '2026-11-02').map((d) => ({ ...d, lead: lead(d) })) });
 const air0 = C0.days[0].bars.find((b) => b.key === 'air'), air1 = C1.days[0].bars.find((b) => b.key === 'air');
 ok(air0 && air0.code === -5, 'national surface (no air handed in): the air bar is unchanged (Not tested)');
-ok(air1 && air1.state === 'level' && air1.level === 3 && air1.word === 'Unhealthy' && air1.counted === true && air1.raisesSummary === true && air1.pm25 === 72.4, 'place bundle: Unhealthy air is a level and is counted', JSON.stringify(air1));
-ok(C1.days[0].count === C0.days[0].count + 1, 'Unhealthy air adds one to the hazard count (' + C0.days[0].count + ' -> ' + C1.days[0].count + ')');
-ok(C1.days.every((d) => d.at.includes('air') && d.summary && d.summary.state === 'hazard' && d.summary.raised && /Unhealthy/.test(d.summary.air.line)), 'every day count includes air and the summary stays raised');
-const area = { ok: true, hazards: { heat: { days: [0, 1, 2, 3].map((L) => ({ lead: L, date: days[L].date, assessed: true, level: 0 })) }, cold: { days: [0, 1, 2, 3].map((L) => ({ lead: L, date: days[L].date, assessed: true, level: 0 })) },
-  rain: { days: [0, 1, 2, 3].map((L) => ({ lead: L, date: days[L].date, assessed: true, level: 0 })) },
-  flood: { scope: 'tehsil gauged reach', days: [0, 1, 2, 3].map((L) => ({ lead: L, date: days[L].date, assessed: true, level: L === 0 ? 3 : 0 })) },
-  drought: { scope: 'tehsil value', days: [0, 1, 2, 3].map((L) => ({ lead: L, date: days[L].date, assessed: true, level: 2 })) },
-  landslide: { scope: 'tehsil', days: [0, 1, 2, 3].map((L) => ({ lead: L, date: days[L].date, assessed: false, tehsilValue: { level: 2, word: 'Moderate' } })) },
-  wind: { days: [0, 1, 2, 3].map((L) => ({ lead: L, date: days[L].date, assessed: false, state: 'not_tested' })) } } };
-const CA = countOf(area, gate, null, { glof: [0, 1, 2, 3].map((day) => ({ day, level: day === 0 ? 4 : 0, word: day === 0 ? 'Severe' : 'Normal' })) });
-ok(CA.days[0].count === 4 && CA.days[0].at.slice().sort().join(',') === 'drought,flood,glof,landslide', 'river flood, drought, landslide and GLOF at Moderate or above are counted', JSON.stringify(CA.days[0].at));
-ok(CA.days[1].count === 2 && CA.days[1].at.slice().sort().join(',') === 'drought,landslide', 'a Normal flood or GLOF does not add; drought and landslide still do', JSON.stringify(CA.days[1].at));
-ok(CA.counted.map((x) => x.key).includes('wind') && CA.days[0].bars.find((b) => b.key === 'wind').counted === false, 'wind is in the count rule and adds only when a level is issued');
+ok(air1 && air1.state === 'value' && air1.word === 'Unhealthy' && air1.counted === false && air1.raisesSummary === true && air1.pm25 === 72.4, 'place bundle: the air bar carries the served class and PM2.5, never counted', JSON.stringify(air1));
+ok(C1.days[0].count === C0.days[0].count, 'the hazard count is unchanged by air quality (' + C1.days[0].count + ')');
+ok(C1.days.every((d) => d.summary && d.summary.state === 'attention' && d.summary.raised && /Unhealthy/.test(d.summary.air.line)), 'every day summary is raised by the air quality');
 
 /* the served unit (levels part, report context, Customize): summary from the same function */
 const eng = { unit: () => ({ ready: true, unit: 'Federal Capital|Islamabad|Islamabad', words: ['Normal', 'Low', 'Moderate', 'High', 'Severe'], alerts: [],
