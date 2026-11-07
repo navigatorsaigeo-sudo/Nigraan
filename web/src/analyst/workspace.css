@@ -432,6 +432,10 @@ body.an-app #root { height: auto; min-height: 100%; }
 .anw .ov-side.left .ov-placearea {
   margin: 4px 0 0; font: 650 12px/1.35 Manrope, system-ui, sans-serif; color: #5c6b73;
 }
+.anw .ov-side.left .ov-placecoord {
+  margin: 3px 0 0; font: 650 12px/1.35 ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+  color: #3d5158; letter-spacing: 0.01em;
+}
 .anw .ov-side.right .ov-areaplace,
 .anw .ov-side.right .ov-areasum,
 .anw .ov-side.right .ov-hzlist,
@@ -479,10 +483,10 @@ body.an-app #root { height: auto; min-height: 100%; }
 }
 .anw .ov-side.right .ov-hzlist {
   display: flex; flex-direction: column; gap: 4px; padding: 6px; border-radius: 14px;
-  background: #f7f9fa; flex: 1 1 auto; min-height: 0; justify-content: space-between;
+  background: #f7f9fa; flex: 0 0 auto; justify-content: flex-start;
 }
 .anw .ov-side.right .ov-hzitem {
-  padding: 5px 8px; border-radius: 10px; background: #fff; flex: 1 1 auto; min-height: 0;
+  padding: 7px 8px; border-radius: 10px; background: #fff; flex: 0 0 auto;
   display: flex; flex-direction: column; justify-content: center;
   border: 1px solid #e2e9eb;
   border-left: 3px solid var(--hz-dot, #9aa7ad);
@@ -668,6 +672,12 @@ body.an-app #root { height: auto; min-height: 100%; }
 .anw .ov-obs { display: inline-block; margin: 0 0 4px 37px; border: 1px solid #c5d0d6; border-radius: 999px; padding: 1px 8px; font-size: 11px; color: #3d525e; }
 .anw .ov-na { color: #4a5863; font-size: 12.5px; line-height: 1.4; margin: 8px 0 0; }
 .anw .ov-na b { color: #34424c; }
+.anw .ov-na-fold { margin-top: 8px; }
+.anw .ov-na-fold > summary {
+  cursor: pointer; list-style: none; font-size: 12.5px; font-weight: 700; color: #2f6468; padding: 6px 0;
+}
+.anw .ov-na-fold > summary::-webkit-details-marker { display: none; }
+.anw .ov-na-fold[open] > summary { color: #1f4a4d; }
 .anw .ov-climate { width: 100%; margin-top: 14px; border: 1px solid #243f4c; background: var(--an-ov, #2b4c5c); border-radius: 999px; padding: 8px 10px; font: 750 13px/1.3 Manrope, system-ui, sans-serif; color: #fff; cursor: pointer; text-align: center; }
 .anw .ov-climate:hover { background: #23404e; }
 .anw .ov-area-empty { color: #5c6b73; }

@@ -243,23 +243,48 @@ body.v-tuck #tuckChip{display:flex}
   border:1px solid color-mix(in srgb,#c8553d 22%,#e8eeec);
 }
 .stat4{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:0;border:1px solid #dce6e4;border-radius:12px;overflow:hidden;background:#fff;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1px;border:1px solid #d5e2df;border-radius:14px;overflow:hidden;background:#e4eeec;
 }
 .stat4>div{
-  display:flex;flex-direction:column;justify-content:flex-start;gap:4px;
-  min-height:4.4rem;padding:11px 12px;
-  background:#fff;border-right:1px solid #e8efed;border-bottom:1px solid #e8efed;
+  display:flex;flex-direction:column;justify-content:flex-start;gap:3px;
+  min-width:0;min-height:4.6rem;padding:11px 13px 12px;background:#fff;
 }
-.stat4>div:nth-child(3n){border-right:0}
-.stat4>div:nth-child(n+4){border-bottom:0}
+.stat4 .stat-k{
+  font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#6a7c7a;line-height:1.25;
+}
 .stat4 b{
-  display:block;font-size:19px;font-weight:800;line-height:1.1;color:var(--ink);
+  display:block;font-size:22px;font-weight:800;line-height:1.05;color:var(--ink);
   font-variant-numeric:tabular-nums;
 }
-.stat4 b small{font-size:11px;font-weight:700;color:var(--mut)}
-.stat4 span{font-size:11px;line-height:1.3;color:var(--mut);font-weight:650}
-.stat4>div.is-miss b{font-size:12.5px;font-weight:650;color:#6b7f82;line-height:1.3}
+.stat4 b small{font-size:12px;font-weight:700;color:var(--mut)}
+.stat4>div.is-miss b{font-size:13px;font-weight:650;color:#6b7f82;line-height:1.35}
+.stat4>.stat-full{
+  grid-column:1 / -1;
+  display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;row-gap:2px;align-items:center;
+  min-height:0;padding:12px 14px;
+}
+.stat4>.stat-full .stat-k{grid-column:1 / -1}
+.stat4>.stat-full b{grid-column:1}
+.stat4>.stat-full .stat-note{
+  grid-column:2;display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:6px 8px;
+  min-width:0;text-align:right;
+}
+.stat-when{
+  font-style:normal;font-size:13px;font-weight:700;color:#3e4b49;white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+}
+.aq-cat{
+  display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;
+  font-size:12px;font-weight:800;line-height:1.2;background:#f4f7f5;color:#3e4b49;
+}
+.aq-cat.is-good{background:#e7f6ef;color:#0f6e56}
+.aq-cat.is-mod{background:#fff7e6;color:#92400e}
+.aq-cat.is-sens{background:#fff1e6;color:#c2410c}
+.aq-cat.is-bad{background:#fde8e8;color:#9a3412}
+.aq-cat.is-worse{background:#f3e8ff;color:#6b21a8}
+.aq-cat.is-haz{background:#fde8e8;color:#7f1d1d}
+.aq-hour{font-size:12.5px;font-weight:700;color:#5a6866;white-space:nowrap}
 .now-heat{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:0 2px}
 .now-heat .supp{font-size:12.5px;color:var(--mut);font-weight:600}
 .npill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 12px;font-weight:700;font-size:13px}
@@ -274,11 +299,8 @@ body.v-tuck #tuckChip{display:flex}
   .now{grid-template-columns:1fr;gap:10px}
   .now .t{font-size:44px}
   .now-kvs{grid-template-columns:1fr 1fr}
-  .stat4{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .stat4>div:nth-child(3n){border-right:1px solid #e8efed}
-  .stat4>div:nth-child(2n){border-right:0}
-  .stat4>div:nth-child(n+4){border-bottom:1px solid #e8efed}
-  .stat4>div:nth-child(n+5){border-bottom:0}
+  .stat4>.stat-full{grid-template-columns:1fr;align-items:start}
+  .stat4>.stat-full .stat-note{grid-column:1;justify-content:flex-start;text-align:left}
 }
 .small{font-size:12px;color:var(--mut);line-height:1.45}
 .sec{display:flex;flex-direction:column;gap:10px}
@@ -537,6 +559,13 @@ table.t.hz4 td.mini .lvl{display:block;min-width:0;width:100%;box-sizing:border-
 table.t.hz4 .hzev{margin-top:2px}
 table.t.hz4 .hzev .tag{font-size:11px;padding:1px 5px;margin-top:2px}
 .hzt .ht{font-size:11px;color:var(--mut);line-height:1.3}
+.hz-held-btn{
+  display:inline-flex;align-items:center;margin-top:10px;border:1px solid var(--line2);
+  background:#fff;color:var(--c-hz);border-radius:9px;padding:7px 12px;
+  font:700 12.5px/1.2 inherit;cursor:pointer;
+}
+.hz-held-btn:hover{background:#fff8f1}
+.hz-held-btn.on{background:#fff4e8;border-color:#e0b58a}
 .fr{display:grid;grid-template-columns:118px 1fr;gap:8px;padding:7px 0;border-bottom:1px solid #F0F3F1;font-size:13px;line-height:1.4}
 .fr:last-child{border-bottom:0}
 .fl{color:var(--c-place);font-weight:700;font-size:12.5px}
@@ -686,7 +715,8 @@ body.v-card #zoom{bottom:16px}
 body.v-card #hzWrap{bottom:16px}
 #map .leaflet-bottom{bottom:6px!important;transition:none}
 body.v-card #map .leaflet-bottom{bottom:8px!important}
-#nowStats{grid-template-columns:repeat(3,1fr)}
+#nowStats{grid-template-columns:repeat(2,minmax(0,1fr))}
+#nowStats>.stat-full{grid-column:1 / -1}
 /* Map reserves day strip + panel height so Pakistan never sits under chrome. Panel still slides open/closed. */
 :root{--nvHead:42px;--nvH:280px;--nvDayH:52px}
 body.nv-wx{--nvH:min(300px,34vh)}
@@ -794,6 +824,13 @@ body.nv-has:not(.nv-open) #nvHead{cursor:pointer}
 .nv-hz-track{height:6px;border-radius:999px;background:#101418;overflow:hidden;box-shadow:inset 0 0 0 1px #2A3036}
 .nv-hz-fill{display:block;height:100%;border-radius:999px;min-width:8px}
 .nv-hz-dash{display:block;height:100%;border-top:2px dashed #4A525A;margin-top:2px;opacity:.85}
+.nv-hz-held{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;margin-top:8px;
+  border:1px solid #3A4248;background:#161B20;color:#C5CDD4;border-radius:8px;
+  padding:7px 12px;font:700 12px/1.2 Manrope,system-ui,sans-serif;cursor:pointer;
+}
+.nv-hz-held:hover{border-color:#5A6866;color:#E8ECEF}
+.nv-hz-held.on{border-color:rgba(47,125,140,.45);background:rgba(47,125,140,.14);color:#D7EEF2}
 #nvPanel .ld{color:#B8BDC2;font-size:14px;font-weight:600;padding:18px 4px}
 body.agn-nat.agn-dark #zoom,body.agn-nat.agn-dark #nvLegend,body.agn-nat.agn-dark #hzWrap{transform:none;transition:bottom .45s cubic-bezier(.2,.8,.2,1)}
 body.agn-nat.agn-dark #nvHint{display:none}

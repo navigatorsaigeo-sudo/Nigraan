@@ -49,6 +49,12 @@ function sortedBars(day) {
     });
 }
 
+/** "Not assessed" / "Not tested" are hidden by default; a View button reveals them. */
+function isHeldHazard(level, word) {
+  if (level != null) return false;
+  return /not assessed|not tested/i.test(String(word || ''));
+}
+
 function fin(value) {
   return value != null && value !== '' && Number.isFinite(+value);
 }
@@ -236,6 +242,7 @@ export default function StartPage() {
   const [panelMode, setPanelMode] = useState('weather');
   const [panelOpen, setPanelOpen] = useState(true);
   const [wxStep, setWxStep] = useState(1);
+  const [showHeldHazards, setShowHeldHazards] = useState(false);
   const [detail, setDetail] = useState(() => !!hashPlace());
 
   useEffect(() => {
@@ -344,6 +351,8 @@ export default function StartPage() {
     return () => { cancel = true; clearTimeout(timer); };
   }, [query]);
 
+  useEffect(() => { setShowHeldHazards(false); }, [sel?.lat, sel?.lon, day]);
+
   function choose(lat, lon, name, zoom) {
     const point = { lat: Math.round(lat * 1e5) / 1e5, lon: Math.round(lon * 1e5) / 1e5, name: name || '' };
     setSel(point);
@@ -374,6 +383,14 @@ export default function StartPage() {
   const place = bundle && !bundle.error ? placeLine(bundle) : null;
   const lines = hazard ? summary(hazard, day) : null;
   const bars = hazard ? sortedBars(hazard.days?.[day]) : [];
+  const scoredBars = [];
+  const heldBars = [];
+  for (const row of bars) {
+    const word = row.level == null ? (row.bar.word || 'Not assessed') : (row.bar.label || WORDS[row.level]);
+    if (isHeldHazard(row.level, word)) heldBars.push(row);
+    else scoredBars.push(row);
+  }
+  const visibleBars = showHeldHazards ? scoredBars.concat(heldBars) : scoredBars;
   const wxRows = bundle && !bundle.error ? weatherHours(bundle, day, wxStep) : [];
   const wxNow = bundle && !bundle.error ? weatherNowLine(bundle, day) : null;
   const placeHash = sel
@@ -696,7 +713,7 @@ export default function StartPage() {
                       <span id="nvWorst">{lines?.worstLine}</span>
                     </div>
                     <div className="nv-hz-grid" role="list">
-                      {bars.map(({ bar, level }) => {
+                      {visibleBars.map(({ bar, level }) => {
                         const word = level == null ? (bar.word || 'Not assessed') : (bar.label || WORDS[level]);
                         const tone = level == null ? 'na' : `l${level}`;
                         const fill = level == null ? 'transparent' : BAR[level];
@@ -715,6 +732,18 @@ export default function StartPage() {
                         );
                       })}
                     </div>
+                    {heldBars.length > 0 && (
+                      <button
+                        type="button"
+                        className={`nv-hz-held${showHeldHazards ? ' on' : ''}`}
+                        aria-expanded={showHeldHazards}
+                        onClick={() => setShowHeldHazards((on) => !on)}
+                      >
+                        {showHeldHazards
+                          ? 'Hide not assessed / not tested'
+                          : `View ${heldBars.length} not assessed / not tested`}
+                      </button>
+                    )}
                   </>
                 )}
               </div>

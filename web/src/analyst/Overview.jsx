@@ -575,7 +575,10 @@ function AreaHazards({ run, day, tehsil, nearLabel, people, onDismissNear, onCli
           </div>
         ))}
         {missing.length > 0 && (
-          <p className="ov-na" role="listitem"><b>Not assessed</b> {missing.map((row) => row.name).join(' · ')}</p>
+          <details className="ov-na-fold">
+            <summary>View {missing.length} not assessed</summary>
+            <p className="ov-na" role="listitem"><b>Not assessed</b> {missing.map((row) => row.name).join(' · ')}</p>
+          </details>
         )}
       </div>
       <button type="button" className="ov-climate" onClick={onClimate}>
@@ -1005,6 +1008,12 @@ export default function Overview({ embedded = false }) {
 
   const now = bundle?.now;
   const info = bundle?.place;
+  const coordLine = (() => {
+    const lat = Number(place?.lat);
+    const lon = Number(place?.lon);
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) return '';
+    return `${Math.abs(lat).toFixed(5)}° ${lat >= 0 ? 'N' : 'S'}, ${Math.abs(lon).toFixed(5)}° ${lon >= 0 ? 'E' : 'W'}`;
+  })();
   const nearLabel = useMemo(() => {
     const near = info?.near;
     if (near?.name) return `Near ${near.name}${near.km != null ? ` (${Number(near.km).toFixed(1)} km)` : ''}`;
@@ -1256,6 +1265,7 @@ export default function Overview({ embedded = false }) {
                 <header className="ov-placehead">
                   <p className="ov-eyebrow">Place reading</p>
                   <h2><OvIcon name="pin" className="ov-ico ov-place-ico" />{info?.name || place.name}</h2>
+                  {coordLine && <p className="ov-placecoord">{coordLine}</p>}
                   <p className="ov-placearea">{[info?.tehsil ? `${info.tehsil} tehsil` : null, 'meteorology'].filter(Boolean).join(' · ')}</p>
                 </header>
                 <h3>Today at {info?.name || place.name}</h3>

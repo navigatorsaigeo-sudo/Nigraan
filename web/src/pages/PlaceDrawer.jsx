@@ -280,6 +280,17 @@ function rainNow(strip, point) {
   return { p: String(hit.p), win: `${hit.key.slice(11, 16)}–${strip.winEnd(hit.key)}` };
 }
 
+function airTone(aqi) {
+  const n = Number(aqi);
+  if (!Number.isFinite(n)) return '';
+  if (n <= 50) return 'is-good';
+  if (n <= 100) return 'is-mod';
+  if (n <= 150) return 'is-sens';
+  if (n <= 200) return 'is-bad';
+  if (n <= 300) return 'is-worse';
+  return 'is-haz';
+}
+
 function shortAir(label) {
   const text = String(label || '');
   const aqi = text.match(/AQI\s+(\d+)/i);
@@ -294,10 +305,12 @@ function NowStats({ point, rainWin }) {
   const air = airDay(point);
   const aqi = air && fin(air.aqi) ? String(Math.round(+air.aqi)) : null;
   const hour = air?.aqiNow && fin(air.aqiNow.aqi) ? Math.round(+air.aqiNow.aqi) : null;
-  const airNote = [
-    air?.aqiCategory || null,
-    hour != null && String(hour) !== aqi ? `this hour ${hour}` : null,
-  ].filter(Boolean).join(' · ');
+  const airNote = (air?.aqiCategory || (hour != null && String(hour) !== aqi)) ? (
+    <>
+      {air?.aqiCategory ? <span className={`aq-cat ${airTone(aqi)}`}>{air.aqiCategory}</span> : null}
+      {hour != null && String(hour) !== aqi ? <span className="aq-hour">this hour {hour}</span> : null}
+    </>
+  ) : null;
   return (
     <div className="stat4" id="nowStats">
       <Stat value={r1(now.dewC)} unit="°C" missing="Not in this forecast" label="Dew point" />
@@ -305,23 +318,25 @@ function NowStats({ point, rainWin }) {
       <Stat value={r1(rain72(point))} unit="mm" missing="Not issued" label="Rain next 72 h" />
       <Stat value={r0(now.uv)} missing="Not in this forecast" label="UV index" />
       <Stat
+        wide
         value={rainWin ? rainWin.p : null}
         unit="%"
         missing="Not issued"
         label="Chance of rain"
-        note={rainWin ? `${rainWin.win} PKT` : null}
+        note={rainWin ? <span className="stat-when">{rainWin.win} PKT</span> : null}
       />
-      <Stat value={aqi} missing="No air forecast here" label="Air quality" note={airNote || null} />
+      <Stat wide num="aqi" value={aqi} missing="No air forecast here" label="Air quality" note={airNote} />
     </div>
   );
 }
 
-function Stat({ value, unit, missing, label, note }) {
+function Stat({ value, unit, missing, label, note, wide, num }) {
   const blank = value == null;
   return (
-    <div className={blank ? 'is-miss' : undefined}>
-      <b>{blank ? missing : <>{value}{unit ? <small> {unit}</small> : null}</>}</b>
-      <span>{label}{note ? ` · ${note}` : ''}</span>
+    <div className={[blank ? 'is-miss' : '', wide ? 'stat-full' : ''].filter(Boolean).join(' ') || undefined}>
+      <span className="stat-k">{label}</span>
+      <b data-num={num || undefined}>{blank ? missing : <>{value}{unit ? <small> {unit}</small> : null}</>}</b>
+      {note ? <span className="stat-note">{note}</span> : null}
     </div>
   );
 }
@@ -558,6 +573,18 @@ function Hazards({ point }) {
   const levels = point.parts?.levels?.v;
   const today = levels?.days?.[0];
   const actions = actionsOf(point);
+  const [showHeld, setShowHeld] = useState(false);
+  const scored = [];
+  const held = [];
+  for (const key of ORDER) {
+    const layer = today?.layers?.[key];
+    const level = layer && fin(layer.level) ? +layer.level : null;
+    const word = level != null ? (layer.word || WORDS[level]) : (layer?.word || 'Not assessed');
+    const row = { key, layer, level, word };
+    if (level == null && /not assessed|not tested/i.test(String(word))) held.push(row);
+    else scored.push(row);
+  }
+  const visible = showHeld ? scored.concat(held) : scored;
   return (
     <>
       <div className="sec" id="hzSec">
@@ -565,18 +592,19 @@ function Hazards({ point }) {
         <div className="supp">{[point.place?.tehsil, point.place?.district].filter(Boolean).join(', ')}</div>
         {!raised(today).length && <div className="note">No hazard above Normal for the surrounding area from today to {levels?.days?.[3] ? dayLab(levels.days[3].date) : 'the days ahead'}.</div>}
         <div className="hzt-grid">
-          {ORDER.map((key) => {
-            const layer = today?.layers?.[key];
-            const level = layer && fin(layer.level) ? +layer.level : null;
-            return (
-              <div className="hzt" key={key} style={{ '--hc': level != null ? COL[level] : '#D3DCD9' }}>
-                <span className="hn">{SHORT[key]}</span>
-                {level != null ? <span className={`lvl L${level}`}>{layer.word || WORDS[level]}</span> : <span className="lvl LX">{layer?.word || 'Not assessed'}</span>}
-                <span className="ht">{layer?.productType || 'Product type not recorded'}</span>
-              </div>
-            );
-          })}
+          {visible.map(({ key, layer, level, word }) => (
+            <div className="hzt" key={key} style={{ '--hc': level != null ? COL[level] : '#D3DCD9' }}>
+              <span className="hn">{SHORT[key]}</span>
+              {level != null ? <span className={`lvl L${level}`}>{word}</span> : <span className="lvl LX">{word}</span>}
+              <span className="ht">{layer?.productType || 'Product type not recorded'}</span>
+            </div>
+          ))}
         </div>
+        {held.length > 0 && (
+          <button type="button" className={`hz-held-btn${showHeld ? ' on' : ''}`} aria-expanded={showHeld} onClick={() => setShowHeld((on) => !on)}>
+            {showHeld ? 'Hide not assessed / not tested' : `View ${held.length} not assessed / not tested`}
+          </button>
+        )}
       </div>
       {levels?.days && (
         <>
