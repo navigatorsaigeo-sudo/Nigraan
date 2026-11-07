@@ -18,7 +18,8 @@ Environment=NIGRAAN_ALLOW_HOSTS=nigraan-api.aigeo360.com,152.67.162.136,100.78.2
 Environment=NODE_OPTIONS=--max-old-space-size=8192
 # Prefer nvm Node 20; fall back to system node.
 ExecStart=/bin/bash -lc 'NODEBIN="${HOME}/.nvm/versions/node/v20.20.2/bin/node"; [ -x "$NODEBIN" ] || NODEBIN="$(command -v node)"; exec "$NODEBIN" server/server.mjs'
-Restart=on-failure
+# always: a clean SIGTERM used to leave production dead (Restart=on-failure ignores exit 0).
+Restart=always
 RestartSec=5
 MemoryMax=12G
 LimitNOFILE=65536
