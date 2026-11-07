@@ -759,7 +759,6 @@ function Past({ record }) {
     ? r0(100 * summary.rainMm / summary.rainNormalMm)
     : null;
   const days = [...record.daily].reverse();
-  const measuredBy = commonStation(days);
   return (
     <div className="p30-pane">
       <section className="p30-block">
@@ -800,7 +799,6 @@ function Past({ record }) {
           <h2>Day by day</h2>
           <p>Max · min · rain · newest first</p>
         </header>
-        {measuredBy ? <p className="p30-src">Measured by {measuredBy}</p> : null}
         <div className="p30-list" role="table" aria-label="Day by day observations">
           <div className="p30-list-head" role="row">
             <span role="columnheader">Day</span>
@@ -813,7 +811,7 @@ function Past({ record }) {
             const wet = fin(row.rainMm) && +row.rainMm >= 1;
             if (empty) {
               return (
-                <div key={row.date} className="p30-row is-empty" role="row" title={row.src || undefined}>
+                <div key={row.date} className="p30-row is-empty" role="row">
                   <time dateTime={row.date}>{dayLong(row.date)}</time>
                   <span className="p30-miss" role="cell">No measurement held</span>
                 </div>
@@ -824,7 +822,6 @@ function Past({ record }) {
                 key={row.date}
                 className={`p30-row${wet ? ' is-wet' : ''}`}
                 role="row"
-                title={row.src || undefined}
               >
                 <time dateTime={row.date} role="cell">{dayLong(row.date)}</time>
                 <span className="n hi" role="cell">{fin(row.tmaxC) ? <>{r1(row.tmaxC)}°</> : '—'}</span>
@@ -839,27 +836,6 @@ function Past({ record }) {
       </section>
     </div>
   );
-}
-
-function stationLabel(text) {
-  const raw = String(text || '').trim();
-  if (!raw) return '';
-  return raw.split(';')[0].trim();
-}
-
-function commonStation(rows) {
-  const counts = new Map();
-  for (const row of rows || []) {
-    const label = stationLabel(row.src);
-    if (!label) continue;
-    counts.set(label, (counts.get(label) || 0) + 1);
-  }
-  let best = '';
-  let n = 0;
-  for (const [label, count] of counts) {
-    if (count > n) { best = label; n = count; }
-  }
-  return best;
 }
 
 function RainChart({ days }) {

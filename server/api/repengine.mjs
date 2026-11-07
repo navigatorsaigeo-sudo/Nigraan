@@ -667,7 +667,7 @@ export function buildReport(A, o) {
   D.y += 8;
   /* A6 · sources and limitations */
   ensure(80); D.section('Sources and limitations', 'appendix').items = 1;
-  for (const m of ['Sources: global and regional weather models, the AGN MACH station fleet, satellite rain and land records, the national and published glacial-lake inventories, terrain and land-cover maps; every dataset with its licence and required attribution is listed on the Methods & Verification page of NIGRAAN.',
+  for (const m of ['Sources: global and regional weather models, local weather observations, satellite rain and land records, the national and published glacial-lake inventories, terrain and land-cover maps; every dataset with its licence and required attribution is listed on the Methods & Verification page of NIGRAAN.',
     'Guidance (where shown): the published guidance of NDMA and the provincial PDMAs.',
     'Limitations: a forecast is not an observation and not an official warning; follow NDMA / PDMA warnings where they are issued. Levels are for the place and its tehsil, not a site survey or a design calculation. Times are Pakistan time (PKT).'])
     bullet('• ' + m);

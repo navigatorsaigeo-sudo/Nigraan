@@ -354,7 +354,7 @@ export function buildMulti(items, o) {
     'Tier 1 levels passed their event test and may raise an alert; Tier 2 levels are context or indicative (marked "indicative"). No threshold is set by this report.',
     'Every sentence is written by fixed rules from the figures shown; nothing in this report is written by an AI model.']) bullet('• ' + m);
   D.y += 8; ensure(80); D.section('Sources and limitations', 'appendix').items = 1;
-  for (const m of ['Sources: global and regional weather models, the AGN MACH station fleet, satellite rain and land records, terrain and land-cover maps; every dataset with its licence is listed on the Methods & Verification page of NIGRAAN.',
+  for (const m of ['Sources: global and regional weather models, local weather observations, satellite rain and land records, terrain and land-cover maps; every dataset with its licence is listed on the Methods & Verification page of NIGRAAN.',
     'Limitations: a forecast is not an observation and not an official warning; follow NDMA / PDMA warnings where they are issued. Levels are for each site and its tehsil, not a site survey. Times are Pakistan time (PKT).']) bullet('• ' + m);
   D.y += 8; ensure(90); D.section('Evidence', 'appendix').items = R.length;
   table(D, [{ t: '#', w: 0.06, b: true }, { t: 'Site', w: 0.3, b: true }, { t: 'Coordinate', w: 0.24 }, { t: 'Place answer', w: 0.4 }], R.map((r, k) => [String(k + 1), r.name, r.site && isN(+r.site.lat) ? (+r.site.lat).toFixed(4) + ' N, ' + (+r.site.lon).toFixed(4) + ' E' : '', r.A && r.A.answerId ? r.A.answerId + ' · ' + (pktShort(r.A.issuedAt) || '') : 'no forecast']),

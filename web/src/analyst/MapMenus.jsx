@@ -16,7 +16,7 @@ const DAILY_NAMES = {
   nss_baseline: 'Ground sponge',
 };
 
-export function DailyMenu({ layer, label, onPick }) {
+export function DailyMenu({ layer, label, onPick, onOpen }) {
   const operator = useOperator();
   const [open, setOpen] = useState(false);
   useChromeExclusive('daily-hazards', setOpen);
@@ -27,7 +27,10 @@ export function DailyMenu({ layer, label, onPick }) {
     <div className={`hzmenu${open ? ' open' : ''}`}>
       <button type="button" aria-expanded={open} aria-label="Daily hazards" onClick={() => setOpen((value) => {
         const next = !value;
-        if (next) openChrome('daily-hazards');
+        if (next) {
+          openChrome('daily-hazards');
+          onOpen?.();
+        }
         return next;
       })}>{label}</button>
       {open && (

@@ -59,6 +59,7 @@ tmp/
 .tmp/
 
 # Python / caches
+.venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/

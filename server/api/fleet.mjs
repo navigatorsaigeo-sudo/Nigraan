@@ -114,7 +114,7 @@ export function createFleet(app, root, dataDir) {
     return {
       total, live24, online, offline24: Math.max(0, total - live24), appleLive, appleTotal: by.apple_qm?.total || 0,
       byProvider: by, windowMin: LIVE_DAY_MIN, updatedAt: updatedAt || null,
-      label: 'MACH stations with a reading in the last 24 h (live database)',
+      label: 'Weather stations with a reading in the last 24 h (live database)',
       note: 'Counts every station the MACH database returns: Wunderground, WU API, Ecowitt, airport ASOS and Apple QM. Apple QM is a forecast product and is not used to correct the served forecast.',
     };
   };
@@ -720,7 +720,7 @@ export function createFleet(app, root, dataDir) {
     let zP = pointElevM; if (zP == null) { try { const h = ph() && ph().heightAt(lat, lon); zP = h && h.ok ? (h.elevM ?? h.cellElevM ?? null) : null; } catch (_) { zP = null; } }
     const dzMax = (rule().screen || {}).dz_m ?? RB_DEF.dz_m; const skipped = [];
     const okDz = (r) => { const z = stElev(r); if (zP == null || z == null) return true; if (Math.abs(z - zP) <= dzMax) return true; skipped.push({ key: r.key, name: r.name, dzM: Math.round(z - zP) }); return false; };
-    const tag = (b) => { if (b) { let sc = null; try { sc = screenOne(b.key); } catch (_) { sc = null; } return { ...b, pointElevM: zP, stationElevM: stElev(b), dzRule: dzMax, ...stationStatus(b, sc) }; } if (opts && opts.out) opts.out.why = skipped.length ? { why: 'the nearest MACH station' + (skipped.length > 1 ? 's are' : ' is') + ' more than ' + dzMax + ' m above or below this place (' + skipped.slice(0, 2).map(x => x.name + ' ' + (x.dzM > 0 ? '+' : '') + x.dzM + ' m').join(', ') + '): the forecast model is read at the place\'s own height', pointElevM: zP, skipped: skipped.slice(0, 3) } : heldWhy(); return null; };
+    const tag = (b) => { if (b) { let sc = null; try { sc = screenOne(b.key); } catch (_) { sc = null; } return { ...b, pointElevM: zP, stationElevM: stElev(b), dzRule: dzMax, ...stationStatus(b, sc) }; } if (opts && opts.out) opts.out.why = skipped.length ? { why: 'the nearest weather station' + (skipped.length > 1 ? 's are' : ' is') + ' more than ' + dzMax + ' m above or below this place (' + skipped.slice(0, 2).map(x => x.name + ' ' + (x.dzM > 0 ? '+' : '') + x.dzM + ' m').join(', ') + '): the forecast model is read at the place\'s own height', pointElevM: zP, skipped: skipped.slice(0, 3) } : heldWhy(); return null; };
     /* v91.17.283.51 g1 · S7 (Gilgit: "no AGN station reading within 25 km" beside MACH 105 / 108): stations inside the radius that are held
        back by the display rule are named with the reason, so the line is true; nothing about the rule changes */
     const held = [];
@@ -993,12 +993,12 @@ export function createFleet(app, root, dataDir) {
     const okT = !zone || (R.zones_t || []).includes(zone), okD = !zone || (R.zones_td || []).includes(zone);
     if (!okT && !okD) return { applied: false, why: 'no running correction in the ' + zone + ' zone (data/model-zone.json l2Rule)' };
     const within = (km) => { const out = []; for (const [key, b] of C.bias) { const s = RB.stations[key]; const d = kmBetween(lat, lon, s.lat, s.lon); if (d <= km && (elevM == null || s.elevM == null || Math.abs(elevM - s.elevM) <= R.dz_m)) out.push({ key, km: d, b }); } return out.sort((a, b) => a.km - b.km); };
-    if (!within(R.radius_km).length) return { applied: false, why: 'no MACH station within ' + R.radius_km + ' km and ' + R.dz_m + ' m with a current running bias' };
+    if (!within(R.radius_km).length) return { applied: false, why: 'no weather station within ' + R.radius_km + ' km and ' + R.dz_m + ' m with a current running bias' };
     const own = okT ? within(R.t_reach_km ?? 1)[0] || null : null;
     const t = own ? atHour(own.b.t.blocks, tMs) : null;
     const med = (a) => { const q = a.slice().sort((x, y) => x - y); const m = Math.floor(q.length / 2); return q.length % 2 ? q[m] : (q[m - 1] + q[m]) / 2; };
     const cd = within(R.city_km).filter(n => n.b.d); const td = okD && cd.length >= R.min_city ? med(cd.map(n => atHour(n.b.d.blocks, tMs))) : null;
-    if (t == null && td == null) return { applied: false, why: 'no MACH station at this site with a current running bias for temperature, and fewer than ' + R.min_city + ' stations with a dew-point bias within ' + R.city_km + ' km for dew point' };
+    if (t == null && td == null) return { applied: false, why: 'no weather station at this site with a current running bias for temperature, and fewer than ' + R.min_city + ' stations with a dew-point bias within ' + R.city_km + ' km for dew point' };
     return { applied: true, t: t == null ? 0 : Math.round(t * 100) / 100, td: td == null ? null : Math.round(td * 100) / 100, temperature: t != null, zone,
              stations: own ? [{ key: own.key, km: Math.round(own.km * 10) / 10, days: own.b.t.days, reset: own.b.t.reset, role: 'temperature' }] : [], dewStations: td != null ? cd.map(n => ({ key: n.key, km: Math.round(n.km * 10) / 10 })) : [], version: RB.version };
   }
@@ -1018,12 +1018,12 @@ export function createFleet(app, root, dataDir) {
        while the feed is down the count is not given and the reason is (unavailable) */
     status: () => ({ ...(() => { try { const C = api.counts({}); const un = C.unavailable || (!state.last ? 'station data not received yet (no poll has finished since the server started)' : null);
         return { reportingNow: un ? null : C.fleet.reportingNow, registeredTotal: C.fleet.total, unavailable: un,
-        countLabel: 'AGN stations reporting now (a reading in the last ' + FRESH_MIN + ' min that passed the station checks)', countRule: C.rule }; } catch (_) { return {}; } })(),
+        countLabel: 'Stations reporting now (a reading in the last ' + FRESH_MIN + ' min that passed the station checks)', countRule: C.rule }; } catch (_) { return {}; } })(),
       usableChecked: (() => { try { return latestRows().filter(customerRow).length; } catch (_) { return null; } })(),   /* v91.17.283.26 · the stations a customer sees (checked readings) */ configured: state.configured, copy: state.copy || null, copyPolls: state.copyPolls || 0, polls: state.polls, base: state.base, tokenPresent: !!token, db: { ...state.db, from: state.fromDb || 0, backfill: { ...bfState } },
       mach: state.mach || (() => { try { const f = join(ownPath(root, ...OWN.machDb), 'latest_status.json'); if (!existsSync(f)) return null; const j = JSON.parse(readFileSync(f, 'utf8')); return machSummary(j.stations || [], j.updatedAt || null); } catch (_) { return null; } })(),
       stations: state.stations.length, registered: state.registered || state.stations.length, unlocated: Math.max(0, (state.registered || 0) - state.stations.length), polls: state.polls, lastAt: state.lastAt, usable: state.usable, screened: state.screened, errors: state.errors, lastError: state.lastError, lakeFile: state.lakeFile, seriesSeed: state.seriesSeed || null /* v283.44: the frozen-check seed at start */, pollMinutes: POLL_MS / 60000,
       runningCorrection: (() => { try { const r = runningStatus(); return { version: r.version, stationsHeld: r.stationsHeld, trusted: r.trusted, serving: r.serving }; } catch { return null; } })(),
-      note: 'AGN MACH fleet, polled from mach.aigeo360.com; readings pass the five-rule screen before they are kept (dead > 60 min, mirrored record, imperial units, physics, forecast-not-station). NIGRAAN_FLEET=0 switches the poll off.' }),
+      note: 'Observation network; readings pass the five-rule screen before they are kept (dead > 60 min, mirrored record, imperial units, physics, forecast-not-station). NIGRAAN_FLEET=0 switches the poll off.' }),
     /* v91.17.172 · audit O-10 · each row carries the siting screen's verdict against its MACH neighbours (screenOne), so a reading that
        passes QC but sits badly against its neighbours is not shown as normal; null when the screen cannot be read */
     /* v91.17.266 · interface 2: status, statusNote, checkedBy (and silentSince) on every row (stationStatus) */
@@ -1073,7 +1073,7 @@ export function createFleet(app, root, dataDir) {
       const zero = () => ({ reportingNow: 0, recent: 0, offline: 0, notUsed: 0, notYetChecked: 0, total: 0 });
       const all = zero(), near = lat != null && lon != null ? zero() : null;
       for (const st of state.stations) { const c = cls(st); all[c]++; all.total++; if (near && kmBetween(lat, lon, st.lat, st.lon) <= km) { near[c]++; near.total++; } }
-      return { ok: true, at: state.lastAt || null, ready: !!state.last && !down, fleet: all, feed, ...(down ? { unavailable: feed.text } : {}), ...(near ? { near: { ...near, km } } : {}), source: 'AGN MACH station network',
+      return { ok: true, at: state.lastAt || null, ready: !!state.last && !down, fleet: all, feed, ...(down ? { unavailable: feed.text } : {}), ...(near ? { near: { ...near, km } } : {}), source: 'observation network',
         rule: 'every registered station in one class by its status: reporting now (checked reading in the live window), recent (reported earlier today), offline (no reading today), not used (site or record problem), not yet checked' }; },
     /* v283.51g3 · the time of the last finished poll (past30.mjs keys its window record on it) */
     pollAt: () => state.lastAt,

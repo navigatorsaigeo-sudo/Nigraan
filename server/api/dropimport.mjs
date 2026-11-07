@@ -55,6 +55,6 @@ export function createDropImport(app, root, dataDir) {
       imported: last ? last.files.filter((f) => f.ok).length : 0, rejected: last ? last.files.filter((f) => !f.ok).length : 0 };
   }
 
-  schedule(app, 'dropImport', 30 * 60 * 1000, () => run().then((r) => { if (r && Number.isInteger(r.code) && r.code !== 0 && r.code !== 5 && r.code !== 75) { lastErr = 'drop folder import exited ' + r.code; throw new Error(lastErr); } return r; }).catch((e) => { lastErr = e.message; throw e; })   /* v283.23 self-audit J15: a non-zero exit is a failure the schedule shows */, { firstMs: 2 * 60 * 1000, heavy: true, label: 'drop folder import (Python)' });
+  schedule(app, 'dropImport', 30 * 60 * 1000, () => run().then((r) => { if (r && Number.isInteger(r.code) && r.code !== 0 && r.code !== 5 && r.code !== 75) { const why = lastErr && !/^drop folder import exited /.test(lastErr) ? lastErr : ('drop folder import exited ' + r.code); lastErr = why; throw new Error(why); } return r; }).catch((e) => { lastErr = e.message; throw e; })   /* v283.23 self-audit J15: a non-zero exit is a failure the schedule shows */, { firstMs: 2 * 60 * 1000, heavy: true, label: 'drop folder import (Python)' });
   return { run, status, folder };
 }

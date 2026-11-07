@@ -18,6 +18,7 @@
 import { readdirSync, readFileSync, statSync, existsSync, openSync, readSync, closeSync } from 'node:fs';
 import { join } from 'node:path';
 import { stationData, internalNames, label } from './refmode.mjs';
+import { scrubMachText, scrubMachTree } from './hideMach.mjs';
 
 const MAX_BYTES = 12e6;   /* the licence header sits at the top of files far smaller than this; the store is skipped */
 const INTERNAL = () => internalNames();
@@ -103,18 +104,18 @@ export function createSources(dataDir) {
   /* one line for every report's methods note: the network, then each credit */
   function methodsLine() {
     const L = list().filter((e) => e.customer);
-    if (!L.length) return 'Sources: MACH stations (AGN). No licence headers were found in the data directory.';
+    if (!L.length) return scrubMachText('Sources: local weather observations (AGN). No licence headers were found in the data directory.');
     /* the partner entry is credited by its short line (label('network')), not the page's full sentence */
-    return 'Sources: ' + L.map((e) => e.id === 'partner_networks' ? label('network') : (e.attribution || e.dataset) + (e.licence && !/proprietary/i.test(e.licence) ? ' (' + e.licence.replace(/\s*\(.*$/, '') + ')' : '')).join('; ') + '. Full list with licences: Sources page (/api/sources).';
+    return scrubMachText('Sources: ' + L.map((e) => e.id === 'partner_networks' ? label('network') : (e.attribution || e.dataset) + (e.licence && !/proprietary/i.test(e.licence) ? ' (' + e.licence.replace(/\s*\(.*$/, '') + ')' : '')).join('; ') + '. Full list with licences: Sources page (/api/sources).');
   }
   function page() {
     const S = scan(); const entries = list();
-    return {
+    const body = {
       schema: 'agn.sources.v1', generatedAt: new Date().toISOString(),
       title: 'Sources and licences',
       statement: stationData()
-        ? 'NIGRAAN values are built from AGN’s own MACH weather stations, from ' + label('network') + ', and from the openly licensed datasets below. ' + label('sourcesLine') + ' Each open dataset is listed with its licence and the attribution its licence requires. Weather data are delivered through the MAch service.'
-        : 'NIGRAAN values are built from AGN’s own MACH weather stations and from the openly licensed datasets below. Each dataset is listed with its licence and the attribution its licence requires. Weather data are delivered through the MAch service.',
+        ? 'NIGRAAN values are built from AGN’s own weather observations, from ' + label('network') + ', and from the openly licensed datasets below. ' + label('sourcesLine') + ' Each open dataset is listed with its licence and the attribution its licence requires. Weather data are delivered through the weather service.'
+        : 'NIGRAAN values are built from AGN’s own weather observations and from the openly licensed datasets below. Each dataset is listed with its licence and the attribution its licence requires. Weather data are delivered through the weather service.',
       network: entries.find((e) => e.id === 'mach') || null,
       entries: entries.map((e) => ({ id: e.id, dataset: e.dataset, provider: e.provider, licence: e.licence, licenceUrl: e.licenceUrl, attribution: e.attribution, url: e.url, use: e.use, files: e.files, reaches: e.reaches.length ? e.reaches : undefined, ...(e.tier ? { tier: e.tier } : {}), ...(e.customer ? {} : { internalOnly: true }) })),
       stationData: stationData(),
@@ -124,6 +125,7 @@ export function createSources(dataDir) {
       builtFrom: 'the "licence" header of each data file (scripts/licence_headers.py) and data/open-feeds.json; files read at ' + S.at,
       ...(INTERNAL() ? { skipped: S.skipped } : {}),
     };
+    return scrubMachTree(body);
   }
   /* v91.17.283.51 · B3 · start-up: the licence headers are read ahead OFF the warm-up path, one file per turn of the event loop with
      non-blocking reads (the warm-up's synchronous scan took 21 s on the laptop after it woke: every data file stat-ed and the headed ones

@@ -71,17 +71,15 @@ export default function ProofPane({ place, bundle, onOpen }) {
           )}
         </div>
         <div className="cz-card">
-          <h3>AGN stations around you now</h3>
-          {station?.ok && (
-            <p>
-              {station.label || station.name || 'A station reading is attached to this point.'}
-              {station.km != null ? ` · ${fixed(station.km)} km` : ''}
-              {station.ageMin != null ? ` · ${station.ageMin} min ago` : ''}
-              {station.reading?.tempC != null ? ` · ${fixed(station.reading.tempC)} °C` : ''}.
-            </p>
+          <h3>Live observation check</h3>
+          {station?.ok && station.reading?.tempC != null && (
+            <p>A checked local reading supports this place{` · ${fixed(station.reading.tempC)} °C`}.</p>
           )}
-          {station && station.ok === false && <p className="cz-muted">{station.why || 'No station reading is attached to this point right now.'}</p>}
-          {fleet && <p className="cz-muted">{fleet.usable != null ? `${fleet.usable} stations usable` : (fleet.why || 'Station network status loaded.')}{fleet.total != null ? ` of ${fleet.total}` : ''}.</p>}
+          {station?.ok && station.reading?.tempC == null && (
+            <p>A checked local reading supports this place.</p>
+          )}
+          {station && station.ok === false && <p className="cz-muted">No live temperature measurement near this place right now.</p>}
+          {!station && fleet && <p className="cz-muted">Observation network status loaded.</p>}
         </div>
       </div>
       <div className="cz-card">

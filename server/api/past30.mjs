@@ -240,21 +240,21 @@ export function createPast30(app, dataDir, opts = {}) {
     if (stations.some((x) => !x.current)) notes.push('A station whose readings stop before the last day of the window shows no highest or lowest value: they would describe an older period than the rest of the table.');
     stations.sort((a, b) => a.km - b.km); cand.sort((a, b) => a.d - b.d);
     if (stations.length) { sources.add(label('ownStations')); notes.push('Station rain is not shown: the stations report a running rain total that resets at different times of day, so it cannot be turned into reliable Pakistan-day totals.'); }
-    if (!cand.length) notes.push(R ? 'No checked MACH station within ' + R.radius_km + ' km and ' + R.dz_m + ' m of this place’s height: day highs and lows are not available here.' : 'The station check rule is not on this server: day highs and lows are not available.');
+    if (!cand.length) notes.push(R ? 'No checked weather station within ' + R.radius_km + ' km and ' + R.dz_m + ' m of this place’s height: day highs and lows are not available here.' : 'The station check rule is not on this server: day highs and lows are not available.');
     else { const used = new Set(); for (const d of dates) { const c = cand.find((x) => { const v = x.S.days.get(d); return v && v.h.size >= DAY_MIN_HOURS; }); if (c) used.add(c.name); }
-      if (used.size) notes.push('Day highs and lows: ' + [...used].join('; ') + ' (the nearest checked MACH station with a complete day; a day needs readings in ' + DAY_MIN_HOURS + ' of its 24 hours).');
-      else notes.push('The checked MACH stations near this place have no complete day in this window (a day needs readings in ' + DAY_MIN_HOURS + ' of its 24 hours): day highs and lows are not available.'); }
+      if (used.size) notes.push('Day highs and lows come from checked local readings (a complete day needs readings in ' + DAY_MIN_HOURS + ' of its 24 hours).');
+      else notes.push('Checked local stations near this place have no complete day in this window (a day needs readings in ' + DAY_MIN_HOURS + ' of its 24 hours): day highs and lows are not available.'); }
 
     /* ── normals ── */
     const C = app.climatology; const nrm = (d) => { try { return uid && C && C.normals ? C.normals(uid, d) : null; } catch (_) { return null; } };
 
     const daily = dates.map((d) => { let tmaxC = null, tminC = null, src = [];
       const c = cand.find((x) => { const v = x.S.days.get(d); return v && v.h.size >= DAY_MIN_HOURS; });
-      if (c) { const v = c.S.days.get(d); tmaxC = r1(v.hi); tminC = r1(v.lo); src.push('MACH ' + c.name + ' (' + r1(c.d) + ' km)'); if (v.db) dbDays++; else fleetDays++; }
+      if (c) { const v = c.S.days.get(d); tmaxC = r1(v.hi); tminC = r1(v.lo); src.push('local observation'); if (v.db) dbDays++; else fleetDays++; }
       const rainMm = rain.has(d) ? r1(rain.get(d)) : null; if (rainMm != null) src.push(label('satelliteRain') + ' (tehsil average)');
       return { date: d, tmaxC, tminC, rainMm, src: src.join('; ') || null }; });
 
-    if (dbDays || fleetDays) notes.push('Day highs and lows: ' + dbDays + ' of the ' + (dbDays + fleetDays) + ' days from the MACH observation record' + (fleetDays ? ', ' + fleetDays + ' from the live station feed where the record has no complete day.' : '.'));
+    if (dbDays || fleetDays) notes.push('Day highs and lows: ' + dbDays + ' of the ' + (dbDays + fleetDays) + ' days from the observation record' + (fleetDays ? ', ' + fleetDays + ' from the live station feed where the record has no complete day.' : '.'));
 
     /* ── levels ── */
     const W = levelWords(); const levels = []; let levelDays = 0, levelSrc = null;
@@ -281,7 +281,8 @@ export function createPast30(app, dataDir, opts = {}) {
       rainMm: Rn.length ? r1(Rn.reduce((a, b) => a + b.rainMm, 0)) : null, rainNormalMm: rainNormal, wetDays: Rn.length ? wet.length : null, wettestDate: wettest && wettest.rainMm > 0 ? wettest.date : null, wettestMm: wettest && wettest.rainMm > 0 ? wettest.rainMm : (Rn.length ? 0 : null),
       tempDays: T.length, rainDays: Rn.length };
     if (!T.length && !Rn.length && !levelDays && !stations.length) return { ok: false, reason: 'This server holds no observed record for this place in the last ' + n + ' days yet.' };
-    const out = { ok: true, from, to, days: n, place: { lat, lon, tehsil: unit ? unit.name : null, district: unit ? unit.district || null : null, elevM: zP != null ? Math.round(zP) : null }, daily, summary, levels, stations, stationsNotInRegister: unlisted, sources: [...sources], notes };
+    /* Station identity / distance never leaves this record for display; values stay on daily rows. */
+    const out = { ok: true, from, to, days: n, place: { lat, lon, tehsil: unit ? unit.name : null, district: unit ? unit.district || null : null, elevM: zP != null ? Math.round(zP) : null }, daily, summary, levels, stations: [], stationsNotInRegister: 0, sources: [...sources], notes };
     if (statusWait) unready.add(out);
     return out;
   }

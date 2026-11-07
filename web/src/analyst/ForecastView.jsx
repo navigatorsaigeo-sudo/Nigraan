@@ -738,7 +738,7 @@ export default function ForecastView() {
         <>
           {banner && (
             <div className="fc-banner">
-              <span><b>Live city weather · on-demand district context.</b> City conditions and hourly forecasts are the model forecast at each place, corrected by live MACH stations where one is in reach. District AQI and weather context load only when requested; national screening scores remain uncalibrated decision support, not warnings.</span>
+              <span><b>Live city weather · on-demand district context.</b> City conditions and hourly forecasts are the model forecast at each place, corrected by live observations where one is in reach. District AQI and weather context load only when requested; national screening scores remain uncalibrated decision support, not warnings.</span>
               <button type="button" className="fc-btn" onClick={() => setBanner(false)}>Dismiss</button>
             </div>
           )}
@@ -1041,19 +1041,19 @@ export default function ForecastView() {
           <article className="fc-card" id="fcobs">
             <div className="fc-outhead">
               <div>
-                <h3>Observations · the MACH fleet</h3>
-                <p className="fc-note">Live MACH database · Wunderground, WU API, Ecowitt, airport ASOS and Apple QM. A station counts as online when it has a reading in the last 24 hours. Only checked non‑Apple readings correct the served forecast.</p>
+                <h3>Observations · live network</h3>
+                <p className="fc-note">Live observation database · Wunderground, WU API, Ecowitt, airport ASOS and Apple QM. A station counts as online when it has a reading in the last 24 hours. Only checked non‑Apple readings correct the served forecast.</p>
               </div>
               <span className="fc-note">{(machLive?.updatedAt || fleet?.lastAt) ? `Updated ${String(machLive?.updatedAt || fleet.lastAt).slice(0, 16).replace('T', ' ')} UTC` : ''}</span>
             </div>
             <div className="fc-obs-kpis">
-              <Obs n={machLive?.live24 ?? fleetCounts.reportingNow ?? fleet?.reportingNow} l="Online" s="reading in the last 24 h on MACH" />
+              <Obs n={machLive?.live24 ?? fleetCounts.reportingNow ?? fleet?.reportingNow} l="Online" s="reading in the last 24 h on the network" />
               <Obs n={machLive?.offline24 ?? fleetCounts.offline} l="Offline" s="no reading in the last 24 h" />
-              <Obs n={machLive?.total ?? fleet?.db?.stations ?? fleetCounts.total ?? fleet?.stations} l="Stations" s={`in the MACH database · ${machLive?.appleLive ?? '—'} Apple QM live`} />
+              <Obs n={machLive?.total ?? fleet?.db?.stations ?? fleetCounts.total ?? fleet?.stations} l="Stations" s={`in the observation database · ${machLive?.appleLive ?? '—'} Apple QM live`} />
               <Obs n={fleet?.reportingNow ?? fleetCounts.reportingNow} l="Checked" s="passed NIGRAAN checks · used for the forecast" />
-              <Obs n={machLive ? machLive.byProvider?.wunderground?.live24 ?? 0 : '—'} l="Wunderground" s={machLive ? `${machLive.byProvider?.wunderground?.total ?? 0} registered` : 'live MACH'} />
-              <Obs n={machLive ? (machLive.byProvider?.wu_api?.live24 ?? 0) + (machLive.byProvider?.ecowitt?.live24 ?? 0) : '—'} l="WU API + Ecowitt" s={machLive ? `${(machLive.byProvider?.wu_api?.total ?? 0) + (machLive.byProvider?.ecowitt?.total ?? 0)} registered` : 'live MACH'} />
-              <Obs n={machLive ? machLive.byProvider?.airport_asos?.live24 ?? 0 : '—'} l="Airports" s={machLive ? `${machLive.byProvider?.airport_asos?.total ?? 0} ASOS` : 'live MACH'} />
+              <Obs n={machLive ? machLive.byProvider?.wunderground?.live24 ?? 0 : '—'} l="Wunderground" s={machLive ? `${machLive.byProvider?.wunderground?.total ?? 0} registered` : 'live network'} />
+              <Obs n={machLive ? (machLive.byProvider?.wu_api?.live24 ?? 0) + (machLive.byProvider?.ecowitt?.live24 ?? 0) : '—'} l="WU API + Ecowitt" s={machLive ? `${(machLive.byProvider?.wu_api?.total ?? 0) + (machLive.byProvider?.ecowitt?.total ?? 0)} registered` : 'live network'} />
+              <Obs n={machLive ? machLive.byProvider?.airport_asos?.live24 ?? 0 : '—'} l="Airports" s={machLive ? `${machLive.byProvider?.airport_asos?.total ?? 0} ASOS` : 'live network'} />
               <Obs n={pairs?.pairs} l="Pairs in the lake" s="station-hours this session" />
             </div>
             <section className="fc-fleet-now">
@@ -1080,7 +1080,7 @@ export default function ForecastView() {
               <div className="fc-wrap">
                 <table className="fc-table">
                   <thead>
-                    <tr>{[['no', 'MACH'], ['place', 'Station'], ['ageMin', 'Last reading'], ['tempC', 'T °C'], ['rhPct', 'RH %'], ['dewC', 'Dew point °C'], ['windKmh', 'Wind km/h'], ['precipRateMm', 'Rain mm/h'], ['status', 'Status']].map(([k, label]) => (
+                    <tr>{[['no', 'No.'], ['place', 'Station'], ['ageMin', 'Last reading'], ['tempC', 'T °C'], ['rhPct', 'RH %'], ['dewC', 'Dew point °C'], ['windKmh', 'Wind km/h'], ['precipRateMm', 'Rain mm/h'], ['status', 'Status']].map(([k, label]) => (
                       <th key={k}><button type="button" className={`fc-sort${sortKey === k ? ' on' : ''}`} aria-pressed={sortKey === k} onClick={() => { if (sortKey === k) setSortDir((d) => -d); else { setSortKey(k); setSortDir(k === 'place' || k === 'status' ? 1 : -1); } }}>{label}{sortKey === k ? (sortDir < 0 ? ' ↓' : ' ↑') : ''}</button></th>
                     ))}</tr>
                   </thead>
@@ -1103,7 +1103,7 @@ export default function ForecastView() {
               </div>
               <h4>What the served temperature stands on</h4>
               <p className="fc-note"><b>Height</b> · each tehsil’s temperature is served at its population-weighted settlement height, not at the model grid height.</p>
-              <p className="fc-note"><b>This fleet</b> · the live check: {pairs?.now ? `${pairs.now.n} MACH stations paired with the forecast at the reading hour; served error ${f1(pairs.now.maeServed)} °C (raw ${f1(pairs.now.maeRaw)} °C).` : 'MACH pairs appear after the next poll.'} MACH is AGN’s own network.</p>
+              <p className="fc-note"><b>This fleet</b> · the live check: {pairs?.now ? `${pairs.now.n} weather stations paired with the forecast at the reading hour; served error ${f1(pairs.now.maeServed)} °C (raw ${f1(pairs.now.maeRaw)} °C).` : 'Observation pairs appear after the next poll.'}</p>
             </section>
           </article>
           <div className="fc-foot">

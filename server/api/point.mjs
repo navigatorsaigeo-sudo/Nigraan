@@ -153,8 +153,8 @@ export function createPoint(app, opts = {}) {
     let chainId = null; try { chainId = app.provenance ? app.provenance.chain().id : null; } catch (_) { chainId = null; }   /* the code-and-table identity that made it (as /health) */
     placeSpelling(place);   /* v91.17.283.52 D · N20: Shekhupura -> Sheikhupura (the tehsil / district spelling) in the place's name, label and nearby name */
     const B = { ...ps, version: POINT_VERSION, pointState: ps.version, view, stamp: stampOf(), chainId, place,
-      station: st && st.station ? { ok: true, kind: 'station', name: st.station, id: st.id, no: st.no, km: st.km, ageMin: st.ageMin, status: st.status, stationElevM: st.stationElevM, pointElevM: st.pointElevM, reading: st.reading, rule: st.rule, source: 'AGN station network (MACH)' }
-        : { ok: false, kind: 'station', why: (st && st.why) || 'no AGN station reading within 25 km', ...(st && Array.isArray(st.held) && st.held.length ? { held: st.held } : {}), rule: st && st.rule || null },   /* v91.17.283.51 fix: the stations held back, with their reasons */
+      station: st && st.station ? { ok: true, kind: 'station', name: st.station, id: st.id, no: st.no, km: st.km, ageMin: st.ageMin, status: st.status, stationElevM: st.stationElevM, pointElevM: st.pointElevM, reading: st.reading, rule: st.rule, source: 'observation network' }
+        : { ok: false, kind: 'station', why: (st && st.why) || 'no live temperature measurement near this place', ...(st && Array.isArray(st.held) && st.held.length ? { held: st.held } : {}), rule: st && st.rule || null },   /* v91.17.283.51 fix: the stations held back, with their reasons */
       parts: {}, pending: [] };
     /* v91.17.283.49 · 1.0.10 item 6 · the shown place answer (shownplace.mjs): one rounding rule, measured vs forecast labels, the place summary */
     try { let sm = null; if (place.unitId) { const SU = servedUnit(app, place.unitId, view === 'operator'); sm = SU && SU.summary ? SU.summary : null; }
@@ -166,11 +166,12 @@ export function createPoint(app, opts = {}) {
       B.shown = shownOf(B, { summary: sm, feed, air });
       if (view === 'operator') B.airStation = air && air.ok ? air.detail : air ? { none: air.why, held: air.held || [] } : null; } catch (_) { B.shown = null; }
     if (ps.stale) { B.notice = ps.stale.line; try { if (B.shown && B.shown.now && B.shown.now.label) B.shown.now = { ...B.shown.now, label: B.shown.now.label + ' · ' + ps.stale.line }; if (B.shown) B.shown.notice = ps.stale.line; } catch (_) {} }
-    /* v91.17.283.51 fix · OWNER DECISION 3 Nov 18:54 PKT: no station name, number, distance, age or hold reason reaches a customer page; the
-       reading's values stay (the "now" may be the measured value), its wording is the shown sentence by location. Operator view unchanged. */
-    if (view !== 'operator') { const strip = (x) => (x && typeof x === 'object' ? { ok: !!x.ok, kind: x.kind || 'station', ...(x.reading ? { reading: { ...x.reading, note: undefined } } : {}), label: B.shown && B.shown.measured ? B.shown.measured.label : null } : x);
+    /* OWNER: no station name / number / distance / age / MACH branding on any dashboard view; readings still used. */
+    { const strip = (x) => (x && typeof x === 'object' ? { ok: !!x.ok, kind: x.kind || 'station', ...(x.reading ? { reading: { tempC: x.reading.tempC, rh: x.reading.rh, windKmh: x.reading.windKmh, observedAt: x.reading.observedAt } } : {}), label: B.shown && B.shown.measured ? B.shown.measured.label : null } : x);
       B.station = strip(B.station);
-      if (B.source && B.source.mach && B.source.mach.nearest) B.source = { ...B.source, mach: { ...B.source.mach, nearest: strip(B.source.mach.nearest) } }; }
+      if (B.source && B.source.mach && B.source.mach.nearest) B.source = { ...B.source, mach: { ...B.source.mach, nearest: strip(B.source.mach.nearest) } };
+      if (B.source && B.source.kind) B.source = { ...B.source, kind: String(B.source.kind).replace(/\bMACH\b/gi, '').replace(/\s{2,}/g, ' ').trim() || 'Forecast' };
+      if (Array.isArray(B.build?.steps)) B.build = { ...B.build, steps: B.build.steps.map((step) => (typeof step === 'string' ? step.replace(/\bMACH\b/gi, 'observation').replace(/\s{2,}/g, ' ').trim() : step)) }; }
     if (ck) Object.defineProperty(B, '__ck', { value: ck, enumerable: false, configurable: true });
     Object.defineProperty(B, '__builtMs', { value: now(), enumerable: false, configurable: true });   /* v283.23: the cache key this bundle will live under (retries check it) */
     const ctx = { lat: P.lat, lon: P.lon, place, uid: place.unitId, elevM: ps.point && ps.point.elevM, view, ps, bundle: B };

@@ -253,9 +253,9 @@ export function createReport(app) {
     const tier = mach ? 'A' : ((u.elevSource && u.elevSource !== 'anchor point') || calibrated) ? 'B' : 'C';
     const calLine = calibrated ? ' The served temperature carries ' + label('calibration') + ' from ' + label('network') + ' (tier B; not a MACH measurement).' : '';
     return { schema: 'agn.forecast-basis.v1', tier, mark: (R.marks || {})[tier] || null, label: (R.labels || {})[tier] || null,
-      basis: tier === 'A' ? ('MACH station ' + mach.station + ', ' + mach.km + ' km from the unit point' + (mach.dzM != null ? ', ' + (mach.dzM >= 0 ? '+' : '') + mach.dzM + ' m from the served height' : '') + ': the MAch point forecast against the station\u2019s own readings, ' + mach.first + ' to ' + mach.last)
-        : tier === 'B' ? 'The model forecast served at this tehsil\u2019s population-weighted settlement height (' + served + ' m; Copernicus DEM GLO-90 and GHS-POP). No MACH station stands within ' + R.reachKm + ' km and ' + R.maxDzM + ' m of it yet.' + calLine
-        : 'The model forecast at the unit point with terrain from the Copernicus DEM. No MACH station stands within ' + R.reachKm + ' km and ' + R.maxDzM + ' m of it yet.',
+      basis: tier === 'A' ? ('Live observation check at this place: the point forecast against checked local readings, ' + mach.first + ' to ' + mach.last)
+        : tier === 'B' ? 'The model forecast served at this tehsil\u2019s population-weighted settlement height (' + served + ' m; Copernicus DEM GLO-90 and GHS-POP). No live observation check is within reach yet.' + calLine
+        : 'The model forecast at the unit point with terrain from the Copernicus DEM. No live observation check is within reach yet.',
       mach, stationCalibrated: calibrated, rule: { reachKm: R.reachKm, maxDzM: R.maxDzM, minHours: R.minHours, source: 'data/quality-tier.json' },
       servedHeightM: served };
   }

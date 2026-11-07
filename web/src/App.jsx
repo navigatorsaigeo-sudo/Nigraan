@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import StartPage from './pages/StartPage.jsx';
-import AnalystPage from './pages/AnalystPage.jsx';
-import DashboardPage from './pages/DashboardPage.jsx';
-import { CustomizeRoute } from './GateLock.jsx';
 import NetBar from './components/NetBar.jsx';
 import { startPrefetch } from './prefetch.js';
+
+const AnalystPage = lazy(() => import('./pages/AnalystPage.jsx'));
+const DashboardPage = lazy(() => import('./pages/DashboardPage.jsx'));
+const CustomizeRoute = lazy(() => import('./GateLock.jsx').then((mod) => ({ default: mod.CustomizeRoute })));
 
 function Route({ path }) {
   if (path === '/analyst' || path.startsWith('/analyst/')) return <AnalystPage />;
@@ -24,7 +25,9 @@ export default function App() {
   return (
     <>
       <NetBar />
-      <Route path={path} />
+      <Suspense fallback={null}>
+        <Route path={path} />
+      </Suspense>
     </>
   );
 }

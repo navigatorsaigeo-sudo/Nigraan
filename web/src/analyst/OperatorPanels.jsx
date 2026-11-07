@@ -820,7 +820,7 @@ function AccuracyCard() {
       badgeTone={flags.length ? 'warn' : body?.ok ? undefined : 'critical'}
       summary={body?.ok
         ? `Last run ${body.lastRun || 'not yet'} · national MAE ${escNum(national?.mae)} °C`
-        : 'Served temperature vs MACH, synoptic and airport observations'}
+        : 'Served temperature vs local, synoptic and airport observations'}
       note="A city is flagged when its 24-hour error leaves the 95th percentile of its own past 30 days."
     >
       {!body && <Loading />}

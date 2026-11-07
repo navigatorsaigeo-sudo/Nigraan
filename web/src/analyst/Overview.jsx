@@ -4,7 +4,7 @@ import AnalystMap from './AnalystMap.jsx';
 import Guidance from './Guidance.jsx';
 import HourStrip from './HourStrip.jsx';
 import { tehsilAt, tehsilRows } from './features.js';
-import { AQI_COLOURS, CANNOT, GLOF_EXPOSURE, HEAT_INDEX_COLOURS, HEAT_INDEX_WORDS, LEVEL_COLOURS, LEVEL_WORDS, TABS, UNTESTED } from './layers.js';
+import { AQI_COLOURS, CANNOT, DAILY_MENU, GLOF_EXPOSURE, HEAT_INDEX_COLOURS, HEAT_INDEX_WORDS, LEVEL_COLOURS, LEVEL_WORDS, TABS, UNTESTED } from './layers.js';
 import { ensureCurrentPlace, readHashPlace, writePlace } from './place.js';
 import { cachedGet, getPointBundle, peekCached, peekPointBundle } from './placeCache.js';
 import { CheckMenu, ChoiceMenu, DailyMenu, HeatLine, MoreLayers, OutlookPanel } from './MapMenus.jsx';
@@ -18,6 +18,9 @@ import { areaLabel, scoreSite } from './siteDraw.js';
 
 /* Same core parts as usePlace — one cache entry shared across Overview / Forecast / Operations. */
 const PLACE_PARTS = 'default,context,hazardCount';
+const DAILY_HAZARD_IDS = new Set(
+  (DAILY_MENU.find(([group]) => group === 'Daily hazards')?.[1] || []).map(([id]) => id),
+);
 
 function remember(place) {
   if (!place) return;
@@ -195,8 +198,17 @@ function missingWhy(meta) {
   return String(first).replace(/^not assessed:\s*/i, '').trim();
 }
 
+function countLevels(scale, meta) {
+  if (Array.isArray(meta?.counts) && meta.counts.length) return meta.counts;
+  const counts = scale.words.map(() => 0);
+  Object.values(meta?.levels || {}).forEach((level) => {
+    if (typeof level === 'number' && level >= 0 && level < counts.length) counts[level] += 1;
+  });
+  return counts;
+}
+
 function keyRows(layer, scale, meta, legends) {
-  const counts = meta?.counts || [];
+  const counts = countLevels(scale, meta);
   const rows = scale.words.map((word, index) => {
     const full = legendLabel(word, bandOf(legends, layer, index), index);
     const detail = full.startsWith(`${word} · `) ? full.slice(word.length + 3) : (full && full !== word ? full : '');
@@ -210,8 +222,9 @@ function keyRows(layer, scale, meta, legends) {
     };
   });
   const states = meta?.states || {};
-  const missing = Number(states.missing ?? meta?.nd ?? 0) || 0;
+  const missing = Number(states.missing ?? 0) || 0;
   const cannot = Number(states.not_applicable ?? meta?.na ?? 0) || 0;
+  const untested = Number(states.not_tested ?? 0) || 0;
   if (missing > 0) {
     const detail = missingWhy(meta);
     rows.push({
@@ -221,6 +234,16 @@ function keyRows(layer, scale, meta, legends) {
       detail: detail || 'No value from the source',
       count: missing,
       kind: 'missing',
+    });
+  }
+  if (untested > 0) {
+    rows.push({
+      key: 'untested',
+      colour: UNTESTED,
+      word: 'Not tested',
+      detail: 'The method has not passed its test here',
+      count: untested,
+      kind: 'untested',
     });
   }
   if (cannot > 0) {
@@ -808,7 +831,7 @@ export default function Overview({ embedded = false }) {
   useEffect(() => {
     if (!keyOpen) return undefined;
     const close = (event) => {
-      if (event.target.closest('.ov-v3leg, .ov-details')) return;
+      if (event.target.closest('.ov-v3leg, .ov-details, .hzmenu')) return;
       setKeyOpen(false);
       setKeyInfo(false);
     };
@@ -1138,6 +1161,7 @@ export default function Overview({ embedded = false }) {
     setLayer(id);
     setLayerLabel(name);
     setOverlays((cur) => ({ ...cur, heatindex: false }));
+    if (DAILY_HAZARD_IDS.has(id)) setKeyOpen(true);
   }
 
   const whenLabel = basis === 'current' ? 'current hour' : day === 0 ? "today's peak" : `day +${day}`;
@@ -1477,7 +1501,7 @@ export default function Overview({ embedded = false }) {
           )}
           <div className="ov-foot">
             <div className="ov-layerpick">
-              <DailyMenu layer={layer} label={layerLabel} onPick={pickLayer} />
+              <DailyMenu layer={layer} label={layerLabel} onPick={pickLayer} onOpen={() => setKeyOpen(true)} />
             </div>
             <ChoiceMenu
               id="map-when"

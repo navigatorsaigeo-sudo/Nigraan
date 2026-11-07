@@ -353,7 +353,8 @@ export function createPlaces(app) {
   function near(lat, lon, o = {}) {
     const R = Math.min(150, Math.max(0.5, Number(o.km) || 12)), max = Math.max(1, Math.min(500, Number(o.limit) || 36)), minKm = o.minKm != null ? Number(o.minKm) : 1.2;
     const c = around(lat, lon, R, (r) => POPULATED.has(r.kind) && r.confirmed && /\p{L}/u.test(r.name));
-    c.sort((a, b) => (kindRank(a.r) - kindRank(b.r)) || (b.r.pop - a.r.pop) || (a.d - b.d));
+    if (o.nearest) c.sort((a, b) => a.d - b.d || (b.r.pop - a.r.pop));
+    else c.sort((a, b) => (kindRank(a.r) - kindRank(b.r)) || (b.r.pop - a.r.pop) || (a.d - b.d));
     const out = [];
     for (const x of c) { if (out.length >= max) break; if (out.some((o2) => o2.key === x.r.key || km(o2.lat, o2.lon, x.r.lat, x.r.lon) < minKm)) continue;
       out.push({ ...brief(x.r), key: x.r.key, km: Math.round(x.d * 10) / 10, distanceKm: Math.round(x.d * 10) / 10 }); }

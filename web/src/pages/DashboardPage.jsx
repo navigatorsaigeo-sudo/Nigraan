@@ -70,9 +70,17 @@ export default function DashboardPage() {
     setToken(result.data.token);
     setCopied(false);
     setUsed(false);
-    setStatus((prev) => ({ ...prev, authed: true, configured: true, locked: false, hasToken: true, issuedAt: result.data.issuedAt }));
+    setStatus((prev) => ({
+      ...prev,
+      authed: true,
+      configured: true,
+      locked: false,
+      hasToken: true,
+      issuedAt: result.data.issuedAt,
+      sessions: Array.isArray(result.data.sessions) ? result.data.sessions : [],
+    }));
     noteLocked();
-    setNote('This token is shown once. Use it here, or enter it on another browser. Everyone else stays locked.');
+    setNote('This token is shown once. Use it here, or enter it on another browser. Computers that enter it appear below.');
   }
 
   async function copyToken() {
@@ -104,6 +112,7 @@ export default function DashboardPage() {
     setBusy('');
     setUsed(!!result.open);
     setNote(result.open ? 'This browser can now open Operator mode and Customize.' : result.error);
+    if (result.open) load();
   }
 
   async function lock() {
@@ -115,12 +124,26 @@ export default function DashboardPage() {
       return;
     }
     setToken('');
-    setStatus((prev) => ({ ...prev, authed: true, configured: true, locked: true, hasToken: false, issuedAt: null }));
+    setStatus((prev) => ({
+      ...prev,
+      authed: true,
+      configured: true,
+      locked: true,
+      hasToken: false,
+      issuedAt: null,
+      sessions: Array.isArray(result.data.sessions) ? result.data.sessions : (prev?.sessions || []),
+    }));
     noteLocked();
-    setNote('Locked. Operator mode and Customize are closed on this computer, including a typed address. The previous token no longer works.');
+    setNote('Locked. Operator mode and Customize are closed on every computer that had the token. The previous token no longer works.');
   }
 
   const locked = !status || status.locked !== false;
+  const sessions = Array.isArray(status?.sessions) ? status.sessions : [];
+
+  function when(value) {
+    if (!value) return '';
+    return String(value).replace('T', ' ').slice(0, 19) + ' UTC';
+  }
 
   return (
     <div className="gate-page">
@@ -155,10 +178,11 @@ export default function DashboardPage() {
           <>
             <p className={`gate-state${locked ? ' is-locked' : ' is-open'}`}>{locked ? 'Locked' : 'Token issued'}</p>
             <p>Operator mode and Customize open only in a browser that enters the token. Issuing it does not unlock everyone else.</p>
-            {status?.issuedAt && !locked && <p className="gate-meta">Issued {status.issuedAt.replace('T', ' ').slice(0, 19)} UTC</p>}
+            {status?.issuedAt && !locked && <p className="gate-meta">Issued {when(status.issuedAt)}</p>}
             <div className="gate-actions">
               <button type="button" className="gate-primary" disabled={!!busy} onClick={issue}>{busy === 'issue' ? 'Issuing…' : 'Issue token'}</button>
               <button type="button" disabled={!!busy || (locked && !gate.open)} onClick={lock}>{busy === 'lock' ? 'Locking…' : 'Lock again'}</button>
+              <button type="button" disabled={!!busy} onClick={load}>Refresh</button>
               <button type="button" onClick={() => go('/')}>Back</button>
             </div>
             {token && (
@@ -173,6 +197,29 @@ export default function DashboardPage() {
               </div>
             )}
             {!token && note && <p className="gate-note">{note}</p>}
+            <div className="gate-devices">
+              <span>Computers</span>
+              {sessions.length === 0 ? (
+                <p className="gate-note">No laptop or PC has entered the token yet. Until one does, Operator mode and Customize stay locked everywhere.</p>
+              ) : (
+                <ul>
+                  {sessions.map((row) => (
+                    <li key={row.id} className={row.open ? 'is-open' : 'is-locked'}>
+                      <div className="gate-device-top">
+                        <strong>{row.label || 'Unknown device'}</strong>
+                        <em>{row.open ? 'Unlocked' : 'Locked'}</em>
+                      </div>
+                      <p>
+                        {[row.ip, row.host].filter(Boolean).join(' · ') || 'Address unknown'}
+                        {row.open
+                          ? ` · unlocked ${when(row.unlockedAt)}${row.lastSeenAt && row.lastSeenAt !== row.unlockedAt ? ` · last seen ${when(row.lastSeenAt)}` : ''}`
+                          : ` · locked ${when(row.lockedAt || status?.issuedAt)}`}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </>
         )}
       </section>

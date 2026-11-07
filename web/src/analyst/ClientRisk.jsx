@@ -575,7 +575,6 @@ function placeRows(record) {
   const seismic = record.seismic;
   const rain = record.rainReturn;
   const river = record.river;
-  let stations = record.stations;
   const accuracy = record.accuracy;
   if (record.modelCheck && record.modelCheck.passed === false) {
     rows.push(['Model check', `failed: ${record.modelCheck.why || 'the model gate did not pass'} · the levels of this place are withheld`, '']);
@@ -613,18 +612,6 @@ function placeRows(record) {
     const share = Number.isFinite(+river.floodplainShare) ? `${reaches ? '; ' : ''}${Math.round(river.floodplainShare * 100)} % of the tehsil on the floodplain (a fact, not part of the level)` : '';
     rows.push(['River status', status, `${reaches}${share}`]);
   }
-  if (stations?.unavailable) {
-    rows.push(['AGN stations', String(stations.unavailable), stations.rule || '']);
-    stations = null;
-  }
-  if (stations) {
-    const near = stations.near || {};
-    const fleet = stations.fleet || {};
-    const value = stations.ready === false && !fleet.reportingNow
-      ? `not yet checked: ${fleet.notYetChecked || 0} of ${fleet.total || 0} stations`
-      : `${near.reportingNow || 0} reporting now within ${near.km || '–'} km · ${fleet.reportingNow || 0} of ${fleet.total || 0} across the network`;
-    rows.push(['AGN stations', value, stations.rule || '']);
-  }
   if (accuracy) rows.push(['Forecast accuracy', accuracy.text || (accuracy.headline?.maeC != null ? `${accuracy.headline.maeC} °C` : accuracy.headline?.why) || 'not measured', accuracy.basis || '']);
   const leads = accuracy?.byLead?.TX || accuracy?.byLead?.T || [];
   if (leads.length) {
@@ -661,11 +648,6 @@ function PlaceRecord({ record }) {
   const reaches = (river?.reaches || []).map((item) => `${item.river} (${item.insideKm} km)`).join(', ');
   const share = Number.isFinite(+river?.floodplainShare) ? `${Math.round(river.floodplainShare * 100)}% of the tehsil is on the floodplain` : '';
   const gauge = river?.measured?.[0];
-  let stations = record.stations;
-  const stationsDown = stations?.unavailable ? String(stations.unavailable) : '';
-  if (stations?.unavailable) stations = null;
-  const near = stations?.near || {};
-  const fleet = stations?.fleet || {};
   const accuracy = record.accuracy;
   const mae = accuracy?.headline?.maeC;
   const leads = accuracy?.byLead?.TX || accuracy?.byLead?.T || [];
@@ -682,7 +664,6 @@ function PlaceRecord({ record }) {
     day && ['Rain', plain([day.scale, day.years ? `${day.years} years of record` : ''].filter(Boolean).join(' · '))],
     !day && rain?.why && ['Rain', plain(rain.why)],
     (accuracy?.text || accuracy?.basis) && ['Forecast', plain([accuracy.text, accuracy.basis].filter(Boolean).join(' '))],
-    stations?.rule && ['Stations', plain(stations.rule)],
     gauge && ['River', 'River gauge sheet, observed. Days 1–3 carry the status forward.'],
     reaches && ['River reach', plain(reaches)],
   ].filter(Boolean);
@@ -710,15 +691,6 @@ function PlaceRecord({ record }) {
         <article className="cr-rec">
           <span>Forecast error</span>
           {mae != null ? <div className="cr-figs"><div><b>{mae}°</b><small>mean °C</small></div></div> : <b className="cr-miss">Not measured</b>}
-        </article>
-        <article className="cr-rec">
-          <span>AGN stations</span>
-          {stations ? (
-            <div className="cr-figs">
-              <div><b>{near.reportingNow || 0}</b><small>within {near.km || '–'} km</small></div>
-              <div><b>{fleet.reportingNow || 0}</b><small>of {fleet.total || 0}</small></div>
-            </div>
-          ) : <b className="cr-miss">{stationsDown || 'Not checked'}</b>}
         </article>
       </div>
       {!!leads.length && (

@@ -229,10 +229,10 @@ export function createPointState(app, opts = {}) {
     if (TB.calibration && TB.calibration.applied) steps.push('station calibration');
     if (N.applied) steps.push('national temperature model');
     if (WX.applied) steps.push('weather correction');
-    if (BC.applied) steps.push(clean(BC.method || 'MACH fleet residual') || 'station correction');
+    if (BC.applied) steps.push(clean(BC.method || 'station correction') || 'station correction');
     if (E && E.variables && E.variables.length) steps.push('9 km model values for ' + E.variables.join(', ') + ' (switch rule passed)');
-    if (L3.applied) steps.push('live MACH stations (' + L3.stations + ' within ' + (L3.radiusKm || 40) + ' km, next ' + L3.hours + ' h)');
-    const kind = liveNow ? 'MACH forecast' : 'Model forecast';
+    if (L3.applied) steps.push('live observation correction (' + L3.stations + ' within ' + (L3.radiusKm || 40) + ' km, next ' + L3.hours + ' h)');
+    const kind = liveNow ? 'Live-corrected forecast' : 'Model forecast';
     /* v91.17.283.19 · THE ONE NEAREST STATION of a place (every page names this one): the nearest reporting AGN station that passes the
        fleet's display screens, within 25 km and within the fleet's height rule of the point's own forecast height, measured from the
        exact point; its latest reading is an observation, labelled as such and never the place's "now" */
@@ -242,8 +242,8 @@ export function createPointState(app, opts = {}) {
           stationElevM: isN(n.stationElevM) ? Math.round(n.stationElevM) : null, pointElevM: isN(n.pointElevM) ? Math.round(n.pointElevM) : null,
           reading: { kind: 'station', tempC: r1(n.tempC), rh: isN(n.rhPct) ? Math.round(n.rhPct) : null, windKmh: isN(n.windKmh) ? Math.round(n.windKmh) : null, observedAt: n.lastUpdated || null,
             note: 'the station\u2019s own reading (an observation, not corrected); the place\u2019s "now" is the forecast record' },
-          rule: 'nearest reporting AGN station passing the display screens, within 25 km and the height rule, from the exact point' }; }
-      else { const w = nOut.why; near = { station: null, why: (w && w.why) || 'no AGN station reading within 25 km', ...(w && Array.isArray(w.held) && w.held.length ? { held: w.held } : {}), rule: 'nearest reporting AGN station passing the display screens, within 25 km and the height rule, from the exact point' }; } } catch (_) {}
+          rule: 'nearest reporting station passing the display screens, within 25 km and the height rule, from the exact point' }; }
+      else { const w = nOut.why; near = { station: null, why: (w && w.why) || 'no live temperature measurement near this place', ...(w && Array.isArray(w.held) && w.held.length ? { held: w.held } : {}), rule: 'nearest reporting station passing the display screens, within 25 km and the height rule, from the exact point' }; } } catch (_) {}
     const d0 = days.find((d) => d.lead === 0) || null;
     /* v91.17.283.20 · item A2 · UTCI IN THE SUN of the hour (the v283.16 analyst page's calculation, now on the server): mean radiant
        temperature from the hour's forecast short-wave radiation at the sun's elevation now (utci.mjs tmrt: Fanger projected area, diffuse

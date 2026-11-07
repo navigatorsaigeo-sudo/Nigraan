@@ -15,6 +15,7 @@ import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { label } from './refmode.mjs';
+import { scrubMachText } from './hideMach.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const FILE = () => join(process.env.NIGRAAN_DATA_DIR || join(HERE, '..', '..', 'data'), 'source-labels.json');
@@ -61,7 +62,7 @@ function rules() {
 
 export function scrubText(s) {
   if (typeof s !== 'string' || !s) return s;
-  const R = rules(); return memo(MEMO.text, s, (x) => { let t = x; for (const [re, rep] of R.text) { re.lastIndex = 0; t = t.replace(re, rep); } return t; });
+  const R = rules(); return memo(MEMO.text, s, (x) => { let t = scrubMachText(x); for (const [re, rep] of R.text) { re.lastIndex = 0; t = t.replace(re, rep); } return scrubMachText(t); });
 }
 function scrubKey(k) { const R = rules(); return memo(MEMO.key, k, (x) => { let t = x; for (const [re, rep] of R.keys) { re.lastIndex = 0; t = t.replace(re, rep); } return t; }); }
 
@@ -117,14 +118,19 @@ const AGENCY_RULES = [
 export const AGENCY_RE = /\bPMD\b|Pakistan Meteorological Department|\bFFD\b|Flood Forecasting Division|(?<![\w-])EWS(?![\w-])|partner[- ]network/i;
 export function agencyText(s) {
   if (typeof s !== 'string' || !s) return s;
-  return memo(MEMO.agency, s, (x) => { if (!AGENCY_RE.test(x)) return x; let t = x; for (const [re, rep] of AGENCY_RULES) { re.lastIndex = 0; t = t.replace(re, rep); } return t; });
+  return memo(MEMO.agency, s, (x) => {
+    let t = scrubMachText(x);
+    if (!AGENCY_RE.test(t)) return t;
+    for (const [re, rep] of AGENCY_RULES) { re.lastIndex = 0; t = t.replace(re, rep); }
+    return scrubMachText(t);
+  });
 }
 /* == v91.17.283.28 · S8 · ONE HOME FOR CLIENT WORDING AT THE RESPONSE POINT ===========================================================
    Every customer /api answer passes agencyBody (server.mjs installAgencyScrub). A SENTENCE (a string holding white space) is rewritten by
    the page's former name table (data/source-labels.json clientRules_v28328, NIGRAAN_3's CLEAN) and the supplier rule sets
    (customerRules_v172, screenRules_v76, customerNames_v172), then by the agency rules; a single token (an id, a model key, an enum value
    the page code compares) gets the agency rules only, so no identifier the pages read is changed. Keys: the agency rule only. */
-export const CLIENT_TRIGGER = /PMD|FFD|EWS|Pakistan Meteorological|Flood Forecasting|partner[- ]network|ECMWF|ERA5|Open-?Meteo|NOAA|NWS|CAMS|GloFAS|Visual ?Crossing|Ogimet|IEM|USGS|MET Norway|Met Office|NASA|IMERG|SEAS5|EC46|IFS|AIFS|HRES|Google|DeepMind|GraphCast|WeatherNext|DWD|KNMI|M\u00e9t\u00e9o-France|GHS-POP|ISD-Lite|GLOF-II|AEGIS|Akin Gump|Copernicus|JRC|NDMA|HAND|HighResMIP|WeatherKit|Apple Weather|era5|ecmwf|open-?meteo/;
+export const CLIENT_TRIGGER = /MACH|mach\d+|PMD|FFD|EWS|Pakistan Meteorological|Flood Forecasting|partner[- ]network|ECMWF|ERA5|Open-?Meteo|NOAA|NWS|CAMS|GloFAS|Visual ?Crossing|Ogimet|IEM|USGS|MET Norway|Met Office|NASA|IMERG|SEAS5|EC46|IFS|AIFS|HRES|Google|DeepMind|GraphCast|WeatherNext|DWD|KNMI|M\u00e9t\u00e9o-France|GHS-POP|ISD-Lite|GLOF-II|AEGIS|Akin Gump|Copernicus|JRC|NDMA|HAND|HighResMIP|WeatherKit|Apple Weather|era5|ecmwf|open-?meteo/;
 /* a licence credit (CC BY attribution, a "Sources:" methods line, a licence or attribution text) names its source by obligation: only the
    agency rule applies to it */
 export const LICENCE_LINE = /^Sources(?: and licences)?:|\bCC[ -]BY\b|\blicen[cs]e[ds]?\b|\battribution\b|\bcredited\b/i;
@@ -146,10 +152,11 @@ export function clientText(s) {
 }
 function clientText0(s) {
   if (/\s/.test(s) && CODE_RE.test(s) && !LICENCE_LINE.test(s)) s = codeText(s);
+  s = scrubMachText(s);
   if (!/\s/.test(s) || !CLIENT_TRIGGER.test(s) || LICENCE_LINE.test(s)) return agencyText(s);
   let t = agencyText(s); const R = rules(); for (const [re, rep] of R.client) { re.lastIndex = 0; t = t.replace(re, rep); }
   for (const [re, rep] of R.text) { re.lastIndex = 0; t = t.replace(re, rep); }
-  return agencyText(t);
+  return scrubMachText(agencyText(t));
 }
 function agencyOnly(x, depth = 0) { if (depth > 60) return x; if (typeof x === 'string') { const r = agencyText(x); if (r !== x) CHG++; return r; } if (Array.isArray(x)) return x.map((v) => agencyOnly(v, depth + 1));
   if (x && typeof x === 'object') { const o = {}; for (const [k, v] of Object.entries(x)) { const k2 = AGENCY_RE.test(k) ? agencyText(k) : k; if (k2 !== k) CHG++; o[k2] = agencyOnly(v, depth + 1); } return o; } return x; }

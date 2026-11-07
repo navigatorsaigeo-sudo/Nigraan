@@ -1,12 +1,15 @@
 /* Operator mode and Customize open only on a browser that presents the dashboard token.
    Issuing a token does not open them for anyone else. The dashboard password signs in
-   only the browser that entered it. Both are cookies on that browser; the server stores hashes. */
+   only the browser that entered it. Both are cookies on that browser; the server stores hashes.
+   Each successful unlock is recorded so the local dashboard can show which computers opened. */
 import { createHash, randomBytes, timingSafeEqual } from 'node:crypto';
 import { mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const COOKIE = 'agn_dash';
 const ADMIN_COOKIE = 'agn_dash_admin';
+const SESSION_COOKIE = 'agn_dash_sid';
+const MAX_SESSIONS = 40;
 let inst = null;
 
 function hashOf(token) {
@@ -44,6 +47,46 @@ function cookieValue(req, name) {
   return '';
 }
 
+function clientIp(req) {
+  const xf = String((req && req.headers && req.headers['x-forwarded-for']) || '').split(',')[0].trim();
+  if (xf) return xf;
+  const xr = String((req && req.headers && (req.headers['x-real-ip'] || req.headers['x-agn-proxy-client'])) || '').trim();
+  if (xr) return xr;
+  return String((req && req.socket && req.socket.remoteAddress) || '').replace(/^::ffff:/i, '');
+}
+
+function deviceLabel(ua) {
+  const s = String(ua || '');
+  let browser = 'Browser';
+  if (/Edg\//.test(s)) browser = 'Edge';
+  else if (/OPR\/|Opera\//.test(s)) browser = 'Opera';
+  else if (/Chrome\//.test(s) || /CriOS\//.test(s)) browser = 'Chrome';
+  else if (/Firefox\//.test(s) || /FxiOS\//.test(s)) browser = 'Firefox';
+  else if (/Safari\//.test(s) && !/Chrome\//.test(s) && !/CriOS\//.test(s)) browser = 'Safari';
+  let os = 'device';
+  if (/Windows/i.test(s)) os = 'Windows PC';
+  else if (/Android/i.test(s)) os = 'Android';
+  else if (/iPhone|iPad|iPod/i.test(s)) os = 'iPhone/iPad';
+  else if (/Mac OS X|Macintosh/i.test(s)) os = 'Mac';
+  else if (/Linux/i.test(s)) os = 'Linux PC';
+  return `${browser} on ${os}`;
+}
+
+function cleanSessions(list) {
+  if (!Array.isArray(list)) return [];
+  return list.slice(0, MAX_SESSIONS).map((row) => ({
+    id: typeof row.id === 'string' ? row.id : '',
+    deviceKey: typeof row.deviceKey === 'string' ? row.deviceKey : '',
+    label: typeof row.label === 'string' ? row.label : 'Unknown device',
+    ip: typeof row.ip === 'string' ? row.ip : '',
+    host: typeof row.host === 'string' ? row.host : '',
+    unlockedAt: row.unlockedAt || null,
+    lastSeenAt: row.lastSeenAt || row.unlockedAt || null,
+    lockedAt: row.lockedAt || null,
+    open: row.open !== false && !row.lockedAt,
+  })).filter((row) => row.id);
+}
+
 function create(dataDir) {
   const file = join(dataDir, 'dashboard-gate.json');
   function read() {
@@ -55,6 +98,7 @@ function create(dataDir) {
       issuedAt: j.issuedAt || null,
       adminHash: typeof j.adminHash === 'string' ? j.adminHash : null,
       adminPass: typeof j.adminPass === 'string' ? j.adminPass : null,
+      sessions: cleanSessions(j.sessions),
     };
     return st;
   }
@@ -67,6 +111,7 @@ function create(dataDir) {
       issuedAt: state.issuedAt || null,
       adminHash: state.adminHash || null,
       adminPass: state.adminPass || null,
+      sessions: cleanSessions(state.sessions),
     }), { mode: 0o600 });
     renameSync(tmp, file);
   }
@@ -81,9 +126,22 @@ function create(dataDir) {
     if (!expected || given.length !== expected.length) return false;
     return timingSafeEqual(Buffer.from(given), Buffer.from(expected));
   }
+  function publicSessions(st) {
+    return cleanSessions(st.sessions).map((row) => ({
+      id: row.id,
+      label: row.label,
+      ip: row.ip,
+      host: row.host,
+      unlockedAt: row.unlockedAt,
+      lastSeenAt: row.lastSeenAt,
+      lockedAt: row.lockedAt,
+      open: !st.locked && row.open && !row.lockedAt,
+    }));
+  }
   return {
     cookie: COOKIE,
     adminCookie: ADMIN_COOKIE,
+    sessionCookie: SESSION_COOKIE,
     admin(req) {
       const expected = envPassword(dataDir);
       const st = read();
@@ -96,7 +154,14 @@ function create(dataDir) {
       if (!this.admin(req)) return { authed: false, configured: true };
       const st = read();
       const live = !st.locked && !!st.hash;
-      return { authed: true, configured: true, locked: !live, hasToken: live, issuedAt: live ? st.issuedAt : null };
+      return {
+        authed: true,
+        configured: true,
+        locked: !live,
+        hasToken: live,
+        issuedAt: live ? st.issuedAt : null,
+        sessions: publicSessions(st),
+      };
     },
     login(password) {
       if (!passwordOk(password)) return null;
@@ -109,19 +174,76 @@ function create(dataDir) {
       const st = read();
       const token = randomBytes(24).toString('base64url');
       const issuedAt = new Date().toISOString();
-      write({ ...st, locked: false, hash: hashOf(token), issuedAt });
-      return { token, issuedAt, locked: false, authed: true };
+      write({ ...st, locked: false, hash: hashOf(token), issuedAt, sessions: [] });
+      return { token, issuedAt, locked: false, authed: true, sessions: [] };
     },
     lock() {
+      const lockedAt = new Date().toISOString();
       const st = read();
-      write({ ...st, locked: true, hash: null, issuedAt: null });
-      return { locked: true, hasToken: false, issuedAt: null, authed: true };
+      const sessions = cleanSessions(st.sessions).map((row) => ({
+        ...row,
+        open: false,
+        lockedAt: row.lockedAt || lockedAt,
+      }));
+      write({ ...st, locked: true, hash: null, issuedAt: null, sessions });
+      return { locked: true, hasToken: false, issuedAt: null, authed: true, sessions: publicSessions({ ...st, locked: true, sessions }) };
     },
     open(req) {
       return tokenOk(cookieValue(req, COOKIE));
     },
     accepts(token) {
       return tokenOk(String(token || '').trim());
+    },
+    recordUnlock(req) {
+      const st = read();
+      if (st.locked || !st.hash) return null;
+      const now = new Date().toISOString();
+      const ua = String((req && req.headers && req.headers['user-agent']) || '').slice(0, 240);
+      const ip = clientIp(req).slice(0, 80);
+      const host = String((req && req.headers && req.headers.host) || '').slice(0, 120);
+      const deviceKey = hashOf(`${ip}|${ua}`);
+      const sid = cookieValue(req, SESSION_COOKIE);
+      const sessions = cleanSessions(st.sessions);
+      let row = sessions.find((s) => s.id === sid) || sessions.find((s) => s.deviceKey === deviceKey && !s.lockedAt);
+      if (row) {
+        row.label = deviceLabel(ua);
+        row.ip = ip || row.ip;
+        row.host = host || row.host;
+        row.lastSeenAt = now;
+        row.lockedAt = null;
+        row.open = true;
+        if (!row.unlockedAt) row.unlockedAt = now;
+      } else {
+        row = {
+          id: randomBytes(12).toString('base64url'),
+          deviceKey,
+          label: deviceLabel(ua),
+          ip,
+          host,
+          unlockedAt: now,
+          lastSeenAt: now,
+          lockedAt: null,
+          open: true,
+        };
+        sessions.unshift(row);
+      }
+      write({ ...st, sessions });
+      return { id: row.id, label: row.label, ip: row.ip, host: row.host, unlockedAt: row.unlockedAt };
+    },
+    touch(req) {
+      if (!this.open(req)) return false;
+      const st = read();
+      const sid = cookieValue(req, SESSION_COOKIE);
+      const ua = String((req && req.headers && req.headers['user-agent']) || '').slice(0, 240);
+      const ip = clientIp(req).slice(0, 80);
+      const deviceKey = hashOf(`${ip}|${ua}`);
+      const sessions = cleanSessions(st.sessions);
+      const row = sessions.find((s) => s.id === sid) || sessions.find((s) => s.deviceKey === deviceKey && s.open && !s.lockedAt);
+      if (!row) return false;
+      row.lastSeenAt = new Date().toISOString();
+      if (ip) row.ip = ip;
+      write({ ...st, sessions });
+      return true;
     },
   };
 }

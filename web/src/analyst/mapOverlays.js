@@ -97,6 +97,21 @@ function amountSpan(data) {
   return [lo, hi];
 }
 
+function levelsClassIndex(data, value) {
+  if (!data?.classes?.length || value == null || !Number.isFinite(+value)) return -1;
+  let index = 0;
+  for (; index < data.classes.length - 1; index += 1) {
+    if (data.classes[index].max != null && +value < data.classes[index].max) break;
+  }
+  return index;
+}
+
+function levelsWordIndex(data, value) {
+  const classIndex = levelsClassIndex(data, value);
+  if (classIndex < 0) return -1;
+  return LEVEL_WORDS.indexOf(data.classes[classIndex]?.level);
+}
+
 export function outlookColor(data, value) {
   if (value == null || !data) return null;
   if (data.type === 'chance') {
@@ -104,6 +119,10 @@ export function outlookColor(data, value) {
     let picked = chanceClasses[0];
     chanceClasses.forEach((row) => { if (+value >= row.min) picked = row; });
     const index = LEVEL_WORDS.indexOf(picked?.level);
+    return index >= 0 ? FILL[index] : null;
+  }
+  if (data.type === 'levels') {
+    const index = levelsWordIndex(data, value);
     return index >= 0 ? FILL[index] : null;
   }
   if (data.type === 'amount') {
@@ -146,6 +165,10 @@ export function outlookOpacity(data, value) {
       const level = LEVEL_WORDS.indexOf(chanceClasses[index]?.level);
       if (level >= 0) return LEVEL_OPACITY[level];
     }
+  }
+  if (data?.type === 'levels') {
+    const level = levelsWordIndex(data, value);
+    if (level >= 0) return LEVEL_OPACITY[level];
   }
   return 0.85;
 }
@@ -198,6 +221,11 @@ export function outlookValueText(data, uid) {
     const label = index >= 0 ? (chanceClasses[index].label || chanceClasses[index].level) : '';
     return `${data.title}: ${value}%${label ? ` · ${label}` : ''}`;
   }
+  if (data.type === 'levels') {
+    const index = levelsClassIndex(data, value);
+    const label = index >= 0 ? (data.classes[index].label || data.classes[index].level) : '';
+    return `${data.title}: ${value}${data.unit ? ` ${data.unit}` : ''}${label ? ` · ${label}` : ''}`;
+  }
   if (data.type === 'binary') return `${data.title}: ${value ? 'smog day' : 'no'}`;
   const sign = data.type === 'diverging' && +value > 0 ? '+' : '';
   return `${data.title}: ${sign}${value}${data.unit ? ` ${data.unit}` : ''}`;
@@ -226,6 +254,9 @@ export function outlookRows(data) {
   }
   if (data.type === 'chance' && chanceClasses.length) {
     return chanceClasses.map((row) => [FILL[LEVEL_WORDS.indexOf(row.level)] || '#ccc', `${row.min}–${row.max}% · ${row.label || row.level}`]);
+  }
+  if (data.type === 'levels' && data.classes?.length) {
+    return data.classes.map((row) => [FILL[LEVEL_WORDS.indexOf(row.level)] || '#ccc', row.label || row.level]);
   }
   if (data.type === 'amount') return [['rgb(239,243,255)', 'Lower in this period'], ['rgb(49,113,175)', 'Higher in this period']];
   if (data.type === 'binary') return [['#8f1d3a', 'Smog day'], ['#eef2f4', 'No']];
@@ -419,11 +450,21 @@ function useRivers(mapRef, ready, enabled) {
         g.lineWidth = Math.max(0.8, width * 0.32);
         g.stroke();
         if (!reduced && width >= 1.6) {
+          /* Continuous flow: short gap so highlights abut; second pass fills the remaining trough. */
+          const dash = Math.max(4, width * 2.8);
+          const gap = Math.max(2, width * 1.4);
+          const period = dash + gap;
+          const glow = Math.max(1, width * 0.5);
           path(0, 0);
-          g.setLineDash([width * 1.4, width * 5]);
+          g.setLineDash([dash, gap]);
           g.lineDashOffset = -offset;
-          g.strokeStyle = 'rgba(255,255,255,.92)';
-          g.lineWidth = Math.max(0.9, width * 0.42);
+          g.strokeStyle = 'rgba(255,255,255,.96)';
+          g.lineWidth = glow;
+          g.stroke();
+          path(0, 0);
+          g.lineDashOffset = -(offset + period * 0.5);
+          g.strokeStyle = 'rgba(232,248,249,.7)';
+          g.lineWidth = Math.max(0.8, glow * 0.7);
           g.stroke();
           g.setLineDash([]);
         }
@@ -438,13 +479,11 @@ function useRivers(mapRef, ready, enabled) {
       canvas.style.height = `${size.y}px`;
       topLeft = map.containerPointToLayerPoint([0, 0]);
       L.DomUtil.setPosition(canvas, topLeft);
-      canvas.style.visibility = '';
       project();
       draw();
     };
-    const hide = () => { canvas.style.visibility = 'hidden'; };
-    map.on('moveend zoomend resize viewreset', reset);
-    map.on('zoomstart', hide);
+    /* Keep rivers on during zoom (hiding on zoomstart left a blank gap mid-gesture). */
+    map.on('moveend zoomend zoom resize viewreset', reset);
     getJson('/n3/rivers.json').then((body) => {
       if (dead || !Array.isArray(body?.rivers)) return;
       data = body;
@@ -455,9 +494,9 @@ function useRivers(mapRef, ready, enabled) {
       let last = 0;
       const frame = (now) => {
         if (dead) return;
-        if (!document.hidden && now - last >= 33 && canvas.style.visibility !== 'hidden') {
+        if (!document.hidden && now - last >= 33) {
           last = now;
-          offset = ((now - started) / 1000) * 14 % 1e6;
+          offset = ((now - started) / 1000) * 22 % 1e6;
           draw();
         }
         raf = requestAnimationFrame(frame);
@@ -467,8 +506,7 @@ function useRivers(mapRef, ready, enabled) {
     return () => {
       dead = true;
       cancelAnimationFrame(raf);
-      map.off('moveend zoomend resize viewreset', reset);
-      map.off('zoomstart', hide);
+      map.off('moveend zoomend zoom resize viewreset', reset);
       canvas.remove();
     };
   }, [ready, mapRef, enabled]);

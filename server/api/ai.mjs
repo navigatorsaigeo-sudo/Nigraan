@@ -2052,7 +2052,7 @@ export function createAI(app, root) {
       if (G && !G.ensembleLive) gaps.push('Forecast spread: the ensemble spread for this place is not live, so the levels carry no uncertainty range here.');
       if (G && !G.hourlyLoaded) gaps.push('Hourly forecast: not loaded for ' + place + ', so the lead-time levels are not scored yet.');
       let near = null; try { near = (u && app.fleet && app.fleet.nearest) ? app.fleet.nearest(u.lat, u.lon, 25) : null; } catch (_) { near = null; }
-      if (u && app.fleet && app.fleet.nearest) gaps.push(near ? null : 'Observations: no working MACH station within 25 km of ' + (u.name) + ', so nothing checks the forecast on the ground here right now.');
+      if (u && app.fleet && app.fleet.nearest) gaps.push(near ? null : 'Observations: no live temperature measurement near ' + (u.name) + ' right now, so nothing checks the forecast on the ground here.');
       if (uf && !uf.forecast) gaps.push('Stored forecast run: none holds ' + ((u && u.name) || place) + '; answers use a live point forecast at the unit centre.');
       if (uf && uf.drought && uf.drought.arid) gaps.push('Drought: the index is not defined for this climate (too little rain in the window), so no drought level is issued.');
       if (u && !uf) gaps.push('Unit facts: the server could not read the forecast for ' + u.name + '.');
@@ -2062,16 +2062,16 @@ export function createAI(app, root) {
       const list = gaps.filter(Boolean);
       lines.push('Before an operational advisory for ' + place + unitNote + ', this is what NIGRAAN does not have yet:');
       if (list.length) list.forEach((g, i) => lines.push('  ' + (i + 1) + '. ' + g));
-      else lines.push('  Nothing is missing in the place data: every hazard has a reading, the forecast is loaded' + (near ? ', a MACH station ' + near.km + ' km away is reporting' : '') + '.');
+      else lines.push('  Nothing is missing in the place data: every hazard has a reading, the forecast is loaded' + (near ? ', and a live observation check is available nearby' : '') + '.');
       if (caseGaps.length) { lines.push(''); lines.push('Decision case: ' + caseGaps.join('; ') + '.' + (G && G.readinessWhy ? ' ' + G.readinessWhy : '')); }
       const have = [];
       if (levels.length) have.push('hazard levels for ' + levels.filter((x) => !x.nd).length + ' of ' + levels.length + ' hazards');
       if (G && G.hourlyLoaded) have.push('the hourly forecast' + (G.aiCorrected ? ' (AI-corrected temperatures)' : ''));
-      if (near) have.push('a MACH station ' + near.km + ' km away, reading ' + (near.ageMin != null ? near.ageMin + ' min old' : 'recent'));
+      if (near) have.push('a live observation check nearby');
       if (uf && uf.drought && !uf.drought.arid) have.push('the drought indices (as of ' + uf.drought.asOf + ')');
       if (have.length) { lines.push(''); lines.push('In place: ' + have.join('; ') + '.'); }
       lines.push('An advisory also needs an authorised person to review and issue it; NIGRAAN does not issue warnings.');
-      sources.push('Server: forecast store, MACH station feed, drought table');
+      sources.push('Server: forecast store, observation feed, drought table');
     }
     return { answer: lines.join('\n').replace(/\n+$/, ''), notes: [LOOKUP_INTENT], sources: sources.concat([LOOKUP_SOURCE]), model: null, provider: 'retrieval', intent: kind, kind: 'explanation', firewall: { removed: 0, slots: true, rule: 'code-written' } };
   }
@@ -2608,7 +2608,7 @@ export function createAI(app, root) {
         const zw = (on ? DSM.applyZones : []).map((z) => z === 'mountain' ? 'the mountains' : z === 'plains' ? 'the plains' : z === 'coast' ? 'the coast' : z === 'hills' ? 'the hills' : z);
         out.temperature = { name: 'AI temperature correction', label: DSM.label || null, live: on, zones: on ? DSM.applyZones : [], version: DSM.version, built: DSM.built,
           does: 'corrects the forecast air temperature for the ground under it: terrain and land surface at about 250 m, and the day\'s cloud, wind and rain',
-          where: on ? ('live in ' + (zw.length > 1 ? zw.slice(0, -1).join(', ') + ' and ' + zw[zw.length - 1] : zw[0] || 'no zone') + '; not at every point: where a station-based correction already applies (a MACH station or a station calibration), that correction is used') : 'not live on this server',
+          where: on ? ('live in ' + (zw.length > 1 ? zw.slice(0, -1).join(', ') + ' and ' + zw[zw.length - 1] : zw[0] || 'no zone') + '; not at every point: where a station-based correction already applies (a live observation or a station calibration), that correction is used') : 'not live on this server',
           badge: 'a temperature it has corrected carries an "AI-corrected" badge with the size of the correction',
           heldOut: { what: 'daily maximum and minimum temperature error (mean absolute, °C) at stations the model never saw, before and after the correction', mountains: mtn, plains: zone('plains') } };
       }

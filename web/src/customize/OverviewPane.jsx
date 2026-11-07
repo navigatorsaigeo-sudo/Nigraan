@@ -4,6 +4,7 @@ import OverviewMap from './OverviewMap.jsx';
 import {
   FILLS, HAZARDS, HORIZONS, HORIZON_LAYER, WORDS, fixed, hazardOn, partValue, topToday,
 } from './model.js';
+import { scrubMachText } from '../lib/hideMach.js';
 
 function rainToday(bundle) {
   const today = new Date(Date.now() + 5 * 3600e3).toISOString().slice(0, 10);
@@ -198,7 +199,6 @@ export default function OverviewPane({ place, bundle, loadingPlace, ranked, onPi
   const lo = temps.length ? Math.min(...temps) : null;
   const hi = temps.length ? Math.max(...temps) : null;
   const shownNear = nearAll ? here : here.slice(0, 9);
-  const station = bundle?.station?.ok ? bundle.station : null;
   const placeName = bundle?.place?.name || place?.name || (place ? `${place.lat}, ${place.lon}` : 'Choose a place');
 
   return (
@@ -208,7 +208,7 @@ export default function OverviewPane({ place, bundle, loadingPlace, ranked, onPi
         <span>What is the situation now?</span>
         <strong>{loadingPlace ? '…' : (shown?.value || fixed(now?.tempC))}<small>°C</small></strong>
         {top && <em>{top.word} today · set by {top.by}</em>}
-        <p>{loadingPlace ? 'Loading the forecast for this place…' : `${placeName}${bundle?.place?.tehsil ? ` · ${bundle.place.tehsil}` : ''}${bundle?.source?.kind ? ` · ${String(bundle.source.kind).replace(/^\s*MACH\s+/i, '').toLowerCase()}` : ''}`}</p>
+        <p>{loadingPlace ? 'Loading the forecast for this place…' : `${placeName}${bundle?.place?.tehsil ? ` · ${bundle.place.tehsil}` : ''}${bundle?.source?.kind ? ` · ${scrubMachText(String(bundle.source.kind)).toLowerCase()}` : ''}`}</p>
       </div>
       <div className="cz-mapcard">
         <div className="cz-mapbar">
@@ -272,7 +272,6 @@ export default function OverviewPane({ place, bundle, loadingPlace, ranked, onPi
                   );
                 })}
                 {here.length > 9 && <button type="button" className="cz-more" onClick={() => setNearAll((value) => !value)}>{nearAll ? 'Show less' : 'Show all'}</button>}
-                {station?.label && <p>{station.label}{station.reading?.tempC != null ? ` · ${fixed(station.reading.tempC)} °C` : ''}</p>}
               </div>
             </div>
           </aside>

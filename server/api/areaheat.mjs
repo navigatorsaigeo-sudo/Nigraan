@@ -242,17 +242,78 @@ export function createAreaHeat(app, { dataDir }) {
   function apply(rec) { if (!on()) return { replaced: 0 }; return applyTo(rec, st.units || {}, { run: st.run, at: st.at, points: P.length, heatBands: heatBands(dataDir), previous: st.previous }); }   /* v283.35 · A5: before the first pass, a cell the pass never set is not assessed (never the engine's level) */
   function status() { return { on: on(), points: P.length, run: st.run, at: st.at, previousRunKept: st.previous, ms: st.ms, ok: st.ok, failed: st.failed, retried: st.retried || 0, recovered: st.recovered || 0, carried: st.carried || 0, busy: st.busy, units: st.units ? Object.keys(st.units).length : 0, lastError: st.lastError }; }
   function unit(uid) { return st.units ? st.units[uid] || null : null; }
-  /* r42 · 1.0.6 · TEMPERATURE NOW NEARBY FROM THE TEHSIL SWEEP: the points of this pass (each tehsil's main settlement, its centre when
-     more than 5 km away, its towns) within km of a place, each with the served hourly temperature of the pass's own point state at the
-     present PKT hour. Read only: no provider request, no blend member, nothing computed (the pass runs once per model run as before). */
+  /* Temperature now nearby: up to `limit` named places (the place table), not only the tehsil-sweep anchors.
+     A 12 km circle often holds 1–4 anchors, which is why the list showed 2. The temperature is still the sweep's
+     served hour (inverse-distance of the nearest sweep points). No new forecast request. The search widens past
+     12 km only until the list is full or 80 km, and the answer's radiusKm is the distance actually used. */
   function nearNow(lat, lon, radKm = 12, limit = 40) {
     const H = st.held; if (!H || !Array.isArray(H.pts)) return { ok: false, why: 'the tehsil sweep has not completed since the server started', places: [] };
     const hr = new Date(Date.now() + 5 * 3600e3).toISOString().slice(0, 13);
-    const out = []; for (const q of H.pts) { const d = km(lat, lon, q.lat, q.lon); if (!(d <= radKm)) continue; const k = Math.round((Date.parse(hr + ':00:00Z') - Date.parse(String(q.t0) + ':00:00Z')) / 3600e3), t = Array.isArray(q.v) && k >= 0 ? q.v[k] : null; if (!isN(t)) continue;
-      out.push({ uid: q.uid, name: q.name, kind: q.kind, lat: q.lat, lon: q.lon, elevM: q.elevM, km: Math.round(d * 10) / 10, tempC: t, time: hr + ':00' }); }
+    const sweep = [];
+    for (const q of H.pts) {
+      const k = Math.round((Date.parse(hr + ':00:00Z') - Date.parse(String(q.t0) + ':00:00Z')) / 3600e3);
+      const t = Array.isArray(q.v) && k >= 0 ? q.v[k] : null;
+      if (isN(t)) sweep.push({ lat: q.lat, lon: q.lon, tempC: t });
+    }
+    if (!sweep.length) return { ok: false, why: 'the tehsil sweep holds no temperature for this hour', places: [], run: H.run, at: H.at };
+    const want = Math.min(60, Math.max(1, Math.round(limit) || 40));
+    const tempAt = (la, lo) => {
+      const near = [];
+      for (const q of sweep) {
+        const d = km(la, lo, q.lat, q.lon);
+        if (near.length < 4) { near.push({ d, t: q.tempC }); near.sort((a, b) => a.d - b.d); }
+        else if (d < near[3].d) { near[3] = { d, t: q.tempC }; near.sort((a, b) => a.d - b.d); }
+      }
+      if (!near.length) return null;
+      if (near[0].d < 0.4) return near[0].t;
+      let w = 0, s = 0;
+      for (const b of near) {
+        if (b.d > 90) continue;
+        const g = 1 / Math.max(0.6, b.d) ** 2;
+        w += g; s += g * b.t;
+      }
+      return w ? s / w : near[0].t;
+    };
+    const steps = [radKm, 20, 30, 45, 60, 80];
+    let named = [], radius = radKm;
+    if (app.places && typeof app.places.near === 'function') {
+      for (const R of steps) {
+        if (R + 1e-6 < radKm) continue;
+        radius = R;
+        const rows = app.places.near(lat, lon, { km: R, limit: want + 8, minKm: 0.5, nearest: true }) || [];
+        named = rows.filter((p) => !(p.km < 0.5));
+        if (named.length >= want) break;
+      }
+    }
+    const out = [];
+    const seen = new Set();
+    for (const p of named) {
+      if (out.length >= want) break;
+      const t = tempAt(p.lat, p.lon);
+      if (!isN(t)) continue;
+      const key = String(p.name || '').toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push({ uid: p.id || p.unitId || null, name: p.name, kind: p.kind, lat: p.lat, lon: p.lon, elevM: isN(p.elevM) ? p.elevM : null, km: p.km, tempC: Math.round(t * 10) / 10, time: hr + ':00' });
+    }
+    if (out.length < want) {
+      for (const q of H.pts) {
+        if (out.length >= want) break;
+        const d = km(lat, lon, q.lat, q.lon);
+        if (!(d <= radius) || d < 0.5) continue;
+        if (out.some((p) => km(p.lat, p.lon, q.lat, q.lon) < 0.8)) continue;
+        const t = tempAt(q.lat, q.lon);
+        if (!isN(t)) continue;
+        const key = String(q.name || '').toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        out.push({ uid: q.uid, name: q.name, kind: q.kind, lat: q.lat, lon: q.lon, elevM: q.elevM, km: Math.round(d * 10) / 10, tempC: Math.round(t * 10) / 10, time: hr + ':00' });
+      }
+    }
     out.sort((a, b) => a.km - b.km);
-    return { ok: true, run: H.run, at: H.at, hour: hr + ':00', radiusKm: radKm, places: out.slice(0, limit),
-      source: 'the tehsil sweep of the run: each point the served forecast chain at its own height, read at the present hour (the same point states the area heat level uses)' };
+    const far = out.length ? out[out.length - 1].km : radKm;
+    return { ok: true, run: H.run, at: H.at, hour: hr + ':00', radiusKm: Math.max(radKm, Math.ceil(far)), places: out.slice(0, want),
+      source: 'named places from the place table; each temperature is the tehsil sweep already held for this hour (no new forecast request)' };
   }
   /* r43 · 1.0.7 · THE MAP'S "°C air now" LABELS (owner 1 Nov: the classic Overview's temperature labels): every tehsil's main settlement of
      the same held pass, its served temperature at the present PKT hour (the value nearNow serves for the same point), with the population

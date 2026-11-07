@@ -7,6 +7,7 @@
     { "source": "/customize/sites", "destination": "http://152.67.162.136:8787/customize/sites" },
     { "source": "/px/:path*", "destination": "http://152.67.162.136:8787/px/:path*" },
     { "source": "/archive/:path*", "destination": "http://152.67.162.136:8787/archive/:path*" },
-    { "source": "/:file(agn-.*)", "destination": "http://152.67.162.136:8787/:file" }
+    { "source": "/:file(agn-.*)", "destination": "http://152.67.162.136:8787/:file" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
